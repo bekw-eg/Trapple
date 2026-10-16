@@ -1,0 +1,5 @@
+{
+  "name": "Trapple.PlayModeTests",
+  "references": ["Trapple.Runtime"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

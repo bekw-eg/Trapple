@@ -121,6 +121,8 @@ $project = (Get-Location).Path
 & $editor -batchmode -nographics -projectPath $project -runTests -testPlatform PlayMode -testResults "$project\Logs\playmode-results.xml" -logFile "$project\Logs\playmode.log" | Out-Host
 ```
 
+Общий список сцен сборки: **MainMenu → Tutorial → BossTest**. Обычная сборка
+запускается с главного меню и содержит обе части проекта.
 Для Windows-сборки можно использовать File → Build Profiles → Windows либо:
 
 ```powershell

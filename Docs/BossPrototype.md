@@ -28,13 +28,17 @@ The arena intentionally uses simple shapes and the original player prefab.
 The tutorial goal remains unchanged; access the boss through the main menu.
 No combat input, weapon, alternate player or extra level progression is added.
 
-## Scene loading without shared settings changes
+## Scene loading and the combined build
 
 `Assets/_Trapple/Settings/BossPrototype.asset` is a Unity build profile containing
 MainMenu, Tutorial and BossTest. `BossPrototypePlayMode` temporarily selects it
 when entering Play from a Trapple scene and restores the prior profile afterward.
 This lets the existing player death reload any prototype scene using SceneManager.
-Global `ProjectSettings/EditorBuildSettings.asset` is not modified.
+After integrating both developers' work, the global
+`ProjectSettings/EditorBuildSettings.asset` also includes MainMenu, Tutorial and
+BossTest, in that order. The normal Windows build uses this enabled scene list
+and starts at MainMenu. The dedicated prototype profile remains available;
+regenerating the boss prototype does not replace the global scene list.
 
 For a Windows executable, use **Trapple → Build Boss Prototype (Windows)**.
 The build command explicitly includes the same three scenes, with MainMenu first.

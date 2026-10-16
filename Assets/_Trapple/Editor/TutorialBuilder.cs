@@ -227,7 +227,14 @@ namespace Trapple.Editor
 
         public static void BuildWindows()
         {
-            var report = BuildPipeline.BuildPlayer(new[] { ScenePath }, "Builds/Windows/Trapple.exe",
+            var scenes = new System.Collections.Generic.List<string>();
+            foreach (var scene in EditorBuildSettings.scenes)
+                if (scene.enabled)
+                    scenes.Add(scene.path);
+            if (scenes.Count == 0)
+                throw new InvalidOperationException("Add enabled scenes to the build settings before building Trapple.");
+
+            var report = BuildPipeline.BuildPlayer(scenes.ToArray(), "Builds/Windows/Trapple.exe",
                 BuildTarget.StandaloneWindows64, BuildOptions.Development);
             if (report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
                 throw new InvalidOperationException("Windows build failed: " + report.summary.result);

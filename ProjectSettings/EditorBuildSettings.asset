@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Trapple/Scenes/Menu/MainMenu.unity
+    guid: 5fd50df3e48010d44ace9dd5303fd92b
+  - enabled: 1
     path: Assets/_Trapple/Scenes/Levels/Tutorial.unity
     guid: da734412494a805458a9627d2456da97
+  - enabled: 1
+    path: Assets/_Trapple/Scenes/BossArenas/BossTest.unity
+    guid: 0add97d2aa35ab444ad84836c5b2b5ff
   m_configObjects: {}

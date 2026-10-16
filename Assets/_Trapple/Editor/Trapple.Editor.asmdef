@@ -1,0 +1,6 @@
+{
+  "name": "Trapple.Editor",
+  "rootNamespace": "Trapple.Editor",
+  "references": ["Trapple.Runtime"],
+  "includePlatforms": ["Editor"]
+}

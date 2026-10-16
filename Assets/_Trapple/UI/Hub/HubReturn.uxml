@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Hub.uss" />
+    <ui:VisualElement class="return-root" picking-mode="Ignore">
+        <ui:VisualElement class="return-bar">
+            <ui:Label name="trip-status" text="Твоё приключение началось" class="small" />
+            <ui:Button name="return-hub" text="В ЛОББИ  →" class="primary" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

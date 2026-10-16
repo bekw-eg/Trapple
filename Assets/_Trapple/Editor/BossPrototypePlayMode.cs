@@ -19,7 +19,12 @@ namespace Trapple.Editor
             if (state == PlayModeStateChange.ExitingEditMode &&
                 SceneManager.GetActiveScene().path.StartsWith("Assets/_Trapple/Scenes/"))
             {
-                var profile = AssetDatabase.LoadAssetAtPath<BuildProfile>(BossPrototypeBuilder.ProfilePath);
+                string activePath = SceneManager.GetActiveScene().path;
+                bool hubEntry = (activePath == Trapple.Hub.HubSceneFlowController.HubScenePath ||
+                    activePath == Trapple.Core.GameManager.MenuScene) && AssetDatabase.LoadAssetAtPath<BuildProfile>(HubBuilder.ProfilePath) != null;
+                string profilePath = hubEntry
+                    ? HubBuilder.ProfilePath : BossPrototypeBuilder.ProfilePath;
+                var profile = AssetDatabase.LoadAssetAtPath<BuildProfile>(profilePath);
                 if (profile == null) return;
                 var previous = BuildProfile.GetActiveBuildProfile();
                 SessionState.SetString(PreviousProfile, previous == null ? "" : AssetDatabase.GetAssetPath(previous));

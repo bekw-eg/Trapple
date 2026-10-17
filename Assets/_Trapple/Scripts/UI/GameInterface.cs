@@ -39,6 +39,7 @@ namespace Trapple.UI
 
         private void OnGUI()
         {
+            if (SceneManager.GetActiveScene().path == Trapple.Hub.HubSceneFlowController.HubScenePath) return;
             var manager = GameManager.Instance;
             if (manager == null) return;
             int previousDepth = GUI.depth;

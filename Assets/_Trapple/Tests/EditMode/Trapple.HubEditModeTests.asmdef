@@ -1,0 +1,6 @@
+{
+  "name": "Trapple.HubEditModeTests",
+  "references": ["Trapple.Runtime"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

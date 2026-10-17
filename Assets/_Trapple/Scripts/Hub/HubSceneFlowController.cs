@@ -1,0 +1,113 @@
+using Trapple.Level;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+
+namespace Trapple.Hub
+{
+    // Owns the isolated preview services across Hub -> Tutorial -> Hub, including death reloads.
+    public sealed class HubSceneFlowController : MonoBehaviour, ISceneFlowController
+    {
+        public const string HubScenePath = "Assets/_Trapple/Scenes/Hub/Hub.unity";
+        public static HubSceneFlowController Instance { get; private set; }
+        public IProgressionService Progression { get; private set; }
+        public IUpgradeService Upgrades { get; private set; }
+        private HubConfiguration configuration;
+        private PanelSettings panel;
+        private VisualTreeAsset returnTree;
+        private UIDocument returnDocument;
+        private Button returnButton;
+        private TutorialGoal goal;
+        private bool tutorialTrip;
+        private bool completionReported;
+        private string launchedScene;
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => Instance = null;
+
+        public static HubSceneFlowController Ensure(HubConfiguration configuration, PanelSettings panel, VisualTreeAsset returnTree)
+        {
+            if (Instance != null) return Instance;
+            var flow = new GameObject("Hub preview services").AddComponent<HubSceneFlowController>();
+            flow.configuration = configuration;
+            flow.panel = panel;
+            flow.returnTree = returnTree;
+            flow.Progression = new PreviewProgressionService(configuration, new PreviewSaveService());
+            flow.Upgrades = new UpgradeService(flow.Progression);
+            return flow;
+        }
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        public bool CanLaunch(WorldDefinition world, int level) => world != null && Progression != null &&
+            configuration.World(world.id) == world && Progression.IsWorldUnlocked(world) &&
+            level >= 0 && level < world.levelScenes.Length && !string.IsNullOrEmpty(world.levelScenes[level]) &&
+            Application.CanStreamedLevelBeLoaded(world.levelScenes[level]);
+
+        public bool TryLaunch(WorldDefinition world, int level)
+        {
+            if (!CanLaunch(world, level)) return false;
+            tutorialTrip = world.id == "meadow";
+            launchedScene = world.levelScenes[level];
+            SceneManager.LoadScene(launchedScene);
+            return true;
+        }
+
+        public void ReturnToHub()
+        {
+            if (!Application.CanStreamedLevelBeLoaded(HubScenePath)) return;
+            tutorialTrip = false;
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(HubScenePath);
+        }
+
+        private void SceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (mode == LoadSceneMode.Additive) return;
+            ClearReturnUI();
+            goal = null;
+            completionReported = false;
+            if (!tutorialTrip || scene.path != launchedScene) { tutorialTrip = false; return; }
+            goal = FindAnyObjectByType<TutorialGoal>();
+            if (panel == null || returnTree == null) return;
+            var obj = new GameObject("Return to orchard");
+            obj.transform.SetParent(transform, false);
+            returnDocument = obj.AddComponent<UIDocument>();
+            returnDocument.panelSettings = panel;
+            returnDocument.visualTreeAsset = returnTree;
+            returnButton = returnDocument.rootVisualElement.Q<Button>("return-hub");
+            returnButton.clicked += ReturnToHub;
+        }
+
+        private void Update()
+        {
+            if (!tutorialTrip || completionReported || goal == null || !goal.IsComplete) return;
+            completionReported = true;
+            if (!Progression.TutorialComplete) Progression.CompleteTutorial();
+            if (returnDocument != null)
+                returnDocument.rootVisualElement.Q<Label>("trip-status").text = "Поляна пройдена · можно вернуться домой";
+        }
+
+        private void ClearReturnUI()
+        {
+            if (returnButton != null) returnButton.clicked -= ReturnToHub;
+            returnButton = null;
+            if (returnDocument != null) Destroy(returnDocument.gameObject);
+            returnDocument = null;
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance != this) return;
+            ClearReturnUI();
+            SceneManager.sceneLoaded -= SceneLoaded;
+            Instance = null;
+        }
+    }
+}

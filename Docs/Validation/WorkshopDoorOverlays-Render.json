@@ -1,0 +1,140 @@
+{
+  "result": "PASS",
+  "render_size": [
+    469,
+    347
+  ],
+  "cottage_pixels_outside_overlay": "identical in all nine GPU renders",
+  "frames": [
+    {
+      "frame": 0,
+      "changed_bounds_from_closed": null,
+      "maximum_rgb_error_to_preview": 0,
+      "mean_absolute_rgb_error_to_preview": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 1,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ],
+      "maximum_rgb_error_to_preview": 1,
+      "mean_absolute_rgb_error_to_preview": [
+        0.00033795616401319873,
+        0.0002887989037930971,
+        9.831452044020327e-05
+      ]
+    },
+    {
+      "frame": 2,
+      "changed_bounds_from_closed": [
+        111,
+        216,
+        156,
+        308
+      ],
+      "maximum_rgb_error_to_preview": 1,
+      "mean_absolute_rgb_error_to_preview": [
+        0.00027036493121055896,
+        0.0003133775339031479,
+        0.0002580756161555336
+      ]
+    },
+    {
+      "frame": 3,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ],
+      "maximum_rgb_error_to_preview": 1,
+      "mean_absolute_rgb_error_to_preview": [
+        0.00027036493121055896,
+        0.00021506301346294464,
+        0.00027650958873807167
+      ]
+    },
+    {
+      "frame": 4,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ],
+      "maximum_rgb_error_to_preview": 1,
+      "mean_absolute_rgb_error_to_preview": [
+        0.0002642202736830463,
+        0.00025193095862802086,
+        0.00019048438335289382
+      ]
+    },
+    {
+      "frame": 5,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ],
+      "maximum_rgb_error_to_preview": 1,
+      "mean_absolute_rgb_error_to_preview": [
+        0.0004792832871459909,
+        0.0005468745199486306,
+        0.000331811506485686
+      ]
+    },
+    {
+      "frame": 6,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ],
+      "maximum_rgb_error_to_preview": 1,
+      "mean_absolute_rgb_error_to_preview": [
+        0.00031952219143066064,
+        0.0003502454790682241,
+        0.00027650958873807167
+      ]
+    },
+    {
+      "frame": 7,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ],
+      "maximum_rgb_error_to_preview": 1,
+      "mean_absolute_rgb_error_to_preview": [
+        0.00031952219143066064,
+        0.00023964164357299545,
+        0.00039940273928832574
+      ]
+    },
+    {
+      "frame": 8,
+      "changed_bounds_from_closed": [
+        111,
+        216,
+        156,
+        308
+      ],
+      "maximum_rgb_error_to_preview": 1,
+      "mean_absolute_rgb_error_to_preview": [
+        0.00027650958873807167,
+        0.00023964164357299545,
+        0.00027036493121055896
+      ]
+    }
+  ]
+}

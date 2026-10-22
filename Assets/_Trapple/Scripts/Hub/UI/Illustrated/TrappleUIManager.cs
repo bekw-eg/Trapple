@@ -43,6 +43,9 @@ namespace Trapple.Hub.Illustrated
             Action<HubScreen> navigate, Action close, Action menu)
         {
             if (progression != null) progression.Changed -= Refresh;
+            // Also update already-authored scene instances from the earlier opaque prefab.
+            var inputBlocker = surface != null ? surface.transform.Find("Backdrop")?.GetComponent<Image>() : null;
+            if (inputBlocker != null) inputBlocker.color = Color.clear;
             progression = progress; this.navigate = navigate; this.close = close; this.menu = menu;
             foreach (var card in worlds) if (card != null) card.Bind(config, progress, flow, Notify);
             foreach (var card in upgrades) if (card != null) card.Bind(config, progress, Notify);

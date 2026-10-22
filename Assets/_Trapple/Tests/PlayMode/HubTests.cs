@@ -300,15 +300,21 @@ namespace Trapple.Tests
         }
 
         [UnityTest]
-        public IEnumerator StandaloneSceneStartsWithWorldMapAndClosesToExistingMenu()
+        public IEnumerator StandaloneSceneOpensMapOverPlayableHubAndCloseRestoresControl()
         {
             yield return SceneManager.LoadSceneAsync(TrappleUIManager.ScenePath);
             yield return null;
             var view=Object.FindAnyObjectByType<TrappleUIManager>();
             Assert.That(view.CurrentScreen,Is.EqualTo(HubScreen.Worlds));
             Assert.That(Object.FindObjectsByType<EventSystem>().Length,Is.EqualTo(1));
-            view.Close(); yield return null;
-            Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(Trapple.Core.GameManager.MenuScene));
+            var hubPlayer=Object.FindAnyObjectByType<PlayerController>();
+            Assert.That(hubPlayer,Is.Not.Null);
+            Assert.That(hubPlayer.ControlEnabled,Is.False);
+            Assert.That(Object.FindAnyObjectByType<HubCameraController>(),Is.Not.Null);
+            view.Close(); yield return new WaitForSecondsRealtime(.25f);
+            Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(TrappleUIManager.ScenePath));
+            Assert.That(view.IsOpen,Is.False);
+            Assert.That(hubPlayer.ControlEnabled,Is.True);
         }
 
         [UnityTest]

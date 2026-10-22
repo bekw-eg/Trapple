@@ -63,8 +63,10 @@ namespace Trapple.Hub
             Check(FindAnyObjectByType<Trapple.Player.PlayerController>().ControlEnabled,"Close restores gameplay");
             SceneManager.LoadScene(TrappleUIManager.ScenePath); yield return new WaitForSecondsRealtime(.7f);
             ui=FindAnyObjectByType<TrappleUIManager>(); Check(ui.CurrentScreen==HubScreen.Worlds,"Standalone scene opens map");
+            Check(FindAnyObjectByType<Trapple.Player.PlayerController>()!=null,"Standalone scene contains the playable hub");
             ui.Close(); yield return new WaitForSecondsRealtime(.5f);
-            Check(SceneManager.GetActiveScene().path==Trapple.Core.GameManager.MenuScene,"Standalone close returns to existing menu");
+            Check(SceneManager.GetActiveScene().path==TrappleUIManager.ScenePath && !ui.IsOpen &&
+                FindAnyObjectByType<Trapple.Player.PlayerController>().ControlEnabled,"Standalone close restores the game underneath");
             File.WriteAllText(Path.Combine(output,"result.txt"),failed?"FAILED":"PASS");
             Restore(); Application.Quit(failed?1:0);
         }

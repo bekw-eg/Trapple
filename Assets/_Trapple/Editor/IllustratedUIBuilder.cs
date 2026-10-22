@@ -52,7 +52,8 @@ namespace Trapple.Editor
             manager = canvasObject.AddComponent<TrappleUIManager>();
             var surface = new GameObject("Interface", typeof(RectTransform)); surface.transform.SetParent(canvasObject.transform,false); Stretch((RectTransform)surface.transform);
             var backdrop = new GameObject("Backdrop",typeof(RectTransform),typeof(Image)); backdrop.transform.SetParent(surface.transform,false);
-            Stretch((RectTransform)backdrop.transform); backdrop.GetComponent<Image>().color = new Color(.11f,.1f,.09f,.98f);
+            // Block clicks through the modal while keeping the running game fully visible.
+            Stretch((RectTransform)backdrop.transform); backdrop.GetComponent<Image>().color = Color.clear;
             var pages = new List<IllustratedPage>(); var worlds = new List<WorldCardUI>(); var upgrades = new List<UpgradeCardUI>();
             WardrobePanelUI wardrobe = null; TMP_Text currency = null;
             foreach (string name in new[] { "worlds", "workshop", "wardrobe" })
@@ -95,13 +96,6 @@ namespace Trapple.Editor
             bg.gameObject.SetActive(false);
             surface.SetActive(false);
             PrefabUtility.SaveAsPrefabAsset(canvasObject,PrefabPath);
-            EnsureEventSystem();
-            var bootstrap = new GameObject("UI bootstrap").AddComponent<IllustratedUIBootstrap>();
-            bootstrap.Configure(config,manager,AssetDatabase.LoadAssetAtPath<UnityEngine.UIElements.PanelSettings>("Assets/_Trapple/UI/Hub/HubPanelSettings.asset"),
-                AssetDatabase.LoadAssetAtPath<UnityEngine.UIElements.VisualTreeAsset>("Assets/_Trapple/UI/Hub/HubReturn.uxml"));
-            var camera = new GameObject("Main Camera",typeof(Camera),typeof(AudioListener)); camera.tag="MainCamera";
-            camera.GetComponent<Camera>().clearFlags=CameraClearFlags.SolidColor; camera.GetComponent<Camera>().backgroundColor=new Color(.11f,.1f,.09f);
-            EditorSceneManager.SaveScene(scene,ScenePath);
             // Integrate into the real hub using Unity's scene and prefab APIs; preserve its gameplay objects.
             scene = EditorSceneManager.OpenScene(HubSceneFlowController.HubScenePath,OpenSceneMode.Single);
             var facade = UnityEngine.Object.FindAnyObjectByType<HubUIController>();
@@ -110,6 +104,10 @@ namespace Trapple.Editor
             var instance = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath));
             facade.SetIllustratedUI(instance.GetComponent<TrappleUIManager>()); EditorUtility.SetDirty(facade);
             EnsureEventSystem(); EditorSceneManager.SaveScene(scene);
+            // The quick-start scene uses the same playable hub, rather than an empty camera background.
+            var bootstrap = new GameObject("UI quick start").AddComponent<IllustratedUIBootstrap>();
+            bootstrap.Configure(facade);
+            EditorSceneManager.SaveScene(scene,ScenePath);
             var scenes = EditorBuildSettings.globalScenes.ToList(); if (!scenes.Any(value=>value.path==ScenePath)) scenes.Add(new EditorBuildSettingsScene(ScenePath,true));
             EditorBuildSettings.globalScenes = scenes.ToArray();
             var preview=AssetDatabase.LoadAssetAtPath<BuildProfile>(HubBuilder.ProfilePath);

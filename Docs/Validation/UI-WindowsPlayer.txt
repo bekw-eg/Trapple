@@ -1,5 +1,5 @@
 PASS
-Windows x64 development player; 1920x1080, 1600x900, 1280x720
+Windows x64 development player; live game background; 1920x1080, 1600x900, 1280x720
 
 UI PASS: Resolution (1920, 1080)
 UI PASS: Screen Worlds
@@ -96,4 +96,5 @@ UI PASS: Actual tab click
 UI PASS: Unconfigured price guard
 UI PASS: Close restores gameplay
 UI PASS: Standalone scene opens map
-UI PASS: Standalone close returns to existing menu
+UI PASS: Standalone scene contains the playable hub
+UI PASS: Standalone close restores the game underneath

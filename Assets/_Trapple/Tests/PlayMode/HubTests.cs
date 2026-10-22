@@ -232,6 +232,30 @@ namespace Trapple.Tests
             Assert.That(Object.FindAnyObjectByType<PlayerController>().ControlEnabled,Is.True);
         }
 
+        [UnityTest]
+        public IEnumerator TutorialHudCannotSubmitJumpAndExitReturnsToMainMenu()
+        {
+            var flow = HubSceneFlowController.Instance;
+            Assert.That(flow.TryLaunch(flow.Configuration.World("meadow"), 0), Is.True);
+            yield return new WaitForSeconds(.35f);
+            var document = Object.FindAnyObjectByType<UIDocument>();
+            var button = document.rootVisualElement.Q<Button>("return-hub");
+            Assert.That(button.focusable, Is.False);
+            using (var submit = NavigationSubmitEvent.GetPooled()) button.SendEvent(submit);
+            yield return null;
+            Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(Trapple.Core.GameManager.TutorialScene));
+            var manager = Trapple.Core.GameManager.Instance;
+            manager.Pause();
+            yield return null;
+            Assert.That(document.rootVisualElement.resolvedStyle.display, Is.EqualTo(DisplayStyle.None));
+            manager.ReturnToMenu();
+            yield return null;
+            Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(Trapple.Core.GameManager.MenuScene));
+            Assert.That(manager.State, Is.EqualTo(Trapple.Core.GameState.MainMenu));
+            Assert.That(Time.timeScale, Is.EqualTo(1f));
+            Assert.That(Object.FindAnyObjectByType<PlayerController>(), Is.Null);
+        }
+
         private UGUIButton FindButton(string name) => System.Array.Find(ui.Illustrated.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name);
         private UGUIButton FindWorkshopButton(string name) => System.Array.Find(ui.Workshop.View.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name);
         private IEnumerator WaitForWorkshop(WorkshopTransitionState state)

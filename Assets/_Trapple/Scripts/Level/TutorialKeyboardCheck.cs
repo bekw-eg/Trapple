@@ -31,11 +31,21 @@ namespace Trapple.Level
         {
             Directory.CreateDirectory(output);
             Application.runInBackground = true;
-            SceneManager.LoadScene(GameManager.TutorialScene);
+            // Exercise the actual hub entry, including its persistent return HUD.
+            SceneManager.LoadScene(Trapple.Hub.HubSceneFlowController.HubScenePath);
+            yield return new WaitForSecondsRealtime(1f);
+            var flow = Trapple.Hub.HubSceneFlowController.Instance;
+            Check(flow != null && flow.TryLaunch(flow.Configuration.World("meadow"), 0), "Hub launches first world");
             yield return new WaitForSecondsRealtime(1f);
             var player = FindAnyObjectByType<PlayerController>();
             var body = player.GetComponent<Rigidbody2D>();
             var manager = GameManager.Instance;
+            yield return WaitForKey(KeyCode.Escape, "escape-before-any-jump");
+            yield return null;
+            Check(manager.State == GameState.Paused && body.linearVelocity.y <= .1f, "Escape pauses without starting a jump");
+            yield return WaitForKey(KeyCode.Escape, "resume-before-space");
+            yield return new WaitForSecondsRealtime(.2f);
+            Check(manager.State == GameState.Playing && body.linearVelocity.y <= .1f && player.IsGrounded, "Escape resumes without jumping");
             yield return WaitForKey(KeyCode.Space, "jump");
             yield return new WaitForSecondsRealtime(.1f);
             Check(body.linearVelocity.y > 0f && player.ControlEnabled && manager.State == GameState.Playing, "Space jumps");
@@ -61,6 +71,16 @@ namespace Trapple.Level
             yield return WaitForKey(KeyCode.Escape, "resume-with-escape");
             yield return null;
             Check(manager.State == GameState.Playing && Time.timeScale == 1f, "Escape resumes");
+            yield return new WaitForSecondsRealtime(.25f);
+            Check(body.linearVelocity.y <= .1f && player.IsGrounded, "Escape does not jump");
+            yield return WaitForKey(KeyCode.Escape, "pause-for-exit");
+            yield return null;
+            Debug.Log("TUTORIAL INPUT WAIT: click Exit to menu");
+            until = Time.realtimeSinceStartup + 180f;
+            while (SceneManager.GetActiveScene().path == GameManager.TutorialScene && Time.realtimeSinceStartup < until)
+                yield return null;
+            Check(SceneManager.GetActiveScene().path == GameManager.MenuScene &&
+                manager.State == GameState.MainMenu && Time.timeScale == 1f, "Exit button opens main menu, not hub");
             File.WriteAllText(Path.Combine(output, "result.txt"), failed ? "FAILED" : "PASS");
             Debug.Log("TUTORIAL INPUT COMPLETE: " + (failed ? "FAILED" : "PASS"));
         }

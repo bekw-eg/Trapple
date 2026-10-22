@@ -160,14 +160,41 @@ namespace Trapple.UI
             if (MeadowButton(new Rect(504f, 245f, 287f, 69f), "Продолжить")) manager.Resume();
             if (MeadowButton(new Rect(504f, 328f, 287f, 65f), "Настройки")) settingsOpen = true;
             if (MeadowButton(new Rect(504f, 403f, 287f, 65f), "Перезапустить")) manager.RestartLevel();
-            if (MeadowButton(new Rect(504f, 480f, 287f, 68f), "Выйти в меню")) manager.ReturnToMenu();
+            if (MeadowButton(new Rect(504f, 480f, 287f, 68f), "Выйти в меню"))
+            {
+                manager.ReturnToMenu();
+                GUIUtility.ExitGUI();
+            }
         }
 
         private static bool MeadowButton(Rect area, string tooltip)
         {
+            // These painted buttons accept mouse clicks only. Gameplay keys must
+            // never become Submit/Cancel events on a focused pause-menu button.
+            int id = GUIUtility.GetControlID(FocusType.Passive, area);
+            Event evt = Event.current;
+            switch (evt.GetTypeForControl(id))
+            {
+                case EventType.MouseDown:
+                    if (evt.button == 0 && area.Contains(evt.mousePosition))
+                    {
+                        GUIUtility.hotControl = id;
+                        evt.Use();
+                    }
+                    break;
+                case EventType.MouseUp:
+                    if (evt.button == 0 && GUIUtility.hotControl == id)
+                    {
+                        GUIUtility.hotControl = 0;
+                        bool clicked = area.Contains(evt.mousePosition);
+                        evt.Use();
+                        return clicked;
+                    }
+                    break;
+            }
             if (area.Contains(Event.current.mousePosition))
                 Fill(area, new Color(1f, .94f, .6f, .13f));
-            return GUI.Button(area, new GUIContent("", tooltip), GUIStyle.none);
+            return false;
         }
 
         private void DrawVictory(GameManager manager)

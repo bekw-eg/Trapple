@@ -84,11 +84,20 @@ namespace Trapple.Hub
             returnDocument.panelSettings = panel;
             returnDocument.visualTreeAsset = returnTree;
             returnButton = returnDocument.rootVisualElement.Q<Button>("return-hub");
+            returnButton.focusable = false;
+            returnDocument.rootVisualElement.RegisterCallback<NavigationSubmitEvent>(evt => evt.StopImmediatePropagation(), TrickleDown.TrickleDown);
+            returnDocument.rootVisualElement.RegisterCallback<KeyDownEvent>(evt =>
+            {
+                if (evt.keyCode == KeyCode.Space) evt.StopImmediatePropagation();
+            }, TrickleDown.TrickleDown);
             returnButton.clicked += ReturnToHub;
         }
 
         private void Update()
         {
+            if (returnDocument != null)
+                returnDocument.rootVisualElement.style.display = Trapple.Core.GameManager.Instance != null &&
+                    Trapple.Core.GameManager.Instance.State == Trapple.Core.GameState.Paused ? DisplayStyle.None : DisplayStyle.Flex;
             if (!tutorialTrip || completionReported || goal == null || !goal.IsComplete) return;
             completionReported = true;
             if (!Progression.TutorialComplete) Progression.CompleteTutorial();

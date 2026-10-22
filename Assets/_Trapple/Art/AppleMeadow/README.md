@@ -25,7 +25,10 @@ The first world's IMGUI consumes Space before any menu button can submit it;
 the Input Manager still delivers the press to the player's jump controller.
 For a development build, `-tutorial-keyboard-check <output-folder>` checks real
 Space/Escape events, a Space press while paused, Continue, jumping again, and
-Escape to resume. It writes `result.txt` and is inactive during ordinary play.
+Escape to resume, and the actual Exit-to-menu mouse click. The check enters via
+the hub and verifies that Exit loads `MainMenu`, restores time, and does not go
+back to the hub. It also checks Escape before the first jump. It writes
+`result.txt` and is inactive during ordinary play.
 
 The sheets also show other hazards and objects. Only details useful to the
 existing tutorial are integrated; no new trap mechanics or worlds are added.

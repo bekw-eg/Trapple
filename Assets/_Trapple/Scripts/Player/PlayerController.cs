@@ -31,8 +31,12 @@ namespace Trapple.Player
 
         private void Update()
         {
-            if (!ControlEnabled)
+            if (!ControlEnabled || Time.timeScale <= 0f || Input.GetKeyDown(KeyCode.Escape))
+            {
+                moveInput = 0f;
+                jumpRequested = false;
                 return;
+            }
 
             // This project uses the built-in Input Manager (Active Input Handling: Input Manager).
             bool left = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);

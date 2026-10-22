@@ -56,6 +56,8 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator EntryWalksClimbsIrisLocksAndExitRestoresThenReenters()
         {
+            var door=Object.FindAnyObjectByType<WorkshopDoorAnimator>();
+            Assert.That(door.FrameCount,Is.EqualTo(8)); Assert.That(door.Presentation.enabled,Is.True);
             var camera=Camera.main; float size=camera.orthographicSize;
             var start=player.transform.position; ui.Open(HubScreen.Workshop);
             Assert.That(player.ControlEnabled,Is.False); Assert.That(transition.View.Interactable,Is.False);
@@ -81,6 +83,7 @@ namespace Trapple.Tests
             Assert.That(camera.orthographicSize,Is.EqualTo(size)); Assert.That(camera.GetComponent<HubCameraController>().enabled,Is.True);
             Assert.That(player.transform.position.x,Is.InRange(-8.8f,-8.5f));
             Assert.That(player.transform.position.y,Is.LessThan(1));
+            Assert.That(door.FrameIndex,Is.Zero); Assert.That(door.Presentation.sprite.name,Is.EqualTo("WorkshopDoor01"));
             var interaction=Object.FindAnyObjectByType<HubInteractionController>();
             interaction.RefreshTarget(); Assert.That(interaction.Nearest.Screen,Is.EqualTo(HubScreen.Workshop));
             Assert.That(interaction.TryInteract(),Is.True);

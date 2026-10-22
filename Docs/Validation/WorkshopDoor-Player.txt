@@ -1,0 +1,17 @@
+Result: PASS
+Graphics API: D3D11
+Capture: live Unity cameras and Canvas rendered to RenderTexture
+Source SHA256: 70CB1DB0868091C283CBE36B0698E1CDA1321CE4DBCD018DE05E2BD298E97D98
+Visible aperture: 420 x 421 px
+WORKSHOP PASS: Iris aperture is circular in rendered pixels
+WORKSHOP PASS: Transition reaches Inside
+WORKSHOP PASS: UI unlocked after reveal
+WORKSHOP PASS: Speed purchases saved
+WORKSHOP PASS: Agility purchases saved
+WORKSHOP PASS: Jump purchases saved
+WORKSHOP PASS: Transition reaches Outside
+WORKSHOP PASS: Player control and physics restored
+WORKSHOP PASS: Player exits near the workshop
+WORKSHOP PASS: Transition reaches Inside
+WORKSHOP PASS: Repeated entry
+WORKSHOP PASS: Transition reaches Outside

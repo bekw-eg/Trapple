@@ -1,0 +1,7 @@
+Unity 6000.6.0f1
+Target: Windows x64 development
+BuildPipeline.BuildPlayer success: True
+Build duration (ms): 11663
+TRAPPLE WORKSHOP BUILD COMPLETE: prefab and both playable hub scenes installed.
+TRAPPLE WORKSHOP BUILD COMPLETE: prefab and both playable hub scenes installed.
+WORKSHOP DOOR CAPTURE PASS: eight ordered frames rendered; rebuild executed twice.

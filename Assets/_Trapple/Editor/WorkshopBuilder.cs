@@ -21,7 +21,8 @@ namespace Trapple.Editor
         public const string PrefabPath="Assets/_Trapple/Prefabs/Hub/WorkshopSystem.prefab";
         private const string Art="Assets/_Trapple/Art/Workshop/";
         private static TMP_FontAsset font;
-        private static Sprite square, pip;
+        private static Sprite pip;
+        private static Sprite[] doorFrames;
         private static readonly Color Paper=new Color(1,.88f,.65f);
         private static readonly Color Ink=new Color(.25f,.11f,.035f);
 
@@ -33,8 +34,8 @@ namespace Trapple.Editor
             try
             {
                 ImportArt();
+                doorFrames=WorkshopDoorAssets.Import();
                 font=AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(IllustratedUIBuilder.Root+"Fonts/Trapple Cyrillic.asset");
-                square=AssetDatabase.LoadAllAssetsAtPath("Assets/_Trapple/Art/Prototype/Square.png").OfType<Sprite>().First();
                 pip=AssetDatabase.LoadAssetAtPath<Sprite>(IllustratedUIBuilder.Root+"Generated/pip.png");
                 if(font==null || pip==null) throw new InvalidOperationException("Build the existing illustrated UI first.");
                 var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
@@ -75,13 +76,14 @@ namespace Trapple.Editor
             }
             var focus=new GameObject("Door focus"); focus.transform.SetParent(root.transform,false); focus.transform.position=new Vector2(-9.29f,1.15f);
             var door=new GameObject("Door presentation").AddComponent<WorkshopDoorAnimator>(); door.transform.SetParent(root.transform,false);
-            var opening=new GameObject("Temporary door opening",typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();
-            opening.transform.SetParent(door.transform,false); opening.transform.position=new Vector2(-9.29f,1.05f);
-            opening.sprite=square; opening.sortingOrder=7; opening.transform.localScale=new Vector3(.68f,1.22f,1);
+            var opening=new GameObject("Animated workshop",typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();
+            opening.transform.SetParent(door.transform,false); opening.transform.position=new Vector2(-8,2.45f);
+            opening.sprite=doorFrames[0]; opening.sortingOrder=5; opening.sharedMaterial=WorkshopDoorAssets.Material();
+            opening.transform.localScale=new Vector3(5.7f/opening.sprite.bounds.size.x,4.95f/opening.sprite.bounds.size.y,1);
             var light=new GameObject("Warm door light",typeof(SpriteRenderer)).GetComponent<SpriteRenderer>(); light.transform.SetParent(door.transform,false);
             light.transform.position=new Vector2(-9.29f,.52f); light.sprite=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/_Trapple/Art/Hub/Glow.png");
             light.sortingOrder=8; light.transform.localScale=new Vector3(1.5f,.7f,1);
-            door.Configure(opening,light); door.Set(0);
+            door.Configure(opening,light,doorFrames); door.Set(0);
             var canvas=UI("Workshop Canvas",root.transform).gameObject.AddComponent<Canvas>();
             canvas.renderMode=RenderMode.ScreenSpaceOverlay; canvas.sortingOrder=200;
             canvas.gameObject.AddComponent<GraphicRaycaster>();
@@ -180,6 +182,17 @@ namespace Trapple.Editor
             var player=UnityEngine.Object.FindAnyObjectByType<PlayerController>();
             var camera=UnityEngine.Object.FindAnyObjectByType<HubCameraController>().GetComponent<Camera>();
             var transition=root.GetComponent<WorkshopTransitionController>();
+            var station=UnityEngine.Object.FindObjectsByType<HubInteractable>().Single(value=>value.Screen==HubScreen.Workshop);
+            var original=station.GetComponentInChildren<SpriteRenderer>(true);
+            var animated=root.GetComponentInChildren<WorkshopDoorAnimator>().Presentation;
+            var bounds=original.bounds;
+            animated.transform.position=original.transform.position;
+            animated.transform.localScale=new Vector3(bounds.size.x/animated.sprite.bounds.size.x,bounds.size.y/animated.sprite.bounds.size.y,1);
+            animated.sortingLayerID=original.sortingLayerID; animated.sortingOrder=original.sortingOrder;
+            original.enabled=false; EditorUtility.SetDirty(original);
+            PrefabUtility.RecordPrefabInstancePropertyModifications(original);
+            PrefabUtility.RecordPrefabInstancePropertyModifications(animated.transform);
+            PrefabUtility.RecordPrefabInstancePropertyModifications(animated);
             transition.Configure(player,hub,camera,camera.GetComponent<HubCameraController>(),root.transform.Find("Entrance path").Cast<Transform>().ToArray(),root.transform.Find("Door focus"),
                 root.GetComponentInChildren<WorkshopDoorAnimator>(true),root.GetComponentInChildren<IrisTransitionController>(true),root.GetComponentInChildren<WorkshopUIController>(true));
             hub.SetWorkshop(transition); EditorUtility.SetDirty(hub);

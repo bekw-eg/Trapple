@@ -10,6 +10,10 @@ namespace Trapple.Hub
     public sealed class HubUIController : MonoBehaviour
     {
         [SerializeField] private Illustrated.TrappleUIManager illustrated;
+        [SerializeField] private Trapple.Workshop.WorkshopTransitionController workshop;
+        public Trapple.Workshop.WorkshopTransitionController Workshop => workshop;
+        public void SetWorkshop(Trapple.Workshop.WorkshopTransitionController value) => workshop=value;
+        public bool ControlBeforeModal => controlCaptured ? previousControl : player!=null && player.ControlEnabled;
         public Illustrated.TrappleUIManager Illustrated => illustrated;
         public void SetIllustratedUI(Illustrated.TrappleUIManager value) => illustrated = value;
         private VisualElement root, modal, window, content, prompt;
@@ -78,6 +82,7 @@ namespace Trapple.Hub
             window.RegisterCallback<NavigationMoveEvent>(Navigate);
             initialized = true;
             illustrated?.Initialize(configuration, progression, flow, Open, Close, ReturnToMenu);
+            if(workshop!=null) workshop.View.Bind(configuration,progression,Close);
             RefreshCurrency();
         }
 
@@ -114,6 +119,7 @@ namespace Trapple.Hub
         public void Open(HubScreen screen)
         {
             if (!initialized || screen == HubScreen.None) return;
+            if(workshop!=null && (screen==HubScreen.Workshop || workshop.Active)) { workshop.Navigate(screen); return; }
             hideWindow?.Pause();
             if (!controlCaptured)
             {
@@ -154,6 +160,7 @@ namespace Trapple.Hub
 
         public void Close()
         {
+            if(workshop!=null && workshop.Active) { workshop.Navigate(HubScreen.None); return; }
             if (!IsOpen) return;
             CurrentScreen = HubScreen.None;
             illustrated?.Hide();
@@ -177,6 +184,24 @@ namespace Trapple.Hub
             if (player == null) return;
             var death = player.GetComponent<PlayerDeath>();
             if (previousControl && (death == null || !death.IsDead)) player.SetControlEnabled(true);
+        }
+
+        public void BeginWorkshopSession()
+        {
+            hideWindow?.Pause();
+            // Workshop captures the prior control state before starting the session.
+            controlCaptured=false;
+            CurrentScreen=HubScreen.Workshop; illustrated?.Hide(); modal.style.display=DisplayStyle.None;
+            prompt.RemoveFromClassList("visible");
+            foreach(string cssClass in new[]{"hud","hub-caption","controls"}) root.Q(className:cssClass).style.display=DisplayStyle.None;
+            root.panel?.focusController?.focusedElement?.Blur();
+        }
+        public void EndWorkshopSession()
+        {
+            hideWindow?.Pause(); controlCaptured=false; CurrentScreen=HubScreen.None;
+            if(root==null) return;
+            modal.style.display=DisplayStyle.None;
+            foreach(string cssClass in new[]{"hud","hub-caption","controls"}) root.Q(className:cssClass).style.display=DisplayStyle.Flex;
         }
 
         public void SetPrompt(string value)
@@ -206,6 +231,7 @@ namespace Trapple.Hub
         private void OnDisable()
         {
             if (!initialized) return;
+            if(workshop!=null) workshop.Cancel();
             hideWindow?.Pause(); hideToast?.Pause();
             if (IsOpen || (player != null && !player.ControlEnabled)) RestoreControl();
             CurrentScreen = HubScreen.None;

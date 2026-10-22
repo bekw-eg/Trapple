@@ -46,6 +46,8 @@ namespace Trapple.Hub
         public CosmeticUnlockRule unlockRule;
         [Tooltip("UI preview fallback only; never installed as a gameplay animation.")]
         public Sprite previewSprite;
+        [Tooltip("Optional animation set for the workshop demonstration; does not change gameplay physics.")]
+        public Trapple.Player.PlayerAnimationSet previewAnimations;
     }
 
     [CreateAssetMenu(menuName = "Trapple/Hub configuration")]

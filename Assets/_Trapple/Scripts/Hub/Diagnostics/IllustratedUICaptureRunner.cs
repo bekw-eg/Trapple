@@ -38,9 +38,11 @@ namespace Trapple.Hub
                 Check(Screen.width==size.x && Screen.height==size.y,"Resolution "+size);
                 foreach(var screen in new[]{HubScreen.Worlds,HubScreen.Workshop,HubScreen.Wardrobe})
                 {
-                    facade.Open(screen); yield return new WaitForSecondsRealtime(.25f);
-                    Check(ui.CurrentScreen==screen,"Screen "+screen);
-                    foreach(var button in ui.GetComponentsInChildren<Button>())
+                    facade.Open(screen); yield return WaitForNavigation(facade);
+                    Check(facade.CurrentScreen==screen,"Screen "+screen);
+                    var buttons=screen==HubScreen.Workshop && facade.Workshop!=null?
+                        facade.Workshop.View.GetComponentsInChildren<Button>():ui.GetComponentsInChildren<Button>();
+                    foreach(var button in buttons)
                     {
                         var rect=(RectTransform)button.transform;
                         var point=RectTransformUtility.WorldToScreenPoint(null,rect.TransformPoint(rect.rect.center));
@@ -55,11 +57,20 @@ namespace Trapple.Hub
                     yield return null;
                 }
             }
-            facade.Open(HubScreen.Worlds); yield return null;
+            facade.Open(HubScreen.Worlds); yield return WaitForNavigation(facade);
             Click(ui,"worlds-secret_worlds"); Check(ui.Message=="Скоро","Secret worlds placeholder");
             Click(ui,"worlds-tabs-workshop"); Check(facade.CurrentScreen==HubScreen.Workshop,"Actual tab click");
-            Click(ui,"workshop-upgrade_buttons-speed"); Check(ui.Message.Contains("не настроена"),"Unconfigured price guard");
-            Click(ui,"workshop-close"); yield return new WaitForSecondsRealtime(.25f);
+            yield return WaitForNavigation(facade);
+            if(facade.Workshop!=null)
+            {
+                facade.Workshop.View.Purchase(); Check(facade.Workshop.View.Feedback.Contains("не настроена"),"Unconfigured price guard");
+                facade.Close(); yield return WaitForNavigation(facade);
+            }
+            else
+            {
+                Click(ui,"workshop-upgrade_buttons-speed"); Check(ui.Message.Contains("не настроена"),"Unconfigured price guard");
+                Click(ui,"workshop-close"); yield return new WaitForSecondsRealtime(.25f);
+            }
             Check(FindAnyObjectByType<Trapple.Player.PlayerController>().ControlEnabled,"Close restores gameplay");
             SceneManager.LoadScene(TrappleUIManager.ScenePath); yield return new WaitForSecondsRealtime(.7f);
             ui=FindAnyObjectByType<TrappleUIManager>(); Check(ui.CurrentScreen==HubScreen.Worlds,"Standalone scene opens map");
@@ -74,6 +85,13 @@ namespace Trapple.Hub
         {
             var button=ui.GetComponentsInChildren<Button>().First(value=>value.name==name);
             ExecuteEvents.Execute(button.gameObject,new PointerEventData(EventSystem.current){button=PointerEventData.InputButton.Left},ExecuteEvents.pointerClickHandler);
+        }
+        private IEnumerator WaitForNavigation(HubUIController facade)
+        {
+            float until=Time.realtimeSinceStartup+15;
+            while(facade.Workshop!=null && facade.Workshop.IsBusy && Time.realtimeSinceStartup<until) yield return null;
+            Check(facade.Workshop==null || !facade.Workshop.IsBusy,"Navigation completes");
+            yield return new WaitForSecondsRealtime(.25f);
         }
         private void Check(bool result,string name) { if(!result) failed=true; Debug.Log((result?"UI PASS: ":"UI FAIL: ")+name); }
         private void OnLog(string message,string trace,LogType type) { if(type==LogType.Error || type==LogType.Exception || type==LogType.Assert) failed=true; }

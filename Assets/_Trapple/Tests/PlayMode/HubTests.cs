@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 using Trapple.Hub.Illustrated;
 using UnityEngine.EventSystems;
 using UGUIButton = UnityEngine.UI.Button;
+using Trapple.Workshop;
 
 namespace Trapple.Tests
 {
@@ -74,8 +75,9 @@ namespace Trapple.Tests
             Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Workshop));
             Assert.That(player.ControlEnabled,Is.False);
             Assert.That(Time.timeScale,Is.EqualTo(1));
+            yield return WaitForWorkshop(WorkshopTransitionState.Inside);
             ui.Close();
-            yield return new WaitForSecondsRealtime(.25f);
+            yield return WaitForWorkshop(WorkshopTransitionState.Outside);
             Assert.That(player.ControlEnabled,Is.True);
             player.GetComponent<Rigidbody2D>().position=new Vector2(0,.6f);
             yield return new WaitForFixedUpdate();
@@ -91,8 +93,10 @@ namespace Trapple.Tests
             ui.Open(HubScreen.Workshop); ui.Close(); ui.Open(HubScreen.Wardrobe);
             yield return new WaitForSecondsRealtime(.25f);
             Assert.That(player.ControlEnabled,Is.False);
+            Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Workshop));
+            yield return WaitForWorkshop(WorkshopTransitionState.Inside);
             ui.Close();
-            yield return new WaitForSecondsRealtime(.25f);
+            yield return WaitForWorkshop(WorkshopTransitionState.Outside);
             Assert.That(player.ControlEnabled,Is.True);
             ui.Open(HubScreen.Workshop); ui.enabled=false;
             Assert.That(player.ControlEnabled,Is.True);
@@ -107,11 +111,12 @@ namespace Trapple.Tests
         public IEnumerator SubmitOnPurchaseButtonUpdatesBalanceAndSavedLevel()
         {
             ui.Open(HubScreen.Workshop);
+            yield return WaitForWorkshop(WorkshopTransitionState.Inside);
             var progression=HubSceneFlowController.Instance.Progression;
             HubSceneFlowController.Instance.Configuration.Upgrade(UpgradeKind.Speed).costs=new[]{10,20,35};
             progression.AddSeeds(100);
             int seeds=progression.Seeds;
-            var buy=FindButton("workshop-upgrade_buttons-speed");
+            var buy=FindWorkshopButton("Purchase upgrade");
             ExecuteEvents.Execute(buy.gameObject,new BaseEventData(EventSystem.current),ExecuteEvents.submitHandler);
             yield return null;
             Assert.That(progression.Seeds,Is.EqualTo(seeds-10));
@@ -168,8 +173,9 @@ namespace Trapple.Tests
             yield return null;
             Assert.That(ui.IsOpen,Is.False);
             ui.Open(HubScreen.Workshop);
+            yield return WaitForWorkshop(WorkshopTransitionState.Inside);
             ui.HandleEscape();
-            yield return new WaitForSecondsRealtime(.25f);
+            yield return WaitForWorkshop(WorkshopTransitionState.Outside);
             Assert.That(ui.IsOpen,Is.False);
             Assert.That(player.ControlEnabled,Is.True);
         }
@@ -227,6 +233,13 @@ namespace Trapple.Tests
         }
 
         private UGUIButton FindButton(string name) => System.Array.Find(ui.Illustrated.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name);
+        private UGUIButton FindWorkshopButton(string name) => System.Array.Find(ui.Workshop.View.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name);
+        private IEnumerator WaitForWorkshop(WorkshopTransitionState state)
+        {
+            float until=Time.realtimeSinceStartup+15;
+            while(ui.Workshop.State!=state && Time.realtimeSinceStartup<until) yield return null;
+            Assert.That(ui.Workshop.State,Is.EqualTo(state));
+        }
 
         [UnityTest]
         public IEnumerator ActualTabsCloseAndSecretButtonsAreWiredAndDoNotReloadScene()
@@ -236,7 +249,9 @@ namespace Trapple.Tests
             Assert.That(ui.Illustrated.IsOpen,Is.True);
             FindButton("worlds-tabs-workshop").onClick.Invoke();
             Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Workshop));
-            FindButton("workshop-tabs-wardrobe").onClick.Invoke();
+            yield return WaitForWorkshop(WorkshopTransitionState.Inside);
+            ui.Open(HubScreen.Wardrobe);
+            yield return WaitForWorkshop(WorkshopTransitionState.Outside);
             Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Wardrobe));
             FindButton("wardrobe-tabs-worlds").onClick.Invoke();
             FindButton("worlds-secret_worlds").onClick.Invoke();
@@ -251,12 +266,12 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator PurchasesGuardUnconfiguredPricesFundsRapidClicksAndMaximum()
         {
-            ui.Open(HubScreen.Workshop); yield return null;
-            var button=FindButton("workshop-upgrade_buttons-speed");
+            ui.Open(HubScreen.Workshop); yield return WaitForWorkshop(WorkshopTransitionState.Inside);
+            var button=FindWorkshopButton("Purchase upgrade");
             var service=HubSceneFlowController.Instance.Progression;
-            button.onClick.Invoke(); Assert.That(ui.Illustrated.Message,Does.Contain("не настроена"));
+            button.onClick.Invoke(); Assert.That(ui.Workshop.View.Feedback,Does.Contain("не настроена"));
             HubSceneFlowController.Instance.Configuration.Upgrade(UpgradeKind.Speed).costs=new[]{10,20,35};
-            button.onClick.Invoke(); Assert.That(ui.Illustrated.Message,Does.Contain("Недостаточно"));
+            button.onClick.Invoke(); Assert.That(ui.Workshop.View.Feedback,Does.Contain("Недостаточно"));
             service.AddSeeds(100);
             button.onClick.Invoke(); button.onClick.Invoke();
             Assert.That(service.Level(UpgradeKind.Speed),Is.EqualTo(1)); Assert.That(service.Seeds,Is.EqualTo(90));
@@ -281,7 +296,7 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator HotspotsAreRaycastableAndArtworkScalesUniformly()
         {
-            foreach(var screen in new[]{HubScreen.Worlds,HubScreen.Workshop,HubScreen.Wardrobe})
+            foreach(var screen in new[]{HubScreen.Worlds,HubScreen.Wardrobe})
             {
                 ui.Open(screen); yield return null; Canvas.ForceUpdateCanvases();
                 var pages=ui.Illustrated.GetComponentsInChildren<ReferencePixelScale>();

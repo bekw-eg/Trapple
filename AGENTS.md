@@ -37,9 +37,14 @@ All AI agents MUST follow these rules:
 - NEVER force-push to `main`.
 - NEVER merge Pull Requests without explicit authorization.
 - Before starting a task, inspect the repository status and existing branches.
-- Start from the latest appropriate base branch.
+- Before starting a new feature, fetch the latest remote changes and update the
+  appropriate base branch using a fast-forward-only pull, or create the task
+  branch directly from the freshly fetched remote base. Stop and report any
+  update failure instead of silently starting from a stale base.
 - Create a new feature branch for every independent task.
 - Never discard existing uncommitted changes without permission.
+- NEVER delete any existing local or remote branch without the user's explicit
+  permission. Do not prune branch references automatically.
 
 Use the following branch naming conventions:
 
@@ -60,40 +65,35 @@ fix/player-jump
 
 ## 3. Git Identity - IMPORTANT
 
-The GitHub repository owner is `bekw-eg`.
+The repository is hosted at `bekw-eg/Trapple`. The user giving these permanent
+instructions is `AlikhanM29`; repository ownership does not determine the identity
+to use for this user's work.
 
-When working on behalf of the repository owner, use the owner's authorized Git
-identity for commits.
+All commits and Pull Requests made for this user MUST use **only `AlikhanM29`**.
 
-- **Required Git author name:** `bekw-eg`.
-- **Required Git author email:** An email verified for the `bekw-eg` GitHub
-  account, including its GitHub-provided noreply email if configured.
+- **Required Git author and committer name:** `AlikhanM29`.
+- **Required Git author and committer email:** An email confirmed to belong to the
+  `AlikhanM29` GitHub account, including its GitHub-provided noreply address.
+- **Required Pull Request account:** The authenticated GitHub user `AlikhanM29`.
 
-Before committing:
+Before committing or creating a Pull Request:
 
-- Check `git config user.name`.
-- Check `git config user.email`.
-- Check the authenticated GitHub account.
-- Ensure the author name is `bekw-eg` when acting on behalf of the owner.
-- Use only an email confirmed to belong to the owner.
+- Check `git config user.name` and `git config user.email`.
+- Verify the authenticated GitHub account is `AlikhanM29`.
+- Ensure both author and committer use the required identity.
 - Prefer repository-local Git configuration.
-- Never invent an email address.
-- Never use an AI agent's name as the commit author when performing changes on
-  behalf of `bekw-eg`.
-
-Create Pull Requests using the authenticated GitHub account `bekw-eg` when
-explicitly acting on the owner's behalf.
+- Never invent an email address or use an AI agent's identity.
+- Never substitute `bekw-eg` or another account for `AlikhanM29`.
 
 **Git commit identity and GitHub authentication are different.** Setting
-`git config user.name` does not change the GitHub account that creates a Pull
-Request.
+`git config user.name` does not change the account that creates a Pull Request.
 
-If authentication belongs to another account, do not impersonate `bekw-eg`.
-Request proper authentication or provide the owner with the steps needed to
-create the Pull Request.
+If the authenticated account differs or the required identity cannot be verified,
+stop the affected operation and report the authentication blocker. Do not create
+commits or Pull Requests under a different account as a fallback.
 
-When the second human developer works using their own account, preserve their
-real authorship. Never falsely attribute their changes to `bekw-eg`.
+Preserve existing human authorship; do not rewrite another developer's commits
+or falsely attribute their changes to `AlikhanM29`.
 
 ## 4. Mandatory Commits and Pull Requests
 

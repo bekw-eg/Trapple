@@ -6,12 +6,21 @@ using UnityEngine;
 
 namespace Trapple.Editor
 {
-    // Slices the supplied transparent PNG unchanged. Pivots align the feet to the existing capsule.
+    // Keep the supplied PNG unchanged; exclude its drawn floor strips when slicing.
+    // Feet anchors stay fixed when a rectangle is shortened, preserving the existing capsule alignment.
     internal static class PixelPlayerAssets
     {
         internal const string SourcePath = "Assets/_Trapple/Art/Hub/Source/AppiAnimation.png";
         internal const string SetPath = "Assets/_Trapple/Settings/AppiAnimations.asset";
         private const float PixelsPerUnit = 128f;
+
+        [MenuItem("Tools/Trapple/Reimport Appi Animation")]
+        public static void Reimport()
+        {
+            Import();
+            AssetDatabase.SaveAssets();
+            Debug.Log("APPi animation imported without the sprite sheet's floor lines.");
+        }
 
         internal static PlayerAnimationSet Import()
         {
@@ -37,16 +46,16 @@ namespace Trapple.Editor
                 Frame("AppiWalkRight3", height, 870,474,145,123,943,596),
                 Frame("AppiWalkRight4", height, 1055,474,145,123,1128,596),
                 Frame("AppiWalkRight5", height, 1243,474,145,123,1316,596),
-                Frame("AppiWalkLeft0", height, 310,629,145,132,383,749),
-                Frame("AppiWalkLeft1", height, 496,629,145,132,569,749),
-                Frame("AppiWalkLeft2", height, 684,629,145,132,757,749),
-                Frame("AppiWalkLeft3", height, 870,629,145,132,943,749),
-                Frame("AppiWalkLeft4", height, 1055,629,145,132,1128,760),
-                Frame("AppiWalkLeft5", height, 1243,629,145,132,1316,749),
-                Frame("AppiJump0", height, 280,778,183,141,392,918),
-                Frame("AppiJump1", height, 531,773,165,137,641,890),
-                Frame("AppiJump2", height, 807,769,143,140,887,891),
-                Frame("AppiJump3", height, 1008,794,176,128,1105,921)
+                Frame("AppiWalkLeft0", height, 310,629,145,122,383,749),
+                Frame("AppiWalkLeft1", height, 496,629,145,122,569,749),
+                Frame("AppiWalkLeft2", height, 684,629,145,122,757,749),
+                Frame("AppiWalkLeft3", height, 870,629,145,122,943,749),
+                Frame("AppiWalkLeft4", height, 1055,629,145,130,1128,760),
+                Frame("AppiWalkLeft5", height, 1243,629,145,124,1316,749),
+                Frame("AppiJump0", height, 280,778,183,136,392,918),
+                Frame("AppiJump1", height, 531,780,165,130,641,890),
+                Frame("AppiJump2", height, 807,778,143,131,887,891),
+                Frame("AppiJump3", height, 1008,794,176,125,1105,921)
             };
 #pragma warning restore 618
             EditorUtility.SetDirty(importer);

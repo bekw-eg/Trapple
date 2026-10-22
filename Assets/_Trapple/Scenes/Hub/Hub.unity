@@ -6305,6 +6305,114 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1020705507
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481316259242431837, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291959245945600692, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+      propertyPath: m_Name
+      value: TrappleUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+--- !u!114 &1020705508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7158676701266636960, guid: 167ccee55d3bc9947b8e2e0e8b9f52be, type: 3}
+  m_PrefabInstance: {fileID: 1020705507}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be455a29fd7af74a91e15df5773c536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.Illustrated.TrappleUIManager
 --- !u!1 &1030843719
 GameObject:
   m_ObjectHideFlags: 0
@@ -7167,6 +7275,74 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222548595}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1245450634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245450637}
+  - component: {fileID: 1245450636}
+  - component: {fileID: 1245450635}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1245450635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245450634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.StandaloneInputModule
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1245450636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245450634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1245450637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245450634}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -12000,6 +12176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ffeb2e496c48a3438278f418552c2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.HubUIController
+  illustrated: {fileID: 1020705508}
 --- !u!114 &1845252235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15120,3 +15297,5 @@ SceneRoots:
   - {fileID: 1845252236}
   - {fileID: 1004627183}
   - {fileID: 1222548597}
+  - {fileID: 1245450637}
+  - {fileID: 1020705507}

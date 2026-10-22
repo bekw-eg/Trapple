@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using UnityEngine.UIElements;
+using Trapple.Hub.Illustrated;
+using UnityEngine.EventSystems;
+using UGUIButton = UnityEngine.UI.Button;
 
 namespace Trapple.Tests
 {
@@ -16,6 +19,7 @@ namespace Trapple.Tests
         private HubInteractionController interaction;
         private bool hadSave;
         private string previousSave;
+        private int[][] previousCosts;
 
         [UnitySetUp]
         public IEnumerator Setup()
@@ -30,11 +34,14 @@ namespace Trapple.Tests
             player=Object.FindAnyObjectByType<PlayerController>();
             ui=Object.FindAnyObjectByType<HubUIController>();
             interaction=Object.FindAnyObjectByType<HubInteractionController>();
+            previousCosts=System.Array.ConvertAll(HubSceneFlowController.Instance.Configuration.upgrades,value=>value.costs);
         }
 
         [UnityTearDown]
         public IEnumerator Cleanup()
         {
+            if(previousCosts!=null && HubSceneFlowController.Instance!=null)
+                for(int i=0;i<previousCosts.Length;i++) HubSceneFlowController.Instance.Configuration.upgrades[i].costs=previousCosts[i];
             if(HubSceneFlowController.Instance!=null) Object.Destroy(HubSceneFlowController.Instance.gameObject);
             if(hadSave) PlayerPrefs.SetString(PreviewSaveService.Key,previousSave);
             else PlayerPrefs.DeleteKey(PreviewSaveService.Key);
@@ -91,7 +98,7 @@ namespace Trapple.Tests
             Assert.That(player.ControlEnabled,Is.True);
             ui.enabled=true;
             yield return null;
-            Assert.That(ui.Root.Q("upgrade-cards").childCount,Is.EqualTo(3));
+            Assert.That(ui.Illustrated.GetComponentsInChildren<UpgradeCardUI>(true).Length,Is.EqualTo(3));
             Assert.That(ui.IsOpen,Is.False);
             Assert.That(player.ControlEnabled,Is.True);
         }
@@ -101,10 +108,11 @@ namespace Trapple.Tests
         {
             ui.Open(HubScreen.Workshop);
             var progression=HubSceneFlowController.Instance.Progression;
+            HubSceneFlowController.Instance.Configuration.Upgrade(UpgradeKind.Speed).costs=new[]{10,20,35};
+            progression.AddSeeds(100);
             int seeds=progression.Seeds;
-            var buy=ui.Root.Q<Button>("buy-speed");
-            buy.Focus();
-            using(var evt=NavigationSubmitEvent.GetPooled()) buy.SendEvent(evt);
+            var buy=FindButton("workshop-upgrade_buttons-speed");
+            ExecuteEvents.Execute(buy.gameObject,new BaseEventData(EventSystem.current),ExecuteEvents.submitHandler);
             yield return null;
             Assert.That(progression.Seeds,Is.EqualTo(seeds-10));
             Assert.That(progression.Level(UpgradeKind.Speed),Is.EqualTo(1));
@@ -116,16 +124,13 @@ namespace Trapple.Tests
         {
             ui.Open(HubScreen.Worlds);
             yield return null;
-            Assert.That(ui.Root.Q("world-cards").childCount,Is.EqualTo(4));
+            Assert.That(ui.Illustrated.GetComponentsInChildren<WorldCardUI>(true).Length,Is.EqualTo(4));
             var config=Object.FindAnyObjectByType<HubBootstrap>();
             Assert.That(config,Is.Not.Null);
-            var locked=ui.Root.Q<Button>("select-forest");
-            locked.Focus();
-            using(var evt=NavigationSubmitEvent.GetPooled()) locked.SendEvent(evt);
+            FindButton("worlds-world_buttons-deceptive_forest").onClick.Invoke();
             yield return null;
-            Assert.That(ui.Root.Q<Button>("launch-forest-0").enabledSelf,Is.False);
             Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(HubSceneFlowController.HubScenePath));
-            Assert.That(ui.Root.Q("world-forest").ClassListContains("locked"),Is.True);
+            Assert.That(ui.Illustrated.Message,Does.Contain("закрыт"));
         }
 
         [UnityTest]
@@ -133,14 +138,13 @@ namespace Trapple.Tests
         {
             ui.Open(HubScreen.Wardrobe);
             yield return null;
-            Assert.That(ui.Root.Q("cosmetics").childCount,Is.EqualTo(4));
-            Assert.That(ui.Root.Q<Button>("equip").text,Does.Contain("EQUIPPED"));
-            var option=ui.Root.Q<Button>("cosmetic-lava");
-            option.Focus();
-            using(var evt=NavigationSubmitEvent.GetPooled()) option.SendEvent(evt);
+            Assert.That(ui.Illustrated.GetComponentsInChildren<SkinItemUI>(true).Length,Is.EqualTo(4));
+            Assert.That(HubSceneFlowController.Instance.Progression.EquippedCosmetic,Is.EqualTo("classic"));
+            FindButton("wardrobe-skin_rows-volcano_heart").onClick.Invoke();
             yield return null;
-            Assert.That(ui.Root.Q<Label>("cosmetic-name").text,Is.EqualTo("Сердце вулкана"));
-            Assert.That(ui.Root.Q<Button>("equip").enabledSelf,Is.False);
+            Assert.That(HubSceneFlowController.Instance.Progression.SelectedCosmetic,Is.EqualTo("lava"));
+            FindButton("Equip selected skin").onClick.Invoke();
+            Assert.That(ui.Illustrated.Message,Does.Contain("закрыт"));
             Assert.That(HubSceneFlowController.Instance.Progression.EquippedCosmetic,Is.EqualTo("classic"));
         }
 
@@ -208,10 +212,9 @@ namespace Trapple.Tests
         {
             ui.Open(HubScreen.Worlds);
             yield return null;
-            var launch=ui.Root.Q<Button>("launch-meadow-0");
-            Assert.That(launch.enabledSelf,Is.True);
-            launch.Focus();
-            using(var evt=NavigationSubmitEvent.GetPooled()) launch.SendEvent(evt);
+            var launch=FindButton("worlds-world_buttons-apple_meadow");
+            Assert.That(launch.interactable,Is.True);
+            launch.onClick.Invoke();
             yield return new WaitForSeconds(.35f);
             Assert.That(SceneManager.GetActiveScene().name,Is.EqualTo("Tutorial"));
             Assert.That(Object.FindAnyObjectByType<Trapple.Level.TutorialGoal>(),Is.Not.Null);
@@ -221,6 +224,107 @@ namespace Trapple.Tests
             yield return new WaitForSeconds(.35f);
             Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(HubSceneFlowController.HubScenePath));
             Assert.That(Object.FindAnyObjectByType<PlayerController>().ControlEnabled,Is.True);
+        }
+
+        private UGUIButton FindButton(string name) => System.Array.Find(ui.Illustrated.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name);
+
+        [UnityTest]
+        public IEnumerator ActualTabsCloseAndSecretButtonsAreWiredAndDoNotReloadScene()
+        {
+            var scene=SceneManager.GetActiveScene().handle;
+            ui.Open(HubScreen.Worlds); yield return null;
+            Assert.That(ui.Illustrated.IsOpen,Is.True);
+            FindButton("worlds-tabs-workshop").onClick.Invoke();
+            Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Workshop));
+            FindButton("workshop-tabs-wardrobe").onClick.Invoke();
+            Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Wardrobe));
+            FindButton("wardrobe-tabs-worlds").onClick.Invoke();
+            FindButton("worlds-secret_worlds").onClick.Invoke();
+            Assert.That(ui.Illustrated.Message,Is.EqualTo("Скоро"));
+            Assert.That(SceneManager.GetActiveScene().handle,Is.EqualTo(scene));
+            FindButton("worlds-close").onClick.Invoke();
+            yield return new WaitForSecondsRealtime(.25f);
+            Assert.That(ui.Illustrated.IsOpen,Is.False);
+            Assert.That(player.ControlEnabled,Is.True);
+        }
+
+        [UnityTest]
+        public IEnumerator PurchasesGuardUnconfiguredPricesFundsRapidClicksAndMaximum()
+        {
+            ui.Open(HubScreen.Workshop); yield return null;
+            var button=FindButton("workshop-upgrade_buttons-speed");
+            var service=HubSceneFlowController.Instance.Progression;
+            button.onClick.Invoke(); Assert.That(ui.Illustrated.Message,Does.Contain("не настроена"));
+            HubSceneFlowController.Instance.Configuration.Upgrade(UpgradeKind.Speed).costs=new[]{10,20,35};
+            button.onClick.Invoke(); Assert.That(ui.Illustrated.Message,Does.Contain("Недостаточно"));
+            service.AddSeeds(100);
+            button.onClick.Invoke(); button.onClick.Invoke();
+            Assert.That(service.Level(UpgradeKind.Speed),Is.EqualTo(1)); Assert.That(service.Seeds,Is.EqualTo(90));
+            yield return null; button.onClick.Invoke(); yield return null; button.onClick.Invoke(); yield return null;
+            Assert.That(service.Level(UpgradeKind.Speed),Is.EqualTo(3)); Assert.That(service.Seeds,Is.EqualTo(35));
+            Assert.That(button.interactable,Is.False);
+            button.onClick.Invoke(); Assert.That(service.Seeds,Is.EqualTo(35));
+        }
+
+        [UnityTest]
+        public IEnumerator TutorialCompletionRefreshesWorldUnlockWithoutInventingSceneOrCurrency()
+        {
+            ui.Open(HubScreen.Worlds);
+            var service=HubSceneFlowController.Instance.Progression;
+            service.CompleteTutorial(); yield return null;
+            Assert.That(service.IsWorldUnlocked(HubSceneFlowController.Instance.Configuration.World("forest")),Is.True);
+            FindButton("worlds-world_buttons-deceptive_forest").onClick.Invoke();
+            Assert.That(ui.Illustrated.Message,Does.Contain("сцена пока недоступна"));
+            Assert.That(service.Seeds,Is.Zero);
+        }
+
+        [UnityTest]
+        public IEnumerator HotspotsAreRaycastableAndArtworkScalesUniformly()
+        {
+            foreach(var screen in new[]{HubScreen.Worlds,HubScreen.Workshop,HubScreen.Wardrobe})
+            {
+                ui.Open(screen); yield return null; Canvas.ForceUpdateCanvases();
+                var pages=ui.Illustrated.GetComponentsInChildren<ReferencePixelScale>();
+                Assert.That(pages.Length,Is.EqualTo(1));
+                Assert.That(pages[0].transform.lossyScale.x,Is.EqualTo(pages[0].transform.lossyScale.y).Within(.0001f));
+                var buttons=ui.Illustrated.GetComponentsInChildren<UGUIButton>();
+                foreach(var button in buttons)
+                {
+                    var rect=(RectTransform)button.transform;
+                    var position=RectTransformUtility.WorldToScreenPoint(null,rect.TransformPoint(rect.rect.center));
+                    var data=new PointerEventData(EventSystem.current){position=position};
+                    var hits=new System.Collections.Generic.List<RaycastResult>(); EventSystem.current.RaycastAll(data,hits);
+                    Assert.That(hits.Exists(hit=>hit.gameObject==button.gameObject),Is.True,button.name);
+                }
+            }
+        }
+
+        [UnityTest]
+        public IEnumerator StandaloneSceneStartsWithWorldMapAndClosesToExistingMenu()
+        {
+            yield return SceneManager.LoadSceneAsync(TrappleUIManager.ScenePath);
+            yield return null;
+            var view=Object.FindAnyObjectByType<TrappleUIManager>();
+            Assert.That(view.CurrentScreen,Is.EqualTo(HubScreen.Worlds));
+            Assert.That(Object.FindObjectsByType<EventSystem>().Length,Is.EqualTo(1));
+            view.Close(); yield return null;
+            Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(Trapple.Core.GameManager.MenuScene));
+        }
+
+        [UnityTest]
+        public IEnumerator UnlockedSkinEquipsThroughActualUIAndRestoresFromDisk()
+        {
+            var service=HubSceneFlowController.Instance.Progression;
+            service.GrantCosmetic("forest"); ui.Open(HubScreen.Wardrobe); yield return null;
+            FindButton("wardrobe-skin_rows-forest_traveler").onClick.Invoke();
+            FindButton("Equip selected skin").onClick.Invoke(); yield return null;
+            Assert.That(service.EquippedCosmetic,Is.EqualTo("forest"));
+            var config=HubSceneFlowController.Instance.Configuration;
+            Assert.That(player.GetComponent<SpriteRenderer>().sprite,Is.EqualTo(config.Cosmetic("forest").sprite));
+            Assert.That(service.IsWorldUnlocked(config.World("forest")),Is.False);
+            var restored=new PreviewProgressionService(config,new PreviewSaveService());
+            Assert.That(restored.SelectedCosmetic,Is.EqualTo("forest"));
+            Assert.That(restored.EquippedCosmetic,Is.EqualTo("forest"));
         }
     }
 }

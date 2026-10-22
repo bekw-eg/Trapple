@@ -12,6 +12,7 @@ namespace Trapple.Hub
         public static HubSceneFlowController Instance { get; private set; }
         public IProgressionService Progression { get; private set; }
         public IUpgradeService Upgrades { get; private set; }
+        public HubConfiguration Configuration => configuration;
         private HubConfiguration configuration;
         private PanelSettings panel;
         private VisualTreeAsset returnTree;
@@ -47,7 +48,7 @@ namespace Trapple.Hub
 
         public bool CanLaunch(WorldDefinition world, int level) => world != null && Progression != null &&
             configuration.World(world.id) == world && Progression.IsWorldUnlocked(world) &&
-            level >= 0 && level < world.levelScenes.Length && !string.IsNullOrEmpty(world.levelScenes[level]) &&
+            level >= 0 && world.levelScenes != null && level < world.levelScenes.Length && !string.IsNullOrEmpty(world.levelScenes[level]) &&
             Application.CanStreamedLevelBeLoaded(world.levelScenes[level]);
 
         public bool TryLaunch(WorldDefinition world, int level)
@@ -73,6 +74,7 @@ namespace Trapple.Hub
             ClearReturnUI();
             goal = null;
             completionReported = false;
+            ApplyCosmetic();
             if (!tutorialTrip || scene.path != launchedScene) { tutorialTrip = false; return; }
             goal = FindAnyObjectByType<TutorialGoal>();
             if (panel == null || returnTree == null) return;
@@ -100,6 +102,18 @@ namespace Trapple.Hub
             returnButton = null;
             if (returnDocument != null) Destroy(returnDocument.gameObject);
             returnDocument = null;
+        }
+
+        private void ApplyCosmetic()
+        {
+            var cosmetic = configuration?.Cosmetic(Progression?.EquippedCosmetic);
+            if (cosmetic == null || cosmetic.sprite == null) return;
+            foreach (var player in FindObjectsByType<Trapple.Player.PlayerController>())
+            {
+                var renderer = player.GetComponent<SpriteRenderer>();
+                if (renderer != null) { renderer.sprite = cosmetic.sprite; renderer.color = cosmetic.tint; }
+                player.GetComponent<Trapple.Player.PlayerSpriteAnimator>()?.SetAppearance(cosmetic.sprite);
+            }
         }
 
         private void OnDestroy()

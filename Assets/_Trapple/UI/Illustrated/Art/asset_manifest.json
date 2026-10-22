@@ -1,0 +1,1145 @@
+{
+  "description": "Trapple 3 UI screens segmented into visual crops; composites contain baked text/background",
+  "total_assets": 67,
+  "assets": [
+    {
+      "file": "common/branding/trapple_logo.png",
+      "name": "trapple_logo",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 57,
+        "y": 0,
+        "width": 433,
+        "height": 222
+      },
+      "kind": "composite",
+      "notes": "Вывеска Trapple, листья и цепочки; края с уже существующей прозрачностью",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "common/tabs/workshop_active.png",
+      "name": "workshop_active",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 476,
+        "y": 123,
+        "width": 295,
+        "height": 84
+      },
+      "kind": "approx_masked",
+      "notes": "Зелёная вкладка, текст уже в изображении",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "common/tabs/workshop_inactive.png",
+      "name": "workshop_inactive",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 548,
+        "y": 112,
+        "width": 276,
+        "height": 76
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "common/tabs/worlds_active.png",
+      "name": "worlds_active",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 824,
+        "y": 96,
+        "width": 318,
+        "height": 94
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "common/tabs/worlds_inactive.png",
+      "name": "worlds_inactive",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 833,
+        "y": 128,
+        "width": 284,
+        "height": 82
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "common/tabs/wardrobe_active.png",
+      "name": "wardrobe_active",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 1124,
+        "y": 125,
+        "width": 321,
+        "height": 84
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "common/tabs/wardrobe_inactive.png",
+      "name": "wardrobe_inactive",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 1140,
+        "y": 112,
+        "width": 275,
+        "height": 75
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "common/buttons/close.png",
+      "name": "close",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 1582,
+        "y": 105,
+        "width": 109,
+        "height": 113
+      },
+      "kind": "approx_masked",
+      "notes": "Круглая кнопка X",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "common/buttons/hamburger.png",
+      "name": "hamburger",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 1517,
+        "y": 34,
+        "width": 103,
+        "height": 109
+      },
+      "kind": "approx_masked",
+      "notes": "Круглая кнопка меню",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "common/decor/lantern.png",
+      "name": "lantern",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 1508,
+        "y": 189,
+        "width": 62,
+        "height": 130
+      },
+      "kind": "composite",
+      "notes": "Фон вокруг фонаря не полностью отделён",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "common/decor/left_apples_crates.png",
+      "name": "left_apples_crates",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 2,
+        "y": 588,
+        "width": 360,
+        "height": 312
+      },
+      "kind": "composite",
+      "notes": "Крупный декоративный составной фрагмент; может содержать пиксели исходной панели",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "common/decor/right_tools_barrel.png",
+      "name": "right_tools_barrel",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 1414,
+        "y": 636,
+        "width": 329,
+        "height": 262
+      },
+      "kind": "composite",
+      "notes": "Крупный декоративный составной фрагмент",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "common/decor/bottom_wood_strip.png",
+      "name": "bottom_wood_strip",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 294,
+        "y": 786,
+        "width": 888,
+        "height": 115
+      },
+      "kind": "composite",
+      "notes": "Декор нижней рамы, текстура не бесшовная",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "worlds/titles/worlds_title_and_subtitle.png",
+      "name": "worlds_title_and_subtitle",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 199,
+        "y": 203,
+        "width": 823,
+        "height": 104
+      },
+      "kind": "composite",
+      "notes": "Текст не является TextMeshPro, рекомендуется сверстать отдельно",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/cards/card_apple_meadow.png",
+      "name": "card_apple_meadow",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 195,
+        "y": 313,
+        "width": 340,
+        "height": 380
+      },
+      "kind": "composite",
+      "notes": "Карточка целиком, с текстом, рамкой, иллюстрацией и кнопкой",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/previews/preview_apple_meadow.png",
+      "name": "preview_apple_meadow",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 217,
+        "y": 327,
+        "width": 294,
+        "height": 161
+      },
+      "kind": "approx_masked",
+      "notes": "Превью мира, включает героя и бейджи/замок поверх картинки",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/buttons/select_apple_meadow.png",
+      "name": "select_apple_meadow",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 216,
+        "y": 612,
+        "width": 299,
+        "height": 72
+      },
+      "kind": "approx_masked",
+      "notes": "Кнопка с встроенным текстом и яблоком",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/number_badges/badge_apple_meadow.png",
+      "name": "badge_apple_meadow",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 217,
+        "y": 337,
+        "width": 87,
+        "height": 42
+      },
+      "kind": "approx_masked",
+      "notes": "Цифра мира на деревянном бейдже",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/cards/card_deceptive_forest.png",
+      "name": "card_deceptive_forest",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 543,
+        "y": 313,
+        "width": 343,
+        "height": 380
+      },
+      "kind": "composite",
+      "notes": "Карточка целиком, с текстом, рамкой, иллюстрацией и кнопкой",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/previews/preview_deceptive_forest.png",
+      "name": "preview_deceptive_forest",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 565,
+        "y": 327,
+        "width": 294,
+        "height": 161
+      },
+      "kind": "approx_masked",
+      "notes": "Превью мира, включает героя и бейджи/замок поверх картинки",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/buttons/select_deceptive_forest.png",
+      "name": "select_deceptive_forest",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 564,
+        "y": 612,
+        "width": 300,
+        "height": 72
+      },
+      "kind": "approx_masked",
+      "notes": "Кнопка с встроенным текстом и яблоком",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/number_badges/badge_deceptive_forest.png",
+      "name": "badge_deceptive_forest",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 569,
+        "y": 337,
+        "width": 89,
+        "height": 42
+      },
+      "kind": "approx_masked",
+      "notes": "Цифра мира на деревянном бейдже",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/cards/card_abandoned_factory.png",
+      "name": "card_abandoned_factory",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 892,
+        "y": 313,
+        "width": 341,
+        "height": 380
+      },
+      "kind": "composite",
+      "notes": "Карточка целиком, с текстом, рамкой, иллюстрацией и кнопкой",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/previews/preview_abandoned_factory.png",
+      "name": "preview_abandoned_factory",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 916,
+        "y": 327,
+        "width": 291,
+        "height": 161
+      },
+      "kind": "approx_masked",
+      "notes": "Превью мира, включает героя и бейджи/замок поверх картинки",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/buttons/select_abandoned_factory.png",
+      "name": "select_abandoned_factory",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 918,
+        "y": 612,
+        "width": 298,
+        "height": 72
+      },
+      "kind": "approx_masked",
+      "notes": "Кнопка с встроенным текстом и яблоком",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/number_badges/badge_abandoned_factory.png",
+      "name": "badge_abandoned_factory",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 916,
+        "y": 337,
+        "width": 92,
+        "height": 42
+      },
+      "kind": "approx_masked",
+      "notes": "Цифра мира на деревянном бейдже",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/cards/card_lava_fortress.png",
+      "name": "card_lava_fortress",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 1239,
+        "y": 313,
+        "width": 348,
+        "height": 380
+      },
+      "kind": "composite",
+      "notes": "Карточка целиком, с текстом, рамкой, иллюстрацией и кнопкой",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/previews/preview_lava_fortress.png",
+      "name": "preview_lava_fortress",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 1264,
+        "y": 327,
+        "width": 302,
+        "height": 161
+      },
+      "kind": "approx_masked",
+      "notes": "Превью мира, включает героя и бейджи/замок поверх картинки",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/buttons/select_lava_fortress.png",
+      "name": "select_lava_fortress",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 1266,
+        "y": 612,
+        "width": 301,
+        "height": 72
+      },
+      "kind": "approx_masked",
+      "notes": "Кнопка с встроенным текстом и яблоком",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/number_badges/badge_lava_fortress.png",
+      "name": "badge_lava_fortress",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 1273,
+        "y": 337,
+        "width": 98,
+        "height": 42
+      },
+      "kind": "approx_masked",
+      "notes": "Цифра мира на деревянном бейдже",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/icons/star.png",
+      "name": "star",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 225,
+        "y": 531,
+        "width": 36,
+        "height": 39
+      },
+      "kind": "composite",
+      "notes": "Звезда с небольшой окрестностью",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/icons/locked_world.png",
+      "name": "locked_world",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 803,
+        "y": 346,
+        "width": 47,
+        "height": 58
+      },
+      "kind": "composite",
+      "notes": "Замок содержит фон затемнённого превью",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/progress/three_slots.png",
+      "name": "three_slots",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 387,
+        "y": 525,
+        "width": 115,
+        "height": 46
+      },
+      "kind": "composite",
+      "notes": "Затемнённые круги прогресса (вместе)",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/secret/secret_worlds_banner.png",
+      "name": "secret_worlds_banner",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 309,
+        "y": 699,
+        "width": 1175,
+        "height": 84
+      },
+      "kind": "approx_masked",
+      "notes": "Широкий баннер со встроенными словами и кнопкой",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "worlds/secret/learn_more_button.png",
+      "name": "learn_more_button",
+      "screen": "worlds",
+      "source_rect": {
+        "x": 1211,
+        "y": 708,
+        "width": 253,
+        "height": 64
+      },
+      "kind": "approx_masked",
+      "notes": "Кнопка с текстом",
+      "source_screen_size": {
+        "width": 1742,
+        "height": 903
+      }
+    },
+    {
+      "file": "workshop/titles/workshop_title_and_subtitle.png",
+      "name": "workshop_title_and_subtitle",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 242,
+        "y": 226,
+        "width": 692,
+        "height": 93
+      },
+      "kind": "composite",
+      "notes": "Надпись Мастерская со встроенной графикой",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/currency/seeds_counter.png",
+      "name": "seeds_counter",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 1258,
+        "y": 43,
+        "width": 258,
+        "height": 85
+      },
+      "kind": "approx_masked",
+      "notes": "80 семечек: значение необходимо в дальнейшем заменить живым текстом",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/cards/upgrade_speed.png",
+      "name": "upgrade_speed",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 260,
+        "y": 330,
+        "width": 384,
+        "height": 383
+      },
+      "kind": "composite",
+      "notes": "Составная карточка: характеристики, текст и кнопка уже нарисованы",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/icons/speed_icon.png",
+      "name": "speed_icon",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 295,
+        "y": 353,
+        "width": 125,
+        "height": 87
+      },
+      "kind": "approx_masked",
+      "notes": "Иконка в цветной квадратной плашке",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/buttons/upgrade_button_speed.png",
+      "name": "upgrade_button_speed",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 282,
+        "y": 625,
+        "width": 342,
+        "height": 76
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/level_indicators/speed_level_0of3.png",
+      "name": "speed_level_0of3",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 474,
+        "y": 365,
+        "width": 117,
+        "height": 65
+      },
+      "kind": "composite",
+      "notes": "Три кружочка и уровень 0/3",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/cards/upgrade_agility.png",
+      "name": "upgrade_agility",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 657,
+        "y": 330,
+        "width": 373,
+        "height": 382
+      },
+      "kind": "composite",
+      "notes": "Составная карточка: характеристики, текст и кнопка уже нарисованы",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/icons/agility_icon.png",
+      "name": "agility_icon",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 695,
+        "y": 353,
+        "width": 100,
+        "height": 87
+      },
+      "kind": "approx_masked",
+      "notes": "Иконка в цветной квадратной плашке",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/buttons/upgrade_button_agility.png",
+      "name": "upgrade_button_agility",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 681,
+        "y": 625,
+        "width": 337,
+        "height": 76
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/level_indicators/agility_level_0of3.png",
+      "name": "agility_level_0of3",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 859,
+        "y": 365,
+        "width": 121,
+        "height": 65
+      },
+      "kind": "composite",
+      "notes": "Три кружочка и уровень 0/3",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/cards/upgrade_jump.png",
+      "name": "upgrade_jump",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 1042,
+        "y": 330,
+        "width": 376,
+        "height": 383
+      },
+      "kind": "composite",
+      "notes": "Составная карточка: характеристики, текст и кнопка уже нарисованы",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/icons/jump_icon.png",
+      "name": "jump_icon",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 1078,
+        "y": 353,
+        "width": 104,
+        "height": 87
+      },
+      "kind": "approx_masked",
+      "notes": "Иконка в цветной квадратной плашке",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/buttons/upgrade_button_jump.png",
+      "name": "upgrade_button_jump",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 1068,
+        "y": 625,
+        "width": 337,
+        "height": 76
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/level_indicators/jump_level_0of3.png",
+      "name": "jump_level_0of3",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 1249,
+        "y": 365,
+        "width": 116,
+        "height": 65
+      },
+      "kind": "composite",
+      "notes": "Три кружочка и уровень 0/3",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "workshop/hints/workshop_hint.png",
+      "name": "workshop_hint",
+      "screen": "workshop",
+      "source_rect": {
+        "x": 382,
+        "y": 722,
+        "width": 886,
+        "height": 65
+      },
+      "kind": "approx_masked",
+      "notes": "Строка подсказки",
+      "source_screen_size": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "wardrobe/titles/wardrobe_title_and_subtitle.png",
+      "name": "wardrobe_title_and_subtitle",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 217,
+        "y": 229,
+        "width": 667,
+        "height": 94
+      },
+      "kind": "composite",
+      "notes": "Заголовок и подзаголовок",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/preview/character_preview_card.png",
+      "name": "character_preview_card",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 206,
+        "y": 325,
+        "width": 624,
+        "height": 453
+      },
+      "kind": "composite",
+      "notes": "Карточка превью с персонажем, текстом и декоративными рисунками",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/preview/large_character_with_background.png",
+      "name": "large_character_with_background",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 388,
+        "y": 396,
+        "width": 247,
+        "height": 230
+      },
+      "kind": "composite",
+      "notes": "Центральный яблочный персонаж с фоном — композит",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/skin_rows/skin_first_apple.png",
+      "name": "skin_first_apple",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 847,
+        "y": 330,
+        "width": 724,
+        "height": 96
+      },
+      "kind": "approx_masked",
+      "notes": "Готовая строка, состояние уже запечено",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/skin_icons/icon_first_apple.png",
+      "name": "icon_first_apple",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 876,
+        "y": 342,
+        "width": 92,
+        "height": 77
+      },
+      "kind": "composite",
+      "notes": "Маленький персонаж на бежевом фоне",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/status_badges/status_first_apple.png",
+      "name": "status_first_apple",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 1405,
+        "y": 347,
+        "width": 146,
+        "height": 63
+      },
+      "kind": "approx_masked",
+      "notes": "Надето или закрыто",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/skin_rows/skin_forest_traveler.png",
+      "name": "skin_forest_traveler",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 846,
+        "y": 427,
+        "width": 724,
+        "height": 89
+      },
+      "kind": "approx_masked",
+      "notes": "Готовая строка, состояние уже запечено",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/skin_icons/icon_forest_traveler.png",
+      "name": "icon_forest_traveler",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 876,
+        "y": 435,
+        "width": 93,
+        "height": 77
+      },
+      "kind": "composite",
+      "notes": "Маленький персонаж на бежевом фоне",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/status_badges/status_forest_traveler.png",
+      "name": "status_forest_traveler",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 1395,
+        "y": 438,
+        "width": 158,
+        "height": 69
+      },
+      "kind": "approx_masked",
+      "notes": "Надето или закрыто",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/skin_rows/skin_little_miner.png",
+      "name": "skin_little_miner",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 846,
+        "y": 517,
+        "width": 724,
+        "height": 91
+      },
+      "kind": "approx_masked",
+      "notes": "Готовая строка, состояние уже запечено",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/skin_icons/icon_little_miner.png",
+      "name": "icon_little_miner",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 876,
+        "y": 528,
+        "width": 93,
+        "height": 75
+      },
+      "kind": "composite",
+      "notes": "Маленький персонаж на бежевом фоне",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/status_badges/status_little_miner.png",
+      "name": "status_little_miner",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 1395,
+        "y": 531,
+        "width": 158,
+        "height": 69
+      },
+      "kind": "approx_masked",
+      "notes": "Надето или закрыто",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/skin_rows/skin_volcano_heart.png",
+      "name": "skin_volcano_heart",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 846,
+        "y": 607,
+        "width": 725,
+        "height": 96
+      },
+      "kind": "approx_masked",
+      "notes": "Готовая строка, состояние уже запечено",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/skin_icons/icon_volcano_heart.png",
+      "name": "icon_volcano_heart",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 876,
+        "y": 617,
+        "width": 95,
+        "height": 81
+      },
+      "kind": "composite",
+      "notes": "Маленький персонаж на бежевом фоне",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/status_badges/status_volcano_heart.png",
+      "name": "status_volcano_heart",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 1395,
+        "y": 621,
+        "width": 158,
+        "height": 68
+      },
+      "kind": "approx_masked",
+      "notes": "Надето или закрыто",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "wardrobe/hints/wardrobe_hint.png",
+      "name": "wardrobe_hint",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 846,
+        "y": 709,
+        "width": 724,
+        "height": 64
+      },
+      "kind": "approx_masked",
+      "notes": "",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    },
+    {
+      "file": "common/character/apple_hero_transparent_approx.png",
+      "name": "apple_hero_transparent_approx",
+      "screen": "wardrobe",
+      "source_rect": {
+        "x": 396,
+        "y": 402,
+        "width": 232,
+        "height": 217
+      },
+      "kind": "approx_masked_character",
+      "notes": "Автоматическая маска персонажа, края желательно проверить перед финальным импортом",
+      "source_screen_size": {
+        "width": 1743,
+        "height": 902
+      }
+    }
+  ]
+}

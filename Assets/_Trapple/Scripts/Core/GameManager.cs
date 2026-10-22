@@ -50,7 +50,8 @@ namespace Trapple.Core
         private void Update()
         {
             // The hub owns modal input; its scenery continues running behind UI Toolkit panels.
-            if (SceneManager.GetActiveScene().path == Trapple.Hub.HubSceneFlowController.HubScenePath) return;
+            if (SceneManager.GetActiveScene().path == Trapple.Hub.HubSceneFlowController.HubScenePath ||
+                SceneManager.GetActiveScene().path == Trapple.Hub.Illustrated.TrappleUIManager.ScenePath) return;
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
             if (State == GameState.Playing) Pause();
             else if (State == GameState.Paused) Resume();

@@ -1,5 +1,5 @@
 {
   "name": "Trapple.PlayModeTests",
-  "references": ["Trapple.Runtime"],
+  "references": ["Trapple.Runtime", "Unity.ugui", "Unity.TextMeshPro"],
   "optionalUnityReferences": ["TestAssemblies"]
 }

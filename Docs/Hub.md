@@ -5,7 +5,9 @@ The main menu's Play button also opens Hub when it is included in the active bui
 The existing boss-only build retains its Tutorial entry.
 
 Move with A/D or arrows, jump with Space, approach a station and press E.
-Escape closes the current window. Tab / Shift+Tab and Enter navigate UI controls.
+Escape opens settings during gameplay and closes an open window. Space only
+jumps during gameplay; the HUD never retains keyboard focus after a modal closes.
+Tab / Shift+Tab and Enter navigate controls inside open windows.
 Opening a window disables the existing `PlayerController` through its public API;
 the world keeps animating at normal time. A short closing transition restores the
 previous control state, including when a window is reopened during that transition.
@@ -23,11 +25,19 @@ renderer; no URP or new input system is required.
 designed for 1920×1080, 1600×900 and 1366×768. The reusable stations and player
 variant are saved in `Assets/_Trapple/Prefabs/Hub/`.
 
-The four pixel-art apple characters are transparent adaptations of the supplied
-hero sheet. They are used in the Hub and wardrobe. The original reference sheets
-remain in `Assets/_Trapple/Art/Hub/Source/`. World mechanic illustrations are
-references only; no pickup, throw or combat abilities were added. Existing
-Tutorial and boss player prefabs are unchanged.
+The base Appi uses 20 frames sliced directly from the supplied transparent
+animation PNG: 4 idle, 6 walking right, 6 walking left and 4 jump/landing poses.
+The image pixels are unchanged. `PlayerSpriteAnimator` drives presentation from
+existing velocity and ground contact; the original PlayerController and collider
+settings are unchanged. The shared player prefab supplies these visuals to Hub,
+Tutorial and the boss arena. Its three world-linked cosmetic previews remain
+available in the wardrobe, using the earlier supplied designs.
+
+The workshop, wardrobe and portals now use the supplied pixel-art designs with
+their dark background removed. Forest/Factory/Lava card illustrations are native
+sprite rectangles from the supplied reference sheet. All use Point filtering.
+Original references remain in `Assets/_Trapple/Art/Hub/Source/`. No pickup, throw,
+combat or dodge ability was added; the DODGE row remains reference artwork only.
 
 ## Preview data and integration boundaries
 
@@ -99,7 +109,8 @@ uses the same interaction methods and UI Toolkit navigation-submit events as the
 runtime UI; a human keyboard/hover feel check is still useful.
 
 Current limitations: no audio content, no production economy/cloud save, no
-movement modifier integration, no finished additional worlds, and the supplied
-character's idle artwork is used rather than a complete run/jump animation set.
+movement modifier integration, no finished additional worlds and no dodge ability.
+
+See `Docs/PixelUpdate.md` for the 2026-10-22 sprite/input update and verification.
 
 See `Docs/HubArtSources.md` for artwork provenance and generation prompts.

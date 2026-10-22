@@ -15,7 +15,7 @@ namespace Trapple.Hub
         {
             RefreshTarget();
             if (ui == null) return;
-            if (Input.GetKeyDown(KeyCode.Escape)) ui.Close();
+            if (Input.GetKeyDown(KeyCode.Escape)) ui.HandleEscape();
             else if (Input.GetKeyDown(KeyCode.E)) TryInteract();
         }
 

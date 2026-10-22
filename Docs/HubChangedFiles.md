@@ -1,6 +1,8 @@
 # Changed files
 
-Complete inventory for `feature/hub-ui-screens`, including Unity metadata.
+Historical inventory for the initial `feature/hub-ui-screens` commit, including
+Unity metadata. The later pixel-art/input changes are listed in
+[PixelUpdateFiles.md](PixelUpdateFiles.md).
 
 The scene/prefabs/configuration were serialized by Unity Editor. Existing Tutorial,
 boss scene, original player prefab and PlayerController are unchanged.

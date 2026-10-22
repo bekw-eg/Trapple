@@ -48,7 +48,7 @@ namespace Trapple.Tests
             Assert.That(player,Is.Not.Null);
             Assert.That(player.ControlEnabled,Is.True);
             Assert.That(player.IsGrounded,Is.True);
-            Assert.That(player.GetComponent<SpriteRenderer>().sprite.name,Is.EqualTo("Classic"));
+            Assert.That(player.GetComponent<SpriteRenderer>().sprite.name,Does.StartWith("Appi"));
             player.GetComponent<Rigidbody2D>().position=new Vector2(7,.6f);
             float before=Camera.main.transform.position.x;
             yield return new WaitForSeconds(.8f);
@@ -142,6 +142,65 @@ namespace Trapple.Tests
             Assert.That(ui.Root.Q<Label>("cosmetic-name").text,Is.EqualTo("Сердце вулкана"));
             Assert.That(ui.Root.Q<Button>("equip").enabledSelf,Is.False);
             Assert.That(HubSceneFlowController.Instance.Progression.EquippedCosmetic,Is.EqualTo("classic"));
+        }
+
+        [UnityTest]
+        public IEnumerator EscapeOpensSettingsAndGameplaySpaceCannotSubmitHud()
+        {
+            Assert.That(ui.IsOpen,Is.False);
+            var settings=ui.Root.Q<Button>("settings");
+            Assert.That(settings.focusable,Is.False);
+            using(var submit=NavigationSubmitEvent.GetPooled()) settings.SendEvent(submit);
+            yield return null;
+            Assert.That(ui.IsOpen,Is.False);
+            ui.HandleEscape();
+            Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Settings));
+            Assert.That(player.ControlEnabled,Is.False);
+            ui.HandleEscape();
+            yield return new WaitForSecondsRealtime(.25f);
+            Assert.That(player.ControlEnabled,Is.True);
+            Assert.That(ui.Root.panel.focusController.focusedElement,Is.Null);
+            using(var submit=NavigationSubmitEvent.GetPooled()) settings.SendEvent(submit);
+            yield return null;
+            Assert.That(ui.IsOpen,Is.False);
+            ui.Open(HubScreen.Workshop);
+            ui.HandleEscape();
+            yield return new WaitForSecondsRealtime(.25f);
+            Assert.That(ui.IsOpen,Is.False);
+            Assert.That(player.ControlEnabled,Is.True);
+        }
+
+        [UnityTest]
+        public IEnumerator SuppliedFramesAnimateWalkingJumpingAndModalIdle()
+        {
+            var animator=player.GetComponent<PlayerSpriteAnimator>();
+            Assert.That(animator,Is.Not.Null);
+            Assert.That(animator.Animations.idle.Length,Is.EqualTo(4));
+            Assert.That(animator.Animations.walkRight.Length,Is.EqualTo(6));
+            Assert.That(animator.Animations.walkLeft.Length,Is.EqualTo(6));
+            Assert.That(animator.Animations.jump.Length,Is.EqualTo(4));
+            Assert.That(animator.Animations.idle[0].texture.filterMode,Is.EqualTo(FilterMode.Point));
+            var body=player.GetComponent<Rigidbody2D>();
+            player.enabled=false; // Drive real velocity, leaving the existing movement code untouched.
+            body.linearVelocity=new Vector2(3,0);
+            yield return new WaitForSeconds(.12f);
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.WalkRight));
+            int first=animator.FrameIndex;
+            yield return new WaitForSeconds(.2f);
+            Assert.That(animator.FrameIndex,Is.Not.EqualTo(first));
+            body.linearVelocity=new Vector2(-3,0);
+            yield return new WaitForSeconds(.1f);
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.WalkLeft));
+            Assert.That(player.GetComponent<SpriteRenderer>().flipX,Is.False);
+            body.linearVelocity=new Vector2(0,10);
+            yield return new WaitForSeconds(.12f);
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.Rising));
+            yield return new WaitForSeconds(.3f);
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.Falling));
+            yield return new WaitForSeconds(.6f);
+            ui.HandleEscape();
+            yield return new WaitForSeconds(.2f);
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.Idle));
         }
 
         [UnityTest]

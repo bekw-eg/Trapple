@@ -21,6 +21,8 @@ namespace Trapple.Editor
         private const string Root = "Assets/_Trapple/";
         private const string Art = HubArtBuilder.Root;
         private static Sprite[] props, heroes, worldArt;
+        private static PlayerAnimationSet playerAnimations;
+        private const string PixelWorldSource = Art+"Source/PixelHubReference.png";
 
         [MenuItem("Trapple/Hub/Rebuild Hub")]
         public static void BuildHub()
@@ -29,17 +31,19 @@ namespace Trapple.Editor
             foreach (string folder in new[] { "Scenes/Hub", "Art/Hub", "Prefabs/Hub", "UI/Hub", "Settings" })
                 Directory.CreateDirectory(Root+folder);
             AssetDatabase.Refresh();
-            if (!File.Exists(Art+"HeroAtlas.png") || !File.Exists(Art+"HubProps.png") || !File.Exists(Art+"WorldAtlas.png"))
+            if (!File.Exists(Art+"HeroAtlas.png") || !File.Exists(Art+"HubProps.png") ||
+                !File.Exists(PixelWorldSource) || !File.Exists(PixelPlayerAssets.SourcePath))
                 throw new InvalidOperationException("Hub source artwork is missing.");
             HubArtBuilder.BuildSupportArt();
             AssetDatabase.Refresh();
             foreach (string file in Directory.GetFiles(Art,"*.png")) HubArtBuilder.Import(file.Replace('\\','/'));
             HubArtBuilder.ImportProps();
             ImportHeroes();
+            playerAnimations = PixelPlayerAssets.Import();
             ImportWorlds();
             props=AssetDatabase.LoadAllAssetsAtPath(Art+"HubProps.png").OfType<Sprite>().ToArray();
             heroes=AssetDatabase.LoadAllAssetsAtPath(Art+"HeroAtlas.png").OfType<Sprite>().ToArray();
-            worldArt=AssetDatabase.LoadAllAssetsAtPath(Art+"WorldAtlas.png").OfType<Sprite>().ToArray();
+            worldArt=AssetDatabase.LoadAllAssetsAtPath(PixelWorldSource).OfType<Sprite>().ToArray();
             HubConfiguration config=CreateConfiguration();
             PanelSettings panel=CreatePanel();
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
@@ -167,17 +171,19 @@ namespace Trapple.Editor
 
         private static void ImportWorlds()
         {
-            string path=Art+"WorldAtlas.png";
+            string path=PixelWorldSource;
+            HubArtBuilder.Import(path);
             var importer=(TextureImporter)AssetImporter.GetAtPath(path);
             var source=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
-            int width=source.width/3;
+            importer.filterMode=FilterMode.Point;
+            importer.textureCompression=TextureImporterCompression.Uncompressed;
             importer.spriteImportMode=SpriteImportMode.Multiple;
             importer.SaveAndReimport();
 #pragma warning disable 618
             importer.spritesheet=new[] {
-                new SpriteMetaData { name="Forest",rect=new Rect(0,0,width,source.height),pivot=new Vector2(.5f,.5f),alignment=0 },
-                new SpriteMetaData { name="Factory",rect=new Rect(width,0,width,source.height),pivot=new Vector2(.5f,.5f),alignment=0 },
-                new SpriteMetaData { name="Lava",rect=new Rect(width*2,0,source.width-width*2,source.height),pivot=new Vector2(.5f,.5f),alignment=0 }
+                new SpriteMetaData { name="Forest",rect=new Rect(10,source.height-923,560,413),pivot=new Vector2(.5f,.5f),alignment=0 },
+                new SpriteMetaData { name="Factory",rect=new Rect(578,source.height-923,517,413),pivot=new Vector2(.5f,.5f),alignment=0 },
+                new SpriteMetaData { name="Lava",rect=new Rect(1102,source.height-923,561,413),pivot=new Vector2(.5f,.5f),alignment=0 }
             };
 #pragma warning restore 618
             EditorUtility.SetDirty(importer);
@@ -188,7 +194,7 @@ namespace Trapple.Editor
         {
             var config=AssetDatabase.LoadAssetAtPath<HubConfiguration>(ConfigPath);
             if(config==null) { config=ScriptableObject.CreateInstance<HubConfiguration>(); AssetDatabase.CreateAsset(config,ConfigPath); }
-            config.heroSprite=Hero("Classic");
+            config.heroSprite=playerAnimations.idle[0];
             config.upgrades=new[] {
                 new UpgradeDefinition { kind=UpgradeKind.Speed,title="Скорость",description="Чуть быстрее к новым открытиям.",icon="»",percentPerLevel=2 },
                 new UpgradeDefinition { kind=UpgradeKind.Agility,title="Ловкость",description="Плавнее разгон. Точнее остановка.",icon="≋",percentPerLevel=3 },
@@ -202,7 +208,7 @@ namespace Trapple.Editor
                 new WorldDefinition { id="lava",title="Лавовая крепость",subtitle="НА КРАЮ ОГНЯ",description="Лава, опасные мосты · бросок магматических булыжников",boss="Огненный голем",illustration=worldArt.First(sprite=>sprite.name=="Lava") }
             };
             config.cosmetics=new[] {
-                new CosmeticDefinition { id="classic",title="Первое яблоко",description="Яблочная поляна · классический образ",worldId="meadow",initiallyUnlocked=true,sprite=Hero("Classic") },
+                new CosmeticDefinition { id="classic",title="Первое яблоко",description="Яблочная поляна · классический образ",worldId="meadow",initiallyUnlocked=true,sprite=playerAnimations.idle[0] },
                 new CosmeticDefinition { id="forest",title="Лесной странник",description="Обманчивый лес · листва и ветви",worldId="forest",sprite=Hero("Forest") },
                 new CosmeticDefinition { id="factory",title="Маленький механик",description="Заброшенная фабрика · металл и искры",worldId="factory",sprite=Hero("Factory") },
                 new CosmeticDefinition { id="lava",title="Сердце вулкана",description="Лавовая крепость · огненные трещины",worldId="lava",sprite=Hero("Lava") }

@@ -1,5 +1,8 @@
 # Hub validation report
 
+The current pixel-art/input update and refreshed screenshots are documented in
+[PixelUpdate.md](PixelUpdate.md). This section records the original 2026-10-16 run.
+
 Validated on **2026-10-16** with **Unity 6000.6.0f1** on Windows.
 Base: `main` (`31da8cf`), which already includes the merged player/traps and boss
 branches. Feature branch: `feature/hub-ui-screens`.

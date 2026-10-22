@@ -22,13 +22,47 @@ namespace Trapple.Hub
             if(Application.isEditor || !Debug.isDebugBuild) return;
             string[] args=Environment.GetCommandLineArgs();
             int index=Array.IndexOf(args,"-hub-capture");
+            bool keyboardCheck=index<0;
+            if(keyboardCheck) index=Array.IndexOf(args,"-hub-keyboard-check");
             if(index<0 || index+1>=args.Length) return;
             Application.runInBackground=true;
             Application.SetStackTraceLogType(LogType.Log,StackTraceLogType.None);
             var runner=new GameObject("Hub capture (development only)").AddComponent<HubCaptureRunner>();
             DontDestroyOnLoad(runner.gameObject);
             runner.output=Path.GetFullPath(args[index+1]);
-            runner.StartCoroutine(runner.Run());
+            runner.StartCoroutine(keyboardCheck ? runner.CheckKeyboard() : runner.Run());
+        }
+
+        private IEnumerator CheckKeyboard()
+        {
+            Directory.CreateDirectory(output);
+            hadSave=PlayerPrefs.HasKey(PreviewSaveService.Key);
+            previousSave=PlayerPrefs.GetString(PreviewSaveService.Key,"");
+            Application.logMessageReceived+=OnLog;
+            SceneManager.LoadScene(HubSceneFlowController.HubScenePath);
+            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSeconds(.3f);
+            var ui=FindAnyObjectByType<HubUIController>();
+            var player=FindAnyObjectByType<PlayerController>();
+            var keys=new[] {KeyCode.Space,KeyCode.Escape,KeyCode.Escape,KeyCode.Space};
+            for(int i=0;i<keys.Length;i++)
+            {
+                Debug.Log("HUB KEYBOARD WAIT: "+keys[i]);
+                float deadline=Time.unscaledTime+180;
+                while(!Input.GetKeyDown(keys[i]) && Time.unscaledTime<deadline) yield return null;
+                Check(Time.unscaledTime<deadline,"native key received: "+keys[i]);
+                yield return new WaitForSecondsRealtime(.25f);
+                if(keys[i]==KeyCode.Space)
+                    Check(!ui.IsOpen && player.ControlEnabled && player.GetComponent<Rigidbody2D>().linearVelocity.y>0,
+                        "native Space jumps without opening settings (step "+i+")");
+                else if(i==1) Check(ui.CurrentScreen==HubScreen.Settings && !player.ControlEnabled,"native Esc opens settings");
+                else Check(!ui.IsOpen && player.ControlEnabled,"native Esc closes settings and restores movement");
+                yield return Capture("keyboard-step-"+i);
+                yield return new WaitForSecondsRealtime(.7f);
+            }
+            File.WriteAllText(Path.Combine(output,"result.txt"),failed ? "FAILED" : "PASS — native Space, Esc, Esc, Space");
+            RestoreSave();
+            Debug.Log("HUB KEYBOARD COMPLETE");
         }
 
         private IEnumerator Run()

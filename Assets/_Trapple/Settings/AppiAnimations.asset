@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afa289f5409edc4a82b81a475ef66da, type: 3}
+  m_Name: AppiAnimations
+  m_EditorClassIdentifier: Trapple.Runtime::Trapple.Player.PlayerAnimationSet
+  idle:
+  - {fileID: 7924236665958873082, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: -1293602422893709591, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 3144188424517709495, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: -4814714057582256237, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  walkRight:
+  - {fileID: -5051180211982083600, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 7120167045562989924, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 9052804881068552416, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 7125321561511100658, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 5128251343283305817, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: -4159709840317347556, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  walkLeft:
+  - {fileID: -9066738363767298734, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 3064608012586687944, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: -7521183709872674870, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 7442003070040793057, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 8659971836233106144, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 4540634705757036402, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  jump:
+  - {fileID: 5411166636050944347, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: -6548671206593014923, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: -6548087124741380255, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 1675270201891432147, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  idleFramesPerSecond: 4
+  walkFramesPerSecond: 10
+  takeoffDuration: 0.08
+  landingDuration: 0.12

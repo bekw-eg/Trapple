@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1615949844881760732}
   - component: {fileID: 1376057039731768950}
   - component: {fileID: 4467223700117801643}
+  - component: {fileID: 7827656794626167986}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -85,8 +86,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 412cab6fbbda2ff4db14c159b873ac24, type: 3}
-  m_Color: {r: 0.35, g: 0.8, b: 0.95, a: 1}
+  m_Sprite: {fileID: 7924236665958873082, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -195,3 +196,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Player.PlayerDeath
   restartDelay: 0.65
   fallDeathY: -8
+--- !u!114 &7827656794626167986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416424441705607619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20046bc3c432654bb951c63ffe418b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Trapple.Runtime::Trapple.Player.PlayerSpriteAnimator
+  animations: {fileID: 11400000, guid: 791b1c4ff43d9bb4fa65ca0438b00225, type: 2}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  movingThreshold: 0.15

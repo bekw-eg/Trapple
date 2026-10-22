@@ -1,5 +1,27 @@
 # Hub artwork provenance
 
+## Pixel update — 2026-10-22
+
+- `Source/AppiAnimation.png` is an unchanged copy of the supplied transparent
+  **Appi Apple Sprite Animation Sheet.png**. Unity slices 20 idle/walk/jump frames
+  with shared scale and foot pivots; this sheet was not redrawn or generated.
+- `Source/AppiMotionReference.png` preserves the supplied yellow-background
+  **Appi Pixel Animation Sprite Sheet.png** as reference. The transparent version
+  was usable, so this fallback was not used for runtime animation.
+- `Source/PixelHubReference.png` preserves **Retro Fantasy Game Asset Sheet(1).png**.
+  Its three lower illustrations are used directly as native sprite rectangles.
+- `HubProps.png` now contains transparent extractions of the three upper pixel
+  objects, made with the built-in `image_gen` tool. Designs/style are preserved;
+  generated background extraction can differ in individual edge pixels.
+- The earlier painterly `WorldAtlas.png` was replaced by the supplied pixel world
+  illustrations and removed. The original meadow background and world skins remain.
+
+Final background-extraction prompt (built-in tool, transparent output):
+
+> Precise background extraction of the ATTACHED PROVIDED PIXEL ART. Extract ONLY the THREE objects in the TOP ROW: complete workshop including chimney smoke and hanging gear sign, freestanding wardrobe, stone green portal. Remove the dark charcoal background, and remove the three bottom scenery illustrations completely. Output exactly these three complete isolated sprites in one horizontal row on a genuinely transparent background, with clear transparent gaps between them. Preserve the user's original PIXEL ART style, every object's design, colors and crisp square pixel outlines as faithfully as possible. No repainting into smooth illustration, no new details, no smoothing, no characters, no text, no shadows beyond the objects. Same order workshop / wardrobe / portal, all complete and uncropped. This is extraction for native Unity 2D sprites, not a new interpretation.
+
+The remaining sections record the initial hub artwork before this update.
+
 All assets referenced by the Hub are stored in the repository. No external game
 assets or third-party asset packs were downloaded.
 

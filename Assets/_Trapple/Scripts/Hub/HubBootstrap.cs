@@ -38,6 +38,8 @@ namespace Trapple.Hub
             {
                 hero.color = cosmetic.tint;
                 if (cosmetic.sprite != null) hero.sprite = cosmetic.sprite;
+                var animator = player.GetComponent<PlayerSpriteAnimator>();
+                if (animator != null) animator.SetAppearance(cosmetic.sprite);
             }
         }
 

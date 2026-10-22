@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 5af483d5a0cd9c64aac17a6edf2a471f
+guid: abc7e5b6ca397384eb19fd52a5714b38
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4411131267708677363
-    second: WorldAtlas_0
-  - first:
-      213: 6668495560467494945
-    second: Forest
-  - first:
-      213: 6436691649201650266
-    second: Factory
-  - first:
-      213: 7775381558289294699
-    second: Lava
+      213: -5219443928678453018
+    second: AppiMotionReference_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -83,10 +74,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,67 +102,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Forest
+      name: AppiMotionReference_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 724
-        height: 724
+        width: 1448
+        height: 1086
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1283feb81614b8c50800000000000000
-      internalID: 6668495560467494945
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Factory
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 0
-        width: 724
-        height: 724
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a5a336fa3f8b35950800000000000000
-      internalID: 6436691649201650266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava
-      rect:
-        serializedVersion: 2
-        x: 1448
-        y: 0
-        width: 724
-        height: 724
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b65e4fed454b7eb60800000000000000
-      internalID: 7775381558289294699
+      spriteID: 6e03d02966fc097b0800000000000000
+      internalID: -5219443928678453018
       vertices: []
       indices: 
       edges: []
@@ -190,10 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Factory: 6436691649201650266
-      Forest: 6668495560467494945
-      Lava: 7775381558289294699
-      WorldAtlas_0: -4411131267708677363
+      AppiMotionReference_0: -5219443928678453018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

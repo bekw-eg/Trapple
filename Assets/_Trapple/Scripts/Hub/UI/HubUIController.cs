@@ -49,7 +49,11 @@ namespace Trapple.Hub
             modal.style.display = DisplayStyle.None;
             modal.RemoveFromClassList("visible");
             prompt.RemoveFromClassList("visible");
-            settings.focusable = true;
+            // Esc is the keyboard shortcut. A gameplay jump must never submit this HUD button.
+            settings.focusable = false;
+            root.panel?.focusController?.focusedElement?.Blur();
+            root.RegisterCallback<NavigationSubmitEvent>(BlockGameplaySubmit, TrickleDown.TrickleDown);
+            root.RegisterCallback<KeyDownEvent>(BlockGameplaySpace, TrickleDown.TrickleDown);
             workshopTab = root.Q<Button>("tab-workshop"); worldsTab = root.Q<Button>("tab-worlds"); wardrobeTab = root.Q<Button>("tab-wardrobe");
             upgrades = new UpgradePanelController(content.Q("workshop"), configuration, progression, upgradeService, Notify);
             worlds = new WorldSelectionController(content.Q("worlds"), configuration, progression, flow, Notify);
@@ -71,6 +75,21 @@ namespace Trapple.Hub
         }
 
         private void OpenSettings() => Open(HubScreen.Settings);
+        public void HandleEscape()
+        {
+            if (IsOpen) Close();
+            else Open(HubScreen.Settings);
+        }
+
+        private void BlockGameplaySubmit(NavigationSubmitEvent evt)
+        {
+            if (!IsOpen) evt.StopImmediatePropagation();
+        }
+
+        private void BlockGameplaySpace(KeyDownEvent evt)
+        {
+            if (!IsOpen && evt.keyCode == KeyCode.Space) evt.StopImmediatePropagation();
+        }
         private void OnEnable()
         {
             if (configuration != null && !initialized) Initialize(configuration, progression, upgradeService, flow, player);
@@ -126,8 +145,7 @@ namespace Trapple.Hub
                 if (IsOpen) return;
                 modal.style.display = DisplayStyle.None;
                 RestoreControl();
-                settings.focusable = true;
-                settings.Focus();
+                root.panel?.focusController?.focusedElement?.Blur();
             }).StartingIn(180);
         }
 
@@ -171,6 +189,8 @@ namespace Trapple.Hub
             if (IsOpen || (player != null && !player.ControlEnabled)) RestoreControl();
             CurrentScreen = HubScreen.None;
             close.clicked -= Close; settings.clicked -= OpenSettings;
+            root.UnregisterCallback<NavigationSubmitEvent>(BlockGameplaySubmit, TrickleDown.TrickleDown);
+            root.UnregisterCallback<KeyDownEvent>(BlockGameplaySpace, TrickleDown.TrickleDown);
             workshopTab.clicked -= OpenWorkshop; worldsTab.clicked -= OpenWorlds; wardrobeTab.clicked -= OpenWardrobe;
             menu.clicked -= ReturnToMenu; volume.UnregisterValueChangedCallback(ChangeVolume);
             window.UnregisterCallback<NavigationMoveEvent>(Navigate);

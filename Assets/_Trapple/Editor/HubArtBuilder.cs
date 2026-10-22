@@ -94,7 +94,7 @@ namespace Trapple.Editor
                 int count=0;
                 for(int y=0;y<source.height;y++) if(pixels[y*source.width+x].a>=32) count++;
                 if(count>=6) { if(beginning<0) beginning=x; gap=0; }
-                else if(beginning>=0 && ++gap>source.height/32)
+                else if(beginning>=0 && ++gap>Mathf.Max(3,source.height/96))
                 {
                     if(x-gap-beginning>source.height/5) columns.Add(new Vector2Int(beginning,x-gap+1));
                     beginning=-1; gap=0;
@@ -116,6 +116,9 @@ namespace Trapple.Editor
             EditorUtility.SetDirty(importer);
             importer.SaveAndReimport();
             Debug.Log("Hub prop sprites: "+string.Join(", ",Array.ConvertAll(AssetDatabase.LoadAllAssetsAtPath(path),asset=>asset.name)));
+            importer.filterMode=FilterMode.Point;
+            importer.textureCompression=TextureImporterCompression.Uncompressed;
+            importer.SaveAndReimport();
         }
 
         private static SpriteMetaData Slice(string name,Color32[] pixels,int width,int height,int start,int end)

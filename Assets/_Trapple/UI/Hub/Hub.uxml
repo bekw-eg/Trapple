@@ -16,7 +16,7 @@
                     <ui:Label name="seeds" text="80" class="seed-count" />
                     <ui:Label text="СЕМЕЧКИ" class="wallet-caption" />
                 </ui:VisualElement>
-                <ui:Button name="settings" text="☰" tooltip="Настройки" class="settings-button" />
+                <ui:Button name="settings" text="☰" tooltip="Настройки (Esc)" class="settings-button" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement class="hub-caption" picking-mode="Ignore">
@@ -34,6 +34,8 @@
             <ui:Label text="прыжок" class="control-description" />
             <ui:Label text="E" class="control-key" />
             <ui:Label text="взаимодействие" class="control-description" />
+            <ui:Label text="ESC" class="control-key" />
+            <ui:Label text="настройки" class="control-description" />
         </ui:VisualElement>
         <ui:VisualElement name="modal" class="modal">
             <ui:VisualElement name="window" class="window">

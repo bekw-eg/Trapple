@@ -22,9 +22,17 @@ namespace Trapple.UI
         private BossPhaseController phases;
         private ArenaLever lever;
         private Matrix4x4 previousMatrix;
+        private Texture2D meadowPause;
+        private GameState previousState;
 
         private void Update()
         {
+            if (GameManager.Instance != null)
+            {
+                var state = GameManager.Instance.State;
+                if (state != previousState) settingsOpen = false;
+                previousState = state;
+            }
             Scene activeScene = SceneManager.GetActiveScene();
             if (activeScene != trackedScene)
             {
@@ -58,7 +66,9 @@ namespace Trapple.UI
                 case GameState.Victory: DrawVictory(manager); break;
                 default:
                     if (boss != null) DrawBossHud();
-                    if (DrawButton("pause", new Rect(1110f, 650f, 140f, 44f), "PAUSE", 18)) manager.Pause();
+                    bool meadow = SceneManager.GetActiveScene().path == GameManager.TutorialScene;
+                    if (DrawButton("pause", new Rect(meadow ? 1050f : 1110f, 650f, meadow ? 200f : 140f, 44f),
+                        meadow ? "ESC • ПАУЗА" : "PAUSE", 18)) manager.Pause();
                     break;
             }
             GUI.matrix = previousMatrix;
@@ -98,6 +108,11 @@ namespace Trapple.UI
 
         private void DrawPause(GameManager manager)
         {
+            if (SceneManager.GetActiveScene().path == GameManager.TutorialScene)
+            {
+                DrawMeadowPause(manager);
+                return;
+            }
             Backdrop(0.94f);
             GUI.Label(new Rect(410f, 105f, 600f, 90f), "PAUSED", title);
             if (settingsOpen)
@@ -109,6 +124,44 @@ namespace Trapple.UI
             if (DrawButton("restart", new Rect(410f, 325f, 460f, 58f), "RESTART LEVEL")) manager.RestartLevel();
             if (DrawButton("pause-settings", new Rect(410f, 395f, 460f, 58f), "SETTINGS")) settingsOpen = true;
             if (DrawButton("menu", new Rect(410f, 465f, 460f, 58f), "MAIN MENU")) manager.ReturnToMenu();
+        }
+
+        private void DrawMeadowPause(GameManager manager)
+        {
+            Backdrop(.6f);
+            if (meadowPause == null) meadowPause = Resources.Load<Texture2D>("AppleMeadow/Pause");
+            GUI.DrawTexture(new Rect(364f, 50f, 552f, 575f), meadowPause, ScaleMode.StretchToFill, true);
+            if (settingsOpen)
+            {
+                Fill(new Rect(492f, 231f, 305f, 309f), new Color(1f, .87f, .62f));
+                var label = LabelStyle(23, FontStyle.Bold, new Color(.25f, .12f, .04f));
+                GUI.Label(new Rect(510f, 250f, 270f, 45f), "ГРОМКОСТЬ", label);
+                float volume = GUI.HorizontalSlider(new Rect(510f, 315f, 265f, 30f), AudioListener.volume, 0f, 1f);
+                if (!Mathf.Approximately(volume, AudioListener.volume))
+                {
+                    AudioListener.volume = volume;
+                    PlayerPrefs.SetFloat("Trapple.MasterVolume", volume);
+                }
+                GUI.Label(new Rect(510f, 355f, 270f, 40f), Mathf.RoundToInt(volume * 100f) + "%", label);
+                if (GUI.Button(new Rect(510f, 440f, 265f, 58f), "Назад"))
+                {
+                    PlayerPrefs.Save();
+                    settingsOpen = false;
+                }
+                return;
+            }
+            // Hit areas align with the four buttons in the supplied illustration.
+            if (MeadowButton(new Rect(504f, 245f, 287f, 69f), "Продолжить")) manager.Resume();
+            if (MeadowButton(new Rect(504f, 328f, 287f, 65f), "Настройки")) settingsOpen = true;
+            if (MeadowButton(new Rect(504f, 403f, 287f, 65f), "Перезапустить")) manager.RestartLevel();
+            if (MeadowButton(new Rect(504f, 480f, 287f, 68f), "Выйти в меню")) manager.ReturnToMenu();
+        }
+
+        private static bool MeadowButton(Rect area, string tooltip)
+        {
+            if (area.Contains(Event.current.mousePosition))
+                Fill(area, new Color(1f, .94f, .6f, .13f));
+            return GUI.Button(area, new GUIContent("", tooltip), GUIStyle.none);
         }
 
         private void DrawVictory(GameManager manager)

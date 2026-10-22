@@ -9,6 +9,9 @@ namespace Trapple.Level
     public sealed class TutorialGoal : MonoBehaviour
     {
         public bool IsComplete { get; private set; }
+        private SpriteRenderer artwork;
+
+        public void SetArtwork(SpriteRenderer value) => artwork = value;
 
         private void Awake() => GetComponent<CircleCollider2D>().isTrigger = true;
 
@@ -25,6 +28,7 @@ namespace Trapple.Level
             body.simulated = false;
             GetComponent<Collider2D>().enabled = false;
             GetComponent<SpriteRenderer>().enabled = false;
+            if (artwork != null) artwork.enabled = false;
         }
 
         private void Update()
@@ -35,6 +39,8 @@ namespace Trapple.Level
 
         private void OnGUI()
         {
+            if (Trapple.Core.GameManager.Instance != null &&
+                Trapple.Core.GameManager.Instance.State == Trapple.Core.GameState.Paused) return;
             var style = new GUIStyle(GUI.skin.box)
             {
                 fontSize = Mathf.RoundToInt(Mathf.Clamp(Screen.height / 30f, 16f, 28f)),
@@ -42,7 +48,7 @@ namespace Trapple.Level
                 wordWrap = true
             };
             GUI.Box(new Rect(16f, 16f, Screen.width - 32f, 58f),
-                "TRAPPLE  /  TUTORIAL     A / D or Arrow keys: move     SPACE: jump     Reach the apple", style);
+                "ЯБЛОЧНЫЙ ЛУГ    A / D или стрелки: движение    ПРОБЕЛ: прыжок    ESC: пауза", style);
             if (IsComplete)
                 GUI.Box(new Rect(Screen.width * 0.2f, Screen.height * 0.4f, Screen.width * 0.6f, 110f),
                     "LEVEL COMPLETE\nPress R to restart", style);

@@ -50,6 +50,35 @@ namespace Trapple.Tests
         }
 
         [Test]
+        public void MeadowArtworkLoadsOnceAndKeepsTrapHitboxes()
+        {
+            Assert.That(Object.FindObjectsByType<AppleMeadowPresentation>().Length, Is.EqualTo(1));
+            Assert.That(Resources.Load<Sprite>("AppleMeadow/Tree"), Is.Not.Null);
+            Assert.That(Resources.Load<Texture2D>("AppleMeadow/Pause"), Is.Not.Null);
+            var spike = GameObject.Find("Start Spikes").GetComponent<BoxCollider2D>();
+            Assert.That(spike.bounds.size.x, Is.EqualTo(1.44f).Within(.01f));
+            Assert.That(spike.bounds.size.y, Is.EqualTo(.595f).Within(.01f));
+        }
+
+        [UnityTest]
+        public IEnumerator PauseFreezesPlayerAndClearsPendingJump()
+        {
+            var manager = Trapple.Core.GameManager.Instance;
+            Set(controller, "jumpRequested", true);
+            manager.Pause();
+            Vector2 position = body.position;
+            Assert.That(Time.timeScale, Is.Zero);
+            Assert.That(controller.ControlEnabled, Is.False);
+            yield return new WaitForSecondsRealtime(.1f);
+            Assert.That(body.position, Is.EqualTo(position));
+            manager.Resume();
+            Assert.That(Time.timeScale, Is.EqualTo(1f));
+            Assert.That(controller.ControlEnabled, Is.True);
+            Tick();
+            Assert.That(body.linearVelocity.y, Is.LessThanOrEqualTo(.1f));
+        }
+
+        [Test]
         public void SpawnIsGrounded()
         {
             Tick();

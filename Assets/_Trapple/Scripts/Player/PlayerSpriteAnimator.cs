@@ -20,9 +20,15 @@ namespace Trapple.Player
         private ContactFilter2D groundFilter;
         private float elapsed;
         private bool facingLeft, wasGrounded;
+        private bool cinematicMotion;
+        private Vector2 cinematicVelocity;
         public PlayerVisualState State { get; private set; }
         public int FrameIndex { get; private set; }
         public PlayerAnimationSet Animations => animations;
+
+        // The workshop owns movement while input/physics are suspended; reuse the actual walk frames.
+        public void SetCinematicMotion(bool active, Vector2 velocity)
+        { cinematicMotion=active; cinematicVelocity=velocity; }
 
         private void Awake()
         {
@@ -48,17 +54,17 @@ namespace Trapple.Player
                 character.sprite = appearanceOverride;
                 return;
             }
-            if (!body.simulated) return;
-            Vector2 velocity = body.linearVelocity;
+            if (!body.simulated && !cinematicMotion) return;
+            Vector2 velocity = cinematicMotion ? cinematicVelocity : body.linearVelocity;
             if (Mathf.Abs(velocity.x) > movingThreshold) facingLeft = velocity.x < 0f;
-            bool grounded = IsGrounded();
+            bool grounded = cinematicMotion || IsGrounded();
             PlayerVisualState next;
             if (!grounded) next = velocity.y > 0.05f ? PlayerVisualState.Rising : PlayerVisualState.Falling;
             else if (!wasGrounded || (State == PlayerVisualState.Landing && elapsed < animations.landingDuration)) next = PlayerVisualState.Landing;
-            else if (controller.ControlEnabled && Mathf.Abs(velocity.x) > movingThreshold) next = facingLeft ? PlayerVisualState.WalkLeft : PlayerVisualState.WalkRight;
+            else if ((controller.ControlEnabled || cinematicMotion) && Mathf.Abs(velocity.x) > movingThreshold) next = facingLeft ? PlayerVisualState.WalkLeft : PlayerVisualState.WalkRight;
             else next = PlayerVisualState.Idle;
             if (next != State) { State = next; elapsed = 0f; }
-            else elapsed += Time.deltaTime;
+            else elapsed += cinematicMotion ? Time.unscaledDeltaTime : Time.deltaTime;
             wasGrounded = grounded;
             bool authoredLeft = State == PlayerVisualState.WalkLeft;
             character.flipX = !authoredLeft && State != PlayerVisualState.WalkRight && facingLeft;

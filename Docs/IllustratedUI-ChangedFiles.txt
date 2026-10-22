@@ -1,0 +1,325 @@
+Feature: three illustrated Unity UI screens
+Branch: feature/ui-three-screens
+
+Assets/TextMesh Pro.meta
+Assets/TextMesh Pro/Fonts.meta
+Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt
+Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta
+Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta
+Assets/TextMesh Pro/Resources.meta
+Assets/TextMesh Pro/Resources/Fonts & Materials.meta
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat.meta
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset.meta
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat.meta
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset.meta
+Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta
+Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
+Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta
+Assets/TextMesh Pro/Resources/Style Sheets.meta
+Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta
+Assets/TextMesh Pro/Resources/TMP Settings.asset
+Assets/TextMesh Pro/Resources/TMP Settings.asset.meta
+Assets/TextMesh Pro/Shaders.meta
+Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl
+Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl.meta
+Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader
+Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader
+Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader
+Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF SSD SpaceWarp.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF SSD SpaceWarp.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF SpaceWarp.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF SpaceWarp.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP LIT.shadergraph
+Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP LIT.shadergraph.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP UNLIT.shadergraph
+Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP UNLIT.shadergraph.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD SpaceWarp.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD SpaceWarp.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SpaceWarp.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SpaceWarp.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-URP Lit.shadergraph
+Assets/TextMesh Pro/Shaders/TMP_SDF-URP Lit.shadergraph.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF-URP Unlit.shadergraph
+Assets/TextMesh Pro/Shaders/TMP_SDF-URP Unlit.shadergraph.meta
+Assets/TextMesh Pro/Shaders/TMP_SDF.shader
+Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta
+Assets/TextMesh Pro/Shaders/TMP_Sprite.shader
+Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta
+Assets/TextMesh Pro/Shaders/TMPro.cginc
+Assets/TextMesh Pro/Shaders/TMPro.cginc.meta
+Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc
+Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta
+Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc
+Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta
+Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc
+Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta
+Assets/_Trapple/Editor/IllustratedUIBuilder.cs
+Assets/_Trapple/Editor/IllustratedUIBuilder.cs.meta
+Assets/_Trapple/Editor/Trapple.Editor.asmdef
+Assets/_Trapple/Scenes/Hub/Hub.unity
+Assets/_Trapple/Scenes/Menu/TrappleUI.unity
+Assets/_Trapple/Scenes/Menu/TrappleUI.unity.meta
+Assets/_Trapple/Scripts/Core/GameManager.cs
+Assets/_Trapple/Scripts/Hub/Data/HubConfiguration.cs
+Assets/_Trapple/Scripts/Hub/Data/HubServices.cs
+Assets/_Trapple/Scripts/Hub/Diagnostics/IllustratedUICaptureRunner.cs
+Assets/_Trapple/Scripts/Hub/Diagnostics/IllustratedUICaptureRunner.cs.meta
+Assets/_Trapple/Scripts/Hub/HubSceneFlowController.cs
+Assets/_Trapple/Scripts/Hub/UI/HubUIController.cs
+Assets/_Trapple/Scripts/Hub/UI/Illustrated.meta
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/IllustratedUIBootstrap.cs
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/IllustratedUIBootstrap.cs.meta
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/ReferencePixelScale.cs
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/ReferencePixelScale.cs.meta
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/SkinItemUI.cs
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/SkinItemUI.cs.meta
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/TrappleUIManager.cs
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/TrappleUIManager.cs.meta
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/UpgradeCardUI.cs
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/UpgradeCardUI.cs.meta
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/WardrobePanelUI.cs
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/WardrobePanelUI.cs.meta
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/WorldCardUI.cs
+Assets/_Trapple/Scripts/Hub/UI/Illustrated/WorldCardUI.cs.meta
+Assets/_Trapple/Scripts/Hub/UI/UpgradePanelController.cs
+Assets/_Trapple/Scripts/Trapple.Runtime.asmdef
+Assets/_Trapple/Scripts/UI/GameInterface.cs
+Assets/_Trapple/Settings/HubConfiguration.asset
+Assets/_Trapple/Settings/HubPreview.asset
+Assets/_Trapple/Tests/EditMode/HubServiceTests.cs
+Assets/_Trapple/Tests/PlayMode/HubTests.cs
+Assets/_Trapple/Tests/PlayMode/Trapple.PlayModeTests.asmdef
+Assets/_Trapple/UI/Illustrated.meta
+Assets/_Trapple/UI/Illustrated/Art.meta
+Assets/_Trapple/UI/Illustrated/Art/README.md
+Assets/_Trapple/UI/Illustrated/Art/README.md.meta
+Assets/_Trapple/UI/Illustrated/Art/asset_manifest.json
+Assets/_Trapple/UI/Illustrated/Art/asset_manifest.json.meta
+Assets/_Trapple/UI/Illustrated/Art/common.meta
+Assets/_Trapple/UI/Illustrated/Art/common/branding.meta
+Assets/_Trapple/UI/Illustrated/Art/common/branding/trapple_logo.png
+Assets/_Trapple/UI/Illustrated/Art/common/branding/trapple_logo.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/buttons.meta
+Assets/_Trapple/UI/Illustrated/Art/common/buttons/close.png
+Assets/_Trapple/UI/Illustrated/Art/common/buttons/close.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/buttons/hamburger.png
+Assets/_Trapple/UI/Illustrated/Art/common/buttons/hamburger.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/character.meta
+Assets/_Trapple/UI/Illustrated/Art/common/character/apple_hero_transparent_approx.png
+Assets/_Trapple/UI/Illustrated/Art/common/character/apple_hero_transparent_approx.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/decor.meta
+Assets/_Trapple/UI/Illustrated/Art/common/decor/bottom_wood_strip.png
+Assets/_Trapple/UI/Illustrated/Art/common/decor/bottom_wood_strip.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/decor/lantern.png
+Assets/_Trapple/UI/Illustrated/Art/common/decor/lantern.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/decor/left_apples_crates.png
+Assets/_Trapple/UI/Illustrated/Art/common/decor/left_apples_crates.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/decor/right_tools_barrel.png
+Assets/_Trapple/UI/Illustrated/Art/common/decor/right_tools_barrel.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/tabs.meta
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/wardrobe_active.png
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/wardrobe_active.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/wardrobe_inactive.png
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/wardrobe_inactive.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/workshop_active.png
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/workshop_active.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/workshop_inactive.png
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/workshop_inactive.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/worlds_active.png
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/worlds_active.png.meta
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/worlds_inactive.png
+Assets/_Trapple/UI/Illustrated/Art/common/tabs/worlds_inactive.png.meta
+Assets/_Trapple/UI/Illustrated/Art/full_screens.meta
+Assets/_Trapple/UI/Illustrated/Art/full_screens/wardrobe_full.png
+Assets/_Trapple/UI/Illustrated/Art/full_screens/wardrobe_full.png.meta
+Assets/_Trapple/UI/Illustrated/Art/full_screens/workshop_full.png
+Assets/_Trapple/UI/Illustrated/Art/full_screens/workshop_full.png.meta
+Assets/_Trapple/UI/Illustrated/Art/full_screens/worlds_full.png
+Assets/_Trapple/UI/Illustrated/Art/full_screens/worlds_full.png.meta
+Assets/_Trapple/UI/Illustrated/Art/unity_hotspots.json
+Assets/_Trapple/UI/Illustrated/Art/unity_hotspots.json.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/hints.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/hints/wardrobe_hint.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/hints/wardrobe_hint.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/preview.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/preview/character_preview_card.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/preview/character_preview_card.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/preview/large_character_with_background.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/preview/large_character_with_background.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons/icon_first_apple.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons/icon_first_apple.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons/icon_forest_traveler.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons/icon_forest_traveler.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons/icon_little_miner.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons/icon_little_miner.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons/icon_volcano_heart.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_icons/icon_volcano_heart.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows/skin_first_apple.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows/skin_first_apple.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows/skin_forest_traveler.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows/skin_forest_traveler.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows/skin_little_miner.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows/skin_little_miner.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows/skin_volcano_heart.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/skin_rows/skin_volcano_heart.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges/status_first_apple.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges/status_first_apple.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges/status_forest_traveler.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges/status_forest_traveler.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges/status_little_miner.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges/status_little_miner.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges/status_volcano_heart.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/status_badges/status_volcano_heart.png.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/titles.meta
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/titles/wardrobe_title_and_subtitle.png
+Assets/_Trapple/UI/Illustrated/Art/wardrobe/titles/wardrobe_title_and_subtitle.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/buttons.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/buttons/upgrade_button_agility.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/buttons/upgrade_button_agility.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/buttons/upgrade_button_jump.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/buttons/upgrade_button_jump.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/buttons/upgrade_button_speed.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/buttons/upgrade_button_speed.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/cards.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/cards/upgrade_agility.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/cards/upgrade_agility.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/cards/upgrade_jump.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/cards/upgrade_jump.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/cards/upgrade_speed.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/cards/upgrade_speed.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/currency.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/currency/seeds_counter.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/currency/seeds_counter.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/hints.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/hints/workshop_hint.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/hints/workshop_hint.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/icons.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/icons/agility_icon.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/icons/agility_icon.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/icons/jump_icon.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/icons/jump_icon.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/icons/speed_icon.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/icons/speed_icon.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/level_indicators.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/level_indicators/agility_level_0of3.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/level_indicators/agility_level_0of3.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/level_indicators/jump_level_0of3.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/level_indicators/jump_level_0of3.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/level_indicators/speed_level_0of3.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/level_indicators/speed_level_0of3.png.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/titles.meta
+Assets/_Trapple/UI/Illustrated/Art/workshop/titles/workshop_title_and_subtitle.png
+Assets/_Trapple/UI/Illustrated/Art/workshop/titles/workshop_title_and_subtitle.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons/select_abandoned_factory.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons/select_abandoned_factory.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons/select_apple_meadow.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons/select_apple_meadow.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons/select_deceptive_forest.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons/select_deceptive_forest.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons/select_lava_fortress.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/buttons/select_lava_fortress.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards/card_abandoned_factory.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards/card_abandoned_factory.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards/card_apple_meadow.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards/card_apple_meadow.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards/card_deceptive_forest.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards/card_deceptive_forest.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards/card_lava_fortress.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/cards/card_lava_fortress.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/icons.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/icons/locked_world.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/icons/locked_world.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/icons/star.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/icons/star.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges/badge_abandoned_factory.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges/badge_abandoned_factory.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges/badge_apple_meadow.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges/badge_apple_meadow.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges/badge_deceptive_forest.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges/badge_deceptive_forest.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges/badge_lava_fortress.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/number_badges/badge_lava_fortress.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews/preview_abandoned_factory.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews/preview_abandoned_factory.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews/preview_apple_meadow.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews/preview_apple_meadow.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews/preview_deceptive_forest.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews/preview_deceptive_forest.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews/preview_lava_fortress.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/previews/preview_lava_fortress.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/progress.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/progress/three_slots.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/progress/three_slots.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/secret.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/secret/learn_more_button.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/secret/learn_more_button.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/secret/secret_worlds_banner.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/secret/secret_worlds_banner.png.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/titles.meta
+Assets/_Trapple/UI/Illustrated/Art/worlds/titles/worlds_title_and_subtitle.png
+Assets/_Trapple/UI/Illustrated/Art/worlds/titles/worlds_title_and_subtitle.png.meta
+Assets/_Trapple/UI/Illustrated/Fonts.meta
+Assets/_Trapple/UI/Illustrated/Fonts/Trapple Cyrillic.asset
+Assets/_Trapple/UI/Illustrated/Fonts/Trapple Cyrillic.asset.meta
+Assets/_Trapple/UI/Illustrated/Generated.meta
+Assets/_Trapple/UI/Illustrated/Generated/pip.png
+Assets/_Trapple/UI/Illustrated/Generated/pip.png.meta
+Assets/_Trapple/UI/Illustrated/Generated/wardrobe_background.png
+Assets/_Trapple/UI/Illustrated/Generated/wardrobe_background.png.meta
+Assets/_Trapple/UI/Illustrated/Generated/workshop_background.png
+Assets/_Trapple/UI/Illustrated/Generated/workshop_background.png.meta
+Assets/_Trapple/UI/Illustrated/Generated/worlds_background.png
+Assets/_Trapple/UI/Illustrated/Generated/worlds_background.png.meta
+Assets/_Trapple/UI/Illustrated/Prefabs.meta
+Assets/_Trapple/UI/Illustrated/Prefabs/TrappleUI.prefab
+Assets/_Trapple/UI/Illustrated/Prefabs/TrappleUI.prefab.meta
+Docs/IllustratedUI-ChangedFiles.txt
+Docs/IllustratedUI-Validation.md
+Docs/IllustratedUI.md
+Docs/Images/TrappleUI/Wardrobe.png
+Docs/Images/TrappleUI/Workshop.png
+Docs/Images/TrappleUI/WorldMap.png
+Docs/Validation/UI-EditMode.xml
+Docs/Validation/UI-PlayMode.xml
+Docs/Validation/UI-WindowsPlayer.txt
+Packages/manifest.json
+Packages/packages-lock.json
+ProjectSettings/EditorBuildSettings.asset

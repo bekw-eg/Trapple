@@ -1,4 +1,5 @@
 {
   "name": "Trapple.Runtime",
-  "rootNamespace": "Trapple"
+  "rootNamespace": "Trapple",
+  "references": ["Unity.ugui", "Unity.TextMeshPro"]
 }

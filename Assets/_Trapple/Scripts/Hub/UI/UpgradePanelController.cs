@@ -70,7 +70,7 @@ namespace Trapple.Hub
                 float current = (upgrades.PreviewModifier(card.definition) - 1f) * 100f;
                 card.bonus.text = max ? "Бонус +" + current.ToString("0") + "% · максимум" :
                     "+" + current.ToString("0") + "%  →  +" + (current + card.definition.percentPerLevel).ToString("0") + "%";
-                card.price.text = max ? "Все улучшения открыты" : card.definition.costs[level] + "  семечек";
+                card.price.text = max ? "Все улучшения открыты" : card.definition.Cost(level) > 0 ? card.definition.Cost(level) + "  семечек" : "Цена не настроена";
                 card.purchase.text = max ? "MAX LEVEL" : "УЛУЧШИТЬ  ↑";
                 card.purchase.SetEnabled(upgrades.CanPurchase(card.definition));
             }

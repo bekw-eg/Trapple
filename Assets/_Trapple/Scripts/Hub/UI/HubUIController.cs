@@ -9,6 +9,9 @@ namespace Trapple.Hub
     [RequireComponent(typeof(UIDocument))]
     public sealed class HubUIController : MonoBehaviour
     {
+        [SerializeField] private Illustrated.TrappleUIManager illustrated;
+        public Illustrated.TrappleUIManager Illustrated => illustrated;
+        public void SetIllustratedUI(Illustrated.TrappleUIManager value) => illustrated = value;
         private VisualElement root, modal, window, content, prompt;
         private Label title, subtitle, seeds, toast;
         private Button close, workshopTab, worldsTab, wardrobeTab, settings;
@@ -55,9 +58,12 @@ namespace Trapple.Hub
             root.RegisterCallback<NavigationSubmitEvent>(BlockGameplaySubmit, TrickleDown.TrickleDown);
             root.RegisterCallback<KeyDownEvent>(BlockGameplaySpace, TrickleDown.TrickleDown);
             workshopTab = root.Q<Button>("tab-workshop"); worldsTab = root.Q<Button>("tab-worlds"); wardrobeTab = root.Q<Button>("tab-wardrobe");
-            upgrades = new UpgradePanelController(content.Q("workshop"), configuration, progression, upgradeService, Notify);
-            worlds = new WorldSelectionController(content.Q("worlds"), configuration, progression, flow, Notify);
-            wardrobe = new WardrobeController(content.Q("wardrobe"), configuration, progression, Notify);
+            if (illustrated == null)
+            {
+                upgrades = new UpgradePanelController(content.Q("workshop"), configuration, progression, upgradeService, Notify);
+                worlds = new WorldSelectionController(content.Q("worlds"), configuration, progression, flow, Notify);
+                wardrobe = new WardrobeController(content.Q("wardrobe"), configuration, progression, Notify);
+            }
             close.clicked += Close;
             settings.clicked += OpenSettings;
             workshopTab.clicked += OpenWorkshop; worldsTab.clicked += OpenWorlds; wardrobeTab.clicked += OpenWardrobe;
@@ -71,6 +77,7 @@ namespace Trapple.Hub
             // Keep Tab within the modal. The HUD is removed from keyboard traversal while open.
             window.RegisterCallback<NavigationMoveEvent>(Navigate);
             initialized = true;
+            illustrated?.Initialize(configuration, progression, flow, Open, Close, ReturnToMenu);
             RefreshCurrency();
         }
 
@@ -115,6 +122,17 @@ namespace Trapple.Hub
                 player?.SetControlEnabled(false);
             }
             CurrentScreen = screen;
+            bool useIllustrated = illustrated != null && screen != HubScreen.Settings;
+            illustrated?.Hide();
+            foreach (string cssClass in new[] { "hud", "hub-caption", "controls" })
+                root.Q(className: cssClass).style.display = useIllustrated ? DisplayStyle.None : DisplayStyle.Flex;
+            if (useIllustrated)
+            {
+                prompt.RemoveFromClassList("visible");
+                modal.style.display = DisplayStyle.None;
+                illustrated.Show(screen);
+                return;
+            }
             settings.focusable = false;
             prompt.RemoveFromClassList("visible");
             modal.style.display = DisplayStyle.Flex;
@@ -138,6 +156,9 @@ namespace Trapple.Hub
         {
             if (!IsOpen) return;
             CurrentScreen = HubScreen.None;
+            illustrated?.Hide();
+            foreach (string cssClass in new[] { "hud", "hub-caption", "controls" })
+                root.Q(className: cssClass).style.display = DisplayStyle.Flex;
             modal.RemoveFromClassList("visible");
             // Keep movement locked through the closing transition, including rapid reopen.
             hideWindow = modal.schedule.Execute(() =>
@@ -188,14 +209,17 @@ namespace Trapple.Hub
             hideWindow?.Pause(); hideToast?.Pause();
             if (IsOpen || (player != null && !player.ControlEnabled)) RestoreControl();
             CurrentScreen = HubScreen.None;
+            illustrated?.Hide();
             close.clicked -= Close; settings.clicked -= OpenSettings;
+            foreach (string cssClass in new[] { "hud", "hub-caption", "controls" })
+                root.Q(className: cssClass).style.display = DisplayStyle.Flex;
             root.UnregisterCallback<NavigationSubmitEvent>(BlockGameplaySubmit, TrickleDown.TrickleDown);
             root.UnregisterCallback<KeyDownEvent>(BlockGameplaySpace, TrickleDown.TrickleDown);
             workshopTab.clicked -= OpenWorkshop; worldsTab.clicked -= OpenWorlds; wardrobeTab.clicked -= OpenWardrobe;
             menu.clicked -= ReturnToMenu; volume.UnregisterValueChangedCallback(ChangeVolume);
             window.UnregisterCallback<NavigationMoveEvent>(Navigate);
             progression.Changed -= RefreshCurrency;
-            upgrades.Dispose(); worlds.Dispose(); wardrobe.Dispose();
+            upgrades?.Dispose(); worlds?.Dispose(); wardrobe?.Dispose();
             initialized = false;
         }
     }

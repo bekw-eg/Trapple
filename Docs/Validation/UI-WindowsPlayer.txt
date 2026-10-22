@@ -1,0 +1,100 @@
+PASS
+Windows x64 development player; live game background; 1920x1080, 1600x900, 1280x720
+
+UI PASS: Resolution (1920, 1080)
+UI PASS: Screen Worlds
+UI PASS: Pointer hotspot worlds-tabs-workshop
+UI PASS: Pointer hotspot worlds-tabs-worlds
+UI PASS: Pointer hotspot worlds-tabs-wardrobe
+UI PASS: Pointer hotspot worlds-close
+UI PASS: Pointer hotspot worlds-world_buttons-apple_meadow
+UI PASS: Pointer hotspot worlds-world_buttons-deceptive_forest
+UI PASS: Pointer hotspot worlds-world_buttons-abandoned_factory
+UI PASS: Pointer hotspot worlds-world_buttons-lava_fortress
+UI PASS: Pointer hotspot worlds-secret_worlds
+UI PASS: Screen Workshop
+UI PASS: Pointer hotspot workshop-tabs-workshop
+UI PASS: Pointer hotspot workshop-tabs-worlds
+UI PASS: Pointer hotspot workshop-tabs-wardrobe
+UI PASS: Pointer hotspot workshop-close
+UI PASS: Pointer hotspot workshop-upgrade_buttons-speed
+UI PASS: Pointer hotspot workshop-upgrade_buttons-agility
+UI PASS: Pointer hotspot workshop-upgrade_buttons-jump
+UI PASS: Pointer hotspot workshop-menu
+UI PASS: Screen Wardrobe
+UI PASS: Pointer hotspot wardrobe-tabs-workshop
+UI PASS: Pointer hotspot wardrobe-tabs-worlds
+UI PASS: Pointer hotspot wardrobe-tabs-wardrobe
+UI PASS: Pointer hotspot wardrobe-close
+UI PASS: Pointer hotspot wardrobe-skin_rows-first_apple
+UI PASS: Pointer hotspot wardrobe-skin_rows-forest_traveler
+UI PASS: Pointer hotspot wardrobe-skin_rows-little_miner
+UI PASS: Pointer hotspot wardrobe-skin_rows-volcano_heart
+UI PASS: Pointer hotspot Equip selected skin
+UI PASS: Resolution (1600, 900)
+UI PASS: Screen Worlds
+UI PASS: Pointer hotspot worlds-tabs-workshop
+UI PASS: Pointer hotspot worlds-tabs-worlds
+UI PASS: Pointer hotspot worlds-tabs-wardrobe
+UI PASS: Pointer hotspot worlds-close
+UI PASS: Pointer hotspot worlds-world_buttons-apple_meadow
+UI PASS: Pointer hotspot worlds-world_buttons-deceptive_forest
+UI PASS: Pointer hotspot worlds-world_buttons-abandoned_factory
+UI PASS: Pointer hotspot worlds-world_buttons-lava_fortress
+UI PASS: Pointer hotspot worlds-secret_worlds
+UI PASS: Screen Workshop
+UI PASS: Pointer hotspot workshop-tabs-workshop
+UI PASS: Pointer hotspot workshop-tabs-worlds
+UI PASS: Pointer hotspot workshop-tabs-wardrobe
+UI PASS: Pointer hotspot workshop-close
+UI PASS: Pointer hotspot workshop-upgrade_buttons-speed
+UI PASS: Pointer hotspot workshop-upgrade_buttons-agility
+UI PASS: Pointer hotspot workshop-upgrade_buttons-jump
+UI PASS: Pointer hotspot workshop-menu
+UI PASS: Screen Wardrobe
+UI PASS: Pointer hotspot wardrobe-tabs-workshop
+UI PASS: Pointer hotspot wardrobe-tabs-worlds
+UI PASS: Pointer hotspot wardrobe-tabs-wardrobe
+UI PASS: Pointer hotspot wardrobe-close
+UI PASS: Pointer hotspot wardrobe-skin_rows-first_apple
+UI PASS: Pointer hotspot wardrobe-skin_rows-forest_traveler
+UI PASS: Pointer hotspot wardrobe-skin_rows-little_miner
+UI PASS: Pointer hotspot wardrobe-skin_rows-volcano_heart
+UI PASS: Pointer hotspot Equip selected skin
+UI PASS: Resolution (1280, 720)
+UI PASS: Screen Worlds
+UI PASS: Pointer hotspot worlds-tabs-workshop
+UI PASS: Pointer hotspot worlds-tabs-worlds
+UI PASS: Pointer hotspot worlds-tabs-wardrobe
+UI PASS: Pointer hotspot worlds-close
+UI PASS: Pointer hotspot worlds-world_buttons-apple_meadow
+UI PASS: Pointer hotspot worlds-world_buttons-deceptive_forest
+UI PASS: Pointer hotspot worlds-world_buttons-abandoned_factory
+UI PASS: Pointer hotspot worlds-world_buttons-lava_fortress
+UI PASS: Pointer hotspot worlds-secret_worlds
+UI PASS: Screen Workshop
+UI PASS: Pointer hotspot workshop-tabs-workshop
+UI PASS: Pointer hotspot workshop-tabs-worlds
+UI PASS: Pointer hotspot workshop-tabs-wardrobe
+UI PASS: Pointer hotspot workshop-close
+UI PASS: Pointer hotspot workshop-upgrade_buttons-speed
+UI PASS: Pointer hotspot workshop-upgrade_buttons-agility
+UI PASS: Pointer hotspot workshop-upgrade_buttons-jump
+UI PASS: Pointer hotspot workshop-menu
+UI PASS: Screen Wardrobe
+UI PASS: Pointer hotspot wardrobe-tabs-workshop
+UI PASS: Pointer hotspot wardrobe-tabs-worlds
+UI PASS: Pointer hotspot wardrobe-tabs-wardrobe
+UI PASS: Pointer hotspot wardrobe-close
+UI PASS: Pointer hotspot wardrobe-skin_rows-first_apple
+UI PASS: Pointer hotspot wardrobe-skin_rows-forest_traveler
+UI PASS: Pointer hotspot wardrobe-skin_rows-little_miner
+UI PASS: Pointer hotspot wardrobe-skin_rows-volcano_heart
+UI PASS: Pointer hotspot Equip selected skin
+UI PASS: Secret worlds placeholder
+UI PASS: Actual tab click
+UI PASS: Unconfigured price guard
+UI PASS: Close restores gameplay
+UI PASS: Standalone scene opens map
+UI PASS: Standalone scene contains the playable hub
+UI PASS: Standalone close restores the game underneath

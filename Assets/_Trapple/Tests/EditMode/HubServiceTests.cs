@@ -22,6 +22,7 @@ namespace Trapple.Tests
         {
             config=Object.Instantiate(AssetDatabase.LoadAssetAtPath<HubConfiguration>("Assets/_Trapple/Settings/HubConfiguration.asset"));
             config.previewStartingSeeds=200;
+            foreach(var upgrade in config.upgrades) upgrade.costs=new[]{10,20,35};
             save=new MemorySave();
             progression=new PreviewProgressionService(config,save);
         }
@@ -80,17 +81,18 @@ namespace Trapple.Tests
         public void WorldUnlockContractMakesMatchingCosmeticAvailable()
         {
             config.World("forest").initiallyUnlocked=true;
+            config.Cosmetic("forest").unlockRule=CosmeticUnlockRule.WorldUnlocked;
             Assert.That(progression.TryEquip(config.Cosmetic("forest")),Is.True);
             Assert.That(new PreviewProgressionService(config,save).EquippedCosmetic,Is.EqualTo("forest"));
         }
 
         [Test]
-        public void TutorialRewardIsGrantedExactlyOnceAndDoesNotLaunchPlannedWorlds()
+        public void TutorialCompletionIsIdempotentAndUnlocksNextWorld()
         {
             progression.CompleteTutorial(); progression.CompleteTutorial();
             Assert.That(progression.TutorialComplete,Is.True);
             Assert.That(progression.Seeds,Is.EqualTo(200+config.tutorialReward));
-            Assert.That(progression.IsWorldUnlocked(config.World("forest")),Is.False);
+            Assert.That(progression.IsWorldUnlocked(config.World("forest")),Is.True);
         }
 
         [TestCase("{\"version\":1,\"seeds\":-90,\"speed\":900,\"jump\":-2,\"equipped\":\"lava\"}")]
@@ -118,6 +120,67 @@ namespace Trapple.Tests
             var forged=new UpgradeDefinition { kind=UpgradeKind.Speed,costs=new[]{0,0,0} };
             Assert.That(progression.TryUpgrade(forged),Is.False);
             Assert.That(progression.Seeds,Is.EqualTo(200));
+        }
+
+        [TestCase(0)]
+        [TestCase(-1)]
+        public void UnconfiguredAndFreePricesNeverPurchase(int cost)
+        {
+            config.upgrades[0].costs=new[]{cost};
+            Assert.That(progression.TryUpgrade(config.upgrades[0]),Is.False);
+            config.upgrades[0].costs=null;
+            Assert.That(progression.TryUpgrade(config.upgrades[0]),Is.False);
+            Assert.That(progression.Seeds,Is.EqualTo(200));
+        }
+
+        [Test]
+        public void WorldCompletionRequiresConfiguredLevelsAndBossAndSurvivesReload()
+        {
+            progression.CompleteTutorial();
+            Assert.That(progression.IsWorldUnlocked(config.World("forest")),Is.True);
+            for(int i=0;i<3;i++) Assert.That(progression.CompleteLevel("forest",i),Is.True);
+            Assert.That(progression.CompleteLevel("forest",0),Is.False);
+            Assert.That(progression.IsWorldUnlocked(config.World("factory")),Is.False);
+            Assert.That(progression.CompleteBoss("forest"),Is.True);
+            Assert.That(progression.CompleteBoss("forest"),Is.False);
+            var restored=new PreviewProgressionService(config,save);
+            Assert.That(restored.IsWorldUnlocked(config.World("factory")),Is.True);
+            Assert.That(restored.CompletedLevels("forest"),Is.EqualTo(3));
+            Assert.That(restored.CompleteLevel("lava",0),Is.False);
+        }
+
+        [Test]
+        public void LockedSelectionAndGrantedEquipmentAreSavedIndependently()
+        {
+            Assert.That(progression.SelectCosmetic("lava"),Is.True);
+            var restored=new PreviewProgressionService(config,save);
+            Assert.That(restored.SelectedCosmetic,Is.EqualTo("lava"));
+            Assert.That(restored.EquippedCosmetic,Is.EqualTo("classic"));
+            Assert.That(restored.TryEquip(config.Cosmetic("lava")),Is.False);
+            restored.GrantCosmetic("lava"); restored.TryEquip(config.Cosmetic("lava"));
+            Assert.That(new PreviewProgressionService(config,save).EquippedCosmetic,Is.EqualTo("lava"));
+        }
+
+        [Test]
+        public void VersionOneSaveMigratesTutorialUnlockWithoutResettingBalance()
+        {
+            save.json="{\"version\":1,\"seeds\":17,\"speed\":2,\"tutorialComplete\":true,\"equipped\":\"classic\"}";
+            var restored=new PreviewProgressionService(config,save);
+            Assert.That(restored.Seeds,Is.EqualTo(17));
+            Assert.That(restored.Level(UpgradeKind.Speed),Is.EqualTo(2));
+            Assert.That(restored.IsWorldUnlocked(config.World("forest")),Is.True);
+            Assert.That(restored.CompletedLevels("meadow"),Is.EqualTo(1));
+        }
+
+        [Test]
+        public void StarsHaveNoInventedDefaultAndRespectConfiguredMaximum()
+        {
+            Assert.That(progression.SetStars("meadow",2),Is.False);
+            config.World("meadow").maximumStars=4;
+            Assert.That(progression.SetStars("meadow",3),Is.True);
+            Assert.That(progression.SetStars("meadow",2),Is.True);
+            Assert.That(progression.SetStars("meadow",5),Is.False);
+            Assert.That(new PreviewProgressionService(config,save).Stars("meadow"),Is.EqualTo(3));
         }
     }
 }

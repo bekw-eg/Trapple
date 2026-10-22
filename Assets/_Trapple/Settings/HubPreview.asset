@@ -34,6 +34,9 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/_Trapple/Scenes/BossArenas/BossTest.unity
     m_guid: 0add97d2aa35ab444ad84836c5b2b5ff
+  - m_enabled: 1
+    m_path: Assets/_Trapple/Scenes/Menu/TrappleUI.unity
+    m_guid: 4d22b9ff6c420f2408e41acad57a57f8
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

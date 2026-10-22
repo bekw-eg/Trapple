@@ -12,6 +12,15 @@ namespace Trapple.Editor
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = SpriteImportMode.Single;
             importer.spritePixelsPerUnit = 100f;
+            if (assetPath.EndsWith("/Ground.png"))
+            {
+                importer.spritePixelsPerUnit = 64f;
+                importer.spriteBorder = new Vector4(0f, 0f, 0f, 20f);
+                var settings = new TextureImporterSettings();
+                importer.ReadTextureSettings(settings);
+                settings.spriteMeshType = SpriteMeshType.FullRect;
+                importer.SetTextureSettings(settings);
+            }
             importer.alphaIsTransparency = true;
             importer.mipmapEnabled = false;
             importer.filterMode = FilterMode.Bilinear;

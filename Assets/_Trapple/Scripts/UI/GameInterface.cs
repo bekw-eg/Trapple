@@ -51,6 +51,12 @@ namespace Trapple.UI
                 SceneManager.GetActiveScene().path == Trapple.Hub.Illustrated.TrappleUIManager.ScenePath) return;
             var manager = GameManager.Instance;
             if (manager == null) return;
+            // A focused IMGUI button can otherwise treat Space as Submit, stealing
+            // the player's jump or immediately re-opening pause after Continue.
+            bool tutorial = SceneManager.GetActiveScene().path == GameManager.TutorialScene;
+            if (tutorial && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Space)
+                Event.current.Use();
+            if (tutorial && manager.State == GameState.Playing) GUIUtility.keyboardControl = 0;
             int previousDepth = GUI.depth;
             GUI.depth = -100;
             EnsureStyles();

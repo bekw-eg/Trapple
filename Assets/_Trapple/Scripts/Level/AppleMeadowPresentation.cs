@@ -38,11 +38,15 @@ namespace Trapple.Level
                 Bounds bounds = collider.bounds;
                 var original = collider.GetComponent<SpriteRenderer>();
                 if (original != null) original.enabled = false;
-                int count = Mathf.Max(1, Mathf.CeilToInt(bounds.size.x / 4.8f));
-                float width = bounds.size.x / count;
-                for (int i = 0; i < count; i++)
-                    Visual("Ground", new Vector2(bounds.min.x + width * (i + .5f), bounds.max.y - .57f),
-                        new Vector2(width + .18f, 1.4f), 1, collider.transform);
+                // One continuous surface per collider: the grass cap stays at the
+                // walking edge while only the soil fills the deeper land below.
+                float depth = bounds.size.x > 6f ? 4f : Mathf.Max(.65f, bounds.size.y + .15f);
+                var ground = Visual("Ground", new Vector2(bounds.center.x, bounds.max.y + .1f - depth * .5f),
+                    Vector2.one, 1, collider.transform);
+                Vector3 parentScale = collider.transform.lossyScale;
+                ground.transform.localScale = new Vector3(1f / parentScale.x, 1f / parentScale.y, 1f);
+                ground.drawMode = SpriteDrawMode.Tiled;
+                ground.size = new Vector2(bounds.size.x, depth);
             }
 
             var bridge = FindAnyObjectByType<FallingPlatform>();

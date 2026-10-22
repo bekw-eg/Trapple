@@ -1,0 +1,299 @@
+fileFormatVersion: 2
+guid: 8e7e8d7fb3d953747a11d617aa769268
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2582163770708133910
+    second: HeroAtlas_0
+  - first:
+      213: -3902156844119037610
+    second: HeroAtlas_1
+  - first:
+      213: 7737695992839274197
+    second: HeroAtlas_2
+  - first:
+      213: 8694946534130005984
+    second: HeroAtlas_3
+  - first:
+      213: 4355701344975352831
+    second: HeroAtlas_4
+  - first:
+      213: 1331374942151567285
+    second: HeroAtlas_5
+  - first:
+      213: -2965752433021159486
+    second: HeroAtlas_6
+  - first:
+      213: 4331111658874138135
+    second: HeroAtlas_7
+  - first:
+      213: 6068783009389833014
+    second: HeroAtlas_8
+  - first:
+      213: -5195186520236551184
+    second: HeroAtlas_9
+  - first:
+      213: 276035341050286571
+    second: HeroAtlas_10
+  - first:
+      213: -1400981939721215049
+    second: HeroAtlas_11
+  - first:
+      213: 5790862792588868378
+    second: HeroAtlas_12
+  - first:
+      213: 3444276105997152744
+    second: HeroAtlas_13
+  - first:
+      213: 937844667560666227
+    second: HeroAtlas_14
+  - first:
+      213: -4674393372164797843
+    second: HeroAtlas_15
+  - first:
+      213: -3570737657704391372
+    second: HeroAtlas_16
+  - first:
+      213: -7098281276921201436
+    second: HeroAtlas_17
+  - first:
+      213: -3523835631155537190
+    second: HeroAtlas_18
+  - first:
+      213: 3729885524790837787
+    second: Classic
+  - first:
+      213: 6668495560467494945
+    second: Forest
+  - first:
+      213: 6436691649201650266
+    second: Factory
+  - first:
+      213: 7775381558289294699
+    second: Lava
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 489.05997
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Classic
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 627
+        width: 627
+        height: 627
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12870e7f1733c330800000000000000
+      internalID: 3729885524790837787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 627
+        width: 627
+        height: 627
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1283feb81614b8c50800000000000000
+      internalID: 6668495560467494945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Factory
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 627
+        height: 627
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5a336fa3f8b35950800000000000000
+      internalID: 6436691649201650266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lava
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 0
+        width: 627
+        height: 627
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b65e4fed454b7eb60800000000000000
+      internalID: 7775381558289294699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Classic: 3729885524790837787
+      Factory: 6436691649201650266
+      Forest: 6668495560467494945
+      HeroAtlas_0: 2582163770708133910
+      HeroAtlas_1: -3902156844119037610
+      HeroAtlas_10: 276035341050286571
+      HeroAtlas_11: -1400981939721215049
+      HeroAtlas_12: 5790862792588868378
+      HeroAtlas_13: 3444276105997152744
+      HeroAtlas_14: 937844667560666227
+      HeroAtlas_15: -4674393372164797843
+      HeroAtlas_16: -3570737657704391372
+      HeroAtlas_17: -7098281276921201436
+      HeroAtlas_18: -3523835631155537190
+      HeroAtlas_2: 7737695992839274197
+      HeroAtlas_3: 8694946534130005984
+      HeroAtlas_4: 4355701344975352831
+      HeroAtlas_5: 1331374942151567285
+      HeroAtlas_6: -2965752433021159486
+      HeroAtlas_7: 4331111658874138135
+      HeroAtlas_8: 6068783009389833014
+      HeroAtlas_9: -5195186520236551184
+      Lava: 7775381558289294699
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

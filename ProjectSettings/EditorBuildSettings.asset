@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Trapple/Scenes/Menu/MainMenu.unity
     guid: 5fd50df3e48010d44ace9dd5303fd92b
   - enabled: 1
+    path: Assets/_Trapple/Scenes/Hub/Hub.unity
+    guid: d9913b3af40e6044c9d5c02791f80b7d
+  - enabled: 1
     path: Assets/_Trapple/Scenes/Levels/Tutorial.unity
     guid: da734412494a805458a9627d2456da97
   - enabled: 1

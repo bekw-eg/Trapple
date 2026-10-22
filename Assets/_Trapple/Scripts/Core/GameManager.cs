@@ -49,12 +49,15 @@ namespace Trapple.Core
 
         private void Update()
         {
+            // The hub owns modal input; its scenery continues running behind UI Toolkit panels.
+            if (SceneManager.GetActiveScene().path == Trapple.Hub.HubSceneFlowController.HubScenePath) return;
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
             if (State == GameState.Playing) Pause();
             else if (State == GameState.Paused) Resume();
         }
 
-        public void StartGame() => LoadScene(firstLevel);
+        public void StartGame() => LoadScene(Application.CanStreamedLevelBeLoaded(Trapple.Hub.HubSceneFlowController.HubScenePath)
+            ? Trapple.Hub.HubSceneFlowController.HubScenePath : firstLevel);
         public void StartBossTest() => LoadScene(BossScene);
         public void ReturnToMenu() => LoadScene(MenuScene);
         public void RestartLevel() => LoadScene(SceneManager.GetActiveScene().path);

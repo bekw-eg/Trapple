@@ -231,7 +231,10 @@ namespace Trapple.Tests
             Assert.That(GameManager.Instance.State, Is.EqualTo(GameState.MainMenu));
             GameManager.Instance.StartGame();
             yield return null;
-            Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(GameManager.TutorialScene));
+            // The full game enters through Hub; the standalone boss profile retains Tutorial.
+            string entry = Application.CanStreamedLevelBeLoaded(Trapple.Hub.HubSceneFlowController.HubScenePath)
+                ? Trapple.Hub.HubSceneFlowController.HubScenePath : GameManager.TutorialScene;
+            Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(entry));
             GameManager.Instance.Pause();
             GameManager.Instance.RestartLevel();
             yield return null;

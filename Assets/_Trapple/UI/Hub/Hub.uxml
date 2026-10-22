@@ -1,0 +1,122 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Hub.uss" />
+    <ui:VisualElement name="hub-root" class="hub-root" picking-mode="Ignore">
+        <ui:VisualElement class="hud" picking-mode="Ignore">
+            <ui:VisualElement class="brand-block">
+                <ui:Label text="TRAPPLE" class="logo" />
+                <ui:VisualElement class="location-line">
+                    <ui:VisualElement class="location-dot" />
+                    <ui:Label text="ЯБЛОЧНАЯ ПОЛЯНА" class="location" />
+                    <ui:Label text="/ ДОМА" class="location-muted" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="hud-right">
+                <ui:VisualElement class="wallet">
+                    <ui:Label text="◆" class="seed-icon" />
+                    <ui:Label name="seeds" text="80" class="seed-count" />
+                    <ui:Label text="СЕМЕЧКИ" class="wallet-caption" />
+                </ui:VisualElement>
+                <ui:Button name="settings" text="☰" tooltip="Настройки" class="settings-button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement class="hub-caption" picking-mode="Ignore">
+            <ui:Label text="МАЛЕНЬКАЯ ПОЛЯНА. БОЛЬШОЕ ПРИКЛЮЧЕНИЕ." class="eyebrow" />
+            <ui:Label text="Побудь дома. Мир подождёт." class="home-caption" />
+        </ui:VisualElement>
+        <ui:VisualElement name="interaction-prompt" class="interaction-prompt" picking-mode="Ignore">
+            <ui:Label text="E" class="keycap" />
+            <ui:Label name="prompt-text" class="prompt-text" />
+        </ui:VisualElement>
+        <ui:VisualElement class="controls" picking-mode="Ignore">
+            <ui:Label text="A / D   ← →" class="control-key" />
+            <ui:Label text="движение" class="control-description" />
+            <ui:Label text="SPACE" class="control-key" />
+            <ui:Label text="прыжок" class="control-description" />
+            <ui:Label text="E" class="control-key" />
+            <ui:Label text="взаимодействие" class="control-description" />
+        </ui:VisualElement>
+        <ui:VisualElement name="modal" class="modal">
+            <ui:VisualElement name="window" class="window">
+                <ui:VisualElement class="window-top">
+                    <ui:VisualElement class="window-brand">
+                        <ui:Label text="TRAPPLE" class="window-logo" />
+                        <ui:Label text="ТВОЁ МЕСТО СИЛЫ" class="window-kicker" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="tabs">
+                        <ui:Button name="tab-workshop" text="Мастерская" class="tab" />
+                        <ui:Button name="tab-worlds" text="Карта миров" class="tab" />
+                        <ui:Button name="tab-wardrobe" text="Гардероб" class="tab" />
+                    </ui:VisualElement>
+                    <ui:Button name="close" text="×" tooltip="Закрыть (Escape)" class="close-button" />
+                </ui:VisualElement>
+                <ui:VisualElement class="window-heading">
+                    <ui:Label name="screen-title" class="screen-title" />
+                    <ui:Label name="screen-subtitle" class="screen-subtitle" />
+                </ui:VisualElement>
+                <ui:VisualElement name="content" class="content">
+                    <ui:VisualElement name="workshop" class="page">
+                        <ui:VisualElement class="section-line">
+                            <ui:Label text="РАСТИ В СВОЁМ ТЕМПЕ" class="eyebrow" />
+                            <ui:Label text="03 ХАРАКТЕРИСТИКИ / 03 УРОВНЯ" class="small" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="upgrade-cards" class="upgrade-cards" />
+                        <ui:VisualElement class="info-note">
+                            <ui:Label text="i" class="info-icon" />
+                            <ui:Label text="Локальный тест прогрессии · покупки сохраняются. Бонусы движения ожидают проверки баланса." class="small" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="worlds" class="page">
+                        <ui:VisualElement name="world-cards" class="world-cards" />
+                        <ui:VisualElement class="world-details">
+                            <ui:VisualElement class="world-details-copy">
+                                <ui:Label name="world-detail-title" class="detail-title" />
+                                <ui:Label name="world-detail-description" class="small" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="level-list" class="level-list" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="wardrobe" class="page wardrobe-layout">
+                        <ui:VisualElement class="preview-stage">
+                            <ui:Label text="СОБРАН ДЛЯ ПРИКЛЮЧЕНИЙ" class="eyebrow" />
+                            <ui:VisualElement class="preview-halo">
+                                <ui:VisualElement name="hero-preview" class="hero-preview" />
+                            </ui:VisualElement>
+                            <ui:Label name="cosmetic-name" class="preview-name" />
+                            <ui:Label name="cosmetic-description" class="small" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="wardrobe-options">
+                            <ui:VisualElement class="section-line">
+                                <ui:Label text="ТВОЯ КОЛЛЕКЦИЯ" class="eyebrow" />
+                                <ui:Label text="04 ОБРАЗА" class="small" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="cosmetics" />
+                            <ui:VisualElement class="equip-row">
+                                <ui:Label name="cosmetic-state" class="small" />
+                                <ui:Button name="equip" class="primary" />
+                            </ui:VisualElement>
+                            <ui:Label text="Образы меняют только внешность. Новые цвета связаны с мирами." class="small cosmetic-note" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="settings-panel" class="page settings-page">
+                        <ui:Label text="ЗВУК" class="eyebrow" />
+                        <ui:Label text="Общая громкость" class="card-title" />
+                        <ui:VisualElement class="volume-row">
+                            <ui:Slider name="volume" low-value="0" high-value="1" value="1" />
+                            <ui:Label name="volume-value" text="100%" class="volume-value" />
+                        </ui:VisualElement>
+                        <ui:Label text="Настройка сохраняется между запусками. Звуковая дорожка в прототипе пока отсутствует." class="description" />
+                        <ui:VisualElement class="settings-divider" />
+                        <ui:Label text="УПРАВЛЕНИЕ" class="eyebrow" />
+                        <ui:Label text="A / D или стрелки — движение     Space — прыжок&#10;E — взаимодействие     Escape — закрыть окно&#10;Tab / Shift+Tab — выбор кнопки     Enter — подтвердить" class="description" />
+                        <ui:Button name="main-menu" text="В ГЛАВНОЕ МЕНЮ  →" class="secondary" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="window-footer">
+                    <ui:Label text="ЯБЛОЧНАЯ ПОЛЯНА" class="footer-location" />
+                    <ui:Label text="ESC  закрыть     /     TAB  навигация" class="small" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label name="toast" class="toast" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

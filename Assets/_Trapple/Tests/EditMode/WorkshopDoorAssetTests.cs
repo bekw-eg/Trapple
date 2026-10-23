@@ -3,7 +3,9 @@ using System.Linq;
 using NUnit.Framework;
 using Trapple.Workshop;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Trapple.Tests
 {
@@ -83,6 +85,41 @@ namespace Trapple.Tests
             Assert.That(importer.filterMode,Is.EqualTo(FilterMode.Point));
             Assert.That(importer.mipmapEnabled,Is.False);
             Assert.That(importer.textureCompression,Is.EqualTo(TextureImporterCompression.Uncompressed));
+        }
+        [TestCase("Assets/_Trapple/Scenes/Hub/Hub.unity")]
+        [TestCase("Assets/_Trapple/Scenes/Menu/TrappleUI.unity")]
+        public void PlayableScenesUseTheEmptyDoorwayWithRegisteredOverlays(string path)
+        {
+            var scene=SceneManager.GetSceneByPath(path);
+            bool openedForTest=!scene.isLoaded;
+            if(openedForTest) scene=EditorSceneManager.OpenScene(path,OpenSceneMode.Additive);
+            try
+            {
+                var door=scene.GetRootGameObjects().SelectMany(root=>root.GetComponentsInChildren<WorkshopDoorAnimator>(true)).Single();
+                var overlay=door.Presentation;
+                var cottage=overlay.transform.parent.GetComponent<SpriteRenderer>();
+                Assert.That(AssetDatabase.GetAssetPath(cottage.sprite),Is.EqualTo(Root+"house_empty_doorway.png"),
+                    "A painted closed door must not remain underneath the opening animation.");
+                Assert.That(cottage.sharedMaterial.shader.name,Is.EqualTo("Trapple/Sprites/Cottage Cutout"));
+                Assert.That(overlay.transform.localPosition.x,Is.EqualTo(-1.035f).Within(.0001f));
+                Assert.That(overlay.transform.localPosition.y,Is.EqualTo(-.845f).Within(.0001f));
+                Assert.That(overlay.transform.localScale,Is.EqualTo(Vector3.one));
+                Assert.That(overlay.transform.localRotation,Is.EqualTo(Quaternion.identity));
+                Assert.That(cottage.transform.lossyScale.x,Is.EqualTo(cottage.transform.lossyScale.y).Within(.0001f),
+                    "The matched facade and door must preserve their original proportions.");
+                var transition=new SerializedObject(door.GetComponentInParent<WorkshopTransitionController>());
+                var focus=(Transform)transition.FindProperty("doorFocus").objectReferenceValue;
+                var pathPoints=transition.FindProperty("entrancePath");
+                var last=(Transform)pathPoints.GetArrayElementAtIndex(pathPoints.arraySize-1).objectReferenceValue;
+                Assert.That(Vector3.Distance(focus.position,overlay.transform.position),Is.LessThan(.0001f));
+                Assert.That(last.position.x,Is.EqualTo(focus.position.x).Within(.0001f));
+                var frames=new SerializedObject(door).FindProperty("openingFrames");
+                Assert.That(frames.arraySize,Is.EqualTo(9));
+                for(int index=0;index<9;index++)
+                    Assert.That(AssetDatabase.GetAssetPath(frames.GetArrayElementAtIndex(index).objectReferenceValue),
+                        Is.EqualTo(Root+"doors_png/door_"+index.ToString("00")+".png"));
+            }
+            finally { if(openedForTest) EditorSceneManager.CloseScene(scene,true); }
         }
         private static float AlphaAtSourcePixel(Texture2D mask,int x,int y)
         {

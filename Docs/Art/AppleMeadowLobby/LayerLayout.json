@@ -1,0 +1,251 @@
+{
+  "version": 1,
+  "purpose": "Art handoff only; placement guides are approximate and no Unity scene is modified.",
+  "concept": {
+    "file": "LobbyConcept.png",
+    "width": 1942,
+    "height": 809,
+    "coordinateSystem": "top-left pixels; bounds are x,y,width,height",
+    "referencePixelsPerUnit": 64,
+    "worldOriginImagePx": [
+      971,
+      580
+    ],
+    "walkableBaselineImageY": 580,
+    "sunCenterImagePx": [
+      1778,
+      102
+    ],
+    "clearMovementRangeImageX": [
+      640,
+      1245
+    ]
+  },
+  "sceneryPlate": {
+    "file": "SceneryPlate.png",
+    "width": 1942,
+    "height": 809,
+    "status": "Opaque combined scenery plate; sky, landscape and edge foliage are baked together. Independent parallax plates are not included."
+  },
+  "atlas": {
+    "file": "InteractablesAtlas.png",
+    "width": 1536,
+    "height": 1024,
+    "coordinateSystem": "top-left pixels; rectangles are x,y,width,height",
+    "import": {
+      "textureType": "Sprite (2D and UI)",
+      "spriteMode": "Multiple",
+      "filterMode": "Bilinear",
+      "mipmaps": false,
+      "alphaIsTransparency": true,
+      "compression": "Uncompressed for initial review",
+      "maxSize": 2048
+    },
+    "sprites": [
+      {
+        "id": "workshop",
+        "imageRect": [
+          0,
+          0,
+          650,
+          525
+        ],
+        "unityRectBottomLeft": [
+          0,
+          499,
+          650,
+          525
+        ],
+        "footAnchorImagePx": [
+          320,
+          510
+        ],
+        "conceptAnchorImagePx": [
+          263,
+          580
+        ],
+        "approximateConceptBounds": [
+          40,
+          180,
+          440,
+          404
+        ]
+      },
+      {
+        "id": "wardrobe",
+        "imageRect": [
+          660,
+          100,
+          350,
+          425
+        ],
+        "unityRectBottomLeft": [
+          660,
+          499,
+          350,
+          425
+        ],
+        "footAnchorImagePx": [
+          825,
+          510
+        ],
+        "conceptAnchorImagePx": [
+          546,
+          580
+        ],
+        "approximateConceptBounds": [
+          470,
+          410,
+          153,
+          174
+        ]
+      },
+      {
+        "id": "portalForest",
+        "imageRect": [
+          1020,
+          0,
+          516,
+          525
+        ],
+        "unityRectBottomLeft": [
+          1020,
+          499,
+          516,
+          525
+        ],
+        "footAnchorImagePx": [
+          1270,
+          510
+        ],
+        "conceptAnchorImagePx": [
+          1378,
+          580
+        ],
+        "approximateConceptBounds": [
+          1260,
+          322,
+          225,
+          262
+        ]
+      },
+      {
+        "id": "portalFactory",
+        "imageRect": [
+          0,
+          525,
+          525,
+          499
+        ],
+        "unityRectBottomLeft": [
+          0,
+          0,
+          525,
+          499
+        ],
+        "footAnchorImagePx": [
+          280,
+          982
+        ],
+        "conceptAnchorImagePx": [
+          1584,
+          580
+        ],
+        "approximateConceptBounds": [
+          1476,
+          328,
+          216,
+          256
+        ]
+      },
+      {
+        "id": "portalLava",
+        "imageRect": [
+          525,
+          525,
+          515,
+          499
+        ],
+        "unityRectBottomLeft": [
+          525,
+          0,
+          515,
+          499
+        ],
+        "footAnchorImagePx": [
+          780,
+          982
+        ],
+        "conceptAnchorImagePx": [
+          1799,
+          580
+        ],
+        "approximateConceptBounds": [
+          1683,
+          326,
+          232,
+          258
+        ]
+      }
+    ],
+    "status": "Generated separate prop cutouts, not pixel-identical extractions. Rectangles are intentionally irregular; do not use automatic equal-grid slicing. Fit each object independently to the concept."
+  },
+  "layers": [
+    {
+      "id": "background",
+      "suggestedSortingOrder": 0,
+      "suggestedParallaxRatio": 0,
+      "delivery": "SceneryPlate.png is an immediately available combined scenery option. Sky, clouds and sun need separate extraction for independent animation."
+    },
+    {
+      "id": "farMountains",
+      "suggestedSortingOrder": 10,
+      "suggestedParallaxRatio": 0.12,
+      "delivery": "Planned separate plate; use Sources/Sheet6.png as material reference. Currently baked into SceneryPlate.png."
+    },
+    {
+      "id": "midground",
+      "suggestedSortingOrder": 20,
+      "suggestedParallaxRatio": 0.3,
+      "delivery": "Planned separate orchard hills/lake plate; currently baked into SceneryPlate.png."
+    },
+    {
+      "id": "foreground",
+      "suggestedSortingOrder": 30,
+      "suggestedParallaxRatio": 0.65,
+      "delivery": "Framing apple trees behind stations; existing Resources/AppleMeadow/Tree.png and Bush.png are reusable. Edge trees also remain in SceneryPlate.png; avoid double dressing."
+    },
+    {
+      "id": "ground",
+      "suggestedSortingOrder": 40,
+      "suggestedParallaxRatio": 1,
+      "delivery": "Reuse existing Resources/AppleMeadow/Ground.png. Keep a continuous level top at image y=580; concept depicts a deeper soil face than the existing tile."
+    },
+    {
+      "id": "workshop",
+      "suggestedSortingOrder": 50,
+      "suggestedParallaxRatio": 1,
+      "delivery": "InteractablesAtlas.png/workshop"
+    },
+    {
+      "id": "wardrobe",
+      "suggestedSortingOrder": 50,
+      "suggestedParallaxRatio": 1,
+      "delivery": "InteractablesAtlas.png/wardrobe"
+    },
+    {
+      "id": "portals",
+      "suggestedSortingOrder": 50,
+      "suggestedParallaxRatio": 1,
+      "delivery": "InteractablesAtlas.png/portalForest,portalFactory,portalLava; interiors are baked into the corresponding arch."
+    },
+    {
+      "id": "decorativeForeground",
+      "suggestedSortingOrder": 70,
+      "suggestedParallaxRatio": 1.05,
+      "delivery": "Reuse existing Resources/AppleMeadow/Grass.png, Flowers.png and Bush.png below the walkable edge and at outer corners. Do not cover the lane."
+    }
+  ],
+  "runtimeIntegrationIncluded": false,
+  "fullySeparatedParallaxLayersIncluded": false
+}

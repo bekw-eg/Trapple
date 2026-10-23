@@ -25,6 +25,28 @@ namespace Trapple.Editor
             ApplyToScenes();
         }
 
+        [MenuItem("Trapple/Hub/Repair Door In Open Scene")]
+        public static void RepairDoorInOpenScene()
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+                throw new InvalidOperationException("Stop Play Mode before repairing the open scene.");
+            var scene = SceneManager.GetActiveScene();
+            if (scene.path != HubSceneFlowController.HubScenePath && scene.path != TrappleUIManager.ScenePath)
+                throw new InvalidOperationException("Open Hub or TrappleUI before repairing its door.");
+            var door = scene.GetRootGameObjects()
+                .SelectMany(root => root.GetComponentsInChildren<WorkshopDoorAnimator>(true)).Single();
+            string before = AssetDatabase.GetAssetPath(door.Presentation.transform.parent.GetComponent<SpriteRenderer>().sprite);
+            WorkshopDoorAssets.Import();
+            RegisterWorkshopDoor(scene);
+            ValidateScene(scene);
+            EditorSceneManager.MarkSceneDirty(scene);
+            if (!EditorSceneManager.SaveScene(scene)) throw new InvalidOperationException("Could not save " + scene.path);
+            Directory.CreateDirectory("Builds/DoorRepairReview");
+            File.WriteAllText("Builds/DoorRepairReview/OpenSceneRepair.txt",
+                "Scene: " + scene.path + "\nBefore: " + before + "\nAfter: " + WorkshopDoorAssets.HousePath);
+            Debug.Log("OPEN SCENE DOOR REPAIRED: " + before + " -> " + WorkshopDoorAssets.HousePath);
+        }
+
         public static void ApplyToScenes()
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode)

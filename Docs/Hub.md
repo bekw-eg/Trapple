@@ -33,11 +33,23 @@ settings are unchanged. The shared player prefab supplies these visuals to Hub,
 Tutorial and the boss arena. Its three world-linked cosmetic previews remain
 available in the wardrobe, using the earlier supplied designs.
 
-The workshop, wardrobe and portals now use the supplied pixel-art designs with
-their dark background removed. Forest/Factory/Lava card illustrations are native
-sprite rectangles from the supplied reference sheet. All use Point filtering.
-Original references remain in `Assets/_Trapple/Art/Hub/Source/`. No pickup, throw,
-combat or dodge ability was added; the DODGE row remains reference artwork only.
+The playable Hub and standalone TrappleUI scenes now use the Apple Meadow lobby
+art from `Assets/_Trapple/Art/Hub/AppleMeadow/`: a warm illustrated scenery plate,
+separate workshop/wardrobe cutouts and three destination portals. The visible sun
+is in the upper-right. Terrain, framing trees and flowers reuse the existing
+source-based Apple Meadow sprites. The central movement lane stays clear.
+The nine-frame workshop doorway and existing UI interactions remain connected.
+
+`Trapple > Hub > Apply Apple Meadow Lobby` reapplies the artwork to both saved
+scenes using Unity Editor APIs. It preserves their interaction points and ground
+collider, and validates the scene before saving. Reapply after regenerating the
+hub/UI/workshop prototypes. See `Docs/AppleMeadowLobbyIntegration.md` for the
+local launch instructions and verification.
+
+The player and Forest/Factory/Lava UI card illustrations retain their supplied
+pixel-art designs. Original references remain in `Assets/_Trapple/Art/Hub/Source/`.
+No pickup, throw, combat or dodge ability was added; the DODGE row remains
+reference artwork only.
 
 ## Preview data and integration boundaries
 

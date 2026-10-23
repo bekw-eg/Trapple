@@ -14,3 +14,11 @@ Flat example text, character and prices inside UpgradeFrame are covered by live 
 The original hub building contains painted steps and a closed door. There are no independent step tiles or authored door-opening frames. WorkshopDoorAnimator supports an ordered openingFrames array; its current presentation uses a temporary flat opening and warm light over the existing building. It uses no 3D rotation. New door artwork is still needed to replace this temporary presentation.
 
 The non-classic existing cosmetics have static artwork. Optional CosmeticDefinition.previewAnimations supports future skin-specific frame sets. Until supplied, those cosmetics retain their actual sprite and tint with procedural motion, rather than inventing sprite frames.
+
+## Cottage door overlays
+
+`Door/house_empty_doorway.png`, `Door/doors_png/door_00.png` through `door_08.png`, and `Door/door_spritesheet_3x3.png` are the supplied static cottage and transparent door frames, copied byte-for-byte. Runtime changes only the door overlay at 10 FPS and closes in reverse. All frames use 80×120 Full Rect sprites, Center pivots and Point filtering. The fixed crop offset is `(-103.5,-84.5)` pixels relative to the cottage center; both renderers share one parent scale. The base PNG's source pixels are preserved; its exterior background is removed by the cottage material described below.
+
+The original cutout and supplied review previews are preserved in `Docs/Images/WorkshopDoorOverlays/Reference/`. Setup, validation and limitations: `Docs/WorkshopDoorOverlays.md`.
+
+The cottage renderer now uses `Door/CottageCutout.mat` and only the alpha channel of the imagegen cutout `Door/cottage_cutout.png` to remove the exterior background. Its RGB still comes from the unchanged 469×347 source. The doorway stays opaque. Rebuilding keeps this material. Details and generation prompt: `Docs/WorkshopBackground.md`.

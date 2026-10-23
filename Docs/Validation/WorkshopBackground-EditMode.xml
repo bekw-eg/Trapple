@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="26" result="Passed" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:54Z" duration="0.4165663">
+  <test-suite type="TestSuite" id="1000" name="Trapple" fullname="Trapple" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:54Z" duration="0.416566" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1035" name="Trapple.HubEditModeTests.dll" fullname="C:/Users/zdeat/.codex/worktrees/workshop-door-overlays/Trapple/Library/ScriptAssemblies/Trapple.HubEditModeTests.dll" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:54Z" duration="0.404273" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="28960" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1036" name="Trapple" fullname="Trapple" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:54Z" duration="0.403840" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1037" name="Tests" fullname="Trapple.Tests" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:54Z" duration="0.403661" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="AppiSpriteTests" fullname="Trapple.Tests.AppiSpriteTests" classname="Trapple.Tests.AppiSpriteTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:53Z" duration="0.111169" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1002" name="AnimationFramesDoNotContainTheSourceSheetsBlackFloorBars" fullname="Trapple.Tests.AppiSpriteTests.AnimationFramesDoNotContainTheSourceSheetsBlackFloorBars" methodname="AnimationFramesDoNotContainTheSourceSheetsBlackFloorBars" classname="Trapple.Tests.AppiSpriteTests" runstate="Runnable" seed="966118618" result="Passed" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:53Z" duration="0.094424" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1003" name="HubServiceTests" fullname="Trapple.Tests.HubServiceTests" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:54Z" duration="0.054464" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1015" name="CallerCannotForgeCheaperUpgradeDefinition" fullname="Trapple.Tests.HubServiceTests.CallerCannotForgeCheaperUpgradeDefinition" methodname="CallerCannotForgeCheaperUpgradeDefinition" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="442956283" result="Passed" start-time="2026-10-23 14:24:53Z" end-time="2026-10-23 14:24:54Z" duration="0.036700" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="InsufficientFundsNeverChangesSaveOrLevel" fullname="Trapple.Tests.HubServiceTests.InsufficientFundsNeverChangesSaveOrLevel" methodname="InsufficientFundsNeverChangesSaveOrLevel" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="681435404" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001157" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1011" name="InvalidSavedValuesAreClamped" fullname="Trapple.Tests.HubServiceTests.InvalidSavedValuesAreClamped" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001661" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1010" name="InvalidSavedValuesAreClamped(&quot;{\&quot;version\&quot;:1,\&quot;seeds\&quot;:-90,\&quot;speed\&quot;:900,\&quot;jump\&quot;:-2,\&quot;equipped\&quot;:\&quot;lava\&quot;}&quot;)" fullname="Trapple.Tests.HubServiceTests.InvalidSavedValuesAreClamped(&quot;{\&quot;version\&quot;:1,\&quot;seeds\&quot;:-90,\&quot;speed\&quot;:900,\&quot;jump\&quot;:-2,\&quot;equipped\&quot;:\&quot;lava\&quot;}&quot;)" methodname="InvalidSavedValuesAreClamped" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="266219063" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000816" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1007" name="LockedCosmeticsCannotBeEquipped" fullname="Trapple.Tests.HubServiceTests.LockedCosmeticsCannotBeEquipped" methodname="LockedCosmeticsCannotBeEquipped" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="447778653" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000522" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="LockedSelectionAndGrantedEquipmentAreSavedIndependently" fullname="Trapple.Tests.HubServiceTests.LockedSelectionAndGrantedEquipmentAreSavedIndependently" methodname="LockedSelectionAndGrantedEquipmentAreSavedIndependently" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="1275906301" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000908" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="PurchaseChargesConfiguredPricesAndStopsAtMaximum" fullname="Trapple.Tests.HubServiceTests.PurchaseChargesConfiguredPricesAndStopsAtMaximum" methodname="PurchaseChargesConfiguredPricesAndStopsAtMaximum" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="1289577570" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000804" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="SavedUpgradesAndEquipmentSurviveServiceRecreation" fullname="Trapple.Tests.HubServiceTests.SavedUpgradesAndEquipmentSurviveServiceRecreation" methodname="SavedUpgradesAndEquipmentSurviveServiceRecreation" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="1895667232" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001429" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1022" name="StarsHaveNoInventedDefaultAndRespectConfiguredMaximum" fullname="Trapple.Tests.HubServiceTests.StarsHaveNoInventedDefaultAndRespectConfiguredMaximum" methodname="StarsHaveNoInventedDefaultAndRespectConfiguredMaximum" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="903629346" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001441" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="TutorialCompletionIsIdempotentAndUnlocksNextWorld" fullname="Trapple.Tests.HubServiceTests.TutorialCompletionIsIdempotentAndUnlocksNextWorld" methodname="TutorialCompletionIsIdempotentAndUnlocksNextWorld" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="1008709376" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001005" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1018" name="UnconfiguredAndFreePricesNeverPurchase" fullname="Trapple.Tests.HubServiceTests.UnconfiguredAndFreePricesNeverPurchase" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001278" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1016" name="UnconfiguredAndFreePricesNeverPurchase(0)" fullname="Trapple.Tests.HubServiceTests.UnconfiguredAndFreePricesNeverPurchase(0)" methodname="UnconfiguredAndFreePricesNeverPurchase" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="1187269054" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000574" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1017" name="UnconfiguredAndFreePricesNeverPurchase(-1)" fullname="Trapple.Tests.HubServiceTests.UnconfiguredAndFreePricesNeverPurchase(-1)" methodname="UnconfiguredAndFreePricesNeverPurchase" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="961697399" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000247" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="ParameterizedMethod" id="1014" name="UnsupportedSaveRestartsPreview" fullname="Trapple.Tests.HubServiceTests.UnsupportedSaveRestartsPreview" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001902" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1012" name="UnsupportedSaveRestartsPreview(&quot;not json&quot;)" fullname="Trapple.Tests.HubServiceTests.UnsupportedSaveRestartsPreview(&quot;not json&quot;)" methodname="UnsupportedSaveRestartsPreview" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="1638821096" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001001" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="UnsupportedSaveRestartsPreview(&quot;{\&quot;version\&quot;:999,\&quot;seeds\&quot;:500}&quot;)" fullname="Trapple.Tests.HubServiceTests.UnsupportedSaveRestartsPreview(&quot;{\&quot;version\&quot;:999,\&quot;seeds\&quot;:500}&quot;)" methodname="UnsupportedSaveRestartsPreview" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="1179497314" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000401" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1021" name="VersionOneSaveMigratesTutorialUnlockWithoutResettingBalance" fullname="Trapple.Tests.HubServiceTests.VersionOneSaveMigratesTutorialUnlockWithoutResettingBalance" methodname="VersionOneSaveMigratesTutorialUnlockWithoutResettingBalance" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="1876755552" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000746" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="WorldCompletionRequiresConfiguredLevelsAndBossAndSurvivesReload" fullname="Trapple.Tests.HubServiceTests.WorldCompletionRequiresConfiguredLevelsAndBossAndSurvivesReload" methodname="WorldCompletionRequiresConfiguredLevelsAndBossAndSurvivesReload" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="849714053" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001001" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="WorldUnlockContractMakesMatchingCosmeticAvailable" fullname="Trapple.Tests.HubServiceTests.WorldUnlockContractMakesMatchingCosmeticAvailable" methodname="WorldUnlockContractMakesMatchingCosmeticAvailable" classname="Trapple.Tests.HubServiceTests" runstate="Runnable" seed="328178684" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000469" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1023" name="WorkshopDoorAssetTests" fullname="Trapple.Tests.WorkshopDoorAssetTests" classname="Trapple.Tests.WorkshopDoorAssetTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.233173" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1025" name="AlternativeSheetUsesTopLeftToBottomRightOrderWithMatchingPivots" fullname="Trapple.Tests.WorkshopDoorAssetTests.AlternativeSheetUsesTopLeftToBottomRightOrderWithMatchingPivots" methodname="AlternativeSheetUsesTopLeftToBottomRightOrderWithMatchingPivots" classname="Trapple.Tests.WorkshopDoorAssetTests" runstate="Runnable" seed="739845370" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.013361" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1027" name="ExteriorCutoutRemovesTheBackdropButKeepsTheDarkDoorwayOpaque" fullname="Trapple.Tests.WorkshopDoorAssetTests.ExteriorCutoutRemovesTheBackdropButKeepsTheDarkDoorwayOpaque" methodname="ExteriorCutoutRemovesTheBackdropButKeepsTheDarkDoorwayOpaque" classname="Trapple.Tests.WorkshopDoorAssetTests" runstate="Runnable" seed="268797493" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.072302" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1024" name="IndependentOverlaysHaveIdenticalCenteredFullRectPointImports" fullname="Trapple.Tests.WorkshopDoorAssetTests.IndependentOverlaysHaveIdenticalCenteredFullRectPointImports" methodname="IndependentOverlaysHaveIdenticalCenteredFullRectPointImports" classname="Trapple.Tests.WorkshopDoorAssetTests" runstate="Runnable" seed="1217837382" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.011900" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1026" name="ReusablePrefabRegistersTheOverlayAgainstOneStaticCottage" fullname="Trapple.Tests.WorkshopDoorAssetTests.ReusablePrefabRegistersTheOverlayAgainstOneStaticCottage" methodname="ReusablePrefabRegistersTheOverlayAgainstOneStaticCottage" classname="Trapple.Tests.WorkshopDoorAssetTests" runstate="Runnable" seed="873849731" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.134312" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1028" name="WorkshopMotionTests" fullname="Trapple.Tests.WorkshopMotionTests" classname="Trapple.Tests.WorkshopMotionTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.003319" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1029" name="EveryUpgradeLevelHasDistinctSpeedCadenceDodgeAndJump" fullname="Trapple.Tests.WorkshopMotionTests.EveryUpgradeLevelHasDistinctSpeedCadenceDodgeAndJump" methodname="EveryUpgradeLevelHasDistinctSpeedCadenceDodgeAndJump" classname="Trapple.Tests.WorkshopMotionTests" runstate="Runnable" seed="335166428" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001018" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1034" name="JumpReturnsToGroundAtBothEnds" fullname="Trapple.Tests.WorkshopMotionTests.JumpReturnsToGroundAtBothEnds" classname="Trapple.Tests.WorkshopMotionTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.001075" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1030" name="JumpReturnsToGroundAtBothEnds(0)" fullname="Trapple.Tests.WorkshopMotionTests.JumpReturnsToGroundAtBothEnds(0)" methodname="JumpReturnsToGroundAtBothEnds" classname="Trapple.Tests.WorkshopMotionTests" runstate="Runnable" seed="337849521" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000254" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1031" name="JumpReturnsToGroundAtBothEnds(1)" fullname="Trapple.Tests.WorkshopMotionTests.JumpReturnsToGroundAtBothEnds(1)" methodname="JumpReturnsToGroundAtBothEnds" classname="Trapple.Tests.WorkshopMotionTests" runstate="Runnable" seed="965526166" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000069" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1032" name="JumpReturnsToGroundAtBothEnds(2)" fullname="Trapple.Tests.WorkshopMotionTests.JumpReturnsToGroundAtBothEnds(2)" methodname="JumpReturnsToGroundAtBothEnds" classname="Trapple.Tests.WorkshopMotionTests" runstate="Runnable" seed="1036955618" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000047" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1033" name="JumpReturnsToGroundAtBothEnds(3)" fullname="Trapple.Tests.WorkshopMotionTests.JumpReturnsToGroundAtBothEnds(3)" methodname="JumpReturnsToGroundAtBothEnds" classname="Trapple.Tests.WorkshopMotionTests" runstate="Runnable" seed="2015716670" result="Passed" start-time="2026-10-23 14:24:54Z" end-time="2026-10-23 14:24:54Z" duration="0.000157" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:\Users\zdeat\.codex\worktrees\workshop-door-overlays\Trapple\Docs\Validation\WorkshopBackground-EditMode.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

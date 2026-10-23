@@ -1,0 +1,205 @@
+{
+  "result": "PASS",
+  "base_size": [
+    469,
+    347
+  ],
+  "base_alpha_extrema": [
+    255,
+    255
+  ],
+  "overlay_position_top_left": [
+    91,
+    198
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    },
+    {
+      "frame": 1,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    },
+    {
+      "frame": 2,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    },
+    {
+      "frame": 3,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    },
+    {
+      "frame": 4,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    },
+    {
+      "frame": 5,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    },
+    {
+      "frame": 6,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    },
+    {
+      "frame": 7,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    },
+    {
+      "frame": 8,
+      "size": [
+        80,
+        120
+      ],
+      "mode": "RGBA",
+      "matches_preview": true,
+      "matches_sheet": true
+    }
+  ],
+  "unchanged_files": [
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/door_spritesheet_3x3.png",
+      "sha256": "b1907f4c07cc882fa80d65562fc7f64e6159828a4a0d8d80118dcf03e6393011"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/house_empty_doorway.png",
+      "sha256": "19e642c9bdae07aa5b8b1b6f0a26e9ceae3ac2abcf602b8b0d193ddc4ef0d994"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_00.png",
+      "sha256": "86a524b3c772084e5a2a487202d9a35c090462cef533dfcd2e9fb89c285f5183"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_01.png",
+      "sha256": "ada1055bb4bf5d1ca6fce866656438f1cbdc0d738f97c399ae3fcaa0b1cb7808"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_02.png",
+      "sha256": "d876db5469a926d9bca0113a6171cc7907266c5999743c01cfc448dd43b97dcd"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_03.png",
+      "sha256": "4c68a26ebb89b2856d6d425069e7a617aa7b6fa9ecdcd1d6d9eaad88864adfbc"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_04.png",
+      "sha256": "8e9c4b128b1c7b7373ba75b7ca753e25df5f01d13f69421cf790973fdc91c891"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_05.png",
+      "sha256": "37c194c56e333465b34d5ff437b861c28807117fb1393246bc55d83de696beab"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_06.png",
+      "sha256": "7a12d7f5dfcf6e66f626bc484c7afd3b5608999f00f7d091566bd661cf517435"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_07.png",
+      "sha256": "5d143655215b9678a62c0f2677be0b259ee52bd546c5b10fa0678b8f8328cb85"
+    },
+    {
+      "path": "Assets/_Trapple/Art/Workshop/Door/doors_png/door_08.png",
+      "sha256": "8f17ceb1f60af62319621548b84fce7216cc2f0c2f30733a5a8352105610a797"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/animation_preview.gif",
+      "sha256": "bb8c71c3cf7be1354852e99117390e3cd150ab52ba17e04472cdfc597ab7afe1"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_00.png",
+      "sha256": "f7cdd8c75e2017d01d302dc3dd3b53625c5ae71a709042851a8e55b8aec178d6"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_01.png",
+      "sha256": "1e2a1f955905d0fef41974fefbd64a8f768a439eaf7336ba5d38e591e5cc937b"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_02.png",
+      "sha256": "7edd59e7a50bde7dc3fc0b0c57edaaa97f87e429f1425d0af8b7591ee75022ef"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_03.png",
+      "sha256": "6856b3e377351351051bd0b62b66425344340039d761d3b2d2da99b2cf4ef999"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_04.png",
+      "sha256": "06a668be1b936d897b42546beaff96de46becfcc53eb807959bb210e3d2c3f68"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_05.png",
+      "sha256": "d16ac3c92c170e7cd3642c78412565b7828324cbf9ac1af79ac20015e1bcb6df"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_06.png",
+      "sha256": "329d2c9f27419535f49b549beaf1ca248b64a66d5bda209ce309d3ae46a874b6"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_07.png",
+      "sha256": "c3a0f9cfcdfc93af75bb6f5de8986f378f4e935c6b9eebbb4a230619995e4e4d"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/cottage_08.png",
+      "sha256": "821a8c33c34be49389425055d8ef8bf67d4b651477a04192768523e27cb0dae0"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/original_door_cutout.png",
+      "sha256": "89cc1f0d966f5f6c19be6b230f6a0fadbe01bb08ff16c76f4986a5573d51c185"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/preview_spritesheet_3x3.png",
+      "sha256": "41f7a0d93e77473d2dbcf8f9514fa23320e48ed0dc7bc2103b122e1f3c3eea42"
+    },
+    {
+      "path": "Docs/Images/WorkshopDoorOverlays/Reference/README.txt",
+      "sha256": "fa7d1a17efa48be0635e4db4eb498aa6ff6399a35d2e30a4e5c9417fe063f3fd"
+    }
+  ]
+}

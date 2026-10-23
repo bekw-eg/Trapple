@@ -9,6 +9,7 @@ namespace Trapple.Core
     public enum GameState { MainMenu, Playing, Paused, Victory }
 
     [DisallowMultipleComponent]
+    [DefaultExecutionOrder(-100)]
     public sealed class GameManager : MonoBehaviour
     {
         public const string MenuScene = "Assets/_Trapple/Scenes/Menu/MainMenu.unity";

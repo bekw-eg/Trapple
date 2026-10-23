@@ -82,6 +82,7 @@ namespace Trapple.Editor
 #pragma warning restore 618
             EditorUtility.SetDirty(atlas);
             atlas.SaveAndReimport();
+            WorkshopDoorAssets.Import();
         }
 
         private static TextureImporter Configure(string path, SpriteImportMode mode)
@@ -151,16 +152,7 @@ namespace Trapple.Editor
                 SetProp(portals[i].GetComponentInChildren<SpriteRenderer>(true), Prop(portalNames[i]),
                     new Vector2(portals[i].transform.position.x, 0), 3.35f);
 
-            var transition = UnityEngine.Object.FindAnyObjectByType<WorkshopTransitionController>();
-            var door = transition.GetComponentInChildren<WorkshopDoorAnimator>(true).Presentation;
-            var cottage = door.transform.parent.GetComponent<SpriteRenderer>();
-            SetProp(cottage, Prop("Workshop"), new Vector2(-7.89f, 0), 6.7f);
-            cottage.sharedMaterial = AssetDatabase.GetBuiltinExtraResource<Material>("Sprites-Default.mat");
-            // Keep the existing nine-frame doorway and authored entrance path aligned to the new exterior.
-            door.transform.position = new Vector3(-9.29f, 1.12f, 0);
-            SetWorldScale(door.transform, 1.35f);
-            door.sortingOrder = cottage.sortingOrder + 1;
-            Record(cottage); Record(cottage.transform); Record(door); Record(door.transform);
+            RegisterWorkshopDoor(scene);
 
             var camera = UnityEngine.Object.FindAnyObjectByType<HubCameraController>();
             camera.GetComponent<Camera>().orthographicSize = 6.8f;
@@ -183,6 +175,33 @@ namespace Trapple.Editor
                 foliage.color = new Color(.48f, .66f, .52f);
             }
             EditorSceneManager.MarkSceneDirty(scene);
+        }
+
+        internal static void RegisterWorkshopDoor(Scene scene)
+        {
+            var transition = scene.GetRootGameObjects()
+                .SelectMany(root => root.GetComponentsInChildren<WorkshopTransitionController>(true)).Single();
+            var door = transition.GetComponentInChildren<WorkshopDoorAnimator>(true).Presentation;
+            var cottage = door.transform.parent.GetComponent<SpriteRenderer>();
+            // The illustrated atlas has a baked closed door. Use the matched empty facade instead,
+            // so opening the supplied overlay exposes a dark doorway rather than a second door.
+            SetProp(cottage, AssetDatabase.LoadAssetAtPath<Sprite>(WorkshopDoorAssets.HousePath),
+                new Vector2(-8, 2.45f), 6.7f);
+            cottage.sharedMaterial = WorkshopDoorAssets.CottageMaterial();
+            // Registration is authored in the facade's original 469 x 347 pixel canvas.
+            door.transform.localPosition = WorkshopDoorAssets.OverlayOffsetPixels / WorkshopDoorAssets.PixelsPerUnit;
+            door.transform.localRotation = Quaternion.identity;
+            door.transform.localScale = Vector3.one;
+            door.sortingOrder = cottage.sortingOrder + 1;
+            Record(cottage); Record(cottage.transform); Record(door); Record(door.transform);
+            var entrance = new SerializedObject(transition);
+            var focus = (Transform)entrance.FindProperty("doorFocus").objectReferenceValue;
+            var path = entrance.FindProperty("entrancePath");
+            var lastStep = (Transform)path.GetArrayElementAtIndex(path.arraySize - 1).objectReferenceValue;
+            Vector3 passingOffset = lastStep.position - focus.position;
+            focus.position = door.transform.position;
+            lastStep.position = focus.position + passingOffset;
+            Record(focus); Record(lastStep);
         }
 
         private static SpriteRenderer Visual(string name, Sprite sprite, Transform parent, Vector2 position, float width, int order)
@@ -226,8 +245,17 @@ namespace Trapple.Editor
             var stations = UnityEngine.Object.FindObjectsByType<HubInteractable>().Where(station => station.gameObject.scene == scene).ToArray();
             if (stations.Length != 5 || stations.Count(station => station.Screen == HubScreen.Worlds) != 3)
                 throw new InvalidOperationException("Lobby interactions changed in " + scene.path);
-            if (UnityEngine.Object.FindAnyObjectByType<WorkshopDoorAnimator>().FrameCount != 9)
+            var door = UnityEngine.Object.FindAnyObjectByType<WorkshopDoorAnimator>();
+            if (door.FrameCount != 9)
                 throw new InvalidOperationException("Workshop door frames are missing.");
+            var overlay = door.Presentation;
+            var cottage = overlay.transform.parent.GetComponent<SpriteRenderer>();
+            Vector3 expectedOffset = WorkshopDoorAssets.OverlayOffsetPixels / WorkshopDoorAssets.PixelsPerUnit;
+            if (AssetDatabase.GetAssetPath(cottage.sprite) != WorkshopDoorAssets.HousePath ||
+                cottage.sharedMaterial.shader.name != "Trapple/Sprites/Cottage Cutout" ||
+                Vector3.Distance(overlay.transform.localPosition, expectedOffset) > .0001f ||
+                overlay.transform.localScale != Vector3.one)
+                throw new InvalidOperationException("Workshop exterior and animated doorway are not registered.");
             var ground = scene.GetRootGameObjects().Single(root => root.name == "Safe meadow ground").GetComponent<BoxCollider2D>();
             if (Mathf.Abs(ground.bounds.max.y) > .001f)
                 throw new InvalidOperationException("The gameplay ground line moved.");

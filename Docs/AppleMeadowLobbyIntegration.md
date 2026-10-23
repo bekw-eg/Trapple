@@ -19,10 +19,13 @@ using **Trapple > Hub > Build Windows Preview**.
 
 ## Installed artwork
 
-The scene uses a combined golden-hour scenery plate and five independent prop
-sprites imported from the concept handoff. The workshop sits on the left, the
-wardrobe stands beside it and three distinct destination portals sit on the
-right. An open movement lane separates the stations. The initial 16:9 view shows
+The scene uses a combined golden-hour scenery plate plus the wardrobe and three
+portal sprites imported from the concept handoff. The workshop uses the existing
+matched `Workshop/Door/house_empty_doorway.png` facade and its nine door overlays;
+the painted closed door in the concept atlas is not used at runtime.
+The workshop sits on the left, the wardrobe stands beside it and three distinct
+destination portals sit on the right. An open movement lane separates the
+stations. The initial 16:9 view shows
 the sun in the upper-right, with warm rays traveling down-left. Moving right
 reveals the complete rightmost portal through the existing camera follow.
 
@@ -56,6 +59,7 @@ The source images and complete generation prompts remain in
 - `Assets/_Trapple/Art/Hub/AppleMeadow/InteractablesAtlas.png` and its `.meta`.
 - `Assets/_Trapple/Scenes/Hub/Hub.unity`.
 - `Assets/_Trapple/Scenes/Menu/TrappleUI.unity`.
+- `Assets/_Trapple/Tests/EditMode/WorkshopDoorAssetTests.cs` (saved-scene regression checks).
 - `Docs/Hub.md`.
 - `Docs/Art/AppleMeadowLobby/README.md`.
 - `Docs/AppleMeadowLobbyIntegration.md`.
@@ -91,3 +95,6 @@ were serialized by the installed Unity Editor.
   texture compression have not been reviewed.
 - This task adds presentation to existing stations; it does not implement the
   planned forest, factory or lava levels.
+
+The doorway registration correction and actual Unity renders are documented in
+`Docs/Validation/AppleMeadowDoorRepair.md`.

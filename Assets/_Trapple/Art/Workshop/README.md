@@ -17,6 +17,8 @@ The non-classic existing cosmetics have static artwork. Optional CosmeticDefinit
 
 ## Cottage door overlays
 
-`Door/house_empty_doorway.png`, `Door/doors_png/door_00.png` through `door_08.png`, and `Door/door_spritesheet_3x3.png` are the supplied static cottage and transparent door frames, copied byte-for-byte. Runtime changes only the door overlay at 10 FPS and closes in reverse. All frames use 80×120 Full Rect sprites, Center pivots and Point filtering. The fixed crop offset is `(-103.5,-84.5)` pixels relative to the cottage center; both renderers share one parent scale. The base's opaque background is preserved.
+`Door/house_empty_doorway.png`, `Door/doors_png/door_00.png` through `door_08.png`, and `Door/door_spritesheet_3x3.png` are the supplied static cottage and transparent door frames, copied byte-for-byte. Runtime changes only the door overlay at 10 FPS and closes in reverse. All frames use 80×120 Full Rect sprites, Center pivots and Point filtering. The fixed crop offset is `(-103.5,-84.5)` pixels relative to the cottage center; both renderers share one parent scale. The base PNG's source pixels are preserved; its exterior background is removed by the cottage material described below.
 
 The original cutout and supplied review previews are preserved in `Docs/Images/WorkshopDoorOverlays/Reference/`. Setup, validation and limitations: `Docs/WorkshopDoorOverlays.md`.
+
+The cottage renderer now uses `Door/CottageCutout.mat` and only the alpha channel of the imagegen cutout `Door/cottage_cutout.png` to remove the exterior background. Its RGB still comes from the unchanged 469×347 source. The doorway stays opaque. Rebuilding keeps this material. Details and generation prompt: `Docs/WorkshopBackground.md`.

@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using NUnit.Framework;
 using Trapple.Workshop;
@@ -55,12 +56,39 @@ namespace Trapple.Tests
             Assert.That(cottage.sprite.rect.size,Is.EqualTo(new Vector2(469,347)));
             Assert.That(cottage.sprite.pivot,Is.EqualTo(new Vector2(234.5f,173.5f)));
             Assert.That(cottage.sprite.texture.filterMode,Is.EqualTo(FilterMode.Point));
+            Assert.That(cottage.sharedMaterial.shader.name,Is.EqualTo("Trapple/Sprites/Cottage Cutout"));
+            Assert.That(AssetDatabase.GetAssetPath(cottage.sharedMaterial.GetTexture("_CutoutTex")),Is.EqualTo(Root+"cottage_cutout.png"));
             Assert.That(overlay.transform.localPosition,Is.EqualTo(new Vector3(-1.035f,-.845f,0)));
             Assert.That(overlay.transform.localScale,Is.EqualTo(Vector3.one));
             Assert.That(overlay.sortingOrder,Is.EqualTo(cottage.sortingOrder+1));
             Assert.That(overlay.sharedMaterial.shader.name,Is.EqualTo("Sprites/Default"));
             var serialized=new SerializedObject(door);
             Assert.That(serialized.FindProperty("framesPerSecond").floatValue,Is.EqualTo(10));
+        }
+        [Test]
+        public void ExteriorCutoutRemovesTheBackdropButKeepsTheDarkDoorwayOpaque()
+        {
+            var mask=new Texture2D(2,2,TextureFormat.RGBA32,false);
+            try
+            {
+                Assert.That(mask.LoadImage(File.ReadAllBytes(Root+"cottage_cutout.png")),Is.True);
+                foreach(var point in new[]{new Vector2Int(0,0),new Vector2Int(468,0),new Vector2Int(0,346),new Vector2Int(468,346),new Vector2Int(20,100)})
+                    Assert.That(AlphaAtSourcePixel(mask,point.x,point.y),Is.LessThan(.5f),"Exterior background must be transparent.");
+                for(int y=230;y<300;y++) for(int x=115;x<150;x++)
+                    Assert.That(AlphaAtSourcePixel(mask,x,y),Is.GreaterThanOrEqualTo(.5f),"The doorway must not reveal the landscape.");
+                Assert.That(AlphaAtSourcePixel(mask,250,150),Is.GreaterThanOrEqualTo(.5f),"Preserve the cottage roof/wall.");
+            }
+            finally { Object.DestroyImmediate(mask); }
+            var importer=(TextureImporter)AssetImporter.GetAtPath(Root+"cottage_cutout.png");
+            Assert.That(importer.filterMode,Is.EqualTo(FilterMode.Point));
+            Assert.That(importer.mipmapEnabled,Is.False);
+            Assert.That(importer.textureCompression,Is.EqualTo(TextureImporterCompression.Uncompressed));
+        }
+        private static float AlphaAtSourcePixel(Texture2D mask,int x,int y)
+        {
+            int mx=Mathf.FloorToInt((x+.5f)*mask.width/469);
+            int my=mask.height-1-Mathf.FloorToInt((y+.5f)*mask.height/347);
+            return mask.GetPixel(mx,my).a;
         }
     }
 }

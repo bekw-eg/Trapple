@@ -79,6 +79,7 @@ namespace Trapple.Editor
             var cottage=new GameObject("Static cottage",typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();
             cottage.transform.SetParent(door.transform,false); cottage.transform.position=new Vector2(-8,2.45f);
             cottage.sprite=AssetDatabase.LoadAssetAtPath<Sprite>(WorkshopDoorAssets.HousePath); cottage.sortingOrder=5;
+            cottage.sharedMaterial=WorkshopDoorAssets.CottageMaterial();
             cottage.transform.localScale=new Vector3(5.7f/cottage.sprite.bounds.size.x,4.95f/cottage.sprite.bounds.size.y,1);
             var opening=new GameObject("Door overlay",typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();
             opening.transform.SetParent(cottage.transform,false);

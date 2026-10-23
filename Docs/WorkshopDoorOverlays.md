@@ -54,6 +54,6 @@ Unity 6000.6.0f1:
 
 ## Limitations
 
-The supplied base has an opaque dark background, which is preserved and appears as a rectangular backdrop in the hub. The opening frames simulate a swing by compressing the existing door pixels; they are not separately painted perspective views. The fully open frame retains the supplied narrow door edge. No upscaling or new artwork is generated.
+The supplied base PNG still has its original opaque background. The cottage material now removes the exterior at render time using a separate alpha cutout; the dark doorway stays opaque. See `Docs/WorkshopBackground.md` for the current material and validation. The opening frames simulate a swing by compressing the existing door pixels; they are not separately painted perspective views. The fully open frame retains the supplied narrow door edge. Source pixels and door frames are unchanged.
 
 Manual keyboard play in a visible window and platforms other than Windows were not tested. The player check uses the existing automated development-player harness and restores its test save/configuration changes.

@@ -1,0 +1,124 @@
+{
+  "result": "PASS",
+  "render_size": [
+    469,
+    347
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 0,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": null
+    },
+    {
+      "frame": 1,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 1,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ]
+    },
+    {
+      "frame": 2,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 1,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": [
+        111,
+        216,
+        156,
+        308
+      ]
+    },
+    {
+      "frame": 3,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 1,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ]
+    },
+    {
+      "frame": 4,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 1,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ]
+    },
+    {
+      "frame": 5,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 1,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ]
+    },
+    {
+      "frame": 6,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 1,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ]
+    },
+    {
+      "frame": 7,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 1,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": [
+        110,
+        216,
+        156,
+        308
+      ]
+    },
+    {
+      "frame": 8,
+      "visible_source_pixels": 101824,
+      "maximum_opaque_rgb_error_to_original_preview": 1,
+      "exterior_alpha": 0,
+      "doorway_alpha": 255,
+      "changed_bounds_from_closed": [
+        111,
+        216,
+        156,
+        308
+      ]
+    }
+  ],
+  "source_png_sha256": "19e642c9bdae07aa5b8b1b6f0a26e9ceae3ac2abcf602b8b0d193ddc4ef0d994",
+  "all_frame_alpha_channels_identical": true,
+  "pixels_outside_door_crop_identical": true
+}

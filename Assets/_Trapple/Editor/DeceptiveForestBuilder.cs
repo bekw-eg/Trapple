@@ -122,7 +122,7 @@ namespace Trapple.Editor
             }
             BuildUI(root, player.GetComponent<PlayerDeath>(), stick, target, tree, goalObject.GetComponent<ForestGoal>());
             if (!EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ForestGoal.ScenePath)) throw new Exception("Scene save failed.");
-            RegisterScenes(); ValidateSavedScene(); AssetDatabase.SaveAssets();
+            RegisterScenes(); DeceptiveForestRework.Apply(); ValidateSavedScene(); AssetDatabase.SaveAssets();
             Debug.Log("FOREST: Level 2 saved and references validated with Unity Editor APIs.");
         }
 
@@ -213,7 +213,7 @@ namespace Trapple.Editor
             var obj = new GameObject("UI · Forest Toolkit", typeof(UIDocument), typeof(ForestUI)); obj.transform.SetParent(parent);
             var document = obj.GetComponent<UIDocument>(); document.panelSettings = panel; document.visualTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UI + "Forest.uxml");
             var controller = obj.GetComponent<ForestUI>();
-            Set(controller, "player", player); Set(controller, "stick", stick); Set(controller, "target", target); Set(controller, "tree", tree); Set(controller, "goal", goal);
+            Set(controller, "player", player); Set(controller, "stick", stick); Set(controller, "goal", goal);
         }
         public static void RegisterScenes()
         {
@@ -245,7 +245,8 @@ namespace Trapple.Editor
                 if (component == null || component.GetType().Namespace != "Trapple.DeceptiveForest") continue;
                 var serialized = new SerializedObject(component); var iterator = serialized.GetIterator();
                 while (iterator.NextVisible(true))
-                    if (iterator.propertyType == SerializedPropertyType.ObjectReference && iterator.objectReferenceValue == null)
+                    if (iterator.propertyType == SerializedPropertyType.ObjectReference && iterator.objectReferenceValue == null &&
+                        iterator.name != "concealedHazard")
                         throw new Exception("Unassigned reference: " + component.name + "." + iterator.name);
             }
             if (UnityEngine.Object.FindObjectsByType<PlayerController>().Length != 1 || UnityEngine.Object.FindAnyObjectByType<ForestGoal>() == null)

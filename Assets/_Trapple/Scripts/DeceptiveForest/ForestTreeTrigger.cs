@@ -7,9 +7,14 @@ namespace Trapple.DeceptiveForest
     public sealed class ForestTreeTrigger : MonoBehaviour
     {
         [SerializeField] private ForestFallingTree tree;
-        private void OnTriggerEnter2D(Collider2D other)
+        [SerializeField] private bool requireLanding;
+        private void OnTriggerEnter2D(Collider2D other) => Activate(other);
+        private void OnTriggerStay2D(Collider2D other) => Activate(other);
+        private void Activate(Collider2D other)
         {
-            if (tree != null) tree.Trigger(other.GetComponentInParent<PlayerDeath>());
+            var player = other.GetComponentInParent<PlayerController>();
+            if (player == null || (requireLanding && !player.IsGrounded)) return;
+            if (tree != null) tree.Trigger(player.GetComponent<PlayerDeath>());
         }
     }
 }

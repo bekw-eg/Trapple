@@ -3,11 +3,9 @@
     <ui:VisualElement name="forest-ui" picking-mode="Ignore">
         <ui:VisualElement name="hud" picking-mode="Ignore"><ui:Label name="stage-number" /><ui:Label name="section" /><ui:Label name="currency" /></ui:VisualElement>
         <ui:Button name="pause" class="forest-button" />
-        <ui:VisualElement name="intro" picking-mode="Ignore"><ui:Label name="world-title" /><ui:Label name="level-title" /></ui:VisualElement>
         <ui:VisualElement name="slot" picking-mode="Ignore"><ui:VisualElement name="stick-icon" picking-mode="Ignore" /></ui:VisualElement>
         <ui:Label name="controls" picking-mode="Ignore" />
         <ui:VisualElement name="prompt" picking-mode="Ignore"><ui:Label name="hint" /></ui:VisualElement>
-        <ui:VisualElement name="information-card" picking-mode="Ignore"><ui:Label name="information" /></ui:VisualElement>
         <ui:VisualElement name="modal">
             <ui:VisualElement name="window">
                 <ui:Label name="heading" /><ui:Label name="detail" />

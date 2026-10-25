@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-25",
+  "unity": "6000.6.0f1",
+  "scene": "Assets/_Trapple/Scenes/DeceptiveForest/DeceptiveForest_Level02.unity",
+  "playMode": {
+    "result": "Passed",
+    "total": "70",
+    "passed": "70",
+    "failed": "0",
+    "skipped": "0"
+  },
+  "editMode": {
+    "result": "Passed",
+    "total": "28",
+    "passed": "28",
+    "failed": "0",
+    "skipped": "0"
+  },
+  "finalHud": {
+    "result": "Passed",
+    "total": "1",
+    "passed": "1",
+    "failed": "0",
+    "skipped": "0"
+  },
+  "windowsBuild": "Succeeded; editor exit code 0",
+  "windowsPlayerLaunch": "Blocked by Windows Application Control",
+  "visualCapture": {
+    "mode": "Unity Editor Play Mode",
+    "resolution": [
+      3840,
+      2160
+    ],
+    "images": 15,
+    "scenarioAssertionFailures": 0,
+    "overallResult": "FAILED",
+    "reason": "UnityEditor.Search.SearchDatabase ArgumentOutOfRangeException from IndexationOnStartup"
+  }
+}

@@ -8,7 +8,7 @@ namespace Trapple.DeceptiveForest
     public sealed class ForestFallingTree : MonoBehaviour
     {
         [SerializeField] private Transform artwork;
-        [SerializeField, Min(.1f)] private float warningDuration = 1.1f;
+        [SerializeField, Min(.1f)] private float warningDuration = .22f;
         [SerializeField, Min(.1f)] private float fallDuration = .85f;
         [SerializeField] private float fallAngle = 90f;
         private Rigidbody2D body;
@@ -16,6 +16,9 @@ namespace Trapple.DeceptiveForest
         private float elapsed;
         public bool IsTriggered { get; private set; }
         public bool HasFallen { get; private set; }
+        public enum Phase { Dormant, Triggered, Activating, Resolved }
+        public Phase State => !IsTriggered ? Phase.Dormant : HasFallen ? Phase.Resolved :
+            elapsed < warningDuration ? Phase.Triggered : Phase.Activating;
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>(); danger = GetComponent<SpikeTrap>(); danger.SetArmed(false);

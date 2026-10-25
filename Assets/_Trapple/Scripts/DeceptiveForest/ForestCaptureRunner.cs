@@ -10,7 +10,8 @@ using UnityEngine.UIElements;
 
 namespace Trapple.DeceptiveForest
 {
-    // Opt-in visual smoke checks in a development player. Normal play never creates this object.
+    // Opt-in visual smoke checks in a development player or disposable Editor process.
+    // Requires the explicit -forest-capture argument; normal play never creates this object.
     public sealed class ForestCaptureRunner : MonoBehaviour
     {
         private string output;
@@ -18,7 +19,7 @@ namespace Trapple.DeceptiveForest
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Bootstrap()
         {
-            if (Application.isEditor || !Debug.isDebugBuild) return;
+            if (!Debug.isDebugBuild) return;
             string[] args = Environment.GetCommandLineArgs(); int index = Array.IndexOf(args, "-forest-capture");
             if (index < 0 || index + 1 >= args.Length) return;
             var runner = new GameObject("Forest visual verification").AddComponent<ForestCaptureRunner>();
@@ -28,42 +29,58 @@ namespace Trapple.DeceptiveForest
         private IEnumerator Run()
         {
             Directory.CreateDirectory(output); Application.logMessageReceived += OnLog;
-            foreach (var resolution in new[] { new Vector2Int(1920, 1080), new Vector2Int(1600, 900), new Vector2Int(1366, 768) })
+            var resolutions = Application.isEditor ? new[] { new Vector2Int(Screen.width, Screen.height) } :
+                new[] { new Vector2Int(1920, 1080), new Vector2Int(1600, 900), new Vector2Int(1366, 768) };
+            foreach (var resolution in resolutions)
             {
-                Screen.SetResolution(resolution.x, resolution.y, FullScreenMode.Windowed);
+                if (!Application.isEditor) Screen.SetResolution(resolution.x, resolution.y, FullScreenMode.Windowed);
                 yield return SceneManager.LoadSceneAsync(ForestGoal.ScenePath);
                 yield return new WaitForSecondsRealtime(1);
-                Check(Screen.width == resolution.x && Screen.height == resolution.y, "resolution " + resolution);
-                string prefix = resolution.x + "x" + resolution.y;
+                if (!Application.isEditor) Check(Screen.width == resolution.x && Screen.height == resolution.y, "resolution " + resolution);
+                string prefix = Screen.width + "x" + Screen.height;
                 var player = FindAnyObjectByType<PlayerController>(); player.enabled = false;
                 var ui = FindAnyObjectByType<ForestUI>();
                 yield return Capture(prefix + "-entrance");
                 ui.Pause(); yield return new WaitForSecondsRealtime(.2f);
-                Check(Time.timeScale == 0, "shared pause"); CheckBounds(ui.Root);
+                Check(Time.timeScale == 0, "shared pause");
+                yield return null; yield return new WaitForEndOfFrame(); CheckBounds(ui.Root);
                 yield return Capture(prefix + "-pause");
                 Submit(ui.Root.Q<Button>("resume")); yield return null;
                 Check(Time.timeScale == 1 && player.ControlEnabled, "resume");
-                if (resolution.x == 1920)
+                if (resolution.x == 1920 || Application.isEditor)
                 {
                     yield return new WaitForSeconds(4);
-                    yield return Pose(new Vector2(16, .65f)); yield return Capture("section-02-false-ground");
-                    yield return Pose(new Vector2(25.7f, 4f)); yield return Capture("section-03-vertical");
+                    yield return Pose(new Vector2(7.6f, .65f)); yield return Capture("hidden-ground-before");
+                    var cover = GameObject.Find("01 · Hidden ground").GetComponent<ForestDisappearingPlatform>();
+                    var contactBody = player.GetComponent<Rigidbody2D>();
+                    PlaceForPhysics(contactBody, new Vector2(10.2f, .49f));
+                    for (int i = 0; i < 12 && !cover.IsTriggered; i++) yield return new WaitForFixedUpdate();
+                    Check(cover.IsTriggered, "contact activated concealed ground");
+                    yield return Pose(new Vector2(7.6f, .65f));
+                    Check(cover.HasVanished, "cover collapsed"); yield return Capture("hidden-ground-after");
+                    yield return Pose(new Vector2(22.2f, 3f)); yield return Capture("trusted-branches");
+                    yield return Pose(new Vector2(29f, 1.85f)); yield return Capture("apple-clearing");
                     yield return Pose(new Vector2(36.3f, .65f));
                     var stick = FindAnyObjectByType<ForestStick>(); Check(stick.TryPickup(), "pickup");
-                    yield return null; yield return Capture("section-04-stick-held");
+                    yield return null; yield return Capture("stick-compact-hint");
                     yield return Pose(new Vector2(38.8f, .65f)); Check(stick.TryThrow(), "throw");
                     yield return new WaitForSeconds(.5f); Check(FindAnyObjectByType<ForestStickTarget>().IsOpen, "barrier opened");
-                    yield return Capture("section-04-barrier-open");
-                    yield return Pose(new Vector2(51, .65f)); yield return Capture("section-05-apple-bait");
-                    yield return Pose(new Vector2(59, .65f));
-                    var tree = FindAnyObjectByType<ForestFallingTree>(); tree.Trigger(player.GetComponent<PlayerDeath>());
-                    yield return new WaitForSeconds(.45f); yield return Capture("section-06-tree-warning");
-                    yield return new WaitForSeconds(1.7f); yield return Capture("section-06-tree-settled");
+                    yield return Pose(new Vector2(42f, .65f));
+                    var tree = GameObject.Find("04 · Clearing tree").GetComponent<ForestFallingTree>();
+                    yield return Capture("tree-dormant");
+                    PlaceForPhysics(contactBody, new Vector2(42.7f, .6f));
+                    for (int i = 0; i < 12 && !tree.IsTriggered; i++) yield return new WaitForFixedUpdate();
+                    Check(tree.IsTriggered, "tree proximity trigger");
+                    contactBody.simulated = false; contactBody.transform.position = new Vector2(42f, .65f);
+                    yield return new WaitForSeconds(.48f); yield return Capture("tree-falling");
+                    yield return new WaitForSeconds(.7f); yield return Capture("tree-settled");
+                    yield return Pose(new Vector2(57.5f, 1.45f)); yield return Capture("landing-surprise");
+                    yield return Pose(new Vector2(68f, .65f)); yield return Capture("final-combination");
                     player.GetComponent<PlayerDeath>().Die(); yield return null; yield return Capture("death-retry");
                     yield return new WaitForSecondsRealtime(1);
                     player = FindAnyObjectByType<PlayerController>(); player.enabled = false; ui = FindAnyObjectByType<ForestUI>();
                 }
-                var body = player.GetComponent<Rigidbody2D>(); body.simulated = true; body.position = new Vector2(76, 1);
+                var body = player.GetComponent<Rigidbody2D>(); PlaceForPhysics(body, new Vector2(76, 1));
                 yield return new WaitForSeconds(.7f);
                 Check(FindAnyObjectByType<ForestGoal>().IsComplete, "goal"); CheckBounds(ui.Root);
                 yield return Capture(prefix + "-complete");
@@ -74,8 +91,20 @@ namespace Trapple.DeceptiveForest
                 Check(SceneManager.GetActiveScene().path == HubSceneFlowController.HubScenePath && Time.timeScale == 1, "return to Hub");
             }
             yield return Capture("hub-return");
-            File.WriteAllText(Path.Combine(output, "result.txt"), failed ? "FAILED" : "PASS: three resolutions, panels, stick, barrier, tree, death, retry and Hub return.");
-            Application.logMessageReceived -= OnLog; Application.Quit(failed ? 1 : 0);
+            File.WriteAllText(Path.Combine(output, "result.txt"), failed ? "FAILED" : "PASS: panels, concealed ground, stick, barrier, tree, death, retry and Hub return. Resolutions: " + resolutions.Length);
+            Application.logMessageReceived -= OnLog;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.Exit(failed ? 1 : 0);
+#else
+            Application.Quit(failed ? 1 : 0);
+#endif
+        }
+        private static void PlaceForPhysics(Rigidbody2D body, Vector2 position)
+        {
+            // Keep the Transform and body in agreement when returning from a frozen capture pose.
+            body.transform.position = position; body.position = position;
+            body.simulated = true; body.linearVelocity = Vector2.zero;
+            Physics2D.SyncTransforms();
         }
         private IEnumerator Pose(Vector2 position)
         {
@@ -99,7 +128,7 @@ namespace Trapple.DeceptiveForest
             yield return new WaitForEndOfFrame();
             var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
             texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0); texture.Apply();
-            File.WriteAllBytes(Path.Combine(output, name + ".png"), texture.EncodeToPNG()); Destroy(texture);
+            File.WriteAllBytes(Path.Combine(output, name + ".jpg"), texture.EncodeToJPG(90)); Destroy(texture);
         }
         private void Check(bool condition, string message) { if (!condition) { failed = true; Debug.LogError("FOREST CAPTURE: " + message); } }
         private void OnLog(string message, string stack, LogType type) { if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert) failed = true; }

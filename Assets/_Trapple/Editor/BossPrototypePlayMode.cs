@@ -22,8 +22,8 @@ namespace Trapple.Editor
                 string activePath = SceneManager.GetActiveScene().path;
                 bool hubEntry = (activePath == Trapple.Hub.HubSceneFlowController.HubScenePath ||
                     activePath == Trapple.Core.GameManager.MenuScene) && AssetDatabase.LoadAssetAtPath<BuildProfile>(HubBuilder.ProfilePath) != null;
-                string profilePath = hubEntry
-                    ? HubBuilder.ProfilePath : BossPrototypeBuilder.ProfilePath;
+                string profilePath = activePath == Trapple.DeceptiveForest.ForestGoal.ScenePath
+                    ? DeceptiveForestBuilder.ProfilePath : hubEntry ? HubBuilder.ProfilePath : BossPrototypeBuilder.ProfilePath;
                 var profile = AssetDatabase.LoadAssetAtPath<BuildProfile>(profilePath);
                 if (profile == null) return;
                 var previous = BuildProfile.GetActiveBuildProfile();

@@ -85,7 +85,9 @@ namespace Trapple.Core
             Time.timeScale = 1f;
         }
 
-        public void CompleteBossFight()
+        public void CompleteBossFight() => CompleteLevel();
+
+        public void CompleteLevel()
         {
             if (State != GameState.Playing) return;
             FreezePlayers();

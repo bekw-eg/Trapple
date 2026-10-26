@@ -1,0 +1,17 @@
+Create original instrumental music for TRAPPLE, a colorful 2D trap platformer starring Appi, a small living apple. Its musical identity joins melodic platformer writing, modern indie warmth, acoustic and orchestral colors, and restrained chiptune. The world looks friendly but hides mischievous traps. Compose new material, not a copy or imitation of any existing game soundtrack. No vocals, lyrics, humming, speech, choir or voice samples.
+
+TITLE: Appi's Little World
+PURPOSE: seamless background game music.
+TEMPO AND FORM: 96 BPM, 4/4, D major; 60 complete bars, target 150.000000 seconds, within 120–180 seconds. Preserve a stable tempo.
+MOOD: Cozy, friendly and restful with a small mysterious corner; a safe return after difficult levels.
+INSTRUMENTS: Fingerpicked acoustic guitar, warm marimba, soft felt-like piano and light wooden percussion.
+
+APPI MOTIF: D4 E4 A4 F#4 E4 | C#4 D4. Scientific pitch notation (C4 = MIDI 60). Rhythm across two 4/4 bars: eighth, eighth, quarter, quarter, quarter | half, half. Its scale-degree shape is 1–2–5–3–2–7–1; in minor, use the minor third and raised leading tone written above. Make it singable, with space for fresh answering phrases; do not repeat it continuously.
+
+ARRANGEMENT: Bars 1–16 establish a spacious guitar-led A; 17–32 use piano replies over Bm7–Gmaj7; 33–48 bring A back with a gentle marimba counterline; 49–56 thin to guitar and wood taps; 57–60 turn back to A.
+HARMONIC AND GAMEPLAY DIRECTION: Use D6/9–Gmaj7–Bm7–A6 with sustained inner voices. Present the full motif only once per 8–16 bars; leave silence between phrases. No startling trap accents here.
+
+LOOP CONTRACT: establish the musical pulse on the first beat without a long intro. The last bar leads naturally into bar 1 with compatible harmony, rhythmic energy and timbre. No fade-in, fade-out, final stop, inserted silence or abrupt ending. Export the complete loop from frame 0 up to but excluding frame 7200000 at 48 kHz, including periodically wrapped reverb/delay tails. No extra tail outside the loop. Exact length and seam are mastering requirements, not something to assume from generated output.
+
+DELIVERY AND MIX: target a stereo WAV master, 48000 Hz, 24-bit integer PCM (the brief also permits 44100 Hz and 16-bit PCM). No clipping; aim for true peak at or below -3 dBTP, with clear transients and comfortable dynamics. Keep bass centered, stereo width moderate, and the 2–5 kHz region sparse enough for gameplay warnings. Avoid piercing bells, alarms and literal gameplay sound effects. If the generator cannot provide this format or exact length, keep its native output and state that mastering/editing is required; do not relabel MP3 as WAV.
+Working loudness target: −24 to −22 LUFS-I; verify against real gameplay effects rather than pursuing maximum loudness. Filename after approval: Appis_Little_World.wav.

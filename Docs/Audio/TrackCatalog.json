@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "status": "prompt_package_no_rendered_audio",
+  "format_target": {
+    "container": "WAV",
+    "sample_rate_hz": 48000,
+    "bit_depth": 24,
+    "channels": 2,
+    "encoding": "PCM integer"
+  },
+  "format_allowed": {
+    "sample_rates_hz": [
+      44100,
+      48000
+    ],
+    "bit_depths": [
+      16,
+      24
+    ]
+  },
+  "phase_pair": {
+    "track_ids": [
+      "10_heart_of_magma_phase1",
+      "11_heart_of_magma_phase2"
+    ],
+    "switching": "same BPM, sample count and harmony; increased subdivision density in phase 2",
+    "shared_eight_bar_harmony": [
+      "Dm",
+      "Dm",
+      "Bb",
+      "Bb",
+      "Gm",
+      "Gm",
+      "A7",
+      "A7"
+    ]
+  },
+  "tracks": [
+    {
+      "id": "01_main_theme",
+      "title": "Trapple — Main Theme",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/MainMenu/Trapple_Main_Theme.wav",
+      "prompt_file": "Prompts/01_main_theme.txt",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "bars": 48,
+      "key": "D major",
+      "brief_duration_seconds": [
+        90,
+        120
+      ],
+      "brief_bpm": [
+        110,
+        125
+      ],
+      "target_duration_seconds": 96,
+      "target_frame_count": 4608000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 4608000,
+      "loudness_target_lufs_i": "−21 to −19 LUFS-I",
+      "motif_pitches": "D5 E5 A5 F#5 E5 | C#5 D5"
+    },
+    {
+      "id": "02_little_world",
+      "title": "Appi's Little World",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Lobby/Appis_Little_World.wav",
+      "prompt_file": "Prompts/02_little_world.txt",
+      "bpm": 96,
+      "time_signature": "4/4",
+      "bars": 60,
+      "key": "D major",
+      "brief_duration_seconds": [
+        120,
+        180
+      ],
+      "brief_bpm": [
+        85,
+        105
+      ],
+      "target_duration_seconds": 150,
+      "target_frame_count": 7200000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 7200000,
+      "loudness_target_lufs_i": "−24 to −22 LUFS-I",
+      "motif_pitches": "D4 E4 A4 F#4 E4 | C#4 D4"
+    },
+    {
+      "id": "03_workshop",
+      "title": "Appi's Workshop",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Workshop/Appis_Workshop.wav",
+      "prompt_file": "Prompts/03_workshop.txt",
+      "bpm": 100,
+      "time_signature": "4/4",
+      "bars": 48,
+      "key": "G major",
+      "brief_duration_seconds": [
+        90,
+        150
+      ],
+      "brief_bpm": [
+        90,
+        110
+      ],
+      "target_duration_seconds": 115.2,
+      "target_frame_count": 5529600,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 5529600,
+      "loudness_target_lufs_i": "−23 to −21 LUFS-I",
+      "motif_pitches": "G4 A4 D5 B4 A4 | F#4 G4"
+    },
+    {
+      "id": "04_friendly_trap",
+      "title": "The Friendly Trap",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/AppleMeadow/The_Friendly_Trap.wav",
+      "prompt_file": "Prompts/04_friendly_trap.txt",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "bars": 104,
+      "key": "D major",
+      "brief_duration_seconds": [
+        180,
+        240
+      ],
+      "brief_bpm": [
+        115,
+        130
+      ],
+      "target_duration_seconds": 208,
+      "target_frame_count": 9984000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 9984000,
+      "loudness_target_lufs_i": "−22 to −20 LUFS-I",
+      "motif_pitches": "D5 E5 A5 F#5 E5 | C#5 D5"
+    },
+    {
+      "id": "05_whispering_tricks",
+      "title": "Whispering Tricks",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Forest/Whispering_Tricks.wav",
+      "prompt_file": "Prompts/05_whispering_tricks.txt",
+      "bpm": 112,
+      "time_signature": "4/4",
+      "bars": 96,
+      "key": "E minor",
+      "brief_duration_seconds": [
+        180,
+        240
+      ],
+      "brief_bpm": [
+        105,
+        120
+      ],
+      "target_duration_seconds": 205.71429166666667,
+      "target_frame_count": 9874286,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 9874286,
+      "loudness_target_lufs_i": "−23 to −21 LUFS-I",
+      "motif_pitches": "E5 F#5 B5 G5 F#5 | D#5 E5"
+    },
+    {
+      "id": "06_roots_of_fury",
+      "title": "Roots of Fury",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Bosses/Roots_of_Fury.wav",
+      "prompt_file": "Prompts/06_roots_of_fury.txt",
+      "bpm": 144,
+      "time_signature": "4/4",
+      "bars": 88,
+      "key": "D minor",
+      "brief_duration_seconds": [
+        120,
+        180
+      ],
+      "brief_bpm": [
+        140,
+        155
+      ],
+      "target_duration_seconds": 146.66666666666666,
+      "target_frame_count": 7040000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 7040000,
+      "loudness_target_lufs_i": "−20 to −18 LUFS-I",
+      "motif_pitches": "D4 E4 A4 F4 E4 | C#4 D4"
+    },
+    {
+      "id": "07_gears_gone_wrong",
+      "title": "Gears Gone Wrong",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Factory/Gears_Gone_Wrong.wav",
+      "prompt_file": "Prompts/07_gears_gone_wrong.txt",
+      "bpm": 128,
+      "time_signature": "4/4",
+      "bars": 112,
+      "key": "A minor",
+      "brief_duration_seconds": [
+        180,
+        240
+      ],
+      "brief_bpm": [
+        125,
+        140
+      ],
+      "target_duration_seconds": 210,
+      "target_frame_count": 10080000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 10080000,
+      "loudness_target_lufs_i": "−22 to −20 LUFS-I",
+      "motif_pitches": "A4 B4 E5 C5 B4 | G#4 A4"
+    },
+    {
+      "id": "08_mechanical_mayhem",
+      "title": "Mechanical Mayhem",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Bosses/Mechanical_Mayhem.wav",
+      "prompt_file": "Prompts/08_mechanical_mayhem.txt",
+      "bpm": 160,
+      "time_signature": "4/4",
+      "bars": 96,
+      "key": "A minor",
+      "brief_duration_seconds": [
+        120,
+        180
+      ],
+      "brief_bpm": [
+        150,
+        165
+      ],
+      "target_duration_seconds": 144,
+      "target_frame_count": 6912000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 6912000,
+      "loudness_target_lufs_i": "−20 to −18 LUFS-I",
+      "motif_pitches": "A3 B3 E4 C4 B3 | G#3 A3"
+    },
+    {
+      "id": "09_burning_steps",
+      "title": "Burning Steps",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/LavaFortress/Burning_Steps.wav",
+      "prompt_file": "Prompts/09_burning_steps.txt",
+      "bpm": 144,
+      "time_signature": "4/4",
+      "bars": 120,
+      "key": "G minor",
+      "brief_duration_seconds": [
+        180,
+        240
+      ],
+      "brief_bpm": [
+        135,
+        150
+      ],
+      "target_duration_seconds": 200,
+      "target_frame_count": 9600000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 9600000,
+      "loudness_target_lufs_i": "−21 to −19 LUFS-I",
+      "motif_pitches": "G4 A4 D5 Bb4 A4 | F#4 G4"
+    },
+    {
+      "id": "10_heart_of_magma_phase1",
+      "title": "Heart of Magma — Phase 1",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Bosses/Heart_of_Magma_Phase1.wav",
+      "prompt_file": "Prompts/10_heart_of_magma_phase1.txt",
+      "bpm": 160,
+      "time_signature": "4/4",
+      "bars": 128,
+      "key": "D minor",
+      "brief_duration_seconds": [
+        180,
+        240
+      ],
+      "brief_bpm": [
+        155,
+        170
+      ],
+      "target_duration_seconds": 192,
+      "target_frame_count": 9216000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 9216000,
+      "loudness_target_lufs_i": "−20 to −18 LUFS-I",
+      "motif_pitches": "D4 E4 A4 F4 E4 | C#4 D4"
+    },
+    {
+      "id": "11_heart_of_magma_phase2",
+      "title": "Heart of Magma — Phase 2",
+      "kind": "loop",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Bosses/Heart_of_Magma_Phase2.wav",
+      "prompt_file": "Prompts/11_heart_of_magma_phase2.txt",
+      "bpm": 160,
+      "time_signature": "4/4",
+      "bars": 128,
+      "key": "D minor",
+      "brief_duration_seconds": [
+        180,
+        240
+      ],
+      "brief_bpm": [
+        155,
+        170
+      ],
+      "target_duration_seconds": 192,
+      "target_frame_count": 9216000,
+      "loop_start_frame": 0,
+      "loop_end_frame_exclusive": 9216000,
+      "loudness_target_lufs_i": "−20 to −18 LUFS-I",
+      "motif_pitches": "D4 E4 A4 F4 E4 | C#4 D4"
+    },
+    {
+      "id": "12_level_complete",
+      "title": "Level Complete",
+      "kind": "jingle",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Jingles/Level_Complete.wav",
+      "prompt_file": "Prompts/12_level_complete.txt",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "bars": null,
+      "key": "D major",
+      "brief_duration_seconds": [
+        3,
+        5
+      ],
+      "target_duration_seconds": 4,
+      "target_frame_count": 192000,
+      "loop_start_frame": null,
+      "loop_end_frame_exclusive": null
+    },
+    {
+      "id": "13_victory",
+      "title": "Victory",
+      "kind": "jingle",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Jingles/Victory.wav",
+      "prompt_file": "Prompts/13_victory.txt",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "bars": null,
+      "key": "D major",
+      "brief_duration_seconds": [
+        5,
+        8
+      ],
+      "target_duration_seconds": 6.5,
+      "target_frame_count": 312000,
+      "loop_start_frame": null,
+      "loop_end_frame_exclusive": null
+    },
+    {
+      "id": "14_game_over",
+      "title": "Game Over",
+      "kind": "jingle",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Jingles/Game_Over.wav",
+      "prompt_file": "Prompts/14_game_over.txt",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "bars": null,
+      "key": "D minor",
+      "brief_duration_seconds": [
+        3,
+        5
+      ],
+      "target_duration_seconds": 4,
+      "target_frame_count": 192000,
+      "loop_start_frame": null,
+      "loop_end_frame_exclusive": null
+    },
+    {
+      "id": "15_boss_defeated",
+      "title": "Boss Defeated",
+      "kind": "jingle",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Jingles/Boss_Defeated.wav",
+      "prompt_file": "Prompts/15_boss_defeated.txt",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "bars": null,
+      "key": "D minor to D major",
+      "brief_duration_seconds": [
+        5,
+        10
+      ],
+      "target_duration_seconds": 8,
+      "target_frame_count": 384000,
+      "loop_start_frame": null,
+      "loop_end_frame_exclusive": null
+    },
+    {
+      "id": "16_upgrade_purchased",
+      "title": "Upgrade Purchased",
+      "kind": "jingle",
+      "status": "awaiting_generation",
+      "target_path": "Assets/Audio/Music/Jingles/Upgrade_Purchased.wav",
+      "prompt_file": "Prompts/16_upgrade_purchased.txt",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "bars": null,
+      "key": "G major",
+      "brief_duration_seconds": [
+        1,
+        2
+      ],
+      "target_duration_seconds": 1.5,
+      "target_frame_count": 72000,
+      "loop_start_frame": null,
+      "loop_end_frame_exclusive": null
+    }
+  ]
+}

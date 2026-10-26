@@ -1,0 +1,14 @@
+Create original instrumental music for TRAPPLE, a colorful 2D trap platformer starring Appi, a small living apple. Its musical identity joins melodic platformer writing, modern indie warmth, acoustic and orchestral colors, and restrained chiptune. The world looks friendly but hides mischievous traps. Compose new material, not a copy or imitation of any existing game soundtrack. No vocals, lyrics, humming, speech, choir or voice samples.
+
+TITLE: Level Complete
+PURPOSE: one-shot musical jingle, NOT a background loop.
+LENGTH: exactly 4 seconds including the complete decay; acceptable brief range 3–5 seconds. Start immediately. Internal pulse 120 BPM, 4/4; key D major. No pre-roll or leading silence.
+MOOD: A quick happy acknowledgment of finishing a level, not the game's final triumph.
+INSTRUMENTS: Marimba, pizzicato strings and one soft bell.
+
+APPI IDENTITY: the full original theme is D5 E5 A5 F#5 E5 | C#5 D5 (C4 = MIDI 60), with eighth/eighth/quarter/quarter/quarter | half/half durations. Minor and transposed versions keep the same identity.
+MUSICAL GESTURE: Play D5 E5 A5 F#5 E5 | C#5 D5, keeping the identity's eighth/eighth/quarter/quarter/quarter/half/half rhythm. Shorten the last note's gate so the final half-second contains only its soft decay; resolve on D6 harmony.
+Finish with a clear resolution and a naturally decaying final sound entirely within the requested duration. No looping, no abrupt cut, no unrelated outro or long silent padding.
+
+DELIVERY AND MIX: target a stereo WAV master, 48000 Hz, 24-bit integer PCM (the brief also permits 44100 Hz and 16-bit PCM). No clipping; aim for true peak at or below -3 dBTP, with clear transients and comfortable dynamics. Keep bass centered, stereo width moderate, and the 2–5 kHz region sparse enough for gameplay warnings. Avoid piercing bells, alarms and literal gameplay sound effects. If the generator cannot provide this format or exact length, keep its native output and state that mastering/editing is required; do not relabel MP3 as WAV.
+Keep perceived loudness close to the associated background music; do not create a startling jump. Loudness matching by ear is especially important for this short signal. Filename after approval: Level_Complete.wav.

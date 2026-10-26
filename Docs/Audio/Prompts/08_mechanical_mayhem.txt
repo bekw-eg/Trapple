@@ -1,0 +1,17 @@
+Create original instrumental music for TRAPPLE, a colorful 2D trap platformer starring Appi, a small living apple. Its musical identity joins melodic platformer writing, modern indie warmth, acoustic and orchestral colors, and restrained chiptune. The world looks friendly but hides mischievous traps. Compose new material, not a copy or imitation of any existing game soundtrack. No vocals, lyrics, humming, speech, choir or voice samples.
+
+TITLE: Mechanical Mayhem
+PURPOSE: seamless background game music.
+TEMPO AND FORM: 160 BPM, 4/4, A minor; 96 complete bars, target 144.000000 seconds, within 120–180 seconds. Preserve a stable tempo.
+MOOD: A powerful, tense encounter with a huge destructive machine; intimidating but still part of Appi's colorful world.
+INSTRUMENTS: Controlled distorted synth bass, heavy percussion, brass stabs and sparse industrial musical impacts.
+
+APPI MOTIF: A3 B3 E4 C4 B3 | G#3 A3. Scientific pitch notation (C4 = MIDI 60). Rhythm across two 4/4 bars: eighth, eighth, quarter, quarter, quarter | half, half. Its scale-degree shape is 1–2–5–3–2–7–1; in minor, use the minor third and raised leading tone written above. Make it singable, with space for fresh answering phrases; do not repeat it continuously.
+
+ARRANGEMENT: Bars 1–16 establish a forceful bass ostinato; 17–32 add brass motif statements; 33–48 thin to syncopated bass and clicks; 49–64 bring the brass back; 65–80 increase rhythmic activity; 81–96 return to the starting harmony and impact pattern.
+HARMONIC AND GAMEPLAY DIRECTION: Use Am–F–Dm–E7. Keep sub-bass controlled and centered; rhythmically gate distortion to leave room for attack cues. Aggression comes from articulation, not excessive loudness. No final victory cadence inside the loop.
+
+LOOP CONTRACT: establish the musical pulse on the first beat without a long intro. The last bar leads naturally into bar 1 with compatible harmony, rhythmic energy and timbre. No fade-in, fade-out, final stop, inserted silence or abrupt ending. Export the complete loop from frame 0 up to but excluding frame 6912000 at 48 kHz, including periodically wrapped reverb/delay tails. No extra tail outside the loop. Exact length and seam are mastering requirements, not something to assume from generated output.
+
+DELIVERY AND MIX: target a stereo WAV master, 48000 Hz, 24-bit integer PCM (the brief also permits 44100 Hz and 16-bit PCM). No clipping; aim for true peak at or below -3 dBTP, with clear transients and comfortable dynamics. Keep bass centered, stereo width moderate, and the 2–5 kHz region sparse enough for gameplay warnings. Avoid piercing bells, alarms and literal gameplay sound effects. If the generator cannot provide this format or exact length, keep its native output and state that mastering/editing is required; do not relabel MP3 as WAV.
+Working loudness target: −20 to −18 LUFS-I; verify against real gameplay effects rather than pursuing maximum loudness. Filename after approval: Mechanical_Mayhem.wav.

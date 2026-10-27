@@ -1,0 +1,17 @@
+Create original instrumental music for TRAPPLE, a colorful 2D trap platformer starring Appi, a small living apple. Its musical identity joins melodic platformer writing, modern indie warmth, acoustic and orchestral colors, and restrained chiptune. The world looks friendly but hides mischievous traps. Compose new material, not a copy or imitation of any existing game soundtrack. No vocals, lyrics, humming, speech, choir or voice samples.
+
+TITLE: Whispering Tricks
+PURPOSE: seamless background game music.
+TEMPO AND FORM: 112 BPM, 4/4, E minor; 96 complete bars, target 205.714286 seconds, within 180–240 seconds. Preserve a stable tempo.
+MOOD: Magical, mysterious and cunning, with brief unease beneath an inviting forest canopy.
+INSTRUMENTS: Wooden flute, kalimba, pizzicato strings, soft atmospheric synth and dry wooden percussion.
+
+APPI MOTIF: E5 F#5 B5 G5 F#5 | D#5 E5. Scientific pitch notation (C4 = MIDI 60). Rhythm across two 4/4 bars: eighth, eighth, quarter, quarter, quarter | half, half. Its scale-degree shape is 1–2–5–3–2–7–1; in minor, use the minor third and raised leading tone written above. Make it singable, with space for fresh answering phrases; do not repeat it continuously.
+
+ARRANGEMENT: Bars 1–16 establish kalimba and flute A; 17–32 introduce a low pizzicato answer; 33–48 open a suspended atmospheric space; 49–64 return with octave displacement; 65–80 add a subtle anxious counterline; 81–96 gradually restore the starting texture and loop.
+HARMONIC AND GAMEPLAY DIRECTION: Use Em(add9)–Cmaj7–Am6–B7; reserve D# for the leading-tone turn. Let a phrase appear to end one beat early while quiet wood taps retain the grid. Do not add tree crashes, falling sounds or hidden-pit warning effects.
+
+LOOP CONTRACT: establish the musical pulse on the first beat without a long intro. The last bar leads naturally into bar 1 with compatible harmony, rhythmic energy and timbre. No fade-in, fade-out, final stop, inserted silence or abrupt ending. Export the complete loop from frame 0 up to but excluding frame 9874286 at 48 kHz, including periodically wrapped reverb/delay tails. No extra tail outside the loop. Exact length and seam are mastering requirements, not something to assume from generated output.
+
+DELIVERY AND MIX: target a stereo WAV master, 48000 Hz, 24-bit integer PCM (the brief also permits 44100 Hz and 16-bit PCM). No clipping; aim for true peak at or below -3 dBTP, with clear transients and comfortable dynamics. Keep bass centered, stereo width moderate, and the 2–5 kHz region sparse enough for gameplay warnings. Avoid piercing bells, alarms and literal gameplay sound effects. If the generator cannot provide this format or exact length, keep its native output and state that mastering/editing is required; do not relabel MP3 as WAV.
+Working loudness target: −23 to −21 LUFS-I; verify against real gameplay effects rather than pursuing maximum loudness. Filename after approval: Whispering_Tricks.wav.

@@ -1,0 +1,17 @@
+Create original instrumental music for TRAPPLE, a colorful 2D trap platformer starring Appi, a small living apple. Its musical identity joins melodic platformer writing, modern indie warmth, acoustic and orchestral colors, and restrained chiptune. The world looks friendly but hides mischievous traps. Compose new material, not a copy or imitation of any existing game soundtrack. No vocals, lyrics, humming, speech, choir or voice samples.
+
+TITLE: Burning Steps
+PURPOSE: seamless background game music.
+TEMPO AND FORM: 144 BPM, 4/4, G minor; 120 complete bars, target 200.000000 seconds, within 180–240 seconds. Preserve a stable tempo.
+MOOD: Dangerous, epic and tense, the final approach across rising lava and crumbling bridges.
+INSTRUMENTS: Orchestral strings, deep drums, brass, dark synth and nimble rhythmic figures.
+
+APPI MOTIF: G4 A4 D5 Bb4 A4 | F#4 G4. Scientific pitch notation (C4 = MIDI 60). Rhythm across two 4/4 bars: eighth, eighth, quarter, quarter, quarter | half, half. Its scale-degree shape is 1–2–5–3–2–7–1; in minor, use the minor third and raised leading tone written above. Make it singable, with space for fresh answering phrases; do not repeat it continuously.
+
+ARRANGEMENT: Bars 1–16 establish urgent strings; 17–32 introduce the brass motif; 33–48 descend into darker synth; 49–64 provide a lean percussion passage; 65–80 restate the melody; 81–96 build a restrained counterline; 97–112 reprise the urgent A; 113–120 turn back to bar 1.
+HARMONIC AND GAMEPLAY DIRECTION: Use Gm–Eb–Cm–D7. Contrast legato theme with short string ostinati. Maintain room for fire-projectile and bridge warnings; no literal explosions or crumbling-rock samples.
+
+LOOP CONTRACT: establish the musical pulse on the first beat without a long intro. The last bar leads naturally into bar 1 with compatible harmony, rhythmic energy and timbre. No fade-in, fade-out, final stop, inserted silence or abrupt ending. Export the complete loop from frame 0 up to but excluding frame 9600000 at 48 kHz, including periodically wrapped reverb/delay tails. No extra tail outside the loop. Exact length and seam are mastering requirements, not something to assume from generated output.
+
+DELIVERY AND MIX: target a stereo WAV master, 48000 Hz, 24-bit integer PCM (the brief also permits 44100 Hz and 16-bit PCM). No clipping; aim for true peak at or below -3 dBTP, with clear transients and comfortable dynamics. Keep bass centered, stereo width moderate, and the 2–5 kHz region sparse enough for gameplay warnings. Avoid piercing bells, alarms and literal gameplay sound effects. If the generator cannot provide this format or exact length, keep its native output and state that mastering/editing is required; do not relabel MP3 as WAV.
+Working loudness target: −21 to −19 LUFS-I; verify against real gameplay effects rather than pursuing maximum loudness. Filename after approval: Burning_Steps.wav.

@@ -1,0 +1,17 @@
+Create original instrumental music for TRAPPLE, a colorful 2D trap platformer starring Appi, a small living apple. Its musical identity joins melodic platformer writing, modern indie warmth, acoustic and orchestral colors, and restrained chiptune. The world looks friendly but hides mischievous traps. Compose new material, not a copy or imitation of any existing game soundtrack. No vocals, lyrics, humming, speech, choir or voice samples.
+
+TITLE: Appi's Workshop
+PURPOSE: seamless background game music.
+TEMPO AND FORM: 100 BPM, 4/4, G major; 48 complete bars, target 115.200000 seconds, within 90–150 seconds. Preserve a stable tempo.
+MOOD: A cozy inventive workshop; playful anticipation while buying speed, jump and agility upgrades.
+INSTRUMENTS: Xylophone, rounded marimba, plucked strings, soft mechanical percussion and occasional small bells.
+
+APPI MOTIF: G4 A4 D5 B4 A4 | F#4 G4. Scientific pitch notation (C4 = MIDI 60). Rhythm across two 4/4 bars: eighth, eighth, quarter, quarter, quarter | half, half. Its scale-degree shape is 1–2–5–3–2–7–1; in minor, use the minor third and raised leading tone written above. Make it singable, with space for fresh answering phrases; do not repeat it continuously.
+
+ARRANGEMENT: Bars 1–8 present the motif; 9–16 introduce an answering xylophone figure; 17–24 alternate marimba and plucks; 25–32 reduce percussion for interface browsing; 33–40 develop the reply; 41–48 reconnect to the first downbeat.
+HARMONIC AND GAMEPLAY DIRECTION: Use G6–Em7–Cmaj7–D(add9). Start with a delicate musical downbeat that can fade in during Appi's doorway animation; do not bake a door sound or purchase confirmation into the loop. Soft offbeat clockwork is rhythmic texture.
+
+LOOP CONTRACT: establish the musical pulse on the first beat without a long intro. The last bar leads naturally into bar 1 with compatible harmony, rhythmic energy and timbre. No fade-in, fade-out, final stop, inserted silence or abrupt ending. Export the complete loop from frame 0 up to but excluding frame 5529600 at 48 kHz, including periodically wrapped reverb/delay tails. No extra tail outside the loop. Exact length and seam are mastering requirements, not something to assume from generated output.
+
+DELIVERY AND MIX: target a stereo WAV master, 48000 Hz, 24-bit integer PCM (the brief also permits 44100 Hz and 16-bit PCM). No clipping; aim for true peak at or below -3 dBTP, with clear transients and comfortable dynamics. Keep bass centered, stereo width moderate, and the 2–5 kHz region sparse enough for gameplay warnings. Avoid piercing bells, alarms and literal gameplay sound effects. If the generator cannot provide this format or exact length, keep its native output and state that mastering/editing is required; do not relabel MP3 as WAV.
+Working loudness target: −23 to −21 LUFS-I; verify against real gameplay effects rather than pursuing maximum loudness. Filename after approval: Appis_Workshop.wav.

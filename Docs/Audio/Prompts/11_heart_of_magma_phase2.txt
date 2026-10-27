@@ -1,0 +1,17 @@
+Create original instrumental music for TRAPPLE, a colorful 2D trap platformer starring Appi, a small living apple. Its musical identity joins melodic platformer writing, modern indie warmth, acoustic and orchestral colors, and restrained chiptune. The world looks friendly but hides mischievous traps. Compose new material, not a copy or imitation of any existing game soundtrack. No vocals, lyrics, humming, speech, choir or voice samples.
+
+TITLE: Heart of Magma — Phase 2
+PURPOSE: seamless background game music.
+TEMPO AND FORM: 160 BPM, 4/4, D minor; 128 complete bars, target 192.000000 seconds, within 180–240 seconds. Preserve a stable tempo.
+MOOD: More urgent, aggressive and dramatic than Phase 1. The second phase feels faster through arrangement, with no tempo or pitch shift.
+INSTRUMENTS: The Phase 1 low strings, deep drums and dark synth, plus faster upper-string figures, additional brass replies, extra tom layers and restrained chiptune octave sparks.
+
+APPI MOTIF: D4 E4 A4 F4 E4 | C#4 D4. Scientific pitch notation (C4 = MIDI 60). Rhythm across two 4/4 bars: eighth, eighth, quarter, quarter, quarter | half, half. Its scale-degree shape is 1–2–5–3–2–7–1; in minor, use the minor third and raised leading tone written above. Make it singable, with space for fresh answering phrases; do not repeat it continuously.
+
+ARRANGEMENT: Eight 16-bar sections aligned exactly with Phase 1: 1–16 intensified A; 17–32 expanded brass B; 33–48 driving C; 49–64 layered A; 65–80 B counterpoint; 81–96 C with percussion replies; 97–112 climactic A; 113–128 return to the phase-two starting texture. Keep energy available from bar 1.
+HARMONIC AND GAMEPLAY DIRECTION: PHASE PAIR CONTRACT: exactly 160 BPM, 4/4, 128 bars, D minor, start at bar 1 beat 1, no pickup. Repeat the same eight-bar harmony as Phase 1 without substitutions: Dm | Dm | Bb | Bb | Gm | Gm | A7 | A7. Place the two-bar motif at bars 1–2 of each 16-bar section. Use sixteenth-note movement and extra instruments over the unchanged 160 BPM grid for a faster feel. Match Phase 1's integrated loudness within 1 LU; intensify density instead of boosting gain. Both files must have identical sample count and aligned downbeats, with periodic effects.
+
+LOOP CONTRACT: establish the musical pulse on the first beat without a long intro. The last bar leads naturally into bar 1 with compatible harmony, rhythmic energy and timbre. No fade-in, fade-out, final stop, inserted silence or abrupt ending. Export the complete loop from frame 0 up to but excluding frame 9216000 at 48 kHz, including periodically wrapped reverb/delay tails. No extra tail outside the loop. Exact length and seam are mastering requirements, not something to assume from generated output.
+
+DELIVERY AND MIX: target a stereo WAV master, 48000 Hz, 24-bit integer PCM (the brief also permits 44100 Hz and 16-bit PCM). No clipping; aim for true peak at or below -3 dBTP, with clear transients and comfortable dynamics. Keep bass centered, stereo width moderate, and the 2–5 kHz region sparse enough for gameplay warnings. Avoid piercing bells, alarms and literal gameplay sound effects. If the generator cannot provide this format or exact length, keep its native output and state that mastering/editing is required; do not relabel MP3 as WAV.
+Working loudness target: −20 to −18 LUFS-I; verify against real gameplay effects rather than pursuing maximum loudness. Filename after approval: Heart_of_Magma_Phase2.wav.

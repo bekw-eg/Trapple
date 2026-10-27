@@ -25,14 +25,14 @@ namespace Trapple.Hub.Illustrated
         public void Select(string id)
         {
             if (progression == null || !progression.SelectCosmetic(id)) return;
-            if (!progression.IsCosmeticUnlocked(configuration.Cosmetic(id))) notify?.Invoke("Скин закрыт");
+            if (!progression.IsCosmeticUnlocked(configuration.Cosmetic(id))) notify?.Invoke("THIS OUTFIT IS LOCKED");
         }
         public void Equip()
         {
             var cosmetic = configuration?.Cosmetic(progression?.SelectedCosmetic);
-            if (cosmetic == null) { notify?.Invoke("Скин не настроен"); return; }
-            if (!progression.TryEquip(cosmetic)) notify?.Invoke("Скин закрыт");
-            else notify?.Invoke(cosmetic.title + " · надето");
+            if (cosmetic == null) { notify?.Invoke("OUTFIT NOT CONFIGURED"); return; }
+            if (!progression.TryEquip(cosmetic)) notify?.Invoke("THIS OUTFIT IS LOCKED");
+            else notify?.Invoke(Trapple.UI.UIWords.Skin(cosmetic.id) + " EQUIPPED");
         }
         public void Refresh()
         {
@@ -41,9 +41,12 @@ namespace Trapple.Hub.Illustrated
             if (cosmetic == null) return;
             preview.sprite = cosmetic.previewSprite != null ? cosmetic.previewSprite : cosmetic.sprite != null ? cosmetic.sprite : configuration.heroSprite;
             preview.enabled = preview.sprite != null; preview.color = cosmetic.tint;
-            title.text = cosmetic.title;
-            description.text = preview.sprite == null ? "Превью пока отсутствует" : cosmetic.description;
-            equipText.text = progression.EquippedCosmetic == cosmetic.id ? "НАДЕТО" : progression.IsCosmeticUnlocked(cosmetic) ? "НАДЕТЬ" : "ЗАКРЫТО";
+            title.text = Trapple.UI.UIWords.Skin(cosmetic.id);
+            bool unlockedCosmetic = progression.IsCosmeticUnlocked(cosmetic);
+            bool equipped = progression.EquippedCosmetic == cosmetic.id;
+            description.text = preview.sprite == null ? "PREVIEW NOT AVAILABLE" : equipped ? "YOUR CURRENT OUTFIT" : unlockedCosmetic ? "READY TO EQUIP" : "THIS OUTFIT IS LOCKED";
+            equipText.text = equipped ? "EQUIPPED" : unlockedCosmetic ? "EQUIP" : "LOCKED";
+            equip.interactable = unlockedCosmetic && !equipped;
             int unlocked = 0;
             foreach (var value in configuration.cosmetics) if (progression.IsCosmeticUnlocked(value)) unlocked++;
             count.text = unlocked + " / " + configuration.cosmetics.Length;

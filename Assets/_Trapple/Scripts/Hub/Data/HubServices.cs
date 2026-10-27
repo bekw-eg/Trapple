@@ -25,6 +25,7 @@ namespace Trapple.Hub
         void CompleteTutorial();
         bool IsWorldComplete(string id);
         int CompletedLevels(string id);
+        bool IsLevelComplete(string id, int level);
         int Stars(string id);
         bool CompleteLevel(string worldId, int level);
         bool CompleteBoss(string worldId);
@@ -137,6 +138,7 @@ namespace Trapple.Hub
             for (int i = 0; i < world.plannedLevels; i++) if (data.completedLevels.Contains(id + ":" + i)) count++;
             return count;
         }
+        public bool IsLevelComplete(string id, int level) => data.completedLevels.Contains(id + ":" + level);
         public bool IsWorldComplete(string id)
         {
             var world = configuration.World(id);

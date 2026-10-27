@@ -2,6 +2,8 @@ using System.Collections;
 using System.Reflection;
 using NUnit.Framework;
 using Trapple.Core;
+using Trapple.UI;
+using UnityEngine.EventSystems;
 using Trapple.DeceptiveForest;
 using Trapple.Hub;
 using Trapple.Level;
@@ -171,13 +173,13 @@ namespace Trapple.Tests
             Assert.That(stick.TryPickup(), Is.False);
             body.position = new Vector2(36.3f, .6f); yield return new WaitForFixedUpdate();
             Assert.That(stick.TryPickup(), Is.True); yield return null;
-            Assert.That(ui.Root.Q("stick-icon").resolvedStyle.display, Is.EqualTo(DisplayStyle.Flex));
+            Assert.That(Object.FindAnyObjectByType<GameInterface>().transform.Find("HUD/Held item").gameObject.activeSelf,Is.True);
             body.position = new Vector2(38.8f, .6f); yield return new WaitForFixedUpdate();
             Assert.That(stick.TryThrow(), Is.True);
             Assert.That(stick.GetComponent<Rigidbody2D>().linearVelocity.x, Is.GreaterThan(0));
             yield return new WaitForSeconds(.5f);
             Assert.That(target.IsOpen, Is.True);
-            Assert.That(ui.Root.Q("stick-icon").resolvedStyle.display, Is.EqualTo(DisplayStyle.None));
+            Assert.That(Object.FindAnyObjectByType<GameInterface>().transform.Find("HUD/Held item").gameObject.activeSelf,Is.False);
             Assert.That(death.IsDead, Is.False);
         }
         [UnityTest]
@@ -233,29 +235,31 @@ namespace Trapple.Tests
             typeof(ForestUI).GetField("throwShown", BindingFlags.Static | BindingFlags.NonPublic).SetValue(null, false);
             var ui = Object.FindAnyObjectByType<ForestUI>();
             body.position = new Vector2(36.3f, .6f); yield return new WaitForFixedUpdate(); yield return null; yield return null;
-            Assert.That(ui.Root.Q("prompt").resolvedStyle.display, Is.EqualTo(DisplayStyle.Flex));
+            Assert.That(ui.IsHintVisible,Is.True);
             yield return new WaitForSeconds(3.2f);
-            Assert.That(ui.Root.Q("prompt").resolvedStyle.display, Is.EqualTo(DisplayStyle.None));
+            Assert.That(ui.IsHintVisible,Is.False);
             body.position = new Vector2(34f, .6f); yield return null;
             body.position = new Vector2(36.3f, .6f); yield return new WaitForFixedUpdate(); yield return null; yield return null;
-            Assert.That(ui.Root.Q("prompt").resolvedStyle.display, Is.EqualTo(DisplayStyle.None));
+            Assert.That(ui.IsHintVisible,Is.False);
             Assert.That(GameObject.Find("04 · Recoverable stick").GetComponent<ForestStick>().TryPickup(), Is.True);
             yield return null; yield return null;
-            Assert.That(ui.Root.Q<Label>("hint").text, Does.StartWith("F"));
+            Assert.That(ui.HintIsThrow,Is.True);
             yield return new WaitForSeconds(3.2f);
-            Assert.That(ui.Root.Q("prompt").resolvedStyle.display, Is.EqualTo(DisplayStyle.None));
+            Assert.That(ui.IsHintVisible,Is.False);
         }
         [UnityTest]
         public IEnumerator PauseUsesSharedManagerAndDoesNotSubmitFromGameplay()
         {
-            var ui = Object.FindAnyObjectByType<ForestUI>(); ui.Pause(); yield return null;
-            Assert.That(Time.timeScale, Is.Zero); Assert.That(ui.IsModalOpen, Is.True);
-            Assert.That(player.ControlEnabled, Is.False);
-            using (var submit = NavigationSubmitEvent.GetPooled()) ui.Root.Q<Button>("resume").SendEvent(submit);
-            yield return null; Assert.That(Time.timeScale, Is.EqualTo(1)); Assert.That(ui.IsModalOpen, Is.False);
-            using (var submit = NavigationSubmitEvent.GetPooled()) ui.Root.Q<Button>("pause").SendEvent(submit);
-            yield return null; Assert.That(GameManager.Instance.State, Is.EqualTo(GameState.Playing));
-            Assert.That(ui.Root.panel.focusController.focusedElement, Is.Null);
+            var ui=Object.FindAnyObjectByType<ForestUI>(); ui.Pause(); yield return null;
+            Assert.That(Time.timeScale,Is.Zero); Assert.That(ui.IsModalOpen,Is.True);
+            Assert.That(player.ControlEnabled,Is.False);
+            var resume=System.Array.Find(Object.FindObjectsByType<UnityEngine.UI.Button>(),value=>value.name=="CONTINUE");
+            ExecuteEvents.Execute(resume.gameObject,new BaseEventData(EventSystem.current),ExecuteEvents.submitHandler);
+            yield return null;
+            Assert.That(Time.timeScale,Is.EqualTo(1)); Assert.That(ui.IsModalOpen,Is.False);
+            Assert.That(GameManager.Instance.State,Is.EqualTo(GameState.Playing));
+            Assert.That(EventSystem.current.sendNavigationEvents,Is.False);
+            Assert.That(EventSystem.current.currentSelectedGameObject,Is.Null);
         }
         [UnityTest]
         public IEnumerator GoalCompletesOnceAndReturnToHubPreservesSave()
@@ -268,10 +272,10 @@ namespace Trapple.Tests
             GameManager.Instance.Pause(); Assert.That(GameManager.Instance.State, Is.EqualTo(GameState.Victory));
             var ui = Object.FindAnyObjectByType<ForestUI>();
             Assert.That(Application.CanStreamedLevelBeLoaded(HubSceneFlowController.HubScenePath), Is.True, "Hub registered in active build");
-            Assert.That(ui.Root.Q<Button>("hub").enabledInHierarchy, Is.True, "Hub button enabled");
-            ui.Root.Q<Button>("hub").Focus();
+            var hubButton=System.Array.Find(Object.FindObjectsByType<UnityEngine.UI.Button>(),value=>value.name=="Lobby");
+            Assert.That(hubButton.interactable,Is.True,"Hub button enabled");
             yield return null;
-            using (var submit = NavigationSubmitEvent.GetPooled()) ui.Root.Q<Button>("hub").SendEvent(submit);
+            ExecuteEvents.Execute(hubButton.gameObject,new BaseEventData(EventSystem.current),ExecuteEvents.submitHandler);
             yield return new WaitForSeconds(.4f);
             Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(HubSceneFlowController.HubScenePath));
             Assert.That(Object.FindAnyObjectByType<PlayerController>().ControlEnabled, Is.True);

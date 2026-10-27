@@ -24,6 +24,7 @@ namespace Trapple.Hub.Illustrated
         [SerializeField] private UpgradeCardUI[] upgrades;
         [SerializeField] private WardrobePanelUI wardrobe;
         [SerializeField] private TMP_Text currency, message;
+        [SerializeField] private WorldMapPanelUI worldMap;
         private IProgressionService progression;
         private Action<HubScreen> navigate;
         private Action close, menu;
@@ -38,6 +39,7 @@ namespace Trapple.Hub.Illustrated
             this.surface = surface; this.pages = pages; this.worlds = worlds; this.upgrades = upgrades;
             this.wardrobe = wardrobe; this.currency = currency; this.message = message;
         }
+        public void SetWorldMap(WorldMapPanelUI value) => worldMap = value;
 
         public void Initialize(HubConfiguration config, IProgressionService progress, ISceneFlowController flow,
             Action<HubScreen> navigate, Action close, Action menu)
@@ -50,6 +52,7 @@ namespace Trapple.Hub.Illustrated
             foreach (var card in worlds) if (card != null) card.Bind(config, progress, flow, Notify);
             foreach (var card in upgrades) if (card != null) card.Bind(config, progress, Notify);
             if (wardrobe != null) wardrobe.Bind(config, progress, Notify);
+            if (worldMap != null) worldMap.Bind(config, progress, flow);
             if (progression != null) progression.Changed += Refresh;
             Hide(); Refresh();
         }
@@ -76,6 +79,7 @@ namespace Trapple.Hub.Illustrated
         public void OpenWorkshop() => navigate?.Invoke(HubScreen.Workshop);
         public void OpenWorldMap() => navigate?.Invoke(HubScreen.Worlds);
         public void OpenWardrobe() => navigate?.Invoke(HubScreen.Wardrobe);
+        public void OpenSettings() => navigate?.Invoke(HubScreen.Settings);
         public void Close() => close?.Invoke();
         public void ReturnToMenu() => menu?.Invoke();
         public void SecretWorlds() => Notify("Скоро");
@@ -91,6 +95,7 @@ namespace Trapple.Hub.Illustrated
             foreach (var card in worlds) if (card != null) card.Refresh();
             foreach (var card in upgrades) if (card != null) card.Refresh();
             if (wardrobe != null) wardrobe.Refresh();
+            if (worldMap != null) worldMap.Refresh();
         }
         private void Update()
         {

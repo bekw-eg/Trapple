@@ -10,6 +10,7 @@ using Trapple.Hub.Illustrated;
 using UnityEngine.EventSystems;
 using UGUIButton = UnityEngine.UI.Button;
 using Trapple.Workshop;
+using Trapple.UI;
 
 namespace Trapple.Tests
 {
@@ -102,7 +103,7 @@ namespace Trapple.Tests
             Assert.That(player.ControlEnabled,Is.True);
             ui.enabled=true;
             yield return null;
-            Assert.That(ui.Illustrated.GetComponentsInChildren<UpgradeCardUI>(true).Length,Is.EqualTo(3));
+            Assert.That(System.Array.FindAll(ui.Workshop.View.GetComponentsInChildren<UGUIButton>(true),value=>value.name.StartsWith("Select ")).Length,Is.EqualTo(3));
             Assert.That(ui.IsOpen,Is.False);
             Assert.That(player.ControlEnabled,Is.True);
         }
@@ -127,15 +128,14 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator WorldCardsAndLockedLevelGuards()
         {
-            ui.Open(HubScreen.Worlds);
-            yield return null;
-            Assert.That(ui.Illustrated.GetComponentsInChildren<WorldCardUI>(true).Length,Is.EqualTo(4));
-            var config=Object.FindAnyObjectByType<HubBootstrap>();
-            Assert.That(config,Is.Not.Null);
-            FindButton("worlds-world_buttons-deceptive_forest").onClick.Invoke();
-            yield return null;
+            ui.Open(HubScreen.Worlds); yield return null;
+            var map=Object.FindAnyObjectByType<WorldMapPanelUI>();
+            Assert.That(map,Is.Not.Null);
+            map.SelectWorld(1); yield return null;
+            Assert.That(FindButton("Play level").interactable,Is.False);
+            map.Play(); yield return null;
             Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(HubSceneFlowController.HubScenePath));
-            Assert.That(ui.Illustrated.Message,Does.Contain("закрыт"));
+            Assert.That(HubSceneFlowController.Instance.Progression.IsWorldUnlocked(map.SelectedWorld),Is.False);
         }
 
         [UnityTest]
@@ -145,11 +145,12 @@ namespace Trapple.Tests
             yield return null;
             Assert.That(ui.Illustrated.GetComponentsInChildren<SkinItemUI>(true).Length,Is.EqualTo(4));
             Assert.That(HubSceneFlowController.Instance.Progression.EquippedCosmetic,Is.EqualTo("classic"));
-            FindButton("wardrobe-skin_rows-volcano_heart").onClick.Invoke();
+            FindButton("Outfit lava").onClick.Invoke();
             yield return null;
             Assert.That(HubSceneFlowController.Instance.Progression.SelectedCosmetic,Is.EqualTo("lava"));
-            FindButton("Equip selected skin").onClick.Invoke();
-            Assert.That(ui.Illustrated.Message,Does.Contain("закрыт"));
+            Assert.That(FindButton("Equip outfit").interactable,Is.False);
+            ui.Illustrated.GetComponentInChildren<WardrobePanelUI>().Equip();
+            Assert.That(ui.Illustrated.Message,Does.Contain("LOCKED"));
             Assert.That(HubSceneFlowController.Instance.Progression.EquippedCosmetic,Is.EqualTo("classic"));
         }
 
@@ -218,14 +219,14 @@ namespace Trapple.Tests
         {
             ui.Open(HubScreen.Worlds);
             yield return null;
-            var launch=FindButton("worlds-world_buttons-apple_meadow");
+            var launch=FindButton("Play level");
             Assert.That(launch.interactable,Is.True);
             launch.onClick.Invoke();
             yield return new WaitForSeconds(.35f);
             Assert.That(SceneManager.GetActiveScene().name,Is.EqualTo("Tutorial"));
             Assert.That(Object.FindAnyObjectByType<Trapple.Level.TutorialGoal>(),Is.Not.Null);
             Assert.That(Object.FindAnyObjectByType<PlayerController>().ControlEnabled,Is.True);
-            Assert.That(Object.FindAnyObjectByType<UIDocument>().rootVisualElement.Q<Button>("return-hub"),Is.Not.Null);
+            Assert.That(Object.FindAnyObjectByType<GameInterface>(),Is.Not.Null);
             HubSceneFlowController.Instance.ReturnToHub();
             yield return new WaitForSeconds(.35f);
             Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(HubSceneFlowController.HubScenePath));
@@ -235,29 +236,24 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator TutorialHudCannotSubmitJumpAndExitReturnsToMainMenu()
         {
-            var flow = HubSceneFlowController.Instance;
-            Assert.That(flow.TryLaunch(flow.Configuration.World("meadow"), 0), Is.True);
+            var flow=HubSceneFlowController.Instance;
+            Assert.That(flow.TryLaunch(flow.Configuration.World("meadow"),0),Is.True);
             yield return new WaitForSeconds(.35f);
-            var document = Object.FindAnyObjectByType<UIDocument>();
-            var button = document.rootVisualElement.Q<Button>("return-hub");
-            Assert.That(button.focusable, Is.False);
-            using (var submit = NavigationSubmitEvent.GetPooled()) button.SendEvent(submit);
-            yield return null;
-            Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(Trapple.Core.GameManager.TutorialScene));
-            var manager = Trapple.Core.GameManager.Instance;
-            manager.Pause();
-            yield return null;
-            Assert.That(document.rootVisualElement.resolvedStyle.display, Is.EqualTo(DisplayStyle.None));
-            manager.ReturnToMenu();
-            yield return null;
-            Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(Trapple.Core.GameManager.MenuScene));
-            Assert.That(manager.State, Is.EqualTo(Trapple.Core.GameState.MainMenu));
-            Assert.That(Time.timeScale, Is.EqualTo(1f));
-            Assert.That(Object.FindAnyObjectByType<PlayerController>(), Is.Null);
+            Assert.That(EventSystem.current.sendNavigationEvents,Is.False);
+            Assert.That(EventSystem.current.currentSelectedGameObject,Is.Null);
+            var view=Object.FindAnyObjectByType<GameInterface>();
+            Assert.That(view.transform.Find("HUD").gameObject.activeSelf,Is.True);
+            var manager=Trapple.Core.GameManager.Instance; manager.Pause(); yield return null;
+            Assert.That(view.transform.Find("HUD").gameObject.activeSelf,Is.False);
+            manager.ReturnToMenu(); yield return null;
+            Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(Trapple.Core.GameManager.MenuScene));
+            Assert.That(manager.State,Is.EqualTo(Trapple.Core.GameState.MainMenu));
+            Assert.That(Time.timeScale,Is.EqualTo(1f));
+            Assert.That(Object.FindAnyObjectByType<PlayerController>(),Is.Null);
         }
 
-        private UGUIButton FindButton(string name) => System.Array.Find(ui.Illustrated.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name);
-        private UGUIButton FindWorkshopButton(string name) => System.Array.Find(ui.Workshop.View.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name);
+        private UGUIButton FindButton(string name) => System.Array.Find(ui.Illustrated.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name && value.isActiveAndEnabled);
+        private UGUIButton FindWorkshopButton(string name) => System.Array.Find(ui.Workshop.View.GetComponentsInChildren<UGUIButton>(true),value=>value.name==name && value.isActiveAndEnabled);
         private IEnumerator WaitForWorkshop(WorkshopTransitionState state)
         {
             float until=Time.realtimeSinceStartup+15;
@@ -266,23 +262,19 @@ namespace Trapple.Tests
         }
 
         [UnityTest]
-        public IEnumerator ActualTabsCloseAndSecretButtonsAreWiredAndDoNotReloadScene()
+        public IEnumerator ActualBackAndHubButtonsAreWiredAndDoNotReloadScene()
         {
             var scene=SceneManager.GetActiveScene().handle;
             ui.Open(HubScreen.Worlds); yield return null;
             Assert.That(ui.Illustrated.IsOpen,Is.True);
-            FindButton("worlds-tabs-workshop").onClick.Invoke();
-            Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Workshop));
-            yield return WaitForWorkshop(WorkshopTransitionState.Inside);
-            ui.Open(HubScreen.Wardrobe);
-            yield return WaitForWorkshop(WorkshopTransitionState.Outside);
+            FindButton("Back").onClick.Invoke(); yield return new WaitForSecondsRealtime(.25f);
+            Assert.That(player.ControlEnabled,Is.True);
+            var workshop=System.Array.Find(Object.FindObjectsByType<UGUIButton>(),value=>value.name=="Workshop");
+            workshop.onClick.Invoke(); yield return WaitForWorkshop(WorkshopTransitionState.Inside);
+            ui.Open(HubScreen.Wardrobe); yield return WaitForWorkshop(WorkshopTransitionState.Outside);
             Assert.That(ui.CurrentScreen,Is.EqualTo(HubScreen.Wardrobe));
-            FindButton("wardrobe-tabs-worlds").onClick.Invoke();
-            FindButton("worlds-secret_worlds").onClick.Invoke();
-            Assert.That(ui.Illustrated.Message,Is.EqualTo("Скоро"));
+            FindButton("Close").onClick.Invoke(); yield return new WaitForSecondsRealtime(.25f);
             Assert.That(SceneManager.GetActiveScene().handle,Is.EqualTo(scene));
-            FindButton("worlds-close").onClick.Invoke();
-            yield return new WaitForSecondsRealtime(.25f);
             Assert.That(ui.Illustrated.IsOpen,Is.False);
             Assert.That(player.ControlEnabled,Is.True);
         }
@@ -293,9 +285,9 @@ namespace Trapple.Tests
             ui.Open(HubScreen.Workshop); yield return WaitForWorkshop(WorkshopTransitionState.Inside);
             var button=FindWorkshopButton("Purchase upgrade");
             var service=HubSceneFlowController.Instance.Progression;
-            button.onClick.Invoke(); Assert.That(ui.Workshop.View.Feedback,Does.Contain("не настроена"));
+            button.onClick.Invoke(); Assert.That(ui.Workshop.View.Feedback,Does.Contain("PRICE NOT CONFIGURED"));
             HubSceneFlowController.Instance.Configuration.Upgrade(UpgradeKind.Speed).costs=new[]{10,20,35};
-            button.onClick.Invoke(); Assert.That(ui.Workshop.View.Feedback,Does.Contain("Недостаточно"));
+            button.onClick.Invoke(); Assert.That(ui.Workshop.View.Feedback,Does.Contain("NOT ENOUGH"));
             service.AddSeeds(100);
             button.onClick.Invoke(); button.onClick.Invoke();
             Assert.That(service.Level(UpgradeKind.Speed),Is.EqualTo(1)); Assert.That(service.Seeds,Is.EqualTo(90));
@@ -312,8 +304,8 @@ namespace Trapple.Tests
             var service=HubSceneFlowController.Instance.Progression;
             service.CompleteTutorial(); yield return null;
             Assert.That(service.IsWorldUnlocked(HubSceneFlowController.Instance.Configuration.World("forest")),Is.True);
-            FindButton("worlds-world_buttons-deceptive_forest").onClick.Invoke();
-            Assert.That(ui.Illustrated.Message,Does.Contain("сцена пока недоступна"));
+            Object.FindAnyObjectByType<WorldMapPanelUI>().SelectWorld(1);
+            Assert.That(FindButton("Play level").interactable,Is.False);
             Assert.That(service.Seeds,Is.Zero);
         }
 
@@ -323,9 +315,9 @@ namespace Trapple.Tests
             foreach(var screen in new[]{HubScreen.Worlds,HubScreen.Wardrobe})
             {
                 ui.Open(screen); yield return null; Canvas.ForceUpdateCanvases();
-                var pages=ui.Illustrated.GetComponentsInChildren<ReferencePixelScale>();
-                Assert.That(pages.Length,Is.EqualTo(1));
-                Assert.That(pages[0].transform.lossyScale.x,Is.EqualTo(pages[0].transform.lossyScale.y).Within(.0001f));
+                var canvas=ui.Illustrated.GetComponent<Canvas>();
+                Assert.That(canvas.transform.lossyScale.x,Is.EqualTo(canvas.transform.lossyScale.y).Within(.0001f));
+                Assert.That(canvas.GetComponent<UnityEngine.UI.CanvasScaler>().referenceResolution,Is.EqualTo(new Vector2(1920,1080)));
                 var buttons=ui.Illustrated.GetComponentsInChildren<UGUIButton>();
                 foreach(var button in buttons)
                 {
@@ -361,8 +353,8 @@ namespace Trapple.Tests
         {
             var service=HubSceneFlowController.Instance.Progression;
             service.GrantCosmetic("forest"); ui.Open(HubScreen.Wardrobe); yield return null;
-            FindButton("wardrobe-skin_rows-forest_traveler").onClick.Invoke();
-            FindButton("Equip selected skin").onClick.Invoke(); yield return null;
+            FindButton("Outfit forest").onClick.Invoke();
+            FindButton("Equip outfit").onClick.Invoke(); yield return null;
             Assert.That(service.EquippedCosmetic,Is.EqualTo("forest"));
             var config=HubSceneFlowController.Instance.Configuration;
             Assert.That(player.GetComponent<SpriteRenderer>().sprite,Is.EqualTo(config.Cosmetic("forest").sprite));

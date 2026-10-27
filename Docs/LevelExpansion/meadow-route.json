@@ -1,0 +1,1413 @@
+{
+    "scene": "Assets/_Trapple/Scenes/Levels/Tutorial.unity",
+    "speed": 6.0,
+    "jumpHeight": 2.4000000953674316,
+    "gravity": 29.43000030517578,
+    "jumpRange": 4.846260070800781,
+    "stride": 3.0999999046325684,
+    "colliderWidth": 0.75,
+    "extensionStart": 44.0,
+    "finishX": 740.0999145507813,
+    "commands": [
+        {
+            "action": "walk",
+            "context": "01 · Ridge 3",
+            "x": 47.0,
+            "seconds": 1.2833330631256104
+        },
+        {
+            "action": "hop",
+            "context": "01 · Ridge 3",
+            "x": 50.099998474121094,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "01 · Ridge 3",
+            "x": 53.19999694824219,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "01 · Ridge 3",
+            "x": 56.29999923706055,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "01 · Ridge 3",
+            "x": 59.39999771118164,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "01 · Ridge 3",
+            "x": 62.19999694824219,
+            "seconds": 0.5666665434837341
+        },
+        {
+            "action": "walk",
+            "context": "02 · Spikes 2",
+            "x": 65.69999694824219,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "02 · Spikes 2",
+            "x": 69.09999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "02 · Spikes 2",
+            "x": 71.19999694824219,
+            "seconds": 0.4500010311603546
+        },
+        {
+            "action": "hop",
+            "context": "02 · Spikes 2",
+            "x": 74.59999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "02 · Spikes 2",
+            "x": 75.89999389648438,
+            "seconds": 0.3166671693325043
+        },
+        {
+            "action": "walk",
+            "context": "01 · Вступление",
+            "x": 79.89999389648438,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "walk",
+            "context": "03 · Spikes 3",
+            "x": 83.19999694824219,
+            "seconds": 0.6500005125999451
+        },
+        {
+            "action": "hop",
+            "context": "03 · Spikes 3",
+            "x": 86.59999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "03 · Spikes 3",
+            "x": 88.69999694824219,
+            "seconds": 0.4500010311603546
+        },
+        {
+            "action": "hop",
+            "context": "03 · Spikes 3",
+            "x": 92.09999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "03 · Spikes 3",
+            "x": 94.19999694824219,
+            "seconds": 0.4500010311603546
+        },
+        {
+            "action": "hop",
+            "context": "03 · Spikes 3",
+            "x": 97.59999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "03 · Spikes 3",
+            "x": 98.89999389648438,
+            "seconds": 0.3166671693325043
+        },
+        {
+            "action": "walk",
+            "context": "04 · Bridge 3",
+            "x": 102.89999389648438,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "04 · Bridge 3",
+            "x": 105.99999237060547,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "04 · Bridge 3",
+            "x": 109.09999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "04 · Bridge 3",
+            "x": 112.19998931884766,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "04 · Bridge 3",
+            "x": 115.29998779296875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "04 · Bridge 3",
+            "x": 118.09999084472656,
+            "seconds": 0.5666671991348267
+        },
+        {
+            "action": "walk",
+            "context": "05 · Ridge 3",
+            "x": 122.29998779296875,
+            "seconds": 0.799999475479126
+        },
+        {
+            "action": "hop",
+            "context": "05 · Ridge 3",
+            "x": 125.39998626708984,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "05 · Ridge 3",
+            "x": 128.49998474121094,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "05 · Ridge 3",
+            "x": 131.59999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "05 · Ridge 3",
+            "x": 134.69998168945313,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "05 · Ridge 3",
+            "x": 137.49998474121094,
+            "seconds": 0.5666671991348267
+        },
+        {
+            "action": "walk",
+            "context": "06 · Hidden 2",
+            "x": 140.99998474121094,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "06 · Hidden 2",
+            "x": 144.3999786376953,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "06 · Hidden 2",
+            "x": 146.49998474121094,
+            "seconds": 0.4500010311603546
+        },
+        {
+            "action": "hop",
+            "context": "06 · Hidden 2",
+            "x": 149.8999786376953,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "06 · Hidden 2",
+            "x": 151.19998168945313,
+            "seconds": 0.3166671693325043
+        },
+        {
+            "action": "walk",
+            "context": "07 · Stones 5",
+            "x": 155.19998168945313,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "07 · Stones 5",
+            "x": 158.29998779296875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "07 · Stones 5",
+            "x": 161.39999389648438,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "07 · Stones 5",
+            "x": 164.49998474121094,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "07 · Stones 5",
+            "x": 167.59999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "07 · Stones 5",
+            "x": 170.69998168945313,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "07 · Stones 5",
+            "x": 173.79998779296875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "07 · Stones 5",
+            "x": 176.59999084472656,
+            "seconds": 0.5666671991348267
+        },
+        {
+            "action": "walk",
+            "context": "08 · Spikes 2",
+            "x": 180.09999084472656,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "08 · Spikes 2",
+            "x": 183.49998474121094,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "08 · Spikes 2",
+            "x": 185.59999084472656,
+            "seconds": 0.4500010311603546
+        },
+        {
+            "action": "hop",
+            "context": "08 · Spikes 2",
+            "x": 188.99998474121094,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "08 · Spikes 2",
+            "x": 190.29998779296875,
+            "seconds": 0.3166671693325043
+        },
+        {
+            "action": "walk",
+            "context": "02 · Первые ловушки",
+            "x": 194.29998779296875,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "walk",
+            "context": "09 · Ridge 5",
+            "x": 198.29998779296875,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "09 · Ridge 5",
+            "x": 201.39999389648438,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "09 · Ridge 5",
+            "x": 204.5,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "09 · Ridge 5",
+            "x": 207.59999084472656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "09 · Ridge 5",
+            "x": 210.6999969482422,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "09 · Ridge 5",
+            "x": 213.79998779296875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "09 · Ridge 5",
+            "x": 216.89999389648438,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "09 · Ridge 5",
+            "x": 219.6999969482422,
+            "seconds": 0.5666671991348267
+        },
+        {
+            "action": "walk",
+            "context": "10 · Stones 5",
+            "x": 223.89999389648438,
+            "seconds": 0.799999475479126
+        },
+        {
+            "action": "hop",
+            "context": "10 · Stones 5",
+            "x": 227.0,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "10 · Stones 5",
+            "x": 230.10000610351563,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "10 · Stones 5",
+            "x": 233.1999969482422,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "10 · Stones 5",
+            "x": 236.3000030517578,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "10 · Stones 5",
+            "x": 239.39999389648438,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "10 · Stones 5",
+            "x": 242.5,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "10 · Stones 5",
+            "x": 245.3000030517578,
+            "seconds": 0.5666671991348267
+        },
+        {
+            "action": "walk",
+            "context": "11 · Bridge 3",
+            "x": 249.5,
+            "seconds": 0.799999475479126
+        },
+        {
+            "action": "hop",
+            "context": "11 · Bridge 3",
+            "x": 252.60000610351563,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "11 · Bridge 3",
+            "x": 255.70001220703125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "11 · Bridge 3",
+            "x": 258.8000183105469,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "11 · Bridge 3",
+            "x": 261.9000244140625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "11 · Bridge 3",
+            "x": 264.70001220703125,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "12 · Ridge 5",
+            "x": 268.9000244140625,
+            "seconds": 0.8000020384788513
+        },
+        {
+            "action": "hop",
+            "context": "12 · Ridge 5",
+            "x": 272.0000305175781,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "12 · Ridge 5",
+            "x": 275.10003662109375,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "12 · Ridge 5",
+            "x": 278.2000427246094,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "12 · Ridge 5",
+            "x": 281.3000183105469,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "12 · Ridge 5",
+            "x": 284.4000244140625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "12 · Ridge 5",
+            "x": 287.5000305175781,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "12 · Ridge 5",
+            "x": 290.3000183105469,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "13 · Stones 3",
+            "x": 294.5000305175781,
+            "seconds": 0.8000020384788513
+        },
+        {
+            "action": "hop",
+            "context": "13 · Stones 3",
+            "x": 297.60003662109375,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "13 · Stones 3",
+            "x": 300.7000427246094,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "13 · Stones 3",
+            "x": 303.800048828125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "13 · Stones 3",
+            "x": 306.9000549316406,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "13 · Stones 3",
+            "x": 309.7000427246094,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "03 · Платформинг",
+            "x": 313.9000549316406,
+            "seconds": 0.8000020384788513
+        },
+        {
+            "action": "walk",
+            "context": "14 · Hidden 3",
+            "x": 317.2000427246094,
+            "seconds": 0.6499979496002197
+        },
+        {
+            "action": "hop",
+            "context": "14 · Hidden 3",
+            "x": 320.6000671386719,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "14 · Hidden 3",
+            "x": 322.7000427246094,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "14 · Hidden 3",
+            "x": 326.1000671386719,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "14 · Hidden 3",
+            "x": 328.2000427246094,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "14 · Hidden 3",
+            "x": 331.6000671386719,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "14 · Hidden 3",
+            "x": 332.9000549316406,
+            "seconds": 0.3166646361351013
+        },
+        {
+            "action": "walk",
+            "context": "15 · Bridge 5",
+            "x": 336.9000549316406,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "15 · Bridge 5",
+            "x": 340.00006103515625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "15 · Bridge 5",
+            "x": 343.1000671386719,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "15 · Bridge 5",
+            "x": 346.2000732421875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "15 · Bridge 5",
+            "x": 349.300048828125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "15 · Bridge 5",
+            "x": 352.4000549316406,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "15 · Bridge 5",
+            "x": 355.50006103515625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "15 · Bridge 5",
+            "x": 358.300048828125,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "16 · Spikes 2",
+            "x": 361.800048828125,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "16 · Spikes 2",
+            "x": 365.2000732421875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "16 · Spikes 2",
+            "x": 367.300048828125,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "16 · Spikes 2",
+            "x": 370.7000732421875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "16 · Spikes 2",
+            "x": 372.00006103515625,
+            "seconds": 0.3166646361351013
+        },
+        {
+            "action": "walk",
+            "context": "17 · Stones 3",
+            "x": 376.00006103515625,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "17 · Stones 3",
+            "x": 379.1000671386719,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "17 · Stones 3",
+            "x": 382.2000732421875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "17 · Stones 3",
+            "x": 385.3000793457031,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "17 · Stones 3",
+            "x": 388.40008544921875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "17 · Stones 3",
+            "x": 391.2000732421875,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "18 · Hidden 2",
+            "x": 394.7000732421875,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "18 · Hidden 2",
+            "x": 398.10009765625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "18 · Hidden 2",
+            "x": 400.2000732421875,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "18 · Hidden 2",
+            "x": 403.60009765625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "18 · Hidden 2",
+            "x": 404.90008544921875,
+            "seconds": 0.3166646361351013
+        },
+        {
+            "action": "walk",
+            "context": "19 · Ridge 3",
+            "x": 408.90008544921875,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "19 · Ridge 3",
+            "x": 412.0000915527344,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "19 · Ridge 3",
+            "x": 415.10009765625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "19 · Ridge 3",
+            "x": 418.2001037597656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "19 · Ridge 3",
+            "x": 421.30010986328125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "19 · Ridge 3",
+            "x": 424.10009765625,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "04 · Обманчивая секция",
+            "x": 428.30010986328125,
+            "seconds": 0.8000020384788513
+        },
+        {
+            "action": "walk",
+            "context": "20 · Stones 5",
+            "x": 432.30010986328125,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "20 · Stones 5",
+            "x": 435.4001159667969,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "20 · Stones 5",
+            "x": 438.5001220703125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "20 · Stones 5",
+            "x": 441.6001281738281,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "20 · Stones 5",
+            "x": 444.7001037597656,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "20 · Stones 5",
+            "x": 447.80010986328125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "20 · Stones 5",
+            "x": 450.9001159667969,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "20 · Stones 5",
+            "x": 453.7001037597656,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "21 · Spikes 3",
+            "x": 457.2001037597656,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "21 · Spikes 3",
+            "x": 460.6001281738281,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "21 · Spikes 3",
+            "x": 462.7001037597656,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "21 · Spikes 3",
+            "x": 466.1001281738281,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "21 · Spikes 3",
+            "x": 468.2001037597656,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "21 · Spikes 3",
+            "x": 471.6001281738281,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "21 · Spikes 3",
+            "x": 472.9001159667969,
+            "seconds": 0.3166646361351013
+        },
+        {
+            "action": "walk",
+            "context": "22 · Bridge 5",
+            "x": 476.9001159667969,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "22 · Bridge 5",
+            "x": 480.0001220703125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "22 · Bridge 5",
+            "x": 483.1001281738281,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "22 · Bridge 5",
+            "x": 486.20013427734375,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "22 · Bridge 5",
+            "x": 489.30010986328125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "22 · Bridge 5",
+            "x": 492.4001159667969,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "22 · Bridge 5",
+            "x": 495.5001220703125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "22 · Bridge 5",
+            "x": 498.30010986328125,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "23 · Hidden 2",
+            "x": 501.80010986328125,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "23 · Hidden 2",
+            "x": 505.20013427734375,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "23 · Hidden 2",
+            "x": 507.30010986328125,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "23 · Hidden 2",
+            "x": 510.70013427734375,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "23 · Hidden 2",
+            "x": 512.0001220703125,
+            "seconds": 0.3166646361351013
+        },
+        {
+            "action": "walk",
+            "context": "24 · Ridge 5",
+            "x": 516.0001220703125,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "24 · Ridge 5",
+            "x": 519.10009765625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "24 · Ridge 5",
+            "x": 522.2000732421875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "24 · Ridge 5",
+            "x": 525.3001098632813,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "24 · Ridge 5",
+            "x": 528.4000854492188,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "24 · Ridge 5",
+            "x": 531.5001220703125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "24 · Ridge 5",
+            "x": 534.60009765625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "24 · Ridge 5",
+            "x": 537.4000854492188,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "05 · Усложнение",
+            "x": 541.60009765625,
+            "seconds": 0.8000020384788513
+        },
+        {
+            "action": "walk",
+            "context": "25 · Ridge 5",
+            "x": 545.60009765625,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "25 · Ridge 5",
+            "x": 548.7000732421875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "25 · Ridge 5",
+            "x": 551.800048828125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "25 · Ridge 5",
+            "x": 554.9000854492188,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "25 · Ridge 5",
+            "x": 558.0000610351563,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "25 · Ridge 5",
+            "x": 561.10009765625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "25 · Ridge 5",
+            "x": 564.2000732421875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "25 · Ridge 5",
+            "x": 567.0000610351563,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "26 · Hidden 3",
+            "x": 570.5000610351563,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "26 · Hidden 3",
+            "x": 573.9000854492188,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "26 · Hidden 3",
+            "x": 576.0000610351563,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "26 · Hidden 3",
+            "x": 579.4000854492188,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "26 · Hidden 3",
+            "x": 581.5000610351563,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "26 · Hidden 3",
+            "x": 584.9000854492188,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "26 · Hidden 3",
+            "x": 586.2000732421875,
+            "seconds": 0.3166646361351013
+        },
+        {
+            "action": "walk",
+            "context": "27 · Bridge 5",
+            "x": 590.2000732421875,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "27 · Bridge 5",
+            "x": 593.300048828125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "27 · Bridge 5",
+            "x": 596.4000244140625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "27 · Bridge 5",
+            "x": 599.5000610351563,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "27 · Bridge 5",
+            "x": 602.6000366210938,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "27 · Bridge 5",
+            "x": 605.7000732421875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "27 · Bridge 5",
+            "x": 608.800048828125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "27 · Bridge 5",
+            "x": 611.6000366210938,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "28 · Spikes 3",
+            "x": 615.1000366210938,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "28 · Spikes 3",
+            "x": 618.5000610351563,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "28 · Spikes 3",
+            "x": 620.6000366210938,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "28 · Spikes 3",
+            "x": 624.0000610351563,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "28 · Spikes 3",
+            "x": 626.1000366210938,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "28 · Spikes 3",
+            "x": 629.5000610351563,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "28 · Spikes 3",
+            "x": 630.800048828125,
+            "seconds": 0.3166646361351013
+        },
+        {
+            "action": "walk",
+            "context": "29 · Stones 5",
+            "x": 634.800048828125,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "29 · Stones 5",
+            "x": 637.9000244140625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "29 · Stones 5",
+            "x": 641.0,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "29 · Stones 5",
+            "x": 644.1000366210938,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "29 · Stones 5",
+            "x": 647.2000122070313,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "29 · Stones 5",
+            "x": 650.300048828125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "29 · Stones 5",
+            "x": 653.4000244140625,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "29 · Stones 5",
+            "x": 656.2000122070313,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "06 · Главное испытание",
+            "x": 660.4000244140625,
+            "seconds": 0.8000020384788513
+        },
+        {
+            "action": "walk",
+            "context": "30 · Ridge 3",
+            "x": 664.4000244140625,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "30 · Ridge 3",
+            "x": 667.5,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "30 · Ridge 3",
+            "x": 670.5999755859375,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "30 · Ridge 3",
+            "x": 673.7000122070313,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "30 · Ridge 3",
+            "x": 676.7999877929688,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "30 · Ridge 3",
+            "x": 679.5999755859375,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "31 · Spikes 2",
+            "x": 683.0999755859375,
+            "seconds": 0.6833333373069763
+        },
+        {
+            "action": "hop",
+            "context": "31 · Spikes 2",
+            "x": 686.5,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "31 · Spikes 2",
+            "x": 688.5999755859375,
+            "seconds": 0.4499959349632263
+        },
+        {
+            "action": "hop",
+            "context": "31 · Spikes 2",
+            "x": 692.0,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "31 · Spikes 2",
+            "x": 693.2999877929688,
+            "seconds": 0.3166646361351013
+        },
+        {
+            "action": "walk",
+            "context": "32 · Bridge 3",
+            "x": 697.2999877929688,
+            "seconds": 0.7666666507720947
+        },
+        {
+            "action": "hop",
+            "context": "32 · Bridge 3",
+            "x": 700.3999633789063,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "32 · Bridge 3",
+            "x": 703.4999389648438,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "32 · Bridge 3",
+            "x": 706.5999755859375,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "32 · Bridge 3",
+            "x": 709.699951171875,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "32 · Bridge 3",
+            "x": 712.4999389648438,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "33 · Stones 3",
+            "x": 716.699951171875,
+            "seconds": 0.8000020384788513
+        },
+        {
+            "action": "hop",
+            "context": "33 · Stones 3",
+            "x": 719.7999267578125,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "33 · Stones 3",
+            "x": 722.89990234375,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "33 · Stones 3",
+            "x": 725.9999389648438,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "hop",
+            "context": "33 · Stones 3",
+            "x": 729.0999145507813,
+            "seconds": 1.80771005153656
+        },
+        {
+            "action": "walk",
+            "context": "33 · Stones 3",
+            "x": 731.89990234375,
+            "seconds": 0.5666646361351013
+        },
+        {
+            "action": "walk",
+            "context": "07 · Финиш",
+            "x": 736.0999145507813,
+            "seconds": 0.8000020384788513
+        },
+        {
+            "action": "walk",
+            "context": "07 · Финиш",
+            "x": 740.0999145507813,
+            "seconds": 0.7666666507720947
+        }
+    ],
+    "sections": [
+        {
+            "name": "Вступление",
+            "startX": 0.0,
+            "endX": 80.89999389648438,
+            "estimatedSeconds": 35.900001525878906
+        },
+        {
+            "name": "Первые ловушки",
+            "startX": 80.89999389648438,
+            "endX": 195.29998779296875,
+            "estimatedSeconds": 49.5
+        },
+        {
+            "name": "Платформинг",
+            "startX": 195.29998779296875,
+            "endX": 314.9000549316406,
+            "estimatedSeconds": 56.599998474121094
+        },
+        {
+            "name": "Обманчивая секция",
+            "startX": 314.9000549316406,
+            "endX": 429.30010986328125,
+            "estimatedSeconds": 49.5
+        },
+        {
+            "name": "Усложнение",
+            "startX": 429.30010986328125,
+            "endX": 542.60009765625,
+            "estimatedSeconds": 51.70000076293945
+        },
+        {
+            "name": "Главное испытание",
+            "startX": 542.60009765625,
+            "endX": 661.4000244140625,
+            "estimatedSeconds": 54.0
+        },
+        {
+            "name": "Финиш",
+            "startX": 661.4000244140625,
+            "endX": 745.0999145507813,
+            "estimatedSeconds": 33.599998474121094
+        }
+    ]
+}

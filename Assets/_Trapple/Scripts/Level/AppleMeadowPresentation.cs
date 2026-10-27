@@ -34,7 +34,8 @@ namespace Trapple.Level
             foreach (var collider in FindObjectsByType<BoxCollider2D>())
             {
                 if (collider.gameObject.scene != gameObject.scene || collider.gameObject.layer != 6 ||
-                    collider.GetComponent<FallingPlatform>() != null || collider.isTrigger) continue;
+                    collider.GetComponent<FallingPlatform>() != null || collider.isTrigger ||
+                    collider.GetComponentInParent<LevelCourse>() != null) continue;
                 Bounds bounds = collider.bounds;
                 var original = collider.GetComponent<SpriteRenderer>();
                 if (original != null) original.enabled = false;
@@ -49,15 +50,16 @@ namespace Trapple.Level
                 ground.size = new Vector2(bounds.size.x, depth);
             }
 
-            var bridge = FindAnyObjectByType<FallingPlatform>();
-            if (bridge != null)
+            foreach (var bridge in FindObjectsByType<FallingPlatform>())
             {
+                if (bridge.GetComponentInParent<LevelCourse>() != null) continue;
                 bridge.GetComponent<SpriteRenderer>().enabled = false;
                 Visual("Bridge", (Vector2)bridge.transform.position + Vector2.up * .2f,
                     new Vector2(4f, 1.3f), 3, bridge.transform);
             }
             foreach (var spike in FindObjectsByType<SpikeTrap>(FindObjectsInactive.Include))
             {
+                if (spike.gameObject.scene != gameObject.scene || spike.GetComponentInParent<LevelCourse>() != null) continue;
                 var renderer = spike.GetComponent<SpriteRenderer>();
                 renderer.sprite = Resources.Load<Sprite>("AppleMeadow/Spikes");
                 renderer.color = Color.white;
@@ -95,12 +97,13 @@ namespace Trapple.Level
             Visual("Rocks", new Vector2(36f, .3f), new Vector2(.9f, .62f), -2);
             Visual("Sign", new Vector2(1.2f, .67f), new Vector2(.85f, 1.15f), -2);
             Visual("Warning", new Vector2(9f, .6f), new Vector2(.85f, 1.1f), -2);
-            Visual("Flag", new Vector2(41.4f, .85f), new Vector2(1.4f, 1.5f), -2);
+            if (goal != null) Visual("Flag", new Vector2(goal.transform.position.x + 1.4f, .85f), new Vector2(1.4f, 1.5f), -2);
 
             Camera camera = Camera.main;
             if (camera != null)
             {
                 camera.backgroundColor = new Color(.29f, .73f, .95f);
+                if (FindAnyObjectByType<LevelCourse>() != null) return;
                 var sky = Visual("Landscape", Vector2.zero, new Vector2(34f, 12.8f), -100);
                 sky.transform.SetParent(camera.transform, false);
                 sky.transform.localPosition = new Vector3(0f, .8f, 20f);

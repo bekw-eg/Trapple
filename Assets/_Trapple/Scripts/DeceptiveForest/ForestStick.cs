@@ -67,6 +67,9 @@ namespace Trapple.DeceptiveForest
         public bool TryPickup()
         {
             if (!CanPickup) return false;
+            // Several stations share one player on the expanded route; carrying capacity stays one.
+            foreach (var other in FindObjectsByType<ForestStick>())
+                if (other != this && other.player == player && other.IsHeld) return false;
             IsHeld = true; IsFlying = false;
             body.linearVelocity = Vector2.zero; body.angularVelocity = 0;
             body.simulated = false;

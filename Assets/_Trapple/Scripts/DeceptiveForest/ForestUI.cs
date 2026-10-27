@@ -23,12 +23,14 @@ namespace Trapple.DeceptiveForest
         private bool loading;
         private IProgressionService progression;
         private string pickupHint, throwHint;
+        private ForestStick[] courseSticks;
         public VisualElement Root => root;
         public bool IsModalOpen => presentation > 0;
 
         private void Start()
         {
             root = GetComponent<UIDocument>().rootVisualElement;
+            courseSticks = FindObjectsByType<ForestStick>();
             modal = root.Q("modal"); window = root.Q("window");
             prompt = root.Q("prompt"); icon = root.Q("stick-icon");
             pickupHint = stick != null ? stick.PickupKey + " — подобрать палку" : "";
@@ -54,6 +56,16 @@ namespace Trapple.DeceptiveForest
         private void Update()
         {
             if (root == null || GameManager.Instance == null) return;
+            // Longer routes have several recoverable sticks. Keep prompts attached to the held/nearest one.
+            float nearest = float.PositiveInfinity;
+            foreach (var candidate in courseSticks)
+            {
+                if (candidate == null || candidate.gameObject.scene != gameObject.scene) continue;
+                if (candidate.IsHeld) { stick = candidate; break; }
+                float distance = player == null ? float.PositiveInfinity :
+                    Vector2.SqrMagnitude(candidate.transform.position - player.transform.position);
+                if (distance < nearest) { nearest = distance; stick = candidate; }
+            }
             int next = player != null && player.IsDead ? 3 : goal != null && goal.IsComplete ? 2 :
                 GameManager.Instance.State == GameState.Paused ? 1 : 0;
             if (next != presentation) Show(next);

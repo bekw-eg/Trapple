@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Trapple.DeceptiveForest
 {
-    // TutorialCamera follows Y without bounds; this level needs a fixed horizon above its pits.
+    // Keep the forest horizon fixed above pits, including during death and changes of aspect ratio.
     [RequireComponent(typeof(Camera))]
     public sealed class ForestCamera : MonoBehaviour
     {
@@ -20,7 +20,13 @@ namespace Trapple.DeceptiveForest
             float min = levelBounds.x + half, max = levelBounds.y - half;
             return new Vector3(min > max ? (levelBounds.x + levelBounds.y) * .5f : Mathf.Clamp(x, min, max), height, -10f);
         }
-        private void LateUpdate() => transform.position = Vector3.SmoothDamp(transform.position,
-            Desired(), ref velocity, smoothTime, Mathf.Infinity, Time.deltaTime);
+        private void LateUpdate()
+        {
+            var p = Vector3.SmoothDamp(transform.position, Desired(), ref velocity, smoothTime, Mathf.Infinity, Time.deltaTime);
+            float half = view.orthographicSize * view.aspect;
+            p.x = levelBounds.y - levelBounds.x < 2 * half ? (levelBounds.x + levelBounds.y) * .5f :
+                Mathf.Clamp(p.x, levelBounds.x + half, levelBounds.y - half);
+            transform.position = p;
+        }
     }
 }

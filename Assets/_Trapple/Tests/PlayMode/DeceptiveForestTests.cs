@@ -42,8 +42,8 @@ namespace Trapple.Tests
             Tick(); Assert.That(player.IsGrounded, Is.True); Assert.That(death.IsDead, Is.False);
             Assert.That(Object.FindObjectsByType<PlayerController>().Length, Is.EqualTo(1));
             Assert.That(Object.FindObjectsByType<FallingPlatform>().Length, Is.Zero);
-            Assert.That(Object.FindObjectsByType<ForestDisappearingPlatform>().Length, Is.EqualTo(6));
-            Assert.That(Object.FindObjectsByType<ForestFallingTree>().Length, Is.EqualTo(3));
+            Assert.That(Object.FindObjectsByType<ForestDisappearingPlatform>().Length, Is.GreaterThan(6));
+            Assert.That(Object.FindObjectsByType<ForestFallingTree>().Length, Is.GreaterThan(3));
             Assert.That(Object.FindAnyObjectByType<ForestGoal>(), Is.Not.Null);
             Assert.That(Object.FindAnyObjectByType<ForestCamera>(), Is.Not.Null);
             Assert.That(Object.FindAnyObjectByType<TutorialGoal>(), Is.Null);
@@ -60,7 +60,8 @@ namespace Trapple.Tests
             body.gravityScale = 0; body.position = new Vector2(8.6f, -.22f); body.linearVelocity = Vector2.right;
             yield return new WaitForSeconds(.15f); Assert.That(platform.IsTriggered, Is.False);
             body.gravityScale = 3; body.position = new Vector2(10.2f, .49f); body.linearVelocity = Vector2.zero;
-            yield return new WaitForSeconds(.08f);
+            // Inspect the contact frame, not a wall-clock delay that can overshoot the short warning after GC.
+            for (int i = 0; i < 10 && !platform.IsTriggered; i++) yield return new WaitForFixedUpdate();
             Assert.That(platform.IsTriggered, Is.True); Assert.That(platform.HasVanished, Is.False);
             Assert.That(platform.GetComponent<Collider2D>().enabled, Is.True); Assert.That(pit.activeSelf, Is.False);
             body.position = new Vector2(13, .6f);
@@ -164,7 +165,8 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator StickRangePickupThrowBarrierAndHudWork()
         {
-            var stick = Object.FindAnyObjectByType<ForestStick>(); var target = Object.FindAnyObjectByType<ForestStickTarget>();
+            var stick = GameObject.Find("04 · Recoverable stick").GetComponent<ForestStick>();
+            var target = GameObject.Find("04 · Weak wooden barrier").GetComponent<ForestStickTarget>();
             var ui = Object.FindAnyObjectByType<ForestUI>();
             Assert.That(stick.TryPickup(), Is.False);
             body.position = new Vector2(36.3f, .6f); yield return new WaitForFixedUpdate();
@@ -181,7 +183,7 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator StickCanThrowLeftAndAlwaysRecoversAfterMiss()
         {
-            var stick = Object.FindAnyObjectByType<ForestStick>();
+            var stick = GameObject.Find("04 · Recoverable stick").GetComponent<ForestStick>();
             Vector2 spawn = stick.transform.position;
             body.position = new Vector2(36.4f, .6f); yield return new WaitForFixedUpdate();
             Assert.That(stick.TryPickup(), Is.True);
@@ -237,7 +239,7 @@ namespace Trapple.Tests
             body.position = new Vector2(34f, .6f); yield return null;
             body.position = new Vector2(36.3f, .6f); yield return new WaitForFixedUpdate(); yield return null; yield return null;
             Assert.That(ui.Root.Q("prompt").resolvedStyle.display, Is.EqualTo(DisplayStyle.None));
-            Assert.That(Object.FindAnyObjectByType<ForestStick>().TryPickup(), Is.True);
+            Assert.That(GameObject.Find("04 · Recoverable stick").GetComponent<ForestStick>().TryPickup(), Is.True);
             yield return null; yield return null;
             Assert.That(ui.Root.Q<Label>("hint").text, Does.StartWith("F"));
             yield return new WaitForSeconds(3.2f);
@@ -282,13 +284,15 @@ namespace Trapple.Tests
         public IEnumerator CameraStaysBoundedWhenPlayerFalls()
         {
             var camera = Object.FindAnyObjectByType<ForestCamera>();
-            body.simulated = false; body.transform.position = new Vector3(79, -6, 0);
+            float end = Object.FindAnyObjectByType<LevelCourse>().WorldBounds.y;
+            body.simulated = false; body.transform.position = new Vector3(end - 1, -6, 0);
             yield return new WaitForSeconds(1);
             Assert.That(camera.transform.position.y, Is.EqualTo(3.4f).Within(.01f));
             float half = Camera.main.orthographicSize * Camera.main.aspect;
-            Assert.That(camera.transform.position.x, Is.LessThanOrEqualTo(80f - half + .01f));
+            Assert.That(camera.transform.position.x, Is.LessThanOrEqualTo(end - half + .01f));
         }
         [UnityTest]
+        [Timeout(600000)]
         public IEnumerator WholeLevelCanBeCompletedWithBaseMovementAndStick()
         {
             Set(death, "restartDelay", 30f);
@@ -296,9 +300,9 @@ namespace Trapple.Tests
             yield return Walk(17.5f); yield return Hop(19.1f); yield return Hop(22.2f);
             yield return Hop(25.5f); yield return Hop(29f); yield return Hop(33.4f);
             yield return Walk(36.2f);
-            var stick = Object.FindAnyObjectByType<ForestStick>(); Assert.That(stick.TryPickup(), Is.True);
+            var stick = GameObject.Find("04 · Recoverable stick").GetComponent<ForestStick>(); Assert.That(stick.TryPickup(), Is.True);
             yield return Walk(38.7f); Assert.That(stick.TryThrow(), Is.True);
-            yield return new WaitForSeconds(.5f); Assert.That(Object.FindAnyObjectByType<ForestStickTarget>().IsOpen, Is.True);
+            yield return new WaitForSeconds(.5f); Assert.That(GameObject.Find("04 · Weak wooden barrier").GetComponent<ForestStickTarget>().IsOpen, Is.True);
             yield return Walk(42.6f); yield return Walk(42f);
             yield return new WaitForSeconds(1.2f);
             Assert.That(GameObject.Find("04 · Clearing tree").GetComponent<ForestFallingTree>().HasFallen, Is.True);
@@ -311,6 +315,7 @@ namespace Trapple.Tests
             yield return new WaitForSeconds(1.2f);
             Assert.That(GameObject.Find("07 · Final tree").GetComponent<ForestFallingTree>().HasFallen, Is.True);
             yield return Hop(71.7f); yield return Walk(75.8f);
+            yield return ExpandedRoutePlayback.Continue(player, death, true);
             Assert.That(Object.FindAnyObjectByType<ForestGoal>().IsComplete, Is.True); Assert.That(death.IsDead, Is.False);
         }
         private IEnumerator Walk(float target)

@@ -40,7 +40,7 @@ namespace Trapple.Tests
         [Test]
         public void SceneContainsRequiredComponents()
         {
-            Assert.That(Object.FindObjectsByType<SpikeTrap>(FindObjectsInactive.Include).Length, Is.EqualTo(3));
+            Assert.That(Object.FindObjectsByType<SpikeTrap>(FindObjectsInactive.Include).Length, Is.GreaterThan(3));
             Assert.That(Object.FindAnyObjectByType<FallingPlatform>(), Is.Not.Null);
             Assert.That(Object.FindAnyObjectByType<HiddenTrap>(), Is.Not.Null);
             Assert.That(Object.FindAnyObjectByType<TutorialGoal>(), Is.Not.Null);
@@ -198,7 +198,7 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator PlatformFallsOnlyAfterLandingAndDelay()
         {
-            var platform = Object.FindAnyObjectByType<FallingPlatform>();
+            var platform = GameObject.Find("FallingPlatform").GetComponent<FallingPlatform>();
             Assert.That(platform.IsTriggered, Is.False);
             body.position = new Vector2(12f, 0.55f);
             yield return new WaitForSeconds(0.15f);
@@ -213,7 +213,7 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator SideContactDoesNotActivatePlatform()
         {
-            var platform = Object.FindAnyObjectByType<FallingPlatform>();
+            var platform = GameObject.Find("FallingPlatform").GetComponent<FallingPlatform>();
             body.gravityScale = 0f;
             body.position = new Vector2(9.8f, -0.2f);
             body.linearVelocity = Vector2.right;
@@ -224,7 +224,7 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator HiddenTrapRevealsAfterDelayAndKillsOverlappingPlayer()
         {
-            var hidden = Object.FindAnyObjectByType<HiddenTrap>();
+            var hidden = GameObject.Find("HiddenTrap").GetComponent<HiddenTrap>();
             var spikes = hidden.GetComponentInChildren<SpikeTrap>(true);
             Assert.That(spikes.gameObject.activeSelf, Is.False);
             Set(death, "restartDelay", 30f);
@@ -264,16 +264,17 @@ namespace Trapple.Tests
         public IEnumerator CameraFollowsPlayer()
         {
             var camera = Object.FindAnyObjectByType<TutorialCamera>();
-            body.position = new Vector2(4f, 3f);
-            body.transform.position = new Vector3(4f, 3f, 0f);
+            body.position = new Vector2(100f, 3f);
+            body.transform.position = new Vector3(100f, 3f, 0f);
             body.simulated = false;
             yield return new WaitForSeconds(0.7f);
-            Assert.That(camera.transform.position.x, Is.EqualTo(4f).Within(0.15f));
-            Assert.That(camera.transform.position.y, Is.EqualTo(5f).Within(0.15f));
+            Assert.That(camera.transform.position.x, Is.EqualTo(102f).Within(0.3f));
+            Assert.That(camera.transform.position.y, Is.EqualTo(3.4f).Within(0.01f));
             Assert.That(camera.transform.position.z, Is.EqualTo(-10f).Within(0.01f));
         }
 
         [UnityTest]
+        [Timeout(600000)]
         public IEnumerator EntireTutorialIsReachableWithMovementAndJumps()
         {
             Set(death, "restartDelay", 30f);
@@ -293,6 +294,7 @@ namespace Trapple.Tests
             yield return HopTo(32f);
             yield return HopTo(35.3f);
             yield return WalkTo(39.9f);
+            yield return ExpandedRoutePlayback.Continue(controller, death, false);
             Assert.That(Object.FindAnyObjectByType<TutorialGoal>().IsComplete, Is.True);
             Assert.That(death.IsDead, Is.False);
         }

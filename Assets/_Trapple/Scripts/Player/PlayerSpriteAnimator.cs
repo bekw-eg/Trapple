@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Trapple.Player
 {
-    public enum PlayerVisualState { Idle, WalkRight, WalkLeft, Rising, Falling, Landing }
+    public enum PlayerVisualState { Idle, RunRight, RunLeft, Rising, Falling, Landing }
 
     // Presentation only. The existing controller remains responsible for input and physics.
     [DisallowMultipleComponent]
@@ -14,7 +14,6 @@ namespace Trapple.Player
         [SerializeField, Min(0.01f)] private float movingThreshold = 0.15f;
         private readonly RaycastHit2D[] hits = new RaycastHit2D[8];
         private Rigidbody2D body;
-        private PlayerController controller;
         private SpriteRenderer character;
         private Sprite appearanceOverride;
         private ContactFilter2D groundFilter;
@@ -26,14 +25,13 @@ namespace Trapple.Player
         public int FrameIndex { get; private set; }
         public PlayerAnimationSet Animations => animations;
 
-        // The workshop owns movement while input/physics are suspended; reuse the actual walk frames.
+        // The workshop owns movement while input/physics are suspended; reuse the actual run frames.
         public void SetCinematicMotion(bool active, Vector2 velocity)
         { cinematicMotion=active; cinematicVelocity=velocity; }
 
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
-            controller = GetComponent<PlayerController>();
             character = GetComponent<SpriteRenderer>();
             groundFilter = new ContactFilter2D { useTriggers = false };
             groundFilter.SetLayerMask(groundLayers);
@@ -61,30 +59,37 @@ namespace Trapple.Player
             PlayerVisualState next;
             if (!grounded) next = velocity.y > 0.05f ? PlayerVisualState.Rising : PlayerVisualState.Falling;
             else if (!wasGrounded || (State == PlayerVisualState.Landing && elapsed < animations.landingDuration)) next = PlayerVisualState.Landing;
-            else if ((controller.ControlEnabled || cinematicMotion) && Mathf.Abs(velocity.x) > movingThreshold) next = facingLeft ? PlayerVisualState.WalkLeft : PlayerVisualState.WalkRight;
+            else if (Mathf.Abs(velocity.x) > movingThreshold) next = facingLeft ? PlayerVisualState.RunLeft : PlayerVisualState.RunRight;
             else next = PlayerVisualState.Idle;
-            if (next != State) { State = next; elapsed = 0f; }
+            bool changingRunDirection = IsRunning(State) && IsRunning(next);
+            if (next != State) { State = next; if (!changingRunDirection) elapsed = 0f; }
             else elapsed += cinematicMotion ? Time.unscaledDeltaTime : Time.deltaTime;
             wasGrounded = grounded;
-            bool authoredLeft = State == PlayerVisualState.WalkLeft;
-            character.flipX = !authoredLeft && State != PlayerVisualState.WalkRight && facingLeft;
+            bool authoredLeft = State == PlayerVisualState.RunLeft;
+            character.flipX = !authoredLeft && State != PlayerVisualState.RunRight && facingLeft;
             switch (State)
             {
-                case PlayerVisualState.WalkLeft: Cycle(animations.walkLeft, animations.walkFramesPerSecond); break;
-                case PlayerVisualState.WalkRight: Cycle(animations.walkRight, animations.walkFramesPerSecond); break;
+                case PlayerVisualState.RunLeft: Cycle(animations.runLeftClip, animations.walkLeft, animations.walkFramesPerSecond); break;
+                case PlayerVisualState.RunRight: Cycle(animations.runRightClip, animations.walkRight, animations.walkFramesPerSecond); break;
                 case PlayerVisualState.Rising:
                     FrameIndex = elapsed < animations.takeoffDuration ? 0 : 1;
                     character.sprite = animations.jump[FrameIndex];
                     break;
                 case PlayerVisualState.Falling: FrameIndex = 2; character.sprite = animations.jump[2]; break;
                 case PlayerVisualState.Landing: FrameIndex = 3; character.sprite = animations.jump[3]; break;
-                default: Cycle(animations.idle, animations.idleFramesPerSecond); break;
+                default: Cycle(animations.idleClip, animations.idle, animations.idleFramesPerSecond); break;
             }
         }
 
-        private void Cycle(Sprite[] frames, float framesPerSecond)
+        private static bool IsRunning(PlayerVisualState state) =>
+            state == PlayerVisualState.RunRight || state == PlayerVisualState.RunLeft;
+
+        private void Cycle(AnimationClip clip, Sprite[] frames, float framesPerSecond)
         {
-            FrameIndex = Mathf.FloorToInt(elapsed * framesPerSecond) % frames.Length;
+            float rate = clip != null ? clip.frameRate : framesPerSecond;
+            FrameIndex = Mathf.FloorToInt(elapsed * rate) % frames.Length;
+            // Use the existing frame player: SampleAnimation does not bind sprite
+            // curves on this character without adding a second animation component.
             character.sprite = frames[FrameIndex];
         }
 

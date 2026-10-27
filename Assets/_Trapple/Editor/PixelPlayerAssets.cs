@@ -19,7 +19,7 @@ namespace Trapple.Editor
         {
             Import();
             AssetDatabase.SaveAssets();
-            Debug.Log("APPi animation imported without the sprite sheet's floor lines.");
+            Debug.Log("Appi idle/jump and eight-frame run animations imported.");
         }
 
         internal static PlayerAnimationSet Import()
@@ -67,6 +67,7 @@ namespace Trapple.Editor
             set.walkRight = Frames(sprites, "AppiWalkRight", 6);
             set.walkLeft = Frames(sprites, "AppiWalkLeft", 6);
             set.jump = Frames(sprites, "AppiJump", 4);
+            AppiRunAssets.Import(set);
             EditorUtility.SetDirty(set);
             ApplyPlayerPrefab(set);
             return set;

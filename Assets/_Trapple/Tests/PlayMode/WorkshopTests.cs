@@ -65,7 +65,7 @@ namespace Trapple.Tests
             yield return new WaitForSecondsRealtime(.25f);
             Assert.That(player.transform.position.x,Is.LessThan(start.x));
             Assert.That(Vector2.Distance(player.transform.position,start),Is.LessThan(2));
-            Assert.That(player.GetComponent<PlayerSpriteAnimator>().State,Is.EqualTo(PlayerVisualState.WalkLeft));
+            Assert.That(player.GetComponent<PlayerSpriteAnimator>().State,Is.EqualTo(PlayerVisualState.RunLeft));
             bool climbed=false,closed=false;
             float until=Time.realtimeSinceStartup+10;
             while(transition.State!=WorkshopTransitionState.Inside && Time.realtimeSinceStartup<until)
@@ -97,7 +97,7 @@ namespace Trapple.Tests
             float speed=preview.RunSpeed; Vector2 before=preview.ActorPosition;
             yield return new WaitForSecondsRealtime(.3f);
             Assert.That(preview.ActorPosition.x,Is.GreaterThan(before.x));
-            Assert.That(preview.FrameIndex,Is.InRange(0,5));
+            Assert.That(preview.FrameIndex,Is.InRange(0,7));
             view.Purchase(); Assert.That(service.Level(UpgradeKind.Speed),Is.Zero);
             Assert.That(preview.DisplayedLevel,Is.Zero);
             HubSceneFlowController.Instance.Configuration.Upgrade(UpgradeKind.Speed).costs=new[]{10,20,30}; service.AddSeeds(100);

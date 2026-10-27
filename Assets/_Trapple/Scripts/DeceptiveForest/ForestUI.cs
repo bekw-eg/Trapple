@@ -12,12 +12,11 @@ namespace Trapple.DeceptiveForest
         [SerializeField] private PlayerDeath player;
         [SerializeField] private ForestStick stick;
         [SerializeField] private ForestGoal goal;
-        [SerializeField] private ForestStickTarget target;
-        [SerializeField] private ForestFallingTree tree;
-        private VisualElement root, modal, window, intro, prompt, icon, information;
-        private Label heading, detail, hint, section, currency, stageNumber;
-        private static readonly string[] SectionNames = { "ЛЕСНАЯ\nОПУШКА", "ЛОЖНАЯ\nЗЕМЛЯ", "НЕСТОЙКИЕ\nВЕТВИ", "ПАЛКА\nПОМОЖЕТ", "ЯБЛОКО-\nПРИМАНКА", "ПОСЛЕДНИЙ\nШАГ" };
-        private int currentSection = -1;
+        private VisualElement root, modal, window, prompt, icon;
+        private Label heading, detail, hint, currency;
+        private static bool pickupShown, throwShown;
+        private float promptUntil;
+        private int promptKind;
         private Button resume, retry, hub, pause;
         private float started;
         private int presentation = -1;
@@ -30,19 +29,16 @@ namespace Trapple.DeceptiveForest
         private void Start()
         {
             root = GetComponent<UIDocument>().rootVisualElement;
-            modal = root.Q("modal"); window = root.Q("window"); intro = root.Q("intro");
+            modal = root.Q("modal"); window = root.Q("window");
             prompt = root.Q("prompt"); icon = root.Q("stick-icon");
-            information = root.Q("information-card");
             pickupHint = stick != null ? stick.PickupKey + " — подобрать палку" : "";
             throwHint = stick != null ? stick.ThrowKey + " — бросить палку" : "";
             heading = root.Q<Label>("heading"); detail = root.Q<Label>("detail");
-            hint = root.Q<Label>("hint"); section = root.Q<Label>("section"); currency = root.Q<Label>("currency");
-            stageNumber = root.Q<Label>("stage-number");
+            hint = root.Q<Label>("hint"); currency = root.Q<Label>("currency");
             resume = root.Q<Button>("resume"); retry = root.Q<Button>("retry"); hub = root.Q<Button>("hub"); pause = root.Q<Button>("pause");
-            root.Q<Label>("world-title").text = "ОБМАНЧИВЫЙ ЛЕС";
-            root.Q<Label>("level-title").text = "УРОВЕНЬ 2 · ЛОЖНАЯ ТРОПА";
+            root.Q<Label>("section").text = "ОБМАНЧИВЫЙ\nЛЕС";
+            root.Q<Label>("stage-number").text = "02";
             root.Q<Label>("controls").text = "A / D — движение   •   ПРОБЕЛ — прыжок";
-            root.Q<Label>("information").text = "Наблюдай за тропой.\nНе каждому яблоку стоит верить.";
             pause.text = "ESC · ПАУЗА"; pause.focusable = false;
             resume.text = "Продолжить"; retry.text = "Повторить"; hub.text = "В лобби";
             resume.clicked += Resume; retry.clicked += Retry; hub.clicked += ReturnToHub; pause.clicked += Pause;
@@ -62,26 +58,22 @@ namespace Trapple.DeceptiveForest
                 GameManager.Instance.State == GameState.Paused ? 1 : 0;
             if (next != presentation) Show(next);
             float age = Time.unscaledTime - started;
-            intro.style.opacity = Mathf.Clamp01(age < .5f ? age * 2f : (4.5f - age));
-            intro.style.display = age < 4.5f && next == 0 ? DisplayStyle.Flex : DisplayStyle.None;
-            information.style.display = age < 7f && next == 0 ? DisplayStyle.Flex : DisplayStyle.None;
+            root.Q("controls").style.display = age < 4f && next == 0 ? DisplayStyle.Flex : DisplayStyle.None;
             icon.style.display = stick != null && stick.IsHeld ? DisplayStyle.Flex : DisplayStyle.None;
-            string message = "";
             if (next == 0 && stick != null)
             {
-                if (stick.IsHeld) message = throwHint;
-                else if (stick.CanPickup) message = pickupHint;
-                else if (target != null && !target.IsOpen && player != null && player.transform.position.x > 35f && player.transform.position.x < 43f)
-                    message = "Преграда поддастся\nброшенной палке";
-                if (tree != null && tree.IsTriggered && !tree.HasFallen) message = "ДЕРЕВО ПАДАЕТ!\nОтойди влево";
+                if (stick.IsHeld && !throwShown)
+                {
+                    throwShown = true; promptKind = 2; promptUntil = Time.time + 3f;
+                }
+                else if (stick.CanPickup && !pickupShown)
+                {
+                    pickupShown = true; promptKind = 1; promptUntil = Time.time + 3f;
+                }
             }
-            hint.text = message; prompt.style.display = message.Length > 0 ? DisplayStyle.Flex : DisplayStyle.None;
-            float x = player == null ? 0 : player.transform.position.x;
-            int index = x < 9 ? 0 : x < 18 ? 1 : x < 33 ? 2 : x < 44 ? 3 : x < 54 ? 4 : 5;
-            if (currentSection != index)
-            {
-                currentSection = index; section.text = SectionNames[index]; stageNumber.text = (index + 1).ToString("00");
-            }
+            bool relevant = stick != null && (promptKind == 1 ? stick.CanPickup : stick.IsHeld);
+            hint.text = promptKind == 1 ? pickupHint : throwHint;
+            prompt.style.display = next == 0 && relevant && Time.time < promptUntil ? DisplayStyle.Flex : DisplayStyle.None;
             if (next == 2 && Input.GetKeyDown(KeyCode.R)) Retry();
         }
         private void Show(int state)

@@ -2,23 +2,18 @@
 Label { -unity-text-align: middle-center; white-space: normal; }
 #hud { position: absolute; left: 24px; top: 20px; width: 340px; height: 122px; justify-content: center; background-image: url('Art/02_small_HUD_panel.png'); }
 #stage-number { position: absolute; left: 26px; top: 35px; width: 75px; height: 50px; font-size: 28px; -unity-font-style: bold; }
-#section { font-size: 18px; -unity-font-style: bold; margin-left: 110px; margin-right: 38px; }
+#section { font-size: 16px; -unity-font-style: bold; margin-left: 125px; margin-right: 30px; }
 #currency { font-size: 14px; margin-left: 110px; margin-right: 38px; }
 .forest-button { background-image: url('Art/04_universal_button_parchment.png'); background-color: rgba(0,0,0,0); width: 300px; height: 65px; min-height: 65px; margin: 0; padding: 0; border-width: 0; color: rgb(52, 37, 18); font-size: 20px; -unity-font-style: bold; -unity-background-scale-mode: scale-to-fit; }
 .forest-button:hover, .forest-button:focus { -unity-background-image-tint-color: rgb(255, 236, 169); color: rgb(25, 58, 21); }
 .forest-button:active { scale: .97 .97; -unity-background-image-tint-color: rgb(213, 190, 138); }
 .forest-button:disabled { opacity: .45; }
 #pause { position: absolute; right: 24px; top: 28px; width: 225px; height: 74px; font-size: 19px; }
-#intro { position: absolute; top: 120px; left: 50%; margin-left: -325px; width: 650px; height: 210px; background-image: url('Art/01_level_title_panel.png'); justify-content: center; padding-top: 12px; }
-#world-title { font-size: 30px; -unity-font-style: bold; }
-#level-title { font-size: 21px; margin-top: 7px; }
 #slot { position: absolute; left: 24px; bottom: 24px; width: 87px; height: 96px; background-image: url('Art/08_item_slot_square.png'); align-items: center; justify-content: center; }
 #stick-icon { width: 62px; height: 55px; -unity-background-scale-mode: scale-to-fit; }
 #controls { position: absolute; left: 125px; bottom: 32px; color: rgb(255, 242, 207); background-color: rgba(12, 35, 29, .85); border-radius: 8px; padding: 10px 18px; font-size: 18px; }
-#prompt { position: absolute; left: 50%; margin-left: -165px; bottom: 12px; width: 330px; height: 160px; justify-content: center; padding: 30px 40px; background-image: url('Art/03_hint_interaction_panel.png'); }
-#hint { font-size: 20px; -unity-font-style: bold; }
-#information-card { position: absolute; right: 25px; bottom: 25px; width: 365px; height: 164px; background-image: url('Art/09_information_card.png'); padding: 35px 35px; justify-content: center; }
-#information { font-size: 18px; }
+#prompt { position: absolute; left: 50%; margin-left: -160px; bottom: 28px; width: 320px; height: 42px; justify-content: center; border-radius: 8px; background-color: rgba(12, 35, 29, .85); color: rgb(255, 242, 207); }
+#hint { font-size: 18px; }
 #modal { position: absolute; left: 0; right: 0; top: 0; bottom: 0; align-items: center; justify-content: center; background-color: rgba(6, 20, 16, .65); background-image: url('Art/10_dark_overlay.png'); display: none; }
 #window { width: 690px; height: 480px; background-image: url('Art/05_pause_menu_panel.png'); align-items: center; padding-top: 98px; }
 #heading { font-size: 31px; -unity-font-style: bold; margin-bottom: 4px; }

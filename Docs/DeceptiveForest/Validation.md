@@ -1,108 +1,129 @@
-# Проверка Deceptive Forest — Level 2
+# Проверка переработки Deceptive Forest — Level 2
 
-Дата: 25 октября 2026. Unity **6000.6.0f1**, Windows x64, Built-In Render Pipeline.
-Проверялся сохранённый Level 2, а не только отдельные компоненты.
+25 октября 2026. Unity 6000.6.0f1, Windows x64. Проверялась существующая сохранённая
+сцена `Assets/_Trapple/Scenes/DeceptiveForest/DeceptiveForest_Level02.unity`.
 
 ## Результаты
 
-| Проверка | Результат |
+| Проверка | Фактический результат |
 | --- | --- |
-| Полный PlayMode suite | **66/66 passed**, включая 12 новых тестов леса |
-| Полный EditMode suite | **28/28 passed** |
-| Windows Development Build | **Succeeded** |
-| Валидация сохранённой сцены через Unity API | Нет Missing Script, потерянных Sprite и неназначенных ссылок компонентов леса; один Appi и цель |
-| Автоматическое прохождение всего маршрута | **Passed**, базовая физика, движение и прыжки PlayerController, без телепортации по маршруту |
-| Сборка: UI и взаимодействия | **PASS**, завершение, повтор, смерть, возврат в Hub, палка, преграда, дерево |
-| Разрешения | 1920×1080, 1600×900, 1366×768; для каждого сохранены вход, пауза и завершение |
-| Логи финальной сборки при проверке | Нет Exception / Error / Warning в player.log |
-| Нативная клавиатура Windows | Probe подтвердил Space и положительную вертикальную скорость; остальные действия не завершены, пользователь остановил Computer Use через Escape |
+| Полный Play Mode suite после перестройки и выравнивания деревьев | **70/70 passed**, включая 16 проверок леса и 54 регрессионные проверки |
+| Полный Edit Mode suite | **28/28 passed** |
+| Повторная проверка маскировки и HUD после последней правки переноса названия | **1/1 passed** |
+| Полное прохождение от spawn до финиша | **Passed**: обычный PlayerController, реальная Physics2D, базовые скорость/прыжок, без телепортаций по маршруту |
+| Unity API: сохранение, ссылки, Missing Script, Sprite, Appi, цель | **Passed** при миграции и финальной сборке |
+| Windows Development Build финального исходного кода | **Succeeded**, Unity завершился с кодом 0 |
+| Запуск отдельного Trapple.exe | **Не выполнен**: Windows Application Control заблокировал запуск файла |
+| Графический Unity Editor Play Mode | Получены и осмотрены реальные кадры 3840×2160, 15 изображений |
+| Проверки capture-runner | Игровые и UI-проверки без сообщений `FOREST CAPTURE`; общий `result.txt` — **FAILED** из-за внутреннего исключения Unity Search, см. ниже |
+| Новые ошибки компиляции, Missing Script, NullReferenceException в тестах уровня | Не обнаружены |
+| `git diff --check` | Passed |
 
-Unity работал в изолированной копии проекта, чтобы не менять открытую редакторскую
-сессию. Сцена и префабы созданы и сериализованы Editor API; YAML вручную не генерировался.
-Проверенная сцена, её новые `.meta` и ресурсы перенесены в рабочий проект.
-Существующие сцены, префаб Appi, ассеты Apple Meadow и их GUID не изменены.
+Краткая машинная сводка: [ReworkChecks.json](ReworkChecks.json).
+Полные локальные XML и журналы находятся в `Logs/DeceptiveForestRework/`, исключённом из Git.
 
-## Новые PlayMode-тесты
+Работа Unity выполнялась в изолированной копии проекта
+`%TEMP%/TrappleForestRework-20261025`, чтобы не закрывать открытый пользовательский Editor.
+Сцена и три префаба сериализованы Unity Editor API и перенесены обратно в рабочую копию.
+Их прежние `.meta`/GUID сохранены. YAML вручную не генерировался.
 
-`Assets/_Trapple/Tests/PlayMode/DeceptiveForestTests.cs`:
+## Проверенные игровые контракты
 
-1. `SavedSceneHasPlayerArtPrefabsAndSafeSpawn`: безопасная опора, один игрок, реальные спрайты, исходные физические параметры.
-2. `FallingGroundOnlyActivatesOnTopAndWaits`: боковой контакт, контакт сверху, задержка и падение.
-3. `DisappearingBranchRemovesArtAndSupportTogether`: предупреждение, одновременное отключение картинки и опоры.
-4. `BaitDoesNotCompleteAndPitKills`: приманка не завершает уровень; яма вызывает смерть.
-5. `DeathRestartsAndResetsTrapsItemsAndTime`: повторный Die, перезапуск, сброс ловушек, предмета и timeScale.
-6. `StickRangePickupThrowBarrierAndHudWork`: радиус подбора, удержание, item slot, бросок и разрушение преграды.
-7. `StickCanThrowLeftAndAlwaysRecoversAfterMiss`: левое направление, промах, автоматический возврат и повторный подбор.
-8. `TreeWarnsRotatesKillsAndSettlesSafely`: предупреждение, поворот, смерть от движущегося ствола, безопасное конечное состояние.
-9. `PauseUsesSharedManagerAndDoesNotSubmitFromGameplay`: заморозка, продолжение, отсутствие Submit из игрового HUD и очистка фокуса.
-10. `GoalCompletesOnceAndReturnToHubPreservesSave`: финиш, блокировка игрока, UI-кнопка Hub, неизменность preview-save и блокировки леса.
-11. `CameraStaysBoundedWhenPlayerFalls`: фиксированная высота и правая граница камеры.
-12. `WholeLevelCanBeCompletedWithBaseMovementAndStick`: весь путь от spawn до настоящего яблока.
+1. Безопасный spawn, один Appi, прежние размер collider, gravityScale и спрайты.
+2. Четыре полностью скрытые ямы: совпадение грунта и высоты поверхности с безопасными сегментами.
+3. Контакт сбоку не активирует первую поверхность; контакт сверху запускает единственный цикл.
+4. До раскрытия работают опора и маскировка; после раскрытия нет опоры и появляются шипы.
+5. Третья ветвь визуально идентична безопасной: весь декор исчезает вместе с collider.
+6. Яблоко запускает обрушение по близости без необходимости приземляться; оно не завершает уровень.
+7. Камера/декор/иной Rigidbody2D не активируют яблоко и деревья.
+8. Дерево проходит ожидание, поворот, летальный контакт и безопасное конечное состояние.
+9. Засада после прыжка ждёт приземления; пауза останавливает её физику.
+10. Повторный Die запускает один restart; все шесть поверхностей и три дерева, палка и преграда восстанавливаются.
+11. E/F работают с прежним радиусом, направлением броска, возвратом палки и разрушением барьера.
+12. Подсказки предмета исчезают по времени и не возобновляются при повторном приближении.
+13. Пауза использует общий GameManager, игровой Space не нажимает UI-кнопки.
+14. Финиш срабатывает один раз, повтор работает; возврат в Hub не изменяет preview-save.
+15. Камера сохраняет высоту и границы при падении.
+16. Весь описанный маршрут проходим с базовой физикой без покупок и двойного прыжка.
 
-Полное прохождение подаёт направление и запрос прыжка в существующий PlayerController
-и вызывает его FixedUpdate. Оно использует реальную 2D-физику и не увеличивает параметры
-Appi. Остальные изолированные проверки иногда переставляют игрока непосредственно к
-проверяемой ловушке. Это не ручное прохождение и не проверка всех возможных траекторий.
-Остальные 54 PlayMode и 28 EditMode — существующие регрессионные тесты проекта.
+Полное прохождение подаёт движение и запрос прыжка в существующий PlayerController.
+Изолированные тесты переставляют Appi к проверяемому объекту. Capture-runner тоже
+переставляет персонажа между секциями для кадров, но активацию первой ямы и дерева
+проверяет настоящими физическими контактами. Это автоматизация, а не ручное прохождение.
 
-## Визуальная проверка
+## Реальные кадры Unity Play Mode
 
-Автоматический capture-runner получил 18 кадров из собранной игры. Осмотрены игровая
-геометрия, Appi, палка, дерево, HUD, подсказки, смерть, пауза и завершение. По результатам
-подсказка перенесена ниже игровых опор, уменьшен контраст дальних деревьев, исправлены
-размещение текста HUD и интервалы внутри модальных панелей.
+Изображения сняты с Game View в графическом Editor; это не концепт-арты и не изображения
+из заблокированного Windows-player. После осмотра устранён зазор под основанием дерева
+и добавлен явный перенос названия мира в HUD. Камера и персонаж сохранены.
 
-Кадры из финальной сборки:
+Начальная дорожка и общий игровой вид:
 
-![Вход, 1920×1080](Images/1920x1080-entrance.png)
+![Вход](Images/Rework/3840x2160-entrance.jpg)
 
-![Вертикальная секция](Images/section-03-vertical.png)
+Один и тот же участок до и после активации:
 
-![Палка и подсказка](Images/section-04-stick-held.png)
+![До обрушения](Images/Rework/hidden-ground-before.jpg)
 
-![Пауза, 1600×900](Images/1600x900-pause.png)
+![После обрушения](Images/Rework/hidden-ground-after.jpg)
 
-![Завершение, 1366×768](Images/1366x768-complete.png)
+Визуально одинаковые опоры и естественно расположенные небольшие яблоки:
 
-![Безопасный ствол после падения](Images/section-06-tree-settled.png)
+![Опоры](Images/Rework/trusted-branches.jpg)
+
+Дерево до активации, в движении и после падения:
+
+![Обычная яблоня](Images/Rework/tree-dormant.jpg)
+
+![Падение](Images/Rework/tree-falling.jpg)
+
+![Безопасный ствол](Images/Rework/tree-settled.jpg)
+
+Дополнительные проверенные кадры:
+[яблоки](Images/Rework/apple-clearing.jpg),
+[компактная подсказка](Images/Rework/stick-compact-hint.jpg),
+[засада после прыжка](Images/Rework/landing-surprise.jpg),
+[финальная комбинация](Images/Rework/final-combination.jpg),
+[пауза](Images/Rework/3840x2160-pause.jpg),
+[смерть](Images/Rework/death-retry.jpg),
+[завершение](Images/Rework/3840x2160-complete.jpg),
+[возврат в лобби](Images/Rework/hub-return.jpg).
+
+## Ограничения и оставшиеся проблемы
+
+- Windows Application Control запретил запуск собранного `.exe`. Политика не изменялась.
+  Финальная сборка лежит в `Builds/DeceptiveForest`, но её запуск на этой машине не подтверждён.
+- В графическом Editor воспроизводится `ArgumentOutOfRangeException` из
+  `UnityEditor.Search.SearchDatabase.EnumerateAll` → `GetDefaultSearchDatabase` →
+  `SearchInit.IndexationOnStartup`. Стек относится к встроенному индексатору Editor;
+  в нём нет игровых скриптов. Поэтому строгий capture-runner вернул FAILED, хотя все
+  его собственные проверки и весь отдельный Play Mode suite прошли. Ошибка не скрыта
+  и исправление индексатора не включено в задачу уровня.
+- Графический журнал также содержит диагностическое сообщение DX12 об увеличении
+  upload buffer при захвате 4K. Кадры получены полностью; чистый графический лог не заявляется.
+- Человек не проходил уровень целиком; субъективная сложность требует playtest.
+  Проверен один полный маршрут и отдельные состояния, не все возможные траектории.
+- В этой переработке визуально проверено 3840×2160. Другие разрешения, платформы,
+  gamepad и производительность на слабом оборудовании повторно не проверялись.
+- Крона падающего дерева декоративная; летален движущийся ствол. Звук и production-прогрессия
+  леса отсутствовали раньше и здесь не добавлены. Карта миров сохраняет прежнюю блокировку леса.
 
 ## Воспроизведение
 
-В Test Runner запустить EditMode и PlayMode. Для командной проверки закрыть Editor
-этого проекта либо использовать отдельную копию Assets, Packages и ProjectSettings:
+Для обычной игры открыть сохранённую сцену и нажать Play. Повторно применять миграцию не нужно.
+Edit Mode и Play Mode доступны в Unity Test Runner. Командные тесты требуют закрытого
+Editor этого проекта либо отдельной копии Assets, Packages и ProjectSettings:
 
 ```powershell
 $forestEditor = 'C:\Program Files\Unity\Hub\Editor\6000.6.0f1\Editor\Unity.exe'
 $forestProject = (Get-Location).Path
-& $forestEditor -batchmode -nographics -projectPath $forestProject -runTests -testPlatform PlayMode -testResults "$forestProject\Logs\forest-playmode.xml" -logFile "$forestProject\Logs\forest-playmode.log" | Out-Host
-& $forestEditor -batchmode -nographics -projectPath $forestProject -runTests -testPlatform EditMode -testResults "$forestProject\Logs\forest-editmode.xml" -logFile "$forestProject\Logs\forest-editmode.log" | Out-Host
+& $forestEditor -batchmode -nographics -projectPath $forestProject -runTests -testPlatform PlayMode -testResults "$forestProject\Logs\forest-playmode.xml" -logFile "$forestProject\Logs\forest-playmode.log"
+& $forestEditor -batchmode -nographics -projectPath $forestProject -runTests -testPlatform EditMode -testResults "$forestProject\Logs\forest-editmode.xml" -logFile "$forestProject\Logs\forest-editmode.log"
 ```
 
-Сборка: **Trapple → Deceptive Forest → Build Windows Preview**.
-Обычный запуск `Builds/DeceptiveForest/Trapple.exe` не включает диагностику.
-Для автоматических кадров Development Build принимает `-forest-capture <каталог>`;
-результат записывается в `result.txt`. Этот режим переставляет Appi между секциями
-и проверяет UI/interactions, но не заменяет тест полного маршрута.
-`-forest-keyboard-check <каталог>` — отдельная интерактивная диагностика Space,
-Escape, Escape, Space, E, F; ожидаемая клавиша записывается в `waiting.txt`.
-Оба режима отключены в Editor и обычной сборке без этих аргументов.
-
-Локальные результаты сохранены в `Logs/DeceptiveForest/`: XML обеих полных тестовых
-серий, журналы Unity, сборки и `FinalCaptures/`. Windows-сборка находится в
-`Builds/DeceptiveForest/`. Эти каталоги исключены из Git; выбранные кадры сохранены
-в этом документе для проверки PR.
-
-## Ограничения
-
-- Полного ручного прохождения человеком и полного нативного клавиатурного smoke-test не заявляем.
-  Автоматические тесты проверяют маршрут и игровые контракты; они не оценивают субъективную сложность.
-- Проверялись Windows x64 и три разрешения 16:9. Mobile, macOS, Linux, gamepad,
-  ultrawide и производительность на слабом железе не проверены.
-- Аудио и отдельные кадры удержания/броска Appi отсутствуют в предоставленных ресурсах.
-  Палка отображается и движется отдельным спрайтом; уровень без звука.
-- Уклонение, Level 1/3 леса, награды и production-прогрессия не реализовывались.
-  В карте миров лес остаётся заблокированным; для Level 2 есть прямой запуск и отдельный профиль.
-- Крона падающего дерева декоративная; опасен движущийся ствол, после падения он безопасен.
-- UI kit содержит исходные полупрозрачные зелёные края. Они сохранены как часть оформления.
-- Ветка основана на `952041c` из `feature/apple-meadow-lobby-integration` (PR #18),
-  чтобы сохранить актуальные ассеты и лобби. До слияния PR #18 diff к main включает эту зависимость.
+Для воспроизведения кадров **в отдельном одноразовом Editor**, без `-batchmode` и
+`-nographics`, использовать `-executeMethod Trapple.Editor.DeceptiveForestRework.CaptureInEditor`
+и `-forest-capture <абсолютный-каталог>`. Runner снимает текущее разрешение Game View,
+проверяет состояния и завершает этот процесс Editor. Обычный запуск без аргумента
+не создаёт runner. Windows Development Player с тем же аргументом поддерживает
+три тестовых разрешения, но этот вариант здесь заблокирован системой.

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="43" result="Passed" total="43" passed="43" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-27 09:17:55Z" end-time="2026-10-27 09:23:09Z" duration="314.0029562">
+  <test-suite type="TestSuite" id="1091" name="Trapple" fullname="Trapple" runstate="Runnable" testcasecount="77" result="Passed" start-time="2026-10-27 09:17:55Z" end-time="2026-10-27 09:23:09Z" duration="314.002956" total="43" passed="43" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1087" name="Trapple.PlayModeTests.dll" fullname="C:/Users/zdeat/OneDrive/Документы/ChatGPT/Trapple/Library/ScriptAssemblies/Trapple.PlayModeTests.dll" runstate="Runnable" testcasecount="77" result="Passed" start-time="2026-10-27 09:17:55Z" end-time="2026-10-27 09:23:09Z" duration="313.991141" total="43" passed="43" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="43740" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1088" name="Trapple" fullname="Trapple" runstate="Runnable" testcasecount="77" result="Passed" start-time="2026-10-27 09:17:55Z" end-time="2026-10-27 09:23:09Z" duration="313.990263" total="43" passed="43" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1089" name="Tests" fullname="Trapple.Tests" runstate="Runnable" testcasecount="77" result="Passed" start-time="2026-10-27 09:17:55Z" end-time="2026-10-27 09:23:09Z" duration="313.989809" total="43" passed="43" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="AppiRunTests" fullname="Trapple.Tests.AppiRunTests" classname="Trapple.Tests.AppiRunTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27 09:17:55Z" end-time="2026-10-27 09:18:00Z" duration="4.603878" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="DirectionChangeKeepsPhaseAndVelocityWinsOverDisabledInput" fullname="Trapple.Tests.AppiRunTests.DirectionChangeKeepsPhaseAndVelocityWinsOverDisabledInput" methodname="DirectionChangeKeepsPhaseAndVelocityWinsOverDisabledInput" classname="Trapple.Tests.AppiRunTests" runstate="Runnable" seed="979304389" result="Passed" start-time="2026-10-27 09:17:55Z" end-time="2026-10-27 09:17:56Z" duration="0.738894" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="RealVelocityPlaysTheWholeCycleThenIdleAndPreservesJump" fullname="Trapple.Tests.AppiRunTests.RealVelocityPlaysTheWholeCycleThenIdleAndPreservesJump" methodname="RealVelocityPlaysTheWholeCycleThenIdleAndPreservesJump" classname="Trapple.Tests.AppiRunTests" runstate="Runnable" seed="35227614" result="Passed" start-time="2026-10-27 09:17:56Z" end-time="2026-10-27 09:18:00Z" duration="3.850149" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1039" name="HubTests" fullname="Trapple.Tests.HubTests" classname="Trapple.Tests.HubTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-27 09:18:00Z" end-time="2026-10-27 09:19:12Z" duration="72.245249" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1050" name="ActualTabsCloseAndSecretButtonsAreWiredAndDoNotReloadScene" fullname="Trapple.Tests.HubTests.ActualTabsCloseAndSecretButtonsAreWiredAndDoNotReloadScene" methodname="ActualTabsCloseAndSecretButtonsAreWiredAndDoNotReloadScene" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="227913849" result="Passed" start-time="2026-10-27 09:18:00Z" end-time="2026-10-27 09:18:13Z" duration="13.690748" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1046" name="EscapeOpensSettingsAndGameplaySpaceCannotSubmitHud" fullname="Trapple.Tests.HubTests.EscapeOpensSettingsAndGameplaySpaceCannotSubmitHud" methodname="EscapeOpensSettingsAndGameplaySpaceCannotSubmitHud" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="1352217805" result="Passed" start-time="2026-10-27 09:18:13Z" end-time="2026-10-27 09:18:26Z" duration="12.889138" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1053" name="HotspotsAreRaycastableAndArtworkScalesUniformly" fullname="Trapple.Tests.HubTests.HotspotsAreRaycastableAndArtworkScalesUniformly" methodname="HotspotsAreRaycastableAndArtworkScalesUniformly" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="778170539" result="Passed" start-time="2026-10-27 09:18:26Z" end-time="2026-10-27 09:18:27Z" duration="0.362072" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1040" name="PlayerSpawnsGroundedAndCameraFollows" fullname="Trapple.Tests.HubTests.PlayerSpawnsGroundedAndCameraFollows" methodname="PlayerSpawnsGroundedAndCameraFollows" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="257284224" result="Passed" start-time="2026-10-27 09:18:27Z" end-time="2026-10-27 09:18:28Z" duration="1.138294" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="PromptInteractionModalAndControlRestoration" fullname="Trapple.Tests.HubTests.PromptInteractionModalAndControlRestoration" methodname="PromptInteractionModalAndControlRestoration" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="2130778875" result="Passed" start-time="2026-10-27 09:18:28Z" end-time="2026-10-27 09:18:39Z" duration="10.758067" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1051" name="PurchasesGuardUnconfiguredPricesFundsRapidClicksAndMaximum" fullname="Trapple.Tests.HubTests.PurchasesGuardUnconfiguredPricesFundsRapidClicksAndMaximum" methodname="PurchasesGuardUnconfiguredPricesFundsRapidClicksAndMaximum" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="1863520552" result="Passed" start-time="2026-10-27 09:18:39Z" end-time="2026-10-27 09:18:46Z" duration="7.412683" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="RapidReopenAndDisableNeverStrandControls" fullname="Trapple.Tests.HubTests.RapidReopenAndDisableNeverStrandControls" methodname="RapidReopenAndDisableNeverStrandControls" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="264224812" result="Passed" start-time="2026-10-27 09:18:46Z" end-time="2026-10-27 09:18:59Z" duration="12.612007" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1048" name="RegisteredTutorialLaunchAndReturnPreserveProgress" fullname="Trapple.Tests.HubTests.RegisteredTutorialLaunchAndReturnPreserveProgress" methodname="RegisteredTutorialLaunchAndReturnPreserveProgress" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="1047308130" result="Passed" start-time="2026-10-27 09:18:59Z" end-time="2026-10-27 09:19:00Z" duration="1.119132" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1054" name="StandaloneSceneOpensMapOverPlayableHubAndCloseRestoresControl" fullname="Trapple.Tests.HubTests.StandaloneSceneOpensMapOverPlayableHubAndCloseRestoresControl" methodname="StandaloneSceneOpensMapOverPlayableHubAndCloseRestoresControl" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="1084946896" result="Passed" start-time="2026-10-27 09:19:00Z" end-time="2026-10-27 09:19:00Z" duration="0.640417" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="SubmitOnPurchaseButtonUpdatesBalanceAndSavedLevel" fullname="Trapple.Tests.HubTests.SubmitOnPurchaseButtonUpdatesBalanceAndSavedLevel" methodname="SubmitOnPurchaseButtonUpdatesBalanceAndSavedLevel" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="140996357" result="Passed" start-time="2026-10-27 09:19:00Z" end-time="2026-10-27 09:19:08Z" duration="7.407613" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1047" name="SuppliedFramesAnimateWalkingJumpingAndModalIdle" fullname="Trapple.Tests.HubTests.SuppliedFramesAnimateWalkingJumpingAndModalIdle" methodname="SuppliedFramesAnimateWalkingJumpingAndModalIdle" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="918130673" result="Passed" start-time="2026-10-27 09:19:08Z" end-time="2026-10-27 09:19:10Z" duration="1.981895" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1052" name="TutorialCompletionRefreshesWorldUnlockWithoutInventingSceneOrCurrency" fullname="Trapple.Tests.HubTests.TutorialCompletionRefreshesWorldUnlockWithoutInventingSceneOrCurrency" methodname="TutorialCompletionRefreshesWorldUnlockWithoutInventingSceneOrCurrency" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="319567312" result="Passed" start-time="2026-10-27 09:19:10Z" end-time="2026-10-27 09:19:10Z" duration="0.345952" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1049" name="TutorialHudCannotSubmitJumpAndExitReturnsToMainMenu" fullname="Trapple.Tests.HubTests.TutorialHudCannotSubmitJumpAndExitReturnsToMainMenu" methodname="TutorialHudCannotSubmitJumpAndExitReturnsToMainMenu" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="1769995866" result="Passed" start-time="2026-10-27 09:19:10Z" end-time="2026-10-27 09:19:11Z" duration="0.772185" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1055" name="UnlockedSkinEquipsThroughActualUIAndRestoresFromDisk" fullname="Trapple.Tests.HubTests.UnlockedSkinEquipsThroughActualUIAndRestoresFromDisk" methodname="UnlockedSkinEquipsThroughActualUIAndRestoresFromDisk" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="1949481791" result="Passed" start-time="2026-10-27 09:19:11Z" end-time="2026-10-27 09:19:11Z" duration="0.390965" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1045" name="WardrobeUsesProvidedCharactersAndLocksWorldSkins" fullname="Trapple.Tests.HubTests.WardrobeUsesProvidedCharactersAndLocksWorldSkins" methodname="WardrobeUsesProvidedCharactersAndLocksWorldSkins" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="88766784" result="Passed" start-time="2026-10-27 09:19:11Z" end-time="2026-10-27 09:19:12Z" duration="0.370264" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1044" name="WorldCardsAndLockedLevelGuards" fullname="Trapple.Tests.HubTests.WorldCardsAndLockedLevelGuards" methodname="WorldCardsAndLockedLevelGuards" classname="Trapple.Tests.HubTests" runstate="Runnable" seed="650330430" result="Passed" start-time="2026-10-27 09:19:12Z" end-time="2026-10-27 09:19:12Z" duration="0.347356" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1056" name="TutorialTests" fullname="Trapple.Tests.TutorialTests" classname="Trapple.Tests.TutorialTests" runstate="Runnable" testcasecount="19" result="Passed" start-time="2026-10-27 09:19:12Z" end-time="2026-10-27 09:22:19Z" duration="186.578090" total="19" passed="19" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1063" name="AirbornePressIsNotReplayedOnLanding" fullname="Trapple.Tests.TutorialTests.AirbornePressIsNotReplayedOnLanding" methodname="AirbornePressIsNotReplayedOnLanding" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="1845646052" result="Passed" start-time="2026-10-27 09:19:12Z" end-time="2026-10-27 09:19:13Z" duration="1.027249" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1072" name="AppleCompletesLevelAndStopsPlayer" fullname="Trapple.Tests.TutorialTests.AppleCompletesLevelAndStopsPlayer" methodname="AppleCompletesLevelAndStopsPlayer" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="1422197748" result="Passed" start-time="2026-10-27 09:19:13Z" end-time="2026-10-27 09:19:14Z" duration="0.464460" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[TRAPPLE RUN {"scene":"Assets/_Trapple/Scenes/Levels/Tutorial.unity","utc":"2026-10-27T09:19:13.9459448Z","outcome":"success","source":"automation","activeSeconds":0.0,"sectionSeconds":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}
+]]></output>
+            </test-case>
+            <test-case id="1074" name="CameraFollowsPlayer" fullname="Trapple.Tests.TutorialTests.CameraFollowsPlayer" methodname="CameraFollowsPlayer" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="1377984954" result="Passed" start-time="2026-10-27 09:19:14Z" end-time="2026-10-27 09:19:15Z" duration="1.135560" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1065" name="DeathIsIdempotentAndDisablesPhysicsAndControl" fullname="Trapple.Tests.TutorialTests.DeathIsIdempotentAndDisablesPhysicsAndControl" methodname="DeathIsIdempotentAndDisablesPhysicsAndControl" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="1703408117" result="Passed" start-time="2026-10-27 09:19:15Z" end-time="2026-10-27 09:19:15Z" duration="0.424142" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[TRAPPLE RUN {"scene":"Assets/_Trapple/Scenes/Levels/Tutorial.unity","utc":"2026-10-27T09:19:15.5294259Z","outcome":"death","source":"automation","activeSeconds":0.0,"sectionSeconds":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}
+]]></output>
+            </test-case>
+            <test-case id="1066" name="DeathReloadsSceneEvenWhenTimeIsPaused" fullname="Trapple.Tests.TutorialTests.DeathReloadsSceneEvenWhenTimeIsPaused" methodname="DeathReloadsSceneEvenWhenTimeIsPaused" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="534182119" result="Passed" start-time="2026-10-27 09:19:15Z" end-time="2026-10-27 09:19:16Z" duration="0.729809" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[TRAPPLE RUN {"scene":"Assets/_Trapple/Scenes/Levels/Tutorial.unity","utc":"2026-10-27T09:19:15.9488533Z","outcome":"death","source":"automation","activeSeconds":0.0,"sectionSeconds":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}
+]]></output>
+            </test-case>
+            <test-case id="1075" name="EntireTutorialIsReachableWithMovementAndJumps" fullname="Trapple.Tests.TutorialTests.EntireTutorialIsReachableWithMovementAndJumps" methodname="EntireTutorialIsReachableWithMovementAndJumps" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="348203412" result="Passed" start-time="2026-10-27 09:19:16Z" end-time="2026-10-27 09:22:11Z" duration="175.053425" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="600000" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[EXPANDED ROUTE progress Tutorial: 50/226, x=194.4
+EXPANDED ROUTE progress Tutorial: 100/226, x=352.5
+EXPANDED ROUTE progress Tutorial: 150/226, x=505.4
+EXPANDED ROUTE progress Tutorial: 200/226, x=656.3
+TRAPPLE RUN {"scene":"Assets/_Trapple/Scenes/Levels/Tutorial.unity","utc":"2026-10-27T09:22:11.3004378Z","outcome":"success","source":"automation","activeSeconds":174.62734985351563,"sectionSeconds":[18.953702926635742,26.740407943725586,28.761526107788086,26.843225479125977,26.9720401763916,28.242021560668945,18.1103458404541]}
+EXPANDED ROUTE physics completed: Tutorial; active=174.63s. Scripted input is NOT a novice timing playtest.
+]]></output>
+            </test-case>
+            <test-case id="1073" name="FallingOutOfLevelKillsPlayer" fullname="Trapple.Tests.TutorialTests.FallingOutOfLevelKillsPlayer" methodname="FallingOutOfLevelKillsPlayer" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="46929379" result="Passed" start-time="2026-10-27 09:22:11Z" end-time="2026-10-27 09:22:11Z" duration="0.532513" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[TRAPPLE RUN {"scene":"Assets/_Trapple/Scenes/Levels/Tutorial.unity","utc":"2026-10-27T09:22:11.7560321Z","outcome":"death","source":"automation","activeSeconds":0.0,"sectionSeconds":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}
+]]></output>
+            </test-case>
+            <test-case id="1071" name="HiddenTrapRevealsAfterDelayAndKillsOverlappingPlayer" fullname="Trapple.Tests.TutorialTests.HiddenTrapRevealsAfterDelayAndKillsOverlappingPlayer" methodname="HiddenTrapRevealsAfterDelayAndKillsOverlappingPlayer" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="550195828" result="Passed" start-time="2026-10-27 09:22:11Z" end-time="2026-10-27 09:22:12Z" duration="1.023077" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[TRAPPLE RUN {"scene":"Assets/_Trapple/Scenes/Levels/Tutorial.unity","utc":"2026-10-27T09:22:12.5618463Z","outcome":"death","source":"automation","activeSeconds":0.0,"sectionSeconds":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}
+]]></output>
+            </test-case>
+            <test-case id="1062" name="JumpReachesConfiguredHeightAndRejectsDoubleJump" fullname="Trapple.Tests.TutorialTests.JumpReachesConfiguredHeightAndRejectsDoubleJump" methodname="JumpReachesConfiguredHeightAndRejectsDoubleJump" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="544977782" result="Passed" start-time="2026-10-27 09:22:12Z" end-time="2026-10-27 09:22:13Z" duration="1.039398" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1058" name="MeadowArtworkLoadsOnceAndKeepsTrapHitboxes" fullname="Trapple.Tests.TutorialTests.MeadowArtworkLoadsOnceAndKeepsTrapHitboxes" methodname="MeadowArtworkLoadsOnceAndKeepsTrapHitboxes" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="1046611608" result="Passed" start-time="2026-10-27 09:22:13Z" end-time="2026-10-27 09:22:14Z" duration="0.419775" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1061" name="MovementAcceleratesTurnsAndStops" fullname="Trapple.Tests.TutorialTests.MovementAcceleratesTurnsAndStops" methodname="MovementAcceleratesTurnsAndStops" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="103778647" result="Passed" start-time="2026-10-27 09:22:14Z" end-time="2026-10-27 09:22:14Z" duration="0.421397" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1064" name="NearbyWallCannotGrantJump" fullname="Trapple.Tests.TutorialTests.NearbyWallCannotGrantJump" methodname="NearbyWallCannotGrantJump" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="1111414821" result="Passed" start-time="2026-10-27 09:22:14Z" end-time="2026-10-27 09:22:15Z" duration="0.413664" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1059" name="PauseFreezesPlayerAndClearsPendingJump" fullname="Trapple.Tests.TutorialTests.PauseFreezesPlayerAndClearsPendingJump" methodname="PauseFreezesPlayerAndClearsPendingJump" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="1649397831" result="Passed" start-time="2026-10-27 09:22:15Z" end-time="2026-10-27 09:22:15Z" duration="0.517379" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1069" name="PlatformFallsOnlyAfterLandingAndDelay" fullname="Trapple.Tests.TutorialTests.PlatformFallsOnlyAfterLandingAndDelay" methodname="PlatformFallsOnlyAfterLandingAndDelay" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="642248992" result="Passed" start-time="2026-10-27 09:22:15Z" end-time="2026-10-27 09:22:16Z" duration="1.071342" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1057" name="SceneContainsRequiredComponents" fullname="Trapple.Tests.TutorialTests.SceneContainsRequiredComponents" methodname="SceneContainsRequiredComponents" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="417967227" result="Passed" start-time="2026-10-27 09:22:16Z" end-time="2026-10-27 09:22:17Z" duration="0.415782" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1070" name="SideContactDoesNotActivatePlatform" fullname="Trapple.Tests.TutorialTests.SideContactDoesNotActivatePlatform" methodname="SideContactDoesNotActivatePlatform" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="387887328" result="Passed" start-time="2026-10-27 09:22:17Z" end-time="2026-10-27 09:22:17Z" duration="0.562186" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1060" name="SpawnIsGrounded" fullname="Trapple.Tests.TutorialTests.SpawnIsGrounded" methodname="SpawnIsGrounded" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="2121906389" result="Passed" start-time="2026-10-27 09:22:17Z" end-time="2026-10-27 09:22:18Z" duration="0.420421" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1067" name="SpikeTriggerKillsPlayer" fullname="Trapple.Tests.TutorialTests.SpikeTriggerKillsPlayer" methodname="SpikeTriggerKillsPlayer" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="40565586" result="Passed" start-time="2026-10-27 09:22:18Z" end-time="2026-10-27 09:22:18Z" duration="0.451554" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[TRAPPLE RUN {"scene":"Assets/_Trapple/Scenes/Levels/Tutorial.unity","utc":"2026-10-27T09:22:18.5797647Z","outcome":"death","source":"automation","activeSeconds":0.0,"sectionSeconds":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}
+]]></output>
+            </test-case>
+            <test-case id="1068" name="UnarmedSpikesDoNotKill" fullname="Trapple.Tests.TutorialTests.UnarmedSpikesDoNotKill" methodname="UnarmedSpikesDoNotKill" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="934027248" result="Passed" start-time="2026-10-27 09:22:18Z" end-time="2026-10-27 09:22:19Z" duration="0.446499" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1080" name="WorkshopTests" fullname="Trapple.Tests.WorkshopTests" classname="Trapple.Tests.WorkshopTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-27 09:22:19Z" end-time="2026-10-27 09:23:09Z" duration="50.554604" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1082" name="AnimatedPreviewsWrapAndPurchaseChangesSpeedWithoutResettingPosition" fullname="Trapple.Tests.WorkshopTests.AnimatedPreviewsWrapAndPurchaseChangesSpeedWithoutResettingPosition" methodname="AnimatedPreviewsWrapAndPurchaseChangesSpeedWithoutResettingPosition" classname="Trapple.Tests.WorkshopTests" runstate="Runnable" seed="699754756" result="Passed" start-time="2026-10-27 09:22:19Z" end-time="2026-10-27 09:22:29Z" duration="10.459339" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1084" name="CancelDuringEntryRestoresOriginalPoseCameraAndControlAtZeroTimescale" fullname="Trapple.Tests.WorkshopTests.CancelDuringEntryRestoresOriginalPoseCameraAndControlAtZeroTimescale" methodname="CancelDuringEntryRestoresOriginalPoseCameraAndControlAtZeroTimescale" classname="Trapple.Tests.WorkshopTests" runstate="Runnable" seed="2061913734" result="Passed" start-time="2026-10-27 09:22:29Z" end-time="2026-10-27 09:22:35Z" duration="5.951119" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1086" name="CancelInsidePreservesPreviouslyDisabledControlAndFollow" fullname="Trapple.Tests.WorkshopTests.CancelInsidePreservesPreviouslyDisabledControlAndFollow" methodname="CancelInsidePreservesPreviouslyDisabledControlAndFollow" classname="Trapple.Tests.WorkshopTests" runstate="Runnable" seed="1855921805" result="Passed" start-time="2026-10-27 09:22:35Z" end-time="2026-10-27 09:22:41Z" duration="5.558809" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1081" name="EntryWalksClimbsIrisLocksAndExitRestoresThenReenters" fullname="Trapple.Tests.WorkshopTests.EntryWalksClimbsIrisLocksAndExitRestoresThenReenters" methodname="EntryWalksClimbsIrisLocksAndExitRestoresThenReenters" classname="Trapple.Tests.WorkshopTests" runstate="Runnable" seed="1153237123" result="Passed" start-time="2026-10-27 09:22:41Z" end-time="2026-10-27 09:22:57Z" duration="15.963227" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1083" name="JumpAndAgilityMoveInRealtimeAndUpgradesIncreaseHeight" fullname="Trapple.Tests.WorkshopTests.JumpAndAgilityMoveInRealtimeAndUpgradesIncreaseHeight" methodname="JumpAndAgilityMoveInRealtimeAndUpgradesIncreaseHeight" classname="Trapple.Tests.WorkshopTests" runstate="Runnable" seed="838617923" result="Passed" start-time="2026-10-27 09:22:57Z" end-time="2026-10-27 09:23:04Z" duration="7.050656" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1085" name="WorkshopButtonsReceiveRaycastsAndUseSingleEventSystem" fullname="Trapple.Tests.WorkshopTests.WorkshopButtonsReceiveRaycastsAndUseSingleEventSystem" methodname="WorkshopButtonsReceiveRaycastsAndUseSingleEventSystem" classname="Trapple.Tests.WorkshopTests" runstate="Runnable" seed="1254854206" result="Passed" start-time="2026-10-27 09:23:04Z" end-time="2026-10-27 09:23:09Z" duration="5.554688" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:\Users\zdeat\OneDrive\Документы\ChatGPT\Trapple/Temp/AppiRun-PlayMode.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

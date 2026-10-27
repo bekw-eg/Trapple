@@ -186,21 +186,21 @@ namespace Trapple.Tests
             var animator=player.GetComponent<PlayerSpriteAnimator>();
             Assert.That(animator,Is.Not.Null);
             Assert.That(animator.Animations.idle.Length,Is.EqualTo(4));
-            Assert.That(animator.Animations.walkRight.Length,Is.EqualTo(6));
-            Assert.That(animator.Animations.walkLeft.Length,Is.EqualTo(6));
+            Assert.That(animator.Animations.walkRight.Length,Is.EqualTo(8));
+            Assert.That(animator.Animations.walkLeft.Length,Is.EqualTo(8));
             Assert.That(animator.Animations.jump.Length,Is.EqualTo(4));
             Assert.That(animator.Animations.idle[0].texture.filterMode,Is.EqualTo(FilterMode.Point));
             var body=player.GetComponent<Rigidbody2D>();
             player.enabled=false; // Drive real velocity, leaving the existing movement code untouched.
             body.linearVelocity=new Vector2(3,0);
             yield return new WaitForSeconds(.12f);
-            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.WalkRight));
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.RunRight));
             int first=animator.FrameIndex;
             yield return new WaitForSeconds(.2f);
             Assert.That(animator.FrameIndex,Is.Not.EqualTo(first));
             body.linearVelocity=new Vector2(-3,0);
             yield return new WaitForSeconds(.1f);
-            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.WalkLeft));
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.RunLeft));
             Assert.That(player.GetComponent<SpriteRenderer>().flipX,Is.False);
             body.linearVelocity=new Vector2(0,10);
             yield return new WaitForSeconds(.12f);

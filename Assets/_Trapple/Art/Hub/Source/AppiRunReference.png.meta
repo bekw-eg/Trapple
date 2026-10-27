@@ -1,0 +1,2849 @@
+fileFormatVersion: 2
+guid: c94056f0405922e48bee012dd1704b9e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5203327392618252314
+    second: AppiRunReference_0
+  - first:
+      213: 188527333823714142
+    second: AppiRunReference_1
+  - first:
+      213: -3843121040030645377
+    second: AppiRunReference_2
+  - first:
+      213: -5518003468441017132
+    second: AppiRunReference_3
+  - first:
+      213: -6331478977189524140
+    second: AppiRunReference_4
+  - first:
+      213: 5270032886125632937
+    second: AppiRunReference_5
+  - first:
+      213: 7452927369176238134
+    second: AppiRunReference_6
+  - first:
+      213: -1848727828138981808
+    second: AppiRunReference_7
+  - first:
+      213: -7124226609942571044
+    second: AppiRunReference_8
+  - first:
+      213: -7382596110648520952
+    second: AppiRunReference_9
+  - first:
+      213: -8617937906675709534
+    second: AppiRunReference_10
+  - first:
+      213: 7249032428031567735
+    second: AppiRunReference_11
+  - first:
+      213: -778429412463820414
+    second: AppiRunReference_12
+  - first:
+      213: -7216020152191260108
+    second: AppiRunReference_13
+  - first:
+      213: -1103184673777890560
+    second: AppiRunReference_14
+  - first:
+      213: 4751544545871621952
+    second: AppiRunReference_15
+  - first:
+      213: 2502135074876596837
+    second: AppiRunReference_16
+  - first:
+      213: 457690736439942943
+    second: AppiRunReference_17
+  - first:
+      213: -6361591129906228172
+    second: AppiRunReference_18
+  - first:
+      213: -1852488064727785617
+    second: AppiRunReference_19
+  - first:
+      213: -6513053386754700607
+    second: AppiRunReference_20
+  - first:
+      213: -4826408502942876756
+    second: AppiRunReference_21
+  - first:
+      213: -6883979484337111333
+    second: AppiRunReference_22
+  - first:
+      213: -7855029108533526463
+    second: AppiRunReference_23
+  - first:
+      213: 8497667302075384241
+    second: AppiRunReference_24
+  - first:
+      213: 3559931491855198100
+    second: AppiRunReference_25
+  - first:
+      213: -1255707850986179915
+    second: AppiRunReference_26
+  - first:
+      213: -7260291981029311561
+    second: AppiRunReference_27
+  - first:
+      213: 7719255451012302736
+    second: AppiRunReference_28
+  - first:
+      213: 9190976724893144176
+    second: AppiRunReference_29
+  - first:
+      213: -172859543237599764
+    second: AppiRunReference_30
+  - first:
+      213: 7879124746778931426
+    second: AppiRunReference_31
+  - first:
+      213: 3303964773609156797
+    second: AppiRunReference_32
+  - first:
+      213: 3630639425937561071
+    second: AppiRunReference_33
+  - first:
+      213: -3530114720548304674
+    second: AppiRunReference_34
+  - first:
+      213: -4856723632757841753
+    second: AppiRunReference_35
+  - first:
+      213: -5948728959153860373
+    second: AppiRunReference_36
+  - first:
+      213: 4189633207715946459
+    second: AppiRunReference_37
+  - first:
+      213: 8159799560698983263
+    second: AppiRunReference_38
+  - first:
+      213: -8863560118154535376
+    second: AppiRunReference_39
+  - first:
+      213: 5419789617428358039
+    second: AppiRunReference_40
+  - first:
+      213: 1473285350859882840
+    second: AppiRunReference_41
+  - first:
+      213: -847313031618901790
+    second: AppiRunReference_42
+  - first:
+      213: 7584513202423326827
+    second: AppiRunReference_43
+  - first:
+      213: -1929790625331449440
+    second: AppiRunReference_44
+  - first:
+      213: 2428114273050427945
+    second: AppiRunReference_45
+  - first:
+      213: -3239890118889969766
+    second: AppiRunReference_46
+  - first:
+      213: 4641913760498560741
+    second: AppiRunReference_47
+  - first:
+      213: -89627828801977810
+    second: AppiRunReference_48
+  - first:
+      213: 8103834549295349477
+    second: AppiRunReference_49
+  - first:
+      213: -6763843209851932511
+    second: AppiRunReference_50
+  - first:
+      213: 5873007673793613285
+    second: AppiRunReference_51
+  - first:
+      213: 3434502367462597530
+    second: AppiRunReference_52
+  - first:
+      213: 1052668823765316053
+    second: AppiRunReference_53
+  - first:
+      213: -6654158574663845249
+    second: AppiRunReference_54
+  - first:
+      213: 6855761758246733093
+    second: AppiRunReference_55
+  - first:
+      213: -3111952561613974332
+    second: AppiRunReference_56
+  - first:
+      213: 2567012556589181682
+    second: AppiRunReference_57
+  - first:
+      213: -1071565311233330110
+    second: AppiRunReference_58
+  - first:
+      213: 33613962540546513
+    second: AppiRunReference_59
+  - first:
+      213: -8981367605865169827
+    second: AppiRunReference_60
+  - first:
+      213: 7667369861925257613
+    second: AppiRunReference_61
+  - first:
+      213: -8237492723443767675
+    second: AppiRunReference_62
+  - first:
+      213: 4643446664373258298
+    second: AppiRunReference_63
+  - first:
+      213: -7144874651810598231
+    second: AppiRunReference_64
+  - first:
+      213: -2762592123528295068
+    second: AppiRunReference_65
+  - first:
+      213: 4247979978903369241
+    second: AppiRunReference_66
+  - first:
+      213: 2013984413494760453
+    second: AppiRunReference_67
+  - first:
+      213: -6888005946929538084
+    second: AppiRunReference_68
+  - first:
+      213: -3561745134051271271
+    second: AppiRunReference_69
+  - first:
+      213: 3080926204547686874
+    second: AppiRunReference_70
+  - first:
+      213: 8216498015692283725
+    second: AppiRunReference_71
+  - first:
+      213: -3150374753125996567
+    second: AppiRunReference_72
+  - first:
+      213: -2265378457913644082
+    second: AppiRunReference_73
+  - first:
+      213: -5808265633086349391
+    second: AppiRunReference_74
+  - first:
+      213: -721307889994750992
+    second: AppiRunReference_75
+  - first:
+      213: -7332317041903560284
+    second: AppiRunReference_76
+  - first:
+      213: 3594966921451047177
+    second: AppiRunReference_77
+  - first:
+      213: -6288522574243786661
+    second: AppiRunReference_78
+  - first:
+      213: 7110147136010453584
+    second: AppiRunReference_79
+  - first:
+      213: -530202551425760379
+    second: AppiRunReference_80
+  - first:
+      213: 3857879068192975057
+    second: AppiRunReference_81
+  - first:
+      213: -5519737708355473945
+    second: AppiRunReference_82
+  - first:
+      213: -3449974518737823031
+    second: AppiRunReference_83
+  - first:
+      213: -8841870189162297483
+    second: AppiRunReference_84
+  - first:
+      213: -4108783867391256815
+    second: AppiRunReference_85
+  - first:
+      213: 1168395275578714958
+    second: AppiRunReference_86
+  - first:
+      213: -3941430725277726170
+    second: AppiRunReference_87
+  - first:
+      213: 1301039465259931520
+    second: AppiRunReference_88
+  - first:
+      213: 1777587165830236443
+    second: AppiRunReference_89
+  - first:
+      213: 3473676698869443528
+    second: AppiRunReference_90
+  - first:
+      213: 239736595504055619
+    second: AppiRunReference_91
+  - first:
+      213: 4450913319831601273
+    second: AppiRunReference_92
+  - first:
+      213: 5755147184254649161
+    second: AppiRunReference_93
+  - first:
+      213: 7991832671836252008
+    second: AppiRunReference_94
+  - first:
+      213: -5576352894350374926
+    second: AppiRunReference_95
+  - first:
+      213: -6088211725584925656
+    second: AppiRunReference_96
+  - first:
+      213: -4341605019241124165
+    second: AppiRunReference_97
+  - first:
+      213: 2735271483577149627
+    second: AppiRunReference_98
+  - first:
+      213: -9013397253793050986
+    second: AppiRunReference_99
+  - first:
+      213: -4678420104438312381
+    second: AppiRunReference_100
+  - first:
+      213: 7222427453610341253
+    second: AppiRunReference_101
+  - first:
+      213: 1455161469189423604
+    second: AppiRunReference_102
+  - first:
+      213: -3810923930700327188
+    second: AppiRunReference_103
+  - first:
+      213: 6161017379236916101
+    second: AppiRunReference_104
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AppiRunReference_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 785
+        width: 362
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a180217f1bee53840800000000000000
+      internalID: 5203327392618252314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_1
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 831
+        width: 105
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53930b7c98cd9200800000000000000
+      internalID: 188527333823714142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_2
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 853
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73c42c96cd7aaac0800000000000000
+      internalID: -3843121040030645377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 801
+        width: 145
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d42332c41d1c63b0800000000000000
+      internalID: -5518003468441017132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_4
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 799
+        width: 253
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45dc3c57a611228a0800000000000000
+      internalID: -6331478977189524140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_5
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 831
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad1524fcfae22940800000000000000
+      internalID: 5270032886125632937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_6
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 815
+        width: 45
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638498874fd1e6760800000000000000
+      internalID: 7452927369176238134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_7
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 817
+        width: 57
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0568565d5dff756e0800000000000000
+      internalID: -1848727828138981808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_8
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 829
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd7dcfed4a9a12d90800000000000000
+      internalID: -7124226609942571044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_9
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 831
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f4d98b3ffbb8990800000000000000
+      internalID: -7382596110648520952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_10
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 823
+        width: 29
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a98838322fe66880800000000000000
+      internalID: -8617937906675709534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_11
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 807
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777eb16169cb99460800000000000000
+      internalID: 7249032428031567735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_12
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 863
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281c06bd2967235f0800000000000000
+      internalID: -778429412463820414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_13
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 833
+        width: 47
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43a649857eb8bdb90800000000000000
+      internalID: -7216020152191260108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_14
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 877
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b40d55263b0b0f0800000000000000
+      internalID: -1103184673777890560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_15
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 800
+        width: 95
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f6f17f690e0f140800000000000000
+      internalID: 4751544545871621952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_16
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 791
+        width: 109
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 562a01ef79e59b220800000000000000
+      internalID: 2502135074876596837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_17
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 809
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1f5d72cc4b0a5600800000000000000
+      internalID: 457690736439942943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_18
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 485
+        width: 199
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 434d9af829617b7a0800000000000000
+      internalID: -6361591129906228172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_19
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 511
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6fdf378be3aa46e0800000000000000
+      internalID: -1852488064727785617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_20
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 535
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cac45fc37cfc95a0800000000000000
+      internalID: -6513053386754700607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_21
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 523
+        width: 179
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cab3a29b907250db0800000000000000
+      internalID: -4826408502942876756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_22
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 513
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde7203c1213770a0800000000000000
+      internalID: -6883979484337111333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_23
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 493
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140818db4a45df290800000000000000
+      internalID: -7855029108533526463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_24
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 401
+        width: 205
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b1c7af7367cde570800000000000000
+      internalID: 8497667302075384241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_25
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 527
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49761cc94da676130800000000000000
+      internalID: 3559931491855198100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_26
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 513
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2bc40dc54d29ee0800000000000000
+      internalID: -1255707850986179915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_27
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 493
+        width: 189
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb7121f8e24e3b90800000000000000
+      internalID: -7260291981029311561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_28
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 529
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09706103fed402b60800000000000000
+      internalID: 7719255451012302736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_29
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 542
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 074932aa2a8ec8f70800000000000000
+      internalID: 9190976724893144176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_30
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 515
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced59494921e99df0800000000000000
+      internalID: -172859543237599764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_31
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 563
+        width: 171
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e07fb83636485d60800000000000000
+      internalID: 7879124746778931426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_32
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 503
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0b069d47a0add20800000000000000
+      internalID: 3303964773609156797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_33
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 487
+        width: 39
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5598a625f926230800000000000000
+      internalID: 3630639425937561071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_34
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 540
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed847517d53820fc0800000000000000
+      internalID: -3530114720548304674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_35
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 439
+        width: 53
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a069398693799cb0800000000000000
+      internalID: -4856723632757841753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_36
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 533
+        width: 169
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be01e84878ed17da0800000000000000
+      internalID: -5948728959153860373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_37
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 558
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdfd61d6431942a30800000000000000
+      internalID: 4189633207715946459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_38
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 543
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f53f9ddc77e6d3170800000000000000
+      internalID: 8159799560698983263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_39
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 417
+        width: 236
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03e5410a80f4ef480800000000000000
+      internalID: -8863560118154535376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_40
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 543
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 793ea2811f5f63b40800000000000000
+      internalID: 5419789617428358039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_41
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 509
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8514ac68839227410800000000000000
+      internalID: 1473285350859882840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_42
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 542
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e8cbc8794dbd34f0800000000000000
+      internalID: -847313031618901790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_43
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 561
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68e3b8b29a914960800000000000000
+      internalID: 7584513202423326827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_44
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 497
+        width: 25
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a17d3696a10835e0800000000000000
+      internalID: -1929790625331449440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_45
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 579
+        width: 170
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9220a3f011562b120800000000000000
+      internalID: 2428114273050427945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_46
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 543
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97e3404a199903d0800000000000000
+      internalID: -3239890118889969766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_47
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 519
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eea384a8f36b6040800000000000000
+      internalID: 4641913760498560741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_48
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 511
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22c44ee6f391cef0800000000000000
+      internalID: -89627828801977810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_49
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 534
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee794d269a967070800000000000000
+      internalID: 8103834549295349477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_50
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 519
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a07650ef600222a0800000000000000
+      internalID: -6763843209851932511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_51
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 519
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ed8c9fdc5d118150800000000000000
+      internalID: 5873007673793613285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_52
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 494
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a93a8d8d4bdc9af20800000000000000
+      internalID: 3434502367462597530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_53
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 501
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d1f8aac7b4db9e00800000000000000
+      internalID: 1052668823765316053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_54
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 497
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7aba06180ea7a3a0800000000000000
+      internalID: -6654158574663845249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_55
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 499
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5250109eefe842f50800000000000000
+      internalID: 6855761758246733093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_56
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 503
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c4d12f02af10d4d0800000000000000
+      internalID: -3111952561613974332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_57
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 381
+        width: 129
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa2771d15cdf9320800000000000000
+      internalID: 2567012556589181682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_58
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 382
+        width: 147
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2447e4ed6090121f0800000000000000
+      internalID: -1071565311233330110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_59
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 417
+        width: 61
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9f8b888bb677000800000000000000
+      internalID: 33613962540546513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_60
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 437
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5cb43f6fb5cb5380800000000000000
+      internalID: -8981367605865169827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_61
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 447
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8147951448f76a60800000000000000
+      internalID: 7667369861925257613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_62
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 412
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586e44b130c8ead80800000000000000
+      internalID: -8237492723443767675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_63
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 450
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38c073a326d07040800000000000000
+      internalID: 4643446664373258298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_64
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 385
+        width: 107
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a2f22efb5e48dc90800000000000000
+      internalID: -7144874651810598231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_65
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 417
+        width: 77
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46dcdc9b91d49a9d0800000000000000
+      internalID: -2762592123528295068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_66
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 425
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 916b187b84bd3fa30800000000000000
+      internalID: 4247979978903369241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_67
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 465
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504578d472c13fb10800000000000000
+      internalID: 2013984413494760453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_68
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 431
+        width: 67
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb9c72e513e860a0800000000000000
+      internalID: -6888005946929538084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_69
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 407
+        width: 61
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99dd568eba3229ec0800000000000000
+      internalID: -3561745134051271271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_70
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 399
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad1e1414f06a1ca20800000000000000
+      internalID: 3080926204547686874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_71
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 417
+        width: 33
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f5a03996dd60270800000000000000
+      internalID: 8216498015692283725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_72
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 449
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7e09a7ade9744d0800000000000000
+      internalID: -3150374753125996567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_73
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 469
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb2c368b42cf80e0800000000000000
+      internalID: -2265378457913644082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_74
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 469
+        width: 37
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf57c22e25e46fa0800000000000000
+      internalID: -5808265633086349391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_75
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 391
+        width: 35
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f32d23bb466df5f0800000000000000
+      internalID: -721307889994750992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_76
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 474
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a99bc8af706e3a90800000000000000
+      internalID: -7332317041903560284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_77
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 447
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9098e5c3e53e3e130800000000000000
+      internalID: 3594966921451047177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_78
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 449
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b509c28690eaab8a0800000000000000
+      internalID: -6288522574243786661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_79
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 446
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0520aa626215ca260800000000000000
+      internalID: 7110147136010453584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_80
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 439
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583034fa69754a8f0800000000000000
+      internalID: -530202551425760379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_81
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 129
+        width: 201
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d8ae069290f98530800000000000000
+      internalID: 3857879068192975057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_82
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 418
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eda4209cc3f563b0800000000000000
+      internalID: -5519737708355473945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_83
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 467
+        width: 35
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca9b76347a3f10d0800000000000000
+      internalID: -3449974518737823031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_84
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 411
+        width: 85
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5778dd0c8ed5b4580800000000000000
+      internalID: -8841870189162297483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_85
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 111
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 117d94587daaaf6c0800000000000000
+      internalID: -4108783867391256815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_86
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 87
+        width: 172
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b2d1e0059f63010800000000000000
+      internalID: 1168395275578714958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_87
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 119
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ac20153a93d49c0800000000000000
+      internalID: -3941430725277726170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_88
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 127
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 087159d10883e0210800000000000000
+      internalID: 1301039465259931520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_89
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 123
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b19ca98fb124ba810800000000000000
+      internalID: 1777587165830236443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_90
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 126
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb2aa4ad8af43030800000000000000
+      internalID: 3473676698869443528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_91
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 113
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3454ea6d927b35300800000000000000
+      internalID: 239736595504055619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_92
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 129
+        width: 179
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9700e9a1512d4cd30800000000000000
+      internalID: 4450913319831601273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_93
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 35
+        width: 241
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 943869b3fd36edf40800000000000000
+      internalID: 5755147184254649161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_94
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 159
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8672925f871b8ee60800000000000000
+      internalID: 7991832671836252008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_95
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 127
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f7460e5690dc92b0800000000000000
+      internalID: -5576352894350374926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_96
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 173
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82c742b31b3528ba0800000000000000
+      internalID: -6088211725584925656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_97
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 17
+        width: 419
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe6411ec358fb3c0800000000000000
+      internalID: -4341605019241124165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_98
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 151
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb82fd61ce2a5f520800000000000000
+      internalID: 2735271483577149627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_99
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 115
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69e0f24e3faf9e280800000000000000
+      internalID: -9013397253793050986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_100
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 135
+        width: 185
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34298ecc3b9e21fb0800000000000000
+      internalID: -4678420104438312381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_101
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 143
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5833974c0873b3460800000000000000
+      internalID: 7222427453610341253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_102
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 143
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f10fdd75a5c13410800000000000000
+      internalID: 1455161469189423604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_103
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 41
+        width: 223
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce6529c40e0ec1bc0800000000000000
+      internalID: -3810923930700327188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AppiRunReference_104
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 127
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58bac68f9a4508550800000000000000
+      internalID: 6161017379236916101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AppiRunReference_0: 5203327392618252314
+      AppiRunReference_1: 188527333823714142
+      AppiRunReference_10: -8617937906675709534
+      AppiRunReference_100: -4678420104438312381
+      AppiRunReference_101: 7222427453610341253
+      AppiRunReference_102: 1455161469189423604
+      AppiRunReference_103: -3810923930700327188
+      AppiRunReference_104: 6161017379236916101
+      AppiRunReference_11: 7249032428031567735
+      AppiRunReference_12: -778429412463820414
+      AppiRunReference_13: -7216020152191260108
+      AppiRunReference_14: -1103184673777890560
+      AppiRunReference_15: 4751544545871621952
+      AppiRunReference_16: 2502135074876596837
+      AppiRunReference_17: 457690736439942943
+      AppiRunReference_18: -6361591129906228172
+      AppiRunReference_19: -1852488064727785617
+      AppiRunReference_2: -3843121040030645377
+      AppiRunReference_20: -6513053386754700607
+      AppiRunReference_21: -4826408502942876756
+      AppiRunReference_22: -6883979484337111333
+      AppiRunReference_23: -7855029108533526463
+      AppiRunReference_24: 8497667302075384241
+      AppiRunReference_25: 3559931491855198100
+      AppiRunReference_26: -1255707850986179915
+      AppiRunReference_27: -7260291981029311561
+      AppiRunReference_28: 7719255451012302736
+      AppiRunReference_29: 9190976724893144176
+      AppiRunReference_3: -5518003468441017132
+      AppiRunReference_30: -172859543237599764
+      AppiRunReference_31: 7879124746778931426
+      AppiRunReference_32: 3303964773609156797
+      AppiRunReference_33: 3630639425937561071
+      AppiRunReference_34: -3530114720548304674
+      AppiRunReference_35: -4856723632757841753
+      AppiRunReference_36: -5948728959153860373
+      AppiRunReference_37: 4189633207715946459
+      AppiRunReference_38: 8159799560698983263
+      AppiRunReference_39: -8863560118154535376
+      AppiRunReference_4: -6331478977189524140
+      AppiRunReference_40: 5419789617428358039
+      AppiRunReference_41: 1473285350859882840
+      AppiRunReference_42: -847313031618901790
+      AppiRunReference_43: 7584513202423326827
+      AppiRunReference_44: -1929790625331449440
+      AppiRunReference_45: 2428114273050427945
+      AppiRunReference_46: -3239890118889969766
+      AppiRunReference_47: 4641913760498560741
+      AppiRunReference_48: -89627828801977810
+      AppiRunReference_49: 8103834549295349477
+      AppiRunReference_5: 5270032886125632937
+      AppiRunReference_50: -6763843209851932511
+      AppiRunReference_51: 5873007673793613285
+      AppiRunReference_52: 3434502367462597530
+      AppiRunReference_53: 1052668823765316053
+      AppiRunReference_54: -6654158574663845249
+      AppiRunReference_55: 6855761758246733093
+      AppiRunReference_56: -3111952561613974332
+      AppiRunReference_57: 2567012556589181682
+      AppiRunReference_58: -1071565311233330110
+      AppiRunReference_59: 33613962540546513
+      AppiRunReference_6: 7452927369176238134
+      AppiRunReference_60: -8981367605865169827
+      AppiRunReference_61: 7667369861925257613
+      AppiRunReference_62: -8237492723443767675
+      AppiRunReference_63: 4643446664373258298
+      AppiRunReference_64: -7144874651810598231
+      AppiRunReference_65: -2762592123528295068
+      AppiRunReference_66: 4247979978903369241
+      AppiRunReference_67: 2013984413494760453
+      AppiRunReference_68: -6888005946929538084
+      AppiRunReference_69: -3561745134051271271
+      AppiRunReference_7: -1848727828138981808
+      AppiRunReference_70: 3080926204547686874
+      AppiRunReference_71: 8216498015692283725
+      AppiRunReference_72: -3150374753125996567
+      AppiRunReference_73: -2265378457913644082
+      AppiRunReference_74: -5808265633086349391
+      AppiRunReference_75: -721307889994750992
+      AppiRunReference_76: -7332317041903560284
+      AppiRunReference_77: 3594966921451047177
+      AppiRunReference_78: -6288522574243786661
+      AppiRunReference_79: 7110147136010453584
+      AppiRunReference_8: -7124226609942571044
+      AppiRunReference_80: -530202551425760379
+      AppiRunReference_81: 3857879068192975057
+      AppiRunReference_82: -5519737708355473945
+      AppiRunReference_83: -3449974518737823031
+      AppiRunReference_84: -8841870189162297483
+      AppiRunReference_85: -4108783867391256815
+      AppiRunReference_86: 1168395275578714958
+      AppiRunReference_87: -3941430725277726170
+      AppiRunReference_88: 1301039465259931520
+      AppiRunReference_89: 1777587165830236443
+      AppiRunReference_9: -7382596110648520952
+      AppiRunReference_90: 3473676698869443528
+      AppiRunReference_91: 239736595504055619
+      AppiRunReference_92: 4450913319831601273
+      AppiRunReference_93: 5755147184254649161
+      AppiRunReference_94: 7991832671836252008
+      AppiRunReference_95: -5576352894350374926
+      AppiRunReference_96: -6088211725584925656
+      AppiRunReference_97: -4341605019241124165
+      AppiRunReference_98: 2735271483577149627
+      AppiRunReference_99: -9013397253793050986
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Trapple/Scenes/Menu/TrappleUI.unity
     guid: 4d22b9ff6c420f2408e41acad57a57f8
+  - enabled: 1
+    path: Assets/_Trapple/Scenes/DeceptiveForest/DeceptiveForest_Level02.unity
+    guid: 45f0e32c176300f4eb31b02cd359751d
   m_configObjects: {}

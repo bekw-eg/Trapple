@@ -47,6 +47,7 @@ namespace Trapple.UI
 
         private void OnGUI()
         {
+            if (SceneManager.GetActiveScene().path == Trapple.DeceptiveForest.ForestGoal.ScenePath) return;
             if (SceneManager.GetActiveScene().path == Trapple.Hub.HubSceneFlowController.HubScenePath ||
                 SceneManager.GetActiveScene().path == Trapple.Hub.Illustrated.TrappleUIManager.ScenePath) return;
             var manager = GameManager.Instance;

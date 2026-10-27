@@ -14,11 +14,11 @@ namespace Trapple.UI
     // GameManager still owns pause, control and scene loading; this replaces its IMGUI view.
     public sealed class GameInterface : MonoBehaviour
     {
-        [SerializeField] private GameObject menu, pause, complete, settings, hud, hints, hubShortcuts, prompt;
-        [SerializeField] private TMP_Text seeds, hintText, promptText, bossText, completionDetail;
-        [SerializeField] private Image promptKey;
+        [SerializeField] private GameObject menu, pause, complete, settings, hud, hubShortcuts;
+        [SerializeField] private TMP_Text seeds, bossText, completionDetail;
+        [SerializeField] private ControlHintView controlHint;
+        [SerializeField] private TimedNotice notice;
         [SerializeField] private Image heldItem;
-        [SerializeField] private Sprite eKey, fKey;
         [SerializeField] private Button[] buttons;
         private HubUIController hub;
         private HubInteractionController interaction;
@@ -31,17 +31,17 @@ namespace Trapple.UI
         private Trapple.Player.PlayerDeath player;
         private GameState shownState = (GameState)(-1);
         private bool settingsOpen, shownHubModal;
-        private float started;
+        private TutorialControlHints tutorialHints;
         private IProgressionService progress;
         private GameManager Manager => GameManager.Instance;
         public bool SettingsOpen => settingsOpen;
         public void SetHeldItem(Image value) => heldItem=value;
-        public void Configure(GameObject[] panels, TMP_Text[] labels, Image key, Sprite e, Sprite f, Button[] controls)
+        public void Configure(GameObject[] panels, TMP_Text[] labels, ControlHintView hint, TimedNotice warning, Button[] controls)
         {
             menu=panels[0]; pause=panels[1]; complete=panels[2]; settings=panels[3]; hud=panels[4];
-            hints=panels[5]; hubShortcuts=panels[6]; prompt=panels[7];
-            seeds=labels[0]; hintText=labels[1]; promptText=labels[2]; bossText=labels[3]; completionDetail=labels[4];
-            promptKey=key; eKey=e; fKey=f; buttons=controls;
+            hubShortcuts=panels[5];
+            seeds=labels[0]; bossText=labels[1]; completionDetail=labels[2];
+            controlHint=hint; notice=warning; buttons=controls;
         }
         private void Awake()
         {
@@ -59,12 +59,16 @@ namespace Trapple.UI
         private void SceneLoaded(Scene scene, LoadSceneMode mode)
         {
             if(mode==LoadSceneMode.Additive) return;
-            settingsOpen=false; shownState=(GameState)(-1); started=Time.unscaledTime;
+            settingsOpen=false; shownState=(GameState)(-1);
             hub=FindAnyObjectByType<HubUIController>(); interaction=FindAnyObjectByType<HubInteractionController>();
             tutorial=FindAnyObjectByType<TutorialGoal>(); forest=FindAnyObjectByType<ForestGoal>();
             forestPresentation=FindAnyObjectByType<ForestUI>(); health=FindAnyObjectByType<BossHealth>();
             phases=FindAnyObjectByType<BossPhaseController>(); lever=FindAnyObjectByType<ArenaLever>();
             player=FindAnyObjectByType<Trapple.Player.PlayerDeath>();
+            tutorialHints=FindAnyObjectByType<TutorialControlHints>();
+            controlHint.SetTopOffset(hub!=null?144:32);
+            controlHint.Show(ControlHint.None); notice.Clear();
+            if(tutorial!=null || forest!=null) notice.Show("WATCH YOUR STEP",5f);
             seeds.transform.parent.gameObject.SetActive(progress!=null);
             menu.SetActive(false); pause.SetActive(false); complete.SetActive(false); settings.SetActive(false);
             if(EventSystem.current==null) new GameObject("UI EventSystem",typeof(EventSystem),typeof(StandaloneInputModule));
@@ -89,8 +93,7 @@ namespace Trapple.UI
             bool playing=shownState==GameState.Playing && !hubModal && !settingsOpen && (player==null || !player.IsDead);
             hud.SetActive(playing); hubShortcuts.SetActive(hub!=null);
             buttons[12].gameObject.SetActive(hub==null);
-            hints.SetActive(playing && Time.unscaledTime-started<5f);
-            hintText.text=hub!=null?"EXPLORE THE ORCHARD":"WATCH YOUR STEP";
+            notice.Tick(playing);
             RefreshPrompt(playing);
             if(heldItem!=null)
             {
@@ -133,7 +136,8 @@ namespace Trapple.UI
                 throwing=forestPresentation.HintIsThrow; label=throwing?"THROW STICK":"PICK UP STICK";
             }
             if(playing && lever!=null && lever.CanActivate) label="PULL LEVER";
-            prompt.SetActive(!string.IsNullOrEmpty(label)); promptText.text=label; promptKey.sprite=throwing?fKey:eKey;
+            if(!string.IsNullOrEmpty(label)) controlHint.Show(throwing?ControlHint.Throw:ControlHint.Interact,label);
+            else controlHint.Show(playing && tutorialHints!=null?tutorialHints.Current:ControlHint.None);
         }
         public void OpenSettings() { settingsOpen=true; RefreshPanels(); }
         public void CloseSettings() { settingsOpen=false; RefreshPanels(); }

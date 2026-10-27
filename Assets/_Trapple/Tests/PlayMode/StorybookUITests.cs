@@ -43,6 +43,44 @@ namespace Trapple.Tests
         }
         private static Button Button(string name) => Object.FindObjectsByType<Button>().First(b=>b.name==name && b.isActiveAndEnabled);
         [UnityTest]
+        public IEnumerator TutorialHintsFollowExistingCourseAndHideInModals()
+        {
+            Assert.That(Object.FindAnyObjectByType<ControlHintView>(),Is.Null,"No control hints in the main menu");
+            GameManager.Instance.LoadScene(GameManager.TutorialScene); yield return null; yield return null;
+            var hint=Object.FindAnyObjectByType<ControlHintView>();
+            Assert.That(hint.Current,Is.EqualTo(ControlHint.Move));
+            var actor=Object.FindAnyObjectByType<PlayerController>(); var body=actor.GetComponent<Rigidbody2D>();
+            body.simulated=false; actor.transform.position=new Vector3(2,1,0); yield return null; yield return null;
+            Assert.That(hint.Current,Is.EqualTo(ControlHint.Jump));
+            body.linearVelocity=Vector2.up*2; yield return null; yield return null;
+            Assert.That(hint.gameObject.activeSelf,Is.False,"A demonstrated jump dismisses the prompt");
+            body.linearVelocity=Vector2.zero; actor.transform.position=new Vector3(16,1,0); yield return null; yield return null;
+            Assert.That(hint.Current,Is.EqualTo(ControlHint.Sprint));
+            GameManager.Instance.Pause(); yield return null;
+            Assert.That(hint.gameObject.activeInHierarchy,Is.False);
+            GameManager.Instance.Resume(); yield return null; yield return null;
+            Assert.That(hint.Current,Is.EqualTo(ControlHint.Sprint));
+            actor.transform.position=new Vector3(20,1,0); yield return null; yield return null;
+            Assert.That(hint.gameObject.activeSelf,Is.False,"Leaving the teaching area dismisses its prompt");
+        }
+        [UnityTest]
+        public IEnumerator LevelWarningFadesExpiresAndDoesNotAgeDuringPause()
+        {
+            GameManager.Instance.LoadScene(GameManager.TutorialScene); yield return null; yield return null;
+            var notice=Object.FindAnyObjectByType<TimedNotice>(); var group=notice.GetComponent<CanvasGroup>();
+            notice.Show("WATCH YOUR STEP",1.4f); yield return new WaitForSecondsRealtime(.08f);
+            Assert.That(group.alpha,Is.GreaterThan(0).And.LessThan(1),"Warning fades in");
+            GameManager.Instance.Pause(); yield return null; float pausedAlpha=group.alpha;
+            yield return new WaitForSecondsRealtime(.25f);
+            Assert.That(group.alpha,Is.EqualTo(pausedAlpha)); Assert.That(notice.IsVisible,Is.False);
+            GameManager.Instance.Resume(); yield return new WaitForSecondsRealtime(.35f);
+            Assert.That(group.alpha,Is.EqualTo(1).Within(.01f));
+            yield return new WaitForSecondsRealtime(.65f);
+            Assert.That(group.alpha,Is.GreaterThan(0).And.LessThan(1),"Warning fades out");
+            yield return new WaitForSecondsRealtime(.6f);
+            Assert.That(notice.IsVisible,Is.False);
+        }
+        [UnityTest]
         public IEnumerator MenuPlayUsesExistingSceneSequenceAndOnlyOneEventSystem()
         {
             Assert.That(Object.FindObjectsByType<EventSystem>().Length,Is.EqualTo(1));
@@ -87,8 +125,8 @@ namespace Trapple.Tests
             yield return SceneManager.LoadSceneAsync(HubSceneFlowController.HubScenePath); yield return null;
             string before=PlayerPrefs.GetString(PreviewSaveService.Key,"");
             var hub=Object.FindAnyObjectByType<HubUIController>(); hub.Open(HubScreen.Worlds); yield return null;
-            var map=Object.FindAnyObjectByType<WorldMapPanelUI>(); map.SelectWorld(1); yield return null;
-            Assert.That(map.SelectedWorld.id,Is.EqualTo("forest")); Assert.That(Button("Play level").interactable,Is.False);
+            var map=Object.FindAnyObjectByType<WorldMapPanelUI>(); map.SelectWorld(2); yield return null;
+            Assert.That(map.SelectedWorld.id,Is.EqualTo("factory")); Assert.That(Button("Play level").interactable,Is.False);
             map.Play(); yield return null;
             Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(HubSceneFlowController.HubScenePath));
             Assert.That(PlayerPrefs.GetString(PreviewSaveService.Key,""),Is.EqualTo(before));

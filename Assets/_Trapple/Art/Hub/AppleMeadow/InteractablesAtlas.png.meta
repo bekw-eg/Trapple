@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: e1a9348b6901f76469a2f8eb19ae4ed3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -969367155180942556
+    second: InteractablesAtlas_0
+  - first:
+      213: 7104946015134469159
+    second: InteractablesAtlas_1
+  - first:
+      213: -4287036974295639508
+    second: InteractablesAtlas_2
+  - first:
+      213: 5934164968249609783
+    second: InteractablesAtlas_3
+  - first:
+      213: 4597398475787594152
+    second: InteractablesAtlas_4
+  - first:
+      213: -7771096758123014325
+    second: InteractablesAtlas_5
+  - first:
+      213: -8607018609242078426
+    second: InteractablesAtlas_6
+  - first:
+      213: -9223226234774575701
+    second: InteractablesAtlas_7
+  - first:
+      213: 6341746488478007042
+    second: InteractablesAtlas_8
+  - first:
+      213: -8447227664341627864
+    second: InteractablesAtlas_9
+  - first:
+      213: -4098982194457196918
+    second: Workshop
+  - first:
+      213: -2801218345252212256
+    second: Wardrobe
+  - first:
+      213: -166647227180889579
+    second: PortalForest
+  - first:
+      213: -1283643463815579274
+    second: PortalFactory
+  - first:
+      213: 3704647633600217191
+    second: PortalLava
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Workshop
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 499
+        width: 650
+        height: 525
+      alignment: 9
+      pivot: {x: 0.4923077, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a864ab6596d7d17c0800000000000000
+      internalID: -4098982194457196918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wardrobe
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 499
+        width: 350
+        height: 425
+      alignment: 9
+      pivot: {x: 0.47142857, y: 0.03529412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e13fe8a1c21029d0800000000000000
+      internalID: -2801218345252212256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PortalForest
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 499
+        width: 516
+        height: 525
+      alignment: 9
+      pivot: {x: 0.48449612, y: 0.028571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51a4415da33ffadf0800000000000000
+      internalID: -166647227180889579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PortalFactory
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 525
+        height: 499
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.08416834}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 679350912159f2ee0800000000000000
+      internalID: -1283643463815579274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PortalLava
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 0
+        width: 515
+        height: 499
+      alignment: 9
+      pivot: {x: 0.49514562, y: 0.08416834}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7608bba056d896330800000000000000
+      internalID: 3704647633600217191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      InteractablesAtlas_0: -969367155180942556
+      InteractablesAtlas_1: 7104946015134469159
+      InteractablesAtlas_2: -4287036974295639508
+      InteractablesAtlas_3: 5934164968249609783
+      InteractablesAtlas_4: 4597398475787594152
+      InteractablesAtlas_5: -7771096758123014325
+      InteractablesAtlas_6: -8607018609242078426
+      InteractablesAtlas_7: -9223226234774575701
+      InteractablesAtlas_8: 6341746488478007042
+      InteractablesAtlas_9: -8447227664341627864
+      PortalFactory: -1283643463815579274
+      PortalForest: -166647227180889579
+      PortalLava: 3704647633600217191
+      Wardrobe: -2801218345252212256
+      Workshop: -4098982194457196918
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

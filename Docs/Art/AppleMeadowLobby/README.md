@@ -17,9 +17,11 @@ right. The sun is in the upper-right corner, with warm rays traveling down-left.
 | `GenerationPrompts.md` | Full generation/edit prompts and reference roles. |
 | `Validation.md` | Visual and file checks, plus integration limits. |
 
-These are concept and art-handoff assets. They live outside `Assets/` so review
-does not alter the current Hub scene, import settings or runtime art. A playable
-Unity scene, prefabs and colliders are not part of this deliverable.
+This folder contains the original concept and art handoff. Runtime copies are
+now imported under `Assets/_Trapple/Art/Hub/AppleMeadow/` and installed in the
+saved Hub and TrappleUI scenes. See [local Unity integration](../../AppleMeadowLobbyIntegration.md)
+for launch instructions and validation. The original handoff files stay here for
+reference; the separation limits below still describe this art package.
 
 ## Foundation and visual identity
 

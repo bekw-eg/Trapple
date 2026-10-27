@@ -45,6 +45,12 @@ namespace Trapple.Hub.Illustrated
             if (config == null || index < 0 || index >= config.worlds.Length) return;
             selected = config.worlds[index]; selectedLevel = -1; launching = false; Refresh();
         }
+        public void SelectWorld(string id)
+        {
+            if (config == null) return;
+            int index = System.Array.FindIndex(config.worlds, world => world != null && world.id == id);
+            if (index >= 0) SelectWorld(index);
+        }
         public void Refresh()
         {
             if (config == null || progress == null || selected == null) return;

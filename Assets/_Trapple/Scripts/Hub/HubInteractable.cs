@@ -6,6 +6,7 @@ namespace Trapple.Hub
     {
         string Prompt { get; }
         HubScreen Screen { get; }
+        string WorldId { get; }
         bool InRange(Vector2 position);
     }
 
@@ -14,9 +15,12 @@ namespace Trapple.Hub
     {
         [SerializeField] private HubScreen screen;
         [SerializeField] private string prompt;
+        [SerializeField] private string worldId;
         [SerializeField, Min(0.1f)] private float radius = 2f;
         public string Prompt => prompt;
         public HubScreen Screen => screen;
+        public string WorldId => worldId;
+        public void SetWorld(string id) => worldId = id;
         public bool InRange(Vector2 position) => ((Vector2)transform.position - position).sqrMagnitude <= radius * radius;
         private void OnDrawGizmosSelected()
         {

@@ -78,6 +78,7 @@ namespace Trapple.Hub.Illustrated
         }
         public void OpenWorkshop() => navigate?.Invoke(HubScreen.Workshop);
         public void OpenWorldMap() => navigate?.Invoke(HubScreen.Worlds);
+        public void SelectWorld(string id) => worldMap?.SelectWorld(id);
         public void OpenWardrobe() => navigate?.Invoke(HubScreen.Wardrobe);
         public void OpenSettings() => navigate?.Invoke(HubScreen.Settings);
         public void Close() => close?.Invoke();

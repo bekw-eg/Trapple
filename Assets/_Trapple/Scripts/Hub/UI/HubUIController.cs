@@ -109,6 +109,11 @@ namespace Trapple.Hub
         }
         private void OpenWorkshop() => Open(HubScreen.Workshop);
         private void OpenWorlds() => Open(HubScreen.Worlds);
+        public void OpenWorld(string worldId)
+        {
+            Open(HubScreen.Worlds);
+            illustrated?.SelectWorld(worldId);
+        }
         private void OpenWardrobe() => Open(HubScreen.Wardrobe);
         private void RefreshCurrency() => seeds.text = progression.Seeds.ToString("N0");
         private void Navigate(NavigationMoveEvent evt)

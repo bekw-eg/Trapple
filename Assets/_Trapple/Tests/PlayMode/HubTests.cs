@@ -194,13 +194,13 @@ namespace Trapple.Tests
             player.enabled=false; // Drive real velocity, leaving the existing movement code untouched.
             body.linearVelocity=new Vector2(3,0);
             yield return new WaitForSeconds(.12f);
-            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.RunRight));
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.WalkRight));
             int first=animator.FrameIndex;
             yield return new WaitForSeconds(.2f);
             Assert.That(animator.FrameIndex,Is.Not.EqualTo(first));
             body.linearVelocity=new Vector2(-3,0);
             yield return new WaitForSeconds(.1f);
-            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.RunLeft));
+            Assert.That(animator.State,Is.EqualTo(PlayerVisualState.WalkLeft));
             Assert.That(player.GetComponent<SpriteRenderer>().flipX,Is.False);
             body.linearVelocity=new Vector2(0,10);
             yield return new WaitForSeconds(.12f);

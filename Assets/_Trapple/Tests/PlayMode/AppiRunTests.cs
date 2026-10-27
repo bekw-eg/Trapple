@@ -35,6 +35,8 @@ namespace Trapple.Tests
             // Keep movement inside the safe spawn area while real Physics2D runs.
             foreach (float direction in new[] { 1f, -1f })
             {
+                typeof(PlayerController).GetField("sprintHeld", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(player, true);
+                typeof(PlayerController).GetField("moveInput", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(player, direction);
                 var seen = new HashSet<Sprite>();
                 float end = Time.time + 1.5f;
                 while (Time.time < end)
@@ -70,15 +72,15 @@ namespace Trapple.Tests
             player.SetControlEnabled(false);
             body.linearVelocity = new Vector2(.5f, 0);
             yield return new WaitForSeconds(.25f);
-            Assert.That(animation.State, Is.EqualTo(PlayerVisualState.RunRight));
+            Assert.That(animation.State, Is.EqualTo(PlayerVisualState.WalkRight));
             Assert.That(animation.FrameIndex, Is.GreaterThan(0));
             int phase = animation.FrameIndex;
             body.linearVelocity = new Vector2(-.5f, 0);
             // Evaluate the direction switch in the same frame, with no intervening physics.
             typeof(PlayerSpriteAnimator).GetMethod("LateUpdate", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(animation, null);
-            Assert.That(animation.State, Is.EqualTo(PlayerVisualState.RunLeft));
+            Assert.That(animation.State, Is.EqualTo(PlayerVisualState.WalkLeft));
             Assert.That(animation.FrameIndex, Is.EqualTo(phase));
-            Assert.That(renderer.sprite, Is.EqualTo(animation.Animations.walkLeft[phase]));
+            Assert.That(renderer.sprite, Is.EqualTo(animation.Animations.walkingLeft[phase]));
         }
     }
 }

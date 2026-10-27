@@ -176,6 +176,9 @@ MonoBehaviour:
   moveSpeed: 6
   acceleration: 60
   deceleration: 70
+  sprintMultiplier: 1.6
+  sprintAcceleration: 18
+  sprintDeceleration: 24
   jumpHeight: 2.4
   groundLayers:
     serializedVersion: 2

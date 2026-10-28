@@ -9,6 +9,9 @@ namespace Trapple.Player
         [SerializeField, Min(0.1f)] private float moveSpeed = 6f;
         [SerializeField, Min(0.1f)] private float acceleration = 60f;
         [SerializeField, Min(0.1f)] private float deceleration = 70f;
+        [SerializeField, Min(1f)] private float sprintMultiplier = 1.6f;
+        [SerializeField, Min(0.1f)] private float sprintAcceleration = 18f;
+        [SerializeField, Min(0.1f)] private float sprintDeceleration = 24f;
         [SerializeField, Min(0.1f)] private float jumpHeight = 2.4f;
         [SerializeField] private LayerMask groundLayers = 1 << 6;
         [SerializeField, Min(0.01f)] private float groundCheckDistance = 0.08f;
@@ -18,9 +21,11 @@ namespace Trapple.Player
         private Rigidbody2D body;
         private float moveInput;
         private bool jumpRequested;
+        private bool sprintHeld;
 
         public bool IsGrounded { get; private set; }
         public bool ControlEnabled { get; private set; } = true;
+        public bool IsSprinting => ControlEnabled && sprintHeld && Mathf.Abs(moveInput) > 0.01f;
 
         private void Awake()
         {
@@ -35,6 +40,7 @@ namespace Trapple.Player
             {
                 moveInput = 0f;
                 jumpRequested = false;
+                sprintHeld = false;
                 return;
             }
 
@@ -42,6 +48,7 @@ namespace Trapple.Player
             bool left = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
             bool right = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
             moveInput = (right ? 1f : 0f) - (left ? 1f : 0f);
+            sprintHeld = Input.GetKey(KeyCode.LeftShift);
             jumpRequested |= Input.GetKeyDown(KeyCode.Space);
         }
 
@@ -52,8 +59,19 @@ namespace Trapple.Player
 
             IsGrounded = CheckGrounded();
             Vector2 velocity = body.linearVelocity;
-            float rate = Mathf.Abs(moveInput) > 0.01f ? acceleration : deceleration;
-            velocity.x = Mathf.MoveTowards(velocity.x, moveInput * moveSpeed, rate * Time.fixedDeltaTime);
+            bool moving = Mathf.Abs(moveInput) > 0.01f;
+            bool sameDirection = moving && velocity.x * moveInput > 0f;
+            float targetSpeed = moveSpeed;
+            float rate = moving ? acceleration : deceleration;
+            if (IsSprinting && sameDirection && Mathf.Abs(velocity.x) >= moveSpeed)
+            {
+                // Keep the responsive walk start/turn, then smoothly add the sprint boost.
+                targetSpeed *= sprintMultiplier;
+                rate = sprintAcceleration;
+            }
+            else if (!IsSprinting && sameDirection && Mathf.Abs(velocity.x) > moveSpeed)
+                rate = sprintDeceleration;
+            velocity.x = Mathf.MoveTowards(velocity.x, moveInput * targetSpeed, rate * Time.fixedDeltaTime);
 
             if (jumpRequested && IsGrounded)
             {
@@ -91,6 +109,7 @@ namespace Trapple.Player
             ControlEnabled = value;
             moveInput = 0f;
             jumpRequested = false;
+            sprintHeld = false;
             if (!value && body != null)
                 body.linearVelocity = new Vector2(0f, body.linearVelocity.y);
         }
@@ -99,6 +118,7 @@ namespace Trapple.Player
         {
             moveInput = 0f;
             jumpRequested = false;
+            sprintHeld = false;
         }
 
         private void OnApplicationFocus(bool hasFocus)
@@ -107,6 +127,7 @@ namespace Trapple.Player
             {
                 moveInput = 0f;
                 jumpRequested = false;
+                sprintHeld = false;
             }
         }
     }

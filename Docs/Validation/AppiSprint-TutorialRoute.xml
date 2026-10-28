@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-27 09:43:06Z" end-time="2026-10-27 09:46:01Z" duration="175.1704062">
+  <test-suite type="TestSuite" id="1103" name="Trapple" fullname="Trapple" runstate="Runnable" testcasecount="86" result="Passed" start-time="2026-10-27 09:43:06Z" end-time="2026-10-27 09:46:01Z" duration="175.170406" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1099" name="Trapple.PlayModeTests.dll" fullname="C:/Users/zdeat/AppData/Local/Temp/TrappleSprintValidation/Library/ScriptAssemblies/Trapple.PlayModeTests.dll" runstate="Runnable" testcasecount="86" result="Passed" start-time="2026-10-27 09:43:06Z" end-time="2026-10-27 09:46:01Z" duration="175.157061" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="35352" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1100" name="Trapple" fullname="Trapple" runstate="Runnable" testcasecount="86" result="Passed" start-time="2026-10-27 09:43:06Z" end-time="2026-10-27 09:46:01Z" duration="175.155498" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1101" name="Tests" fullname="Trapple.Tests" runstate="Runnable" testcasecount="86" result="Passed" start-time="2026-10-27 09:43:06Z" end-time="2026-10-27 09:46:01Z" duration="175.154167" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1068" name="TutorialTests" fullname="Trapple.Tests.TutorialTests" classname="Trapple.Tests.TutorialTests" runstate="Runnable" testcasecount="19" result="Passed" start-time="2026-10-27 09:43:06Z" end-time="2026-10-27 09:46:01Z" duration="175.150583" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1087" name="EntireTutorialIsReachableWithMovementAndJumps" fullname="Trapple.Tests.TutorialTests.EntireTutorialIsReachableWithMovementAndJumps" methodname="EntireTutorialIsReachableWithMovementAndJumps" classname="Trapple.Tests.TutorialTests" runstate="Runnable" seed="1031656523" result="Passed" start-time="2026-10-27 09:43:06Z" end-time="2026-10-27 09:46:01Z" duration="175.129571" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="Timeout" value="600000" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[EXPANDED ROUTE progress Tutorial: 50/226, x=194.4
+EXPANDED ROUTE progress Tutorial: 100/226, x=352.5
+EXPANDED ROUTE progress Tutorial: 150/226, x=505.4
+EXPANDED ROUTE progress Tutorial: 200/226, x=656.3
+TRAPPLE RUN {"scene":"Assets/_Trapple/Scenes/Levels/Tutorial.unity","utc":"2026-10-27T09:46:01.7110131Z","outcome":"success","source":"automation","activeSeconds":174.634765625,"sectionSeconds":[18.957483291625977,26.740312576293945,28.761293411254883,26.842926025390625,26.972200393676758,28.24152374267578,18.110334396362305]}
+EXPANDED ROUTE physics completed: Tutorial; active=174.63s. Scripted input is NOT a novice timing playtest.
+Saving results to: C:\Users\zdeat\AppData\Local\Temp\TrappleSprintValidation\Logs\Sprint\TutorialRoute.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

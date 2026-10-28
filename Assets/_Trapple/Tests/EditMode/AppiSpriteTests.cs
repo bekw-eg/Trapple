@@ -65,8 +65,9 @@ namespace Trapple.Tests
         {
             var set = AssetDatabase.LoadAssetAtPath<PlayerAnimationSet>("Assets/_Trapple/Settings/AppiAnimations.asset");
             Assert.That(set, Is.Not.Null);
-            var frames = set.idle.Concat(set.walkRight).Concat(set.walkLeft).Concat(set.jump).ToArray();
-            Assert.That(frames.Length, Is.EqualTo(24));
+            var frames = set.idle.Concat(set.walkRight).Concat(set.walkLeft).Concat(set.jump)
+                .Concat(set.walkingRight).Concat(set.walkingLeft).ToArray();
+            Assert.That(frames.Length, Is.EqualTo(36));
             var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
             try
             {

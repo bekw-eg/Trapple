@@ -35,6 +35,20 @@ MonoBehaviour:
   - {fileID: -7947140437900403200, guid: 232fbb2a73a5e574eb6b73db1efb6974, type: 3}
   - {fileID: -1091627937287961742, guid: 232fbb2a73a5e574eb6b73db1efb6974, type: 3}
   - {fileID: -4127424730320220603, guid: 232fbb2a73a5e574eb6b73db1efb6974, type: 3}
+  walkingRight:
+  - {fileID: -5051180211982083600, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 7120167045562989924, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 9052804881068552416, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 7125321561511100658, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 5128251343283305817, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: -4159709840317347556, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  walkingLeft:
+  - {fileID: -9066738363767298734, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 3064608012586687944, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: -7521183709872674870, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 7442003070040793057, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 8659971836233106144, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
+  - {fileID: 4540634705757036402, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
   jump:
   - {fileID: 5411166636050944347, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
   - {fileID: -6548671206593014923, guid: 3a5acc09c1c1bfb48a0acc205fb4fc54, type: 3}
@@ -45,5 +59,6 @@ MonoBehaviour:
   runLeftClip: {fileID: 7400000, guid: 264840d398bf3bc4d9214b80152587cf, type: 2}
   idleFramesPerSecond: 4
   walkFramesPerSecond: 12
+  walkingFramesPerSecond: 8
   takeoffDuration: 0.08
   landingDuration: 0.12

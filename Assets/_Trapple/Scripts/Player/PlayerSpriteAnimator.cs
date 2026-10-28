@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Trapple.Player
 {
-    public enum PlayerVisualState { Idle, RunRight, RunLeft, Rising, Falling, Landing }
+    public enum PlayerVisualState { Idle, RunRight, RunLeft, Rising, Falling, Landing, WalkRight, WalkLeft }
 
     // Presentation only. The existing controller remains responsible for input and physics.
     [DisallowMultipleComponent]
@@ -14,6 +14,7 @@ namespace Trapple.Player
         [SerializeField, Min(0.01f)] private float movingThreshold = 0.15f;
         private readonly RaycastHit2D[] hits = new RaycastHit2D[8];
         private Rigidbody2D body;
+        private PlayerController controller;
         private SpriteRenderer character;
         private Sprite appearanceOverride;
         private ContactFilter2D groundFilter;
@@ -32,6 +33,7 @@ namespace Trapple.Player
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
+            controller = GetComponent<PlayerController>();
             character = GetComponent<SpriteRenderer>();
             groundFilter = new ContactFilter2D { useTriggers = false };
             groundFilter.SetLayerMask(groundLayers);
@@ -59,18 +61,28 @@ namespace Trapple.Player
             PlayerVisualState next;
             if (!grounded) next = velocity.y > 0.05f ? PlayerVisualState.Rising : PlayerVisualState.Falling;
             else if (!wasGrounded || (State == PlayerVisualState.Landing && elapsed < animations.landingDuration)) next = PlayerVisualState.Landing;
-            else if (Mathf.Abs(velocity.x) > movingThreshold) next = facingLeft ? PlayerVisualState.RunLeft : PlayerVisualState.RunRight;
+            else if (Mathf.Abs(velocity.x) > movingThreshold)
+            {
+                // Cinematic movement still uses the workshop's existing run presentation.
+                bool running = cinematicMotion || controller.IsSprinting;
+                next = running ? (facingLeft ? PlayerVisualState.RunLeft : PlayerVisualState.RunRight) :
+                    (facingLeft ? PlayerVisualState.WalkLeft : PlayerVisualState.WalkRight);
+            }
             else next = PlayerVisualState.Idle;
-            bool changingRunDirection = IsRunning(State) && IsRunning(next);
-            if (next != State) { State = next; if (!changingRunDirection) elapsed = 0f; }
+            bool changingDirection = (IsRunning(State) && IsRunning(next)) || (IsWalking(State) && IsWalking(next));
+            if (next != State) { State = next; if (!changingDirection) elapsed = 0f; }
             else elapsed += cinematicMotion ? Time.unscaledDeltaTime : Time.deltaTime;
             wasGrounded = grounded;
-            bool authoredLeft = State == PlayerVisualState.RunLeft;
-            character.flipX = !authoredLeft && State != PlayerVisualState.RunRight && facingLeft;
+            bool authoredDirection = IsRunning(State) || IsWalking(State);
+            character.flipX = !authoredDirection && facingLeft;
             switch (State)
             {
                 case PlayerVisualState.RunLeft: Cycle(animations.runLeftClip, animations.walkLeft, animations.walkFramesPerSecond); break;
                 case PlayerVisualState.RunRight: Cycle(animations.runRightClip, animations.walkRight, animations.walkFramesPerSecond); break;
+                case PlayerVisualState.WalkLeft:
+                    Walk(animations.walkingLeft, animations.walkLeft); break;
+                case PlayerVisualState.WalkRight:
+                    Walk(animations.walkingRight, animations.walkRight); break;
                 case PlayerVisualState.Rising:
                     FrameIndex = elapsed < animations.takeoffDuration ? 0 : 1;
                     character.sprite = animations.jump[FrameIndex];
@@ -83,6 +95,15 @@ namespace Trapple.Player
 
         private static bool IsRunning(PlayerVisualState state) =>
             state == PlayerVisualState.RunRight || state == PlayerVisualState.RunLeft;
+
+        private static bool IsWalking(PlayerVisualState state) =>
+            state == PlayerVisualState.WalkRight || state == PlayerVisualState.WalkLeft;
+
+        private void Walk(Sprite[] frames, Sprite[] fallback)
+        {
+            // Older/custom animation sets remain usable until their walking frames are assigned.
+            Cycle(null, frames != null && frames.Length > 0 ? frames : fallback, animations.walkingFramesPerSecond);
+        }
 
         private void Cycle(AnimationClip clip, Sprite[] frames, float framesPerSecond)
         {

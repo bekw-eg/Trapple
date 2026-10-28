@@ -64,8 +64,8 @@ namespace Trapple.Editor
             var set = AssetDatabase.LoadAssetAtPath<PlayerAnimationSet>(SetPath);
             if (set == null) { set = ScriptableObject.CreateInstance<PlayerAnimationSet>(); AssetDatabase.CreateAsset(set, SetPath); }
             set.idle = Frames(sprites, "AppiIdle", 4);
-            set.walkRight = Frames(sprites, "AppiWalkRight", 6);
-            set.walkLeft = Frames(sprites, "AppiWalkLeft", 6);
+            set.walkingRight = Frames(sprites, "AppiWalkRight", 6);
+            set.walkingLeft = Frames(sprites, "AppiWalkLeft", 6);
             set.jump = Frames(sprites, "AppiJump", 4);
             AppiRunAssets.Import(set);
             EditorUtility.SetDirty(set);

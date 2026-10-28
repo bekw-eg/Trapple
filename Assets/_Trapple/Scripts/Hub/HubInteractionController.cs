@@ -41,7 +41,9 @@ namespace Trapple.Hub
         {
             RefreshTarget();
             if (Nearest == null || ui == null || ui.IsOpen) return false;
-            ui.Open(Nearest.Screen);
+            if (Nearest.Screen == HubScreen.Worlds && !string.IsNullOrEmpty(Nearest.WorldId))
+                ui.OpenWorld(Nearest.WorldId);
+            else ui.Open(Nearest.Screen);
             return true;
         }
     }

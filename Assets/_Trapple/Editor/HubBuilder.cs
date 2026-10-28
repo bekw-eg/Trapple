@@ -91,9 +91,10 @@ namespace Trapple.Editor
             var targets=new List<HubInteractable>();
             targets.Add(Station("Workshop",Prop("Workshop"),new Vector2(-8,2.45f),new Vector2(5.7f,4.95f),HubScreen.Workshop,"Открыть мастерскую",-7.5f));
             targets.Add(Station("Wardrobe",Prop("Wardrobe"),new Vector2(-3.8f,1.52f),new Vector2(2.4f,3.2f),HubScreen.Wardrobe,"Открыть гардероб",-3.8f));
+            string[] portalWorlds={"forest","factory","lava"};
             for(int i=0;i<3;i++)
             {
-                var station=Station("Portal "+i,Prop("Portal"),new Vector2(5.6f+i*3.2f,1.8f),new Vector2(2.65f,3.7f),HubScreen.Worlds,"Открыть карту миров",5.6f+i*3.2f);
+                var station=Station("Portal "+i,Prop("Portal"),new Vector2(5.6f+i*3.2f,1.8f),new Vector2(2.65f,3.7f),HubScreen.Worlds,"Открыть карту миров",5.6f+i*3.2f,portalWorlds[i]);
                 targets.Add(station);
                 Motion(station.GetComponentInChildren<SpriteRenderer>().gameObject,HubAmbience.Motion.Portal,.018f,1.7f,i*1.4f);
                 if(i>0) station.GetComponentInChildren<SpriteRenderer>().color=i==1 ? new Color(.7f,.85f,.75f) : new Color(.8f,.7f,.61f);
@@ -203,7 +204,8 @@ namespace Trapple.Editor
             config.worlds=new[] {
                 new WorldDefinition { id="meadow",title="Яблочная поляна",subtitle="ПЕРВЫЕ ШАГИ",description="Обучение: движение, прыжки и первые неожиданные ловушки",plannedLevels=1,initiallyUnlocked=true,
                     levelScenes=new[] {GameManager.TutorialScene},illustration=Sprite("MeadowBackdrop") },
-                new WorldDefinition { id="forest",title="Обманчивый лес",subtitle="НЕ ВЕРЬ ТИШИНЕ",description="Лесные ловушки · подбор и бросок палок",boss="Древний страж",illustration=worldArt.First(sprite=>sprite.name=="Forest") },
+                new WorldDefinition { id="forest",title="Обманчивый лес",subtitle="НЕ ВЕРЬ ТИШИНЕ",description="Лесные ловушки · подбор и бросок палок",boss="Древний страж",initiallyUnlocked=true,
+                    levelScenes=new[]{Trapple.DeceptiveForest.ForestGoal.ScenePath},illustration=worldArt.First(sprite=>sprite.name=="Forest") },
                 new WorldDefinition { id="factory",title="Заброшенная фабрика",subtitle="В РИТМЕ МЕХАНИЗМОВ",description="Пилы, конвейеры, прессы · бросок шестерёнок",boss="Механический гигант",illustration=worldArt.First(sprite=>sprite.name=="Factory") },
                 new WorldDefinition { id="lava",title="Лавовая крепость",subtitle="НА КРАЮ ОГНЯ",description="Лава, опасные мосты · бросок магматических булыжников",boss="Огненный голем",illustration=worldArt.First(sprite=>sprite.name=="Lava") }
             };
@@ -271,7 +273,7 @@ namespace Trapple.Editor
             BuildWindows();
         }
 
-        private static HubInteractable Station(string name,Sprite sprite,Vector2 position,Vector2 size,HubScreen screen,string prompt,float interactionX)
+        private static HubInteractable Station(string name,Sprite sprite,Vector2 position,Vector2 size,HubScreen screen,string prompt,float interactionX,string worldId=null)
         {
             var obj=new GameObject(name);
             var art=Visual(name+" artwork",sprite,position,size,5);
@@ -283,6 +285,7 @@ namespace Trapple.Editor
             var so=new SerializedObject(interaction);
             so.FindProperty("screen").enumValueIndex=(int)screen;
             so.FindProperty("prompt").stringValue=prompt;
+            so.FindProperty("worldId").stringValue=worldId ?? "";
             so.FindProperty("radius").floatValue=1.85f;
             so.ApplyModifiedPropertiesWithoutUndo();
             string path=Root+"Prefabs/Hub/"+name.Replace(" ","")+".prefab";

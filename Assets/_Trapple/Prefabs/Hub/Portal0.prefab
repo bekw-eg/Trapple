@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.HubInteractable
   screen: 2
   prompt: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u043A\u0430\u0440\u0442\u0443 \u043C\u0438\u0440\u043E\u0432"
+  worldId: forest
   radius: 1.85
 --- !u!1 &3542067356285422306
 GameObject:

@@ -31,6 +31,9 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/_Trapple/Scenes/BossArenas/BossTest.unity
     m_guid: 0add97d2aa35ab444ad84836c5b2b5ff
+  - m_enabled: 1
+    m_path: Assets/_Trapple/Scenes/DeceptiveForest/DeceptiveForest_Level02.unity
+    m_guid: 45f0e32c176300f4eb31b02cd359751d
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

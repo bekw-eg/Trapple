@@ -198,6 +198,7 @@ namespace Trapple.Editor
             // Runtime binding is in Awake; no duplicate persistent and runtime listeners.
             foreach(var button in controls)
                 while(button.onClick.GetPersistentEventCount()>0) UnityEventTools.RemovePersistentListener(button.onClick,0);
+            DeathScreenUIBuilder.AddTo(canvas.gameObject);
             PrefabUtility.SaveAsPrefabAsset(canvas.gameObject,InterfacePath); Object.DestroyImmediate(canvas.gameObject);
         }
 

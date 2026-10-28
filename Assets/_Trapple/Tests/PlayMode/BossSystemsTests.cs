@@ -134,8 +134,13 @@ namespace Trapple.Tests
             Assert.That(player.IsDead, Is.True);
             Assert.That(player.GetComponent<PlayerController>().ControlEnabled, Is.False);
             GameManager.Instance.Pause();
-            Assert.That(Time.timeScale, Is.Zero);
+            Assert.That(GameManager.Instance.State, Is.EqualTo(GameState.Dying));
             yield return new WaitForSecondsRealtime(0.85f);
+            var screen = Object.FindAnyObjectByType<Trapple.UI.DeathScreenUI>();
+            Assert.That(screen.IsOpen, Is.True);
+            Assert.That(Time.timeScale, Is.Zero);
+            screen.RespawnButton.onClick.Invoke();
+            yield return null; yield return null;
             Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(GameManager.BossScene));
             Assert.That(Time.timeScale, Is.EqualTo(1f));
             Assert.That(Object.FindAnyObjectByType<PlayerDeath>().IsDead, Is.False);

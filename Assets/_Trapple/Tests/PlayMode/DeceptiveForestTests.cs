@@ -114,6 +114,11 @@ namespace Trapple.Tests
             yield return new WaitForSeconds(1.3f);
             death.Die(); death.Die(); GameManager.Instance.Pause();
             yield return new WaitForSecondsRealtime(.9f);
+            var screen = Object.FindAnyObjectByType<DeathScreenUI>();
+            Assert.That(screen.IsOpen, Is.True);
+            Assert.That(death != null, Is.True);
+            screen.RespawnButton.onClick.Invoke();
+            yield return null; yield return null;
             Assert.That(death == null, Is.True);
             var fresh = Object.FindAnyObjectByType<PlayerDeath>(); Assert.That(fresh.IsDead, Is.False);
             Assert.That(Time.timeScale, Is.EqualTo(1));

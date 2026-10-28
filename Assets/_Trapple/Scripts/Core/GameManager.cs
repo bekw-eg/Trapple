@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace Trapple.Core
 {
-    public enum GameState { MainMenu, Playing, Paused, Victory }
+    public enum GameState { MainMenu, Playing, Paused, Victory, Dying, Dead }
 
     [DisallowMultipleComponent]
     [DefaultExecutionOrder(-100)]
@@ -19,8 +19,10 @@ namespace Trapple.Core
         [SerializeField] private string firstLevel = TutorialScene;
         private readonly List<PlayerController> pausedPlayers = new List<PlayerController>();
         private GameInterface ui;
+        private PlayerDeath dyingPlayer;
         public static GameManager Instance { get; private set; }
         public GameState State { get; private set; }
+        public string DeathScenePath { get; private set; }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetStatics() => Instance = null;
@@ -66,6 +68,25 @@ namespace Trapple.Core
         public void StartBossTest() => LoadScene(BossScene);
         public void ReturnToMenu() => LoadScene(MenuScene);
         public void RestartLevel() => LoadScene(SceneManager.GetActiveScene().path);
+
+        public void BeginPlayerDeath(PlayerDeath player)
+        {
+            if (player == null || dyingPlayer != null) return;
+            dyingPlayer = player;
+            // Retain the player's scene when another scene is active during integration.
+            DeathScenePath = player.gameObject.scene.path;
+            FreezePlayers();
+            State = GameState.Dying;
+            // A death triggered during pause must still finish its existing presentation.
+            Time.timeScale = 1f;
+        }
+
+        public void FinishPlayerDeath(PlayerDeath player)
+        {
+            if (player == null || player != dyingPlayer || State != GameState.Dying) return;
+            State = GameState.Dead;
+            Time.timeScale = 0f;
+        }
 
         public void Pause()
         {
@@ -133,6 +154,8 @@ namespace Trapple.Core
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             if (mode == LoadSceneMode.Additive) return;
+            dyingPlayer = null;
+            DeathScenePath = null;
             pausedPlayers.Clear();
             Time.timeScale = 1f;
             State = scene.path == MenuScene ? GameState.MainMenu : GameState.Playing;

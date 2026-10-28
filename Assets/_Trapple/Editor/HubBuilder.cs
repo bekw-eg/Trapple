@@ -91,17 +91,7 @@ namespace Trapple.Editor
             var targets=new List<HubInteractable>();
             targets.Add(Station("Workshop",Prop("Workshop"),new Vector2(-8,2.45f),new Vector2(5.7f,4.95f),HubScreen.Workshop,"Открыть мастерскую",-7.5f));
             targets.Add(Station("Wardrobe",Prop("Wardrobe"),new Vector2(-3.8f,1.52f),new Vector2(2.4f,3.2f),HubScreen.Wardrobe,"Открыть гардероб",-3.8f));
-            string[] portalWorlds={"forest","factory","lava"};
-            for(int i=0;i<3;i++)
-            {
-                var station=Station("Portal "+i,Prop("Portal"),new Vector2(5.6f+i*3.2f,1.8f),new Vector2(2.65f,3.7f),HubScreen.Worlds,"Открыть карту миров",5.6f+i*3.2f,portalWorlds[i]);
-                targets.Add(station);
-                Motion(station.GetComponentInChildren<SpriteRenderer>().gameObject,HubAmbience.Motion.Portal,.018f,1.7f,i*1.4f);
-                if(i>0) station.GetComponentInChildren<SpriteRenderer>().color=i==1 ? new Color(.7f,.85f,.75f) : new Color(.8f,.7f,.61f);
-                Label("Portal label",i==0 ? "МИРЫ" : "СКОРО",new Vector2(5.6f+i*3.2f,4),i==0 ? new Color(.98f,.94f,.73f) : new Color(.8f,.85f,.73f),.035f);
-                var glow=Visual("Portal aura",Sprite("Glow"),new Vector2(5.6f+i*3.2f,1.3f),new Vector2(3.3f,4.5f),3);
-                Motion(glow.gameObject,HubAmbience.Motion.Portal,.12f,1.4f,i);
-            }
+            targets.Add(WorldMapBuilder.CreateMap(SceneManager.GetActiveScene()));
             Label("Workshop label","МАСТЕРСКАЯ",new Vector2(-8,5.3f),new Color(.98f,.94f,.73f),.045f);
             Label("Wardrobe label","ГАРДЕРОБ",new Vector2(-3.8f,3.65f),new Color(.98f,.94f,.73f),.035f);
             foreach(var target in targets)

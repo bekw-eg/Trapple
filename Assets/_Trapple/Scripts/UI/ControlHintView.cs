@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Trapple.UI
 {
-    public enum ControlHint { None, Move, Jump, Sprint, Interact, Throw }
+    public enum ControlHint { None, Move, Jump, Sprint, Interact, Throw, Map }
 
     // One screen-space slot for both tutorial and existing interaction prompts.
     public sealed class ControlHintView : MonoBehaviour
@@ -36,6 +36,7 @@ namespace Trapple.UI
             gameObject.SetActive(hint != ControlHint.None);
             if (hint == ControlHint.None) return;
             bool movement = hint == ControlHint.Move;
+            firstKey.gameObject.SetActive(hint != ControlHint.Map);
             secondKey.gameObject.SetActive(movement);
             separator.gameObject.SetActive(movement);
             SetKey(firstKey, hint == ControlHint.Move ? a : hint == ControlHint.Jump ? space :

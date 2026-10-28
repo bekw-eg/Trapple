@@ -1,0 +1,1318 @@
+[
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Logo.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_24-1.png",
+    "envelope": [
+      155,
+      0,
+      1275,
+      380
+    ],
+    "trim": [
+      168,
+      15,
+      1270,
+      379
+    ],
+    "size": [
+      1110,
+      372
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Play.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_24-1.png",
+    "envelope": [
+      35,
+      380,
+      875,
+      615
+    ],
+    "trim": [
+      51,
+      375,
+      865,
+      615
+    ],
+    "size": [
+      822,
+      248
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Settings.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_24-1.png",
+    "envelope": [
+      35,
+      615,
+      875,
+      845
+    ],
+    "trim": [
+      48,
+      614,
+      871,
+      842
+    ],
+    "size": [
+      831,
+      236
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Exit.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_24-1.png",
+    "envelope": [
+      35,
+      845,
+      875,
+      1086
+    ],
+    "trim": [
+      50,
+      838,
+      871,
+      1062
+    ],
+    "size": [
+      829,
+      232
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Back.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_24-1.png",
+    "envelope": [
+      905,
+      380,
+      1390,
+      570
+    ],
+    "trim": [
+      909,
+      399,
+      1369,
+      557
+    ],
+    "size": [
+      468,
+      166
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Blank.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_24-1.png",
+    "envelope": [
+      910,
+      575,
+      1380,
+      697
+    ],
+    "trim": [
+      922,
+      579,
+      1364,
+      691
+    ],
+    "size": [
+      450,
+      120
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/WorldMap.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_26-2.png",
+    "envelope": [
+      40,
+      0,
+      1020,
+      241
+    ],
+    "trim": [
+      73,
+      1,
+      1038,
+      276
+    ],
+    "size": [
+      973,
+      283
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Workshop.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_26-2.png",
+    "envelope": [
+      40,
+      241,
+      1020,
+      449
+    ],
+    "trim": [
+      56,
+      258,
+      1012,
+      494
+    ],
+    "size": [
+      964,
+      244
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Wardrobe.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_26-2.png",
+    "envelope": [
+      40,
+      449,
+      1020,
+      651
+    ],
+    "trim": [
+      63,
+      477,
+      990,
+      705
+    ],
+    "size": [
+      935,
+      236
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/HubSettings.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_26-2.png",
+    "envelope": [
+      40,
+      651,
+      1020,
+      849
+    ],
+    "trim": [
+      67,
+      688,
+      992,
+      912
+    ],
+    "size": [
+      933,
+      232
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Close.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_26-2.png",
+    "envelope": [
+      80,
+      849,
+      1000,
+      1086
+    ],
+    "trim": [
+      148,
+      894,
+      910,
+      1086
+    ],
+    "size": [
+      770,
+      200
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Meadow.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      0,
+      0,
+      720,
+      308
+    ],
+    "trim": [
+      19,
+      45,
+      731,
+      333
+    ],
+    "size": [
+      720,
+      296
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Forest.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      720,
+      0,
+      1448,
+      308
+    ],
+    "trim": [
+      734,
+      13,
+      1441,
+      341
+    ],
+    "size": [
+      715,
+      336
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Factory.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      0,
+      308,
+      720,
+      626
+    ],
+    "trim": [
+      26,
+      333,
+      728,
+      652
+    ],
+    "size": [
+      710,
+      327
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Lava.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      720,
+      308,
+      1448,
+      626
+    ],
+    "trim": [
+      730,
+      334,
+      1438,
+      656
+    ],
+    "size": [
+      716,
+      330
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Level.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      0,
+      630,
+      257,
+      825
+    ],
+    "trim": [
+      14,
+      670,
+      249,
+      876
+    ],
+    "size": [
+      243,
+      214
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Level2.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      257,
+      630,
+      490,
+      825
+    ],
+    "trim": [
+      252,
+      668,
+      480,
+      872
+    ],
+    "size": [
+      236,
+      212
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Level3.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      490,
+      630,
+      728,
+      825
+    ],
+    "trim": [
+      487,
+      668,
+      716,
+      872
+    ],
+    "size": [
+      237,
+      212
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Locked.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      728,
+      630,
+      982,
+      825
+    ],
+    "trim": [
+      727,
+      666,
+      956,
+      874
+    ],
+    "size": [
+      237,
+      216
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Complete.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      980,
+      630,
+      1215,
+      825
+    ],
+    "trim": [
+      959,
+      671,
+      1188,
+      874
+    ],
+    "size": [
+      237,
+      211
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/WorldMap/Selected.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png",
+    "envelope": [
+      1208,
+      626,
+      1448,
+      831
+    ],
+    "trim": [
+      1183,
+      662,
+      1442,
+      882
+    ],
+    "size": [
+      267,
+      228
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Workshop/Speed.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png",
+    "envelope": [
+      0,
+      0,
+      487,
+      309
+    ],
+    "trim": [
+      18,
+      56,
+      499,
+      312
+    ],
+    "size": [
+      489,
+      264
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Workshop/Jump.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png",
+    "envelope": [
+      487,
+      0,
+      975,
+      309
+    ],
+    "trim": [
+      499,
+      56,
+      975,
+      313
+    ],
+    "size": [
+      484,
+      265
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Workshop/Agility.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png",
+    "envelope": [
+      975,
+      0,
+      1448,
+      309
+    ],
+    "trim": [
+      975,
+      56,
+      1438,
+      312
+    ],
+    "size": [
+      471,
+      264
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Workshop/Upgrade.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png",
+    "envelope": [
+      0,
+      551,
+      525,
+      764
+    ],
+    "trim": [
+      17,
+      592,
+      539,
+      796
+    ],
+    "size": [
+      530,
+      212
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Workshop/Max.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png",
+    "envelope": [
+      524,
+      551,
+      985,
+      764
+    ],
+    "trim": [
+      541,
+      592,
+      992,
+      794
+    ],
+    "size": [
+      459,
+      210
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Wardrobe/Slot.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_32-5.png",
+    "envelope": [
+      0,
+      0,
+      371,
+      375
+    ],
+    "trim": [
+      13,
+      30,
+      366,
+      374
+    ],
+    "size": [
+      361,
+      352
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Wardrobe/Selected.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_32-5.png",
+    "envelope": [
+      371,
+      0,
+      746,
+      375
+    ],
+    "trim": [
+      360,
+      19,
+      739,
+      386
+    ],
+    "size": [
+      387,
+      375
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Wardrobe/Equipped.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_32-5.png",
+    "envelope": [
+      746,
+      0,
+      1095,
+      375
+    ],
+    "trim": [
+      732,
+      29,
+      1087,
+      375
+    ],
+    "size": [
+      363,
+      354
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Wardrobe/Locked.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_32-5.png",
+    "envelope": [
+      1095,
+      0,
+      1448,
+      375
+    ],
+    "trim": [
+      1091,
+      29,
+      1443,
+      375
+    ],
+    "size": [
+      360,
+      354
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Wardrobe/Equip.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_32-5.png",
+    "envelope": [
+      0,
+      375,
+      740,
+      602
+    ],
+    "trim": [
+      23,
+      386,
+      719,
+      620
+    ],
+    "size": [
+      704,
+      242
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Wardrobe/EquippedButton.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_32-5.png",
+    "envelope": [
+      740,
+      375,
+      1448,
+      602
+    ],
+    "trim": [
+      734,
+      386,
+      1432,
+      620
+    ],
+    "size": [
+      706,
+      242
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/Pause.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      0,
+      0,
+      342,
+      380
+    ],
+    "trim": [
+      32,
+      101,
+      294,
+      328
+    ],
+    "size": [
+      270,
+      235
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/A.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      0,
+      420,
+      263,
+      635
+    ],
+    "trim": [
+      36,
+      398,
+      261,
+      604
+    ],
+    "size": [
+      233,
+      214
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/D.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      263,
+      420,
+      503,
+      635
+    ],
+    "trim": [
+      266,
+      394,
+      495,
+      602
+    ],
+    "size": [
+      237,
+      216
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/Left.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      503,
+      420,
+      739,
+      635
+    ],
+    "trim": [
+      495,
+      400,
+      720,
+      602
+    ],
+    "size": [
+      233,
+      210
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/Right.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      739,
+      420,
+      978,
+      635
+    ],
+    "trim": [
+      724,
+      391,
+      951,
+      604
+    ],
+    "size": [
+      235,
+      221
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/E.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      978,
+      420,
+      1216,
+      635
+    ],
+    "trim": [
+      961,
+      398,
+      1180,
+      603
+    ],
+    "size": [
+      227,
+      213
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/F.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      1216,
+      420,
+      1448,
+      635
+    ],
+    "trim": [
+      1184,
+      395,
+      1409,
+      603
+    ],
+    "size": [
+      233,
+      216
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/Space.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      0,
+      638,
+      565,
+      855
+    ],
+    "trim": [
+      37,
+      640,
+      573,
+      824
+    ],
+    "size": [
+      544,
+      192
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/Esc.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      565,
+      638,
+      970,
+      855
+    ],
+    "trim": [
+      592,
+      640,
+      941,
+      823
+    ],
+    "size": [
+      357,
+      191
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/HUD/Shift.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png",
+    "envelope": [
+      970,
+      638,
+      1448,
+      855
+    ],
+    "trim": [
+      961,
+      637,
+      1413,
+      827
+    ],
+    "size": [
+      460,
+      198
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Panels/PauseTitle.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_35-7.png",
+    "envelope": [
+      120,
+      0,
+      1215,
+      330
+    ],
+    "trim": [
+      155,
+      12,
+      1194,
+      346
+    ],
+    "size": [
+      1047,
+      342
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Continue.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_35-7.png",
+    "envelope": [
+      100,
+      330,
+      840,
+      492
+    ],
+    "trim": [
+      125,
+      322,
+      852,
+      511
+    ],
+    "size": [
+      735,
+      197
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Panels/CompleteTitle.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_37-8.png",
+    "envelope": [
+      0,
+      0,
+      970,
+      525
+    ],
+    "trim": [
+      41,
+      34,
+      965,
+      519
+    ],
+    "size": [
+      932,
+      493
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/Retry.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_37-8.png",
+    "envelope": [
+      0,
+      525,
+      472,
+      751
+    ],
+    "trim": [
+      26,
+      522,
+      479,
+      720
+    ],
+    "size": [
+      461,
+      206
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/NextLevel.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_37-8.png",
+    "envelope": [
+      472,
+      525,
+      985,
+      751
+    ],
+    "trim": [
+      477,
+      527,
+      984,
+      721
+    ],
+    "size": [
+      515,
+      202
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Buttons/CompleteLobby.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_37-8.png",
+    "envelope": [
+      985,
+      525,
+      1448,
+      751
+    ],
+    "trim": [
+      983,
+      525,
+      1436,
+      720
+    ],
+    "size": [
+      461,
+      203
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Settings/Title.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_38-9.png",
+    "envelope": [
+      175,
+      0,
+      1255,
+      350
+    ],
+    "trim": [
+      229,
+      19,
+      1235,
+      347
+    ],
+    "size": [
+      1014,
+      336
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Panels/Banner.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      165,
+      0,
+      1275,
+      273
+    ],
+    "trim": [
+      194,
+      13,
+      1255,
+      277
+    ],
+    "size": [
+      1069,
+      272
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Panels/Window.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      0,
+      273,
+      855,
+      690
+    ],
+    "trim": [
+      28,
+      258,
+      848,
+      689
+    ],
+    "size": [
+      828,
+      439
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Panels/Card.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      855,
+      273,
+      1448,
+      527
+    ],
+    "trim": [
+      864,
+      266,
+      1434,
+      522
+    ],
+    "size": [
+      578,
+      264
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Panels/Small.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      875,
+      527,
+      1410,
+      692
+    ],
+    "trim": [
+      887,
+      522,
+      1386,
+      685
+    ],
+    "size": [
+      507,
+      171
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Pause.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      0,
+      692,
+      193,
+      867
+    ],
+    "trim": [
+      18,
+      689,
+      189,
+      858
+    ],
+    "size": [
+      179,
+      177
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Menu.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      193,
+      692,
+      375,
+      867
+    ],
+    "trim": [
+      196,
+      691,
+      367,
+      857
+    ],
+    "size": [
+      179,
+      174
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Settings.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      375,
+      692,
+      558,
+      867
+    ],
+    "trim": [
+      378,
+      692,
+      548,
+      858
+    ],
+    "size": [
+      178,
+      174
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Home.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      558,
+      692,
+      741,
+      867
+    ],
+    "trim": [
+      559,
+      692,
+      730,
+      858
+    ],
+    "size": [
+      179,
+      174
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Info.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      741,
+      692,
+      916,
+      867
+    ],
+    "trim": [
+      739,
+      691,
+      899,
+      856
+    ],
+    "size": [
+      168,
+      173
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Back.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      916,
+      692,
+      1087,
+      867
+    ],
+    "trim": [
+      906,
+      692,
+      1069,
+      856
+    ],
+    "size": [
+      171,
+      172
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Close.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      1087,
+      692,
+      1260,
+      867
+    ],
+    "trim": [
+      1077,
+      694,
+      1242,
+      857
+    ],
+    "size": [
+      173,
+      171
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Check.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      1260,
+      692,
+      1448,
+      867
+    ],
+    "trim": [
+      1251,
+      694,
+      1424,
+      858
+    ],
+    "size": [
+      181,
+      172
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Lock.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      800,
+      867,
+      1002,
+      1086
+    ],
+    "trim": [
+      801,
+      872,
+      999,
+      1053
+    ],
+    "size": [
+      206,
+      189
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Icons/Seed.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      1002,
+      867,
+      1212,
+      1086
+    ],
+    "trim": [
+      1005,
+      870,
+      1209,
+      1057
+    ],
+    "size": [
+      212,
+      195
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Workshop/SpeedIcon.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png",
+    "envelope": [
+      85,
+      124,
+      216,
+      255
+    ],
+    "size": [
+      131,
+      131
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Workshop/JumpIcon.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png",
+    "envelope": [
+      563,
+      124,
+      694,
+      255
+    ],
+    "size": [
+      131,
+      131
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Workshop/AgilityIcon.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png",
+    "envelope": [
+      1042,
+      124,
+      1173,
+      255
+    ],
+    "size": [
+      131,
+      131
+    ]
+  },
+  {
+    "asset": "Assets/_Trapple/UI/Storybook/Settings/GoldFill.png",
+    "source": "Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png",
+    "envelope": [
+      510,
+      112,
+      920,
+      175
+    ],
+    "size": [
+      410,
+      63
+    ]
+  }
+]

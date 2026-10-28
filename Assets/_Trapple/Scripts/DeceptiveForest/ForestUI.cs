@@ -24,11 +24,18 @@ namespace Trapple.DeceptiveForest
         private IProgressionService progression;
         private string pickupHint, throwHint;
         private ForestStick[] courseSticks;
+        private bool sharedInterface, promptVisible;
         public VisualElement Root => root;
         public bool IsModalOpen => presentation > 0;
+        public bool HintIsThrow => promptKind == 2;
+        public bool IsHintVisible => promptVisible;
+        public Sprite HeldItemIcon => stick != null && stick.IsHeld ? stick.Icon : null;
 
         private void Start()
         {
+            // Retain the existing context/lifetime model and public actions.
+            // The shared Canvas renders it; the legacy document stays hidden.
+            sharedInterface = Resources.Load<GameObject>("Storybook/GameInterface") != null;
             root = GetComponent<UIDocument>().rootVisualElement;
             courseSticks = FindObjectsByType<ForestStick>();
             modal = root.Q("modal"); window = root.Q("window");
@@ -51,6 +58,7 @@ namespace Trapple.DeceptiveForest
             if (progression != null) { progression.Changed += RefreshCurrency; RefreshCurrency(); }
             else currency.style.display = DisplayStyle.None;
             started = Time.unscaledTime;
+            if(sharedInterface) root.style.display = DisplayStyle.None;
             Update();
         }
         private void Update()
@@ -85,7 +93,8 @@ namespace Trapple.DeceptiveForest
             }
             bool relevant = stick != null && (promptKind == 1 ? stick.CanPickup : stick.IsHeld);
             hint.text = promptKind == 1 ? pickupHint : throwHint;
-            prompt.style.display = next == 0 && relevant && Time.time < promptUntil ? DisplayStyle.Flex : DisplayStyle.None;
+            promptVisible = next == 0 && relevant && Time.time < promptUntil;
+            prompt.style.display = promptVisible ? DisplayStyle.Flex : DisplayStyle.None;
             if (next == 2 && Input.GetKeyDown(KeyCode.R)) Retry();
         }
         private void Show(int state)
@@ -100,8 +109,8 @@ namespace Trapple.DeceptiveForest
             retry.style.display = hub.style.display = state == 3 ? DisplayStyle.None : DisplayStyle.Flex;
             hub.SetEnabled(Application.CanStreamedLevelBeLoaded(HubSceneFlowController.HubScenePath));
             root.panel?.focusController?.focusedElement?.Blur();
-            if (state == 1) resume.Focus();
-            if (state == 2) retry.Focus();
+            if (!sharedInterface && state == 1) resume.Focus();
+            if (!sharedInterface && state == 2) retry.Focus();
         }
         public void Pause() { if (!loading && presentation == 0) GameManager.Instance?.Pause(); }
         public void Resume() { if (!loading && presentation == 1) GameManager.Instance?.Resume(); }

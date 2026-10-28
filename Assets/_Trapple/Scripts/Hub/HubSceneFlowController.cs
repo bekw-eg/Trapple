@@ -77,6 +77,7 @@ namespace Trapple.Hub
             ApplyCosmetic();
             if (!tutorialTrip || scene.path != launchedScene) { tutorialTrip = false; return; }
             goal = FindAnyObjectByType<TutorialGoal>();
+            if (Resources.Load<GameObject>("Storybook/GameInterface") != null) return;
             if (panel == null || returnTree == null) return;
             var obj = new GameObject("Return to orchard");
             obj.transform.SetParent(transform, false);

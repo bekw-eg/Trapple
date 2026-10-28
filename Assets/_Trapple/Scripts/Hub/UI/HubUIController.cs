@@ -84,6 +84,7 @@ namespace Trapple.Hub
             illustrated?.Initialize(configuration, progression, flow, Open, Close, ReturnToMenu);
             if(workshop!=null) workshop.View.Bind(configuration,progression,Close);
             RefreshCurrency();
+            if (illustrated != null) root.style.display = DisplayStyle.None;
         }
 
         private void OpenSettings() => Open(HubScreen.Settings);
@@ -128,7 +129,7 @@ namespace Trapple.Hub
                 player?.SetControlEnabled(false);
             }
             CurrentScreen = screen;
-            bool useIllustrated = illustrated != null && screen != HubScreen.Settings;
+            bool useIllustrated = illustrated != null;
             illustrated?.Hide();
             foreach (string cssClass in new[] { "hud", "hub-caption", "controls" })
                 root.Q(className: cssClass).style.display = useIllustrated ? DisplayStyle.None : DisplayStyle.Flex;

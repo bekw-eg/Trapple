@@ -18,6 +18,7 @@ namespace Trapple.Core
 
         [SerializeField] private string firstLevel = TutorialScene;
         private readonly List<PlayerController> pausedPlayers = new List<PlayerController>();
+        private GameInterface ui;
         public static GameManager Instance { get; private set; }
         public GameState State { get; private set; }
 
@@ -41,8 +42,9 @@ namespace Trapple.Core
             }
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            if (GetComponent<GameInterface>() == null)
-                gameObject.AddComponent<GameInterface>();
+            var view = Resources.Load<GameObject>("Storybook/GameInterface");
+            if (view != null) ui = Instantiate(view, transform).GetComponent<GameInterface>();
+            else Debug.LogError("Storybook UI prefab is missing. Run Tools/Trapple/Build Storybook UI.");
             AudioListener.volume = Mathf.Clamp01(PlayerPrefs.GetFloat("Trapple.MasterVolume", 1f));
             SceneManager.sceneLoaded += OnSceneLoaded;
             OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
@@ -54,6 +56,7 @@ namespace Trapple.Core
             if (SceneManager.GetActiveScene().path == Trapple.Hub.HubSceneFlowController.HubScenePath ||
                 SceneManager.GetActiveScene().path == Trapple.Hub.Illustrated.TrappleUIManager.ScenePath) return;
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
+            if (ui != null && ui.HandleEscape()) return;
             if (State == GameState.Playing) Pause();
             else if (State == GameState.Paused) Resume();
         }

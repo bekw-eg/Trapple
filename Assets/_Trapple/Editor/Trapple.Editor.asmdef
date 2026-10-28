@@ -1,6 +1,6 @@
 {
   "name": "Trapple.Editor",
   "rootNamespace": "Trapple.Editor",
-  "references": ["Trapple.Runtime", "Unity.ugui", "Unity.TextMeshPro"],
+  "references": ["Trapple.Runtime", "Unity.ugui", "Unity.TextMeshPro", "UnityEditor.TestRunner"],
   "includePlatforms": ["Editor"]
 }

@@ -1,0 +1,250 @@
+Created and modified files (including Unity metadata)
+
+ M Assets/_Trapple/Editor/Trapple.Editor.asmdef
+ M Assets/_Trapple/Prefabs/Hub/WorkshopSystem.prefab
+ M Assets/_Trapple/Scenes/Hub/Hub.unity
+ M Assets/_Trapple/Scenes/Menu/TrappleUI.unity
+ M Assets/_Trapple/Scripts/Core/GameManager.cs
+ M Assets/_Trapple/Scripts/DeceptiveForest/ForestUI.cs
+ M Assets/_Trapple/Scripts/Hub/Data/HubServices.cs
+ M Assets/_Trapple/Scripts/Hub/HubSceneFlowController.cs
+ M Assets/_Trapple/Scripts/Hub/UI/HubUIController.cs
+ M Assets/_Trapple/Scripts/Hub/UI/Illustrated/SkinItemUI.cs
+ M Assets/_Trapple/Scripts/Hub/UI/Illustrated/TrappleUIManager.cs
+ M Assets/_Trapple/Scripts/Hub/UI/Illustrated/WardrobePanelUI.cs
+ M Assets/_Trapple/Scripts/Level/TutorialGoal.cs
+ M Assets/_Trapple/Scripts/UI/GameInterface.cs
+ M Assets/_Trapple/Scripts/Workshop/WorkshopUIController.cs
+ M Assets/_Trapple/Tests/PlayMode/DeceptiveForestTests.cs
+ M Assets/_Trapple/Tests/PlayMode/HubTests.cs
+ M Assets/_Trapple/UI/Illustrated/Prefabs/TrappleUI.prefab
+A  Assets/_Trapple/Art/SourceSheets.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_24-1.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_24-1.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_26-2.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_26-2.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_28-3.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_30-4.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_32-5.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_32-5.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_34-6.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_35-7.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_35-7.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_37-8.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_37-8.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_38-9.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_38-9.png.meta
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png
+A  Assets/_Trapple/Art/SourceSheets/Изображение ChatGPT 27 окт. 2026 г., 15_20_40-10.png.meta
+A  Assets/_Trapple/Editor/StorybookUIAutomation.cs
+A  Assets/_Trapple/Editor/StorybookUIAutomation.cs.meta
+A  Assets/_Trapple/Editor/StorybookUIBuilder.cs
+A  Assets/_Trapple/Editor/StorybookUIBuilder.cs.meta
+A  Assets/_Trapple/Resources/Storybook.meta
+A  Assets/_Trapple/Resources/Storybook/GameInterface.prefab
+A  Assets/_Trapple/Resources/Storybook/GameInterface.prefab.meta
+A  Assets/_Trapple/Scripts/Hub/UI/Illustrated/WorldMapPanelUI.cs
+A  Assets/_Trapple/Scripts/Hub/UI/Illustrated/WorldMapPanelUI.cs.meta
+A  Assets/_Trapple/Scripts/UI/StorybookCaptureRunner.cs
+A  Assets/_Trapple/Scripts/UI/StorybookCaptureRunner.cs.meta
+A  Assets/_Trapple/Scripts/UI/UIButtonAnimator.cs
+A  Assets/_Trapple/Scripts/UI/UIButtonAnimator.cs.meta
+A  Assets/_Trapple/Scripts/UI/UISettingsPanel.cs
+A  Assets/_Trapple/Scripts/UI/UISettingsPanel.cs.meta
+A  Assets/_Trapple/Scripts/UI/UIWords.cs
+A  Assets/_Trapple/Scripts/UI/UIWords.cs.meta
+A  Assets/_Trapple/Tests/PlayMode/StorybookUITests.cs
+A  Assets/_Trapple/Tests/PlayMode/StorybookUITests.cs.meta
+A  Assets/_Trapple/UI/Storybook.meta
+A  Assets/_Trapple/UI/Storybook/Buttons.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Back.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Back.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Blank.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Blank.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Close.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Close.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/CompleteLobby.png
+A  Assets/_Trapple/UI/Storybook/Buttons/CompleteLobby.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Continue.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Continue.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Exit.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Exit.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/HubSettings.png
+A  Assets/_Trapple/UI/Storybook/Buttons/HubSettings.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Logo.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Logo.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/NextLevel.png
+A  Assets/_Trapple/UI/Storybook/Buttons/NextLevel.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Play.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Play.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Retry.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Retry.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Settings.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Settings.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Wardrobe.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Wardrobe.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/Workshop.png
+A  Assets/_Trapple/UI/Storybook/Buttons/Workshop.png.meta
+A  Assets/_Trapple/UI/Storybook/Buttons/WorldMap.png
+A  Assets/_Trapple/UI/Storybook/Buttons/WorldMap.png.meta
+A  Assets/_Trapple/UI/Storybook/Fonts.meta
+A  Assets/_Trapple/UI/Storybook/Fonts/ATTRIBUTION.md
+A  Assets/_Trapple/UI/Storybook/Fonts/ATTRIBUTION.md.meta
+A  Assets/_Trapple/UI/Storybook/Fonts/Thaleah Bitmap.asset
+A  Assets/_Trapple/UI/Storybook/Fonts/Thaleah Bitmap.asset.meta
+A  Assets/_Trapple/UI/Storybook/Fonts/Thaleah SDF.asset
+A  Assets/_Trapple/UI/Storybook/Fonts/Thaleah SDF.asset.meta
+A  Assets/_Trapple/UI/Storybook/Fonts/ThaleahFat.ttf
+A  Assets/_Trapple/UI/Storybook/Fonts/ThaleahFat.ttf.meta
+A  Assets/_Trapple/UI/Storybook/HUD.meta
+A  Assets/_Trapple/UI/Storybook/HUD/A.png
+A  Assets/_Trapple/UI/Storybook/HUD/A.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/D.png
+A  Assets/_Trapple/UI/Storybook/HUD/D.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/E.png
+A  Assets/_Trapple/UI/Storybook/HUD/E.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/Esc.png
+A  Assets/_Trapple/UI/Storybook/HUD/Esc.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/F.png
+A  Assets/_Trapple/UI/Storybook/HUD/F.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/Left.png
+A  Assets/_Trapple/UI/Storybook/HUD/Left.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/Pause.png
+A  Assets/_Trapple/UI/Storybook/HUD/Pause.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/Right.png
+A  Assets/_Trapple/UI/Storybook/HUD/Right.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/Shift.png
+A  Assets/_Trapple/UI/Storybook/HUD/Shift.png.meta
+A  Assets/_Trapple/UI/Storybook/HUD/Space.png
+A  Assets/_Trapple/UI/Storybook/HUD/Space.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Back.png
+A  Assets/_Trapple/UI/Storybook/Icons/Back.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Check.png
+A  Assets/_Trapple/UI/Storybook/Icons/Check.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Close.png
+A  Assets/_Trapple/UI/Storybook/Icons/Close.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Home.png
+A  Assets/_Trapple/UI/Storybook/Icons/Home.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Info.png
+A  Assets/_Trapple/UI/Storybook/Icons/Info.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Lock.png
+A  Assets/_Trapple/UI/Storybook/Icons/Lock.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Menu.png
+A  Assets/_Trapple/UI/Storybook/Icons/Menu.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Pause.png
+A  Assets/_Trapple/UI/Storybook/Icons/Pause.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Seed.png
+A  Assets/_Trapple/UI/Storybook/Icons/Seed.png.meta
+A  Assets/_Trapple/UI/Storybook/Icons/Settings.png
+A  Assets/_Trapple/UI/Storybook/Icons/Settings.png.meta
+A  Assets/_Trapple/UI/Storybook/Panels.meta
+A  Assets/_Trapple/UI/Storybook/Panels/Banner.png
+A  Assets/_Trapple/UI/Storybook/Panels/Banner.png.meta
+A  Assets/_Trapple/UI/Storybook/Panels/Card.png
+A  Assets/_Trapple/UI/Storybook/Panels/Card.png.meta
+A  Assets/_Trapple/UI/Storybook/Panels/CompleteTitle.png
+A  Assets/_Trapple/UI/Storybook/Panels/CompleteTitle.png.meta
+A  Assets/_Trapple/UI/Storybook/Panels/PauseTitle.png
+A  Assets/_Trapple/UI/Storybook/Panels/PauseTitle.png.meta
+A  Assets/_Trapple/UI/Storybook/Panels/Small.png
+A  Assets/_Trapple/UI/Storybook/Panels/Small.png.meta
+A  Assets/_Trapple/UI/Storybook/Panels/Window.png
+A  Assets/_Trapple/UI/Storybook/Panels/Window.png.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/IconButton.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/IconButton.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/LevelButton.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/LevelButton.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/PrimaryButton.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/PrimaryButton.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/SecondaryButton.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/SecondaryButton.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/SmallButton.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/SmallButton.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/UISlider.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/UISlider.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/UIWindow.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/UIWindow.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/UpgradeButton.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/UpgradeButton.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/WardrobeSlot.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/WardrobeSlot.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Prefabs/WorldButton.prefab
+A  Assets/_Trapple/UI/Storybook/Prefabs/WorldButton.prefab.meta
+A  Assets/_Trapple/UI/Storybook/Settings.meta
+A  Assets/_Trapple/UI/Storybook/Settings/GoldFill.png
+A  Assets/_Trapple/UI/Storybook/Settings/GoldFill.png.meta
+A  Assets/_Trapple/UI/Storybook/Settings/Title.png
+A  Assets/_Trapple/UI/Storybook/Settings/Title.png.meta
+A  Assets/_Trapple/UI/Storybook/Wardrobe.meta
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Equip.png
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Equip.png.meta
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Equipped.png
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Equipped.png.meta
+A  Assets/_Trapple/UI/Storybook/Wardrobe/EquippedButton.png
+A  Assets/_Trapple/UI/Storybook/Wardrobe/EquippedButton.png.meta
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Locked.png
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Locked.png.meta
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Selected.png
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Selected.png.meta
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Slot.png
+A  Assets/_Trapple/UI/Storybook/Wardrobe/Slot.png.meta
+A  Assets/_Trapple/UI/Storybook/Workshop.meta
+A  Assets/_Trapple/UI/Storybook/Workshop/Agility.png
+A  Assets/_Trapple/UI/Storybook/Workshop/Agility.png.meta
+A  Assets/_Trapple/UI/Storybook/Workshop/AgilityIcon.png
+A  Assets/_Trapple/UI/Storybook/Workshop/AgilityIcon.png.meta
+A  Assets/_Trapple/UI/Storybook/Workshop/Jump.png
+A  Assets/_Trapple/UI/Storybook/Workshop/Jump.png.meta
+A  Assets/_Trapple/UI/Storybook/Workshop/JumpIcon.png
+A  Assets/_Trapple/UI/Storybook/Workshop/JumpIcon.png.meta
+A  Assets/_Trapple/UI/Storybook/Workshop/Max.png
+A  Assets/_Trapple/UI/Storybook/Workshop/Max.png.meta
+A  Assets/_Trapple/UI/Storybook/Workshop/Speed.png
+A  Assets/_Trapple/UI/Storybook/Workshop/Speed.png.meta
+A  Assets/_Trapple/UI/Storybook/Workshop/SpeedIcon.png
+A  Assets/_Trapple/UI/Storybook/Workshop/SpeedIcon.png.meta
+A  Assets/_Trapple/UI/Storybook/Workshop/Upgrade.png
+A  Assets/_Trapple/UI/Storybook/Workshop/Upgrade.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Complete.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Complete.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Factory.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Factory.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Forest.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Forest.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Lava.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Lava.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Level.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Level.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Level2.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Level2.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Level3.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Level3.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Locked.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Locked.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Meadow.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Meadow.png.meta
+A  Assets/_Trapple/UI/Storybook/WorldMap/Selected.png
+A  Assets/_Trapple/UI/Storybook/WorldMap/Selected.png.meta
+A  Assets/_Trapple/UI/Storybook/slices.json
+A  Assets/_Trapple/UI/Storybook/slices.json.meta
+A  Docs/Images/StorybookUI/1366x768-Pause.png
+A  Docs/Images/StorybookUI/2560x1440-WorldMap.png
+A  Docs/Images/StorybookUI/MainMenu.png
+A  Docs/Images/StorybookUI/Overview.png
+A  Docs/Images/StorybookUI/Pause.png
+A  Docs/Images/StorybookUI/Settings.png
+A  Docs/Images/StorybookUI/Wardrobe.png
+A  Docs/Images/StorybookUI/Workshop.png
+A  Docs/Images/StorybookUI/WorldMap.png
+A  Docs/StorybookUI.md
+A  Docs/StorybookUIFiles.txt
+A  Docs/StorybookUIValidation.txt
+A  Tools/download_thaleah.py
+A  Tools/prepare_storybook_ui.py
+A  Tools/verify_storybook_ui.py

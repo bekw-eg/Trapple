@@ -39,6 +39,7 @@ namespace Trapple.Level
 
         private void OnGUI()
         {
+            if (Trapple.Core.GameManager.Instance != null) return;
             if (Trapple.Core.GameManager.Instance != null &&
                 Trapple.Core.GameManager.Instance.State == Trapple.Core.GameState.Paused) return;
             var style = new GUIStyle(GUI.skin.box)

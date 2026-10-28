@@ -53,7 +53,7 @@ namespace Trapple.Workshop
         public void ShowLocked()
         {
             surface.SetActive(true); input.interactable=false; input.blocksRaycasts=true;
-            sign.ResetHidden(); Select(selected); feedback.text="Выбери улучшение и посмотри, как меняется герой.";
+            sign.ResetHidden(); Select(selected); feedback.text="SELECT AN UPGRADE TO PREVIEW IT";
             if(EventSystem.current!=null) EventSystem.current.SetSelectedGameObject(null);
         }
         public IEnumerator Reveal()
@@ -75,17 +75,17 @@ namespace Trapple.Workshop
             balance.text=progression.Seeds.ToString();
             for(int i=0;i<selections.Length;i++)
             {
-                rowLevels[i].text="УРОВЕНЬ "+progression.Level((UpgradeKind)i)+" / 3";
-                selections[i].GetComponent<Image>().color=i==(int)selected?new Color(.75f,.88f,.6f):new Color(1,.86f,.61f);
+                rowLevels[i].text="LEVEL "+progression.Level((UpgradeKind)i)+" / 3";
+                selections[i].GetComponent<Trapple.UI.UIButtonAnimator>()?.SetChosen(i==(int)selected);
             }
             var def=config.Upgrade(selected); if(def==null) { purchase.interactable=false; return; }
             int level=progression.Level(selected); bool max=level>=def.MaxLevel;
-            title.text=def.title; description.text=def.description;
-            stats.text="Текущий уровень:  +"+(level*def.percentPerLevel).ToString("0.#")+"%\n"+
-                (max?"Достигнут максимальный уровень":"Следующий уровень:  +"+((level+1)*def.percentPerLevel).ToString("0.#")+"%");
-            cost.text=max?"МАКСИМУМ":def.Cost(level)>0?def.Cost(level)+" семечек":"Цена ещё не настроена";
-            purchase.interactable=!max;
-            purchase.GetComponentInChildren<TMP_Text>().text=max?"МАКСИМУМ":"УЛУЧШИТЬ ↑";
+            title.text=Trapple.UI.UIWords.Upgrade(selected); description.text="PREVIEW YOUR NEXT UPGRADE";
+            stats.text="CURRENT:  +"+(level*def.percentPerLevel).ToString("0.#")+"%\n"+
+                (max?"MAXIMUM LEVEL":"NEXT:  +"+((level+1)*def.percentPerLevel).ToString("0.#")+"%");
+            cost.text=max?"MAX":def.Cost(level)>0?def.Cost(level)+" SEEDS":"UNAVAILABLE";
+            purchase.interactable=!max && def.Cost(level)>0 && progression.Seeds>=def.Cost(level);
+            purchase.GetComponentInChildren<TMP_Text>().text=max?"MAX":"UPGRADE";
             for(int i=0;i<pips.Length;i++) pips[i].color=i<level?new Color(.1f,.48f,.18f):new Color(.73f,.61f,.39f,.45f);
             preview.Refresh();
         }
@@ -94,11 +94,11 @@ namespace Trapple.Workshop
             if(!Interactable || purchasedFrame==Time.frameCount || progression==null) return;
             var def=config.Upgrade(selected); if(def==null) return;
             int level=progression.Level(selected);
-            if(level>=def.MaxLevel) { feedback.text="Достигнут максимальный уровень"; return; }
-            if(def.Cost(level)<=0) { feedback.text="Цена улучшения ещё не настроена"; return; }
-            if(progression.Seeds<def.Cost(level)) { feedback.text="Недостаточно семечек"; return; }
+            if(level>=def.MaxLevel) { feedback.text="MAXIMUM LEVEL"; return; }
+            if(def.Cost(level)<=0) { feedback.text="PRICE NOT CONFIGURED"; return; }
+            if(progression.Seeds<def.Cost(level)) { feedback.text="NOT ENOUGH SEEDS"; return; }
             if(!progression.TryUpgrade(def)) return;
-            purchasedFrame=Time.frameCount; feedback.text=def.title+" · уровень "+progression.Level(selected);
+            purchasedFrame=Time.frameCount; feedback.text=Trapple.UI.UIWords.Upgrade(selected)+" - LEVEL "+progression.Level(selected);
             if(reaction!=null) StopCoroutine(reaction);
             reaction=StartCoroutine(React());
         }

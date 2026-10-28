@@ -167,12 +167,7 @@ namespace Trapple.Editor
                 .Where(station => station.gameObject.scene == scene).ToArray();
             var wardrobe = stations.Single(station => station.Screen == HubScreen.Wardrobe).GetComponentInChildren<SpriteRenderer>(true);
             SetProp(wardrobe, Prop("Wardrobe"), new Vector2(-3.8f, 0), 2.25f);
-            var portals = stations.Where(station => station.Screen == HubScreen.Worlds)
-                .OrderBy(station => station.transform.position.x).ToArray();
-            string[] portalNames = { "PortalForest", "PortalFactory", "PortalLava" };
-            for (int i = 0; i < portals.Length; i++)
-                SetProp(portals[i].GetComponentInChildren<SpriteRenderer>(true), Prop(portalNames[i]),
-                    new Vector2(portals[i].transform.position.x, 0), 3.35f);
+            WorldMapBuilder.InstallInScene(scene);
 
             RegisterWorkshopDoor(scene);
 
@@ -265,7 +260,7 @@ namespace Trapple.Editor
             if (scene.GetRootGameObjects().Count(root => root.name == DressingName) != 1)
                 throw new InvalidOperationException("Expected one meadow dressing in " + scene.path);
             var stations = UnityEngine.Object.FindObjectsByType<HubInteractable>().Where(station => station.gameObject.scene == scene).ToArray();
-            if (stations.Length != 5 || stations.Count(station => station.Screen == HubScreen.Worlds) != 3)
+            if (stations.Length != 3 || stations.Count(station => station is WorldMapInteractable) != 1)
                 throw new InvalidOperationException("Lobby interactions changed in " + scene.path);
             var door = UnityEngine.Object.FindAnyObjectByType<WorkshopDoorAnimator>();
             if (door.FrameCount != 9)
@@ -281,9 +276,9 @@ namespace Trapple.Editor
             var ground = scene.GetRootGameObjects().Single(root => root.name == "Safe meadow ground").GetComponent<BoxCollider2D>();
             if (Mathf.Abs(ground.bounds.max.y) > .001f)
                 throw new InvalidOperationException("The gameplay ground line moved.");
-            foreach (var portal in stations.Where(station => station.Screen == HubScreen.Worlds))
-                if (!portal.GetComponentInChildren<SpriteRenderer>(true).sprite.name.StartsWith("Portal", StringComparison.Ordinal))
-                    throw new InvalidOperationException("Portal artwork is missing.");
+            var map = stations.OfType<WorldMapInteractable>().Single();
+            if (AssetDatabase.GetAssetPath(map.GetComponent<SpriteRenderer>().sprite) != WorldMapBuilder.ArtPath)
+                throw new InvalidOperationException("The supplied world map artwork is missing.");
         }
     }
 }

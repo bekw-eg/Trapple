@@ -11,7 +11,7 @@ namespace Trapple.Hub
     }
 
     [DisallowMultipleComponent]
-    public sealed class HubInteractable : MonoBehaviour, IHubInteractable
+    public class HubInteractable : MonoBehaviour, IHubInteractable
     {
         [SerializeField] private HubScreen screen;
         [SerializeField] private string prompt;
@@ -21,7 +21,7 @@ namespace Trapple.Hub
         public HubScreen Screen => screen;
         public string WorldId => worldId;
         public void SetWorld(string id) => worldId = id;
-        public bool InRange(Vector2 position) => ((Vector2)transform.position - position).sqrMagnitude <= radius * radius;
+        public virtual bool InRange(Vector2 position) => ((Vector2)transform.position - position).sqrMagnitude <= radius * radius;
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = new Color(0.7f, 0.88f, 0.5f, 0.5f);

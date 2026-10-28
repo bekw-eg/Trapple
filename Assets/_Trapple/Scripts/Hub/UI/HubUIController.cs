@@ -36,6 +36,7 @@ namespace Trapple.Hub
         private Button menu;
         public HubScreen CurrentScreen { get; private set; }
         public bool IsOpen => CurrentScreen != HubScreen.None;
+        public event Action BeforeOpen;
         public VisualElement Root => root;
 
         public void Initialize(HubConfiguration configuration, IProgressionService progression,
@@ -113,6 +114,7 @@ namespace Trapple.Hub
         {
             Open(HubScreen.Worlds);
             illustrated?.SelectWorld(worldId);
+            worlds?.Select(configuration.World(worldId));
         }
         private void OpenWardrobe() => Open(HubScreen.Wardrobe);
         private void RefreshCurrency() => seeds.text = progression.Seeds.ToString("N0");
@@ -125,6 +127,7 @@ namespace Trapple.Hub
         public void Open(HubScreen screen)
         {
             if (!initialized || screen == HubScreen.None) return;
+            BeforeOpen?.Invoke();
             if(workshop!=null && (screen==HubScreen.Workshop || workshop.Active)) { workshop.Navigate(screen); return; }
             hideWindow?.Pause();
             if (!controlCaptured)

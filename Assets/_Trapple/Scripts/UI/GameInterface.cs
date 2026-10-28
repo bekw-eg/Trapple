@@ -127,6 +127,11 @@ namespace Trapple.UI
         }
         private void RefreshPrompt(bool playing)
         {
+            if (playing && interaction != null && interaction.ActiveMap != null && interaction.ActiveMap.IsInteracting)
+            {
+                controlHint.Show(ControlHint.Map, "CLICK A WORLD / ESC TO CLOSE");
+                return;
+            }
             string label=""; bool throwing=false;
             if(playing && interaction?.Nearest!=null)
                 label=interaction.Nearest.Screen==HubScreen.Workshop?"ENTER WORKSHOP":

@@ -1,0 +1,1420 @@
+PASS Resolution (1920, 1080)
+PASS One EventSystem: MainMenu
+PASS Button bounds: MainMenu / Exit
+PASS Pointer hit: MainMenu / Exit
+PASS Button bounds: MainMenu / Play
+PASS Pointer hit: MainMenu / Play
+PASS Button bounds: MainMenu / Settings
+PASS Pointer hit: MainMenu / Settings
+PASS Original Thaleah: Tagline
+PASS Text fits: MainMenu / Tagline
+PASS Clickable: Settings
+PASS Master volume applies
+PASS One EventSystem: Settings
+PASS Button bounds: Settings / Back
+PASS Pointer hit: Settings / Back
+PASS Original Thaleah: Volume value
+PASS Text fits: Settings / Volume value
+PASS Original Thaleah: Master volume
+PASS Text fits: Settings / Master volume
+PASS Clickable: Back
+PASS Master volume saves
+PASS Clickable: Play
+PASS Play opens the existing hub
+PASS One EventSystem: Hub
+PASS Button bounds: Hub / WorldMap
+PASS Pointer hit: Hub / WorldMap
+PASS Button bounds: Hub / HubSettings
+PASS Pointer hit: Hub / HubSettings
+PASS Button bounds: Hub / Workshop
+PASS Pointer hit: Hub / Workshop
+PASS Button bounds: Hub / Wardrobe
+PASS Pointer hit: Hub / Wardrobe
+PASS Original Thaleah: Boss health
+PASS Text fits: Hub / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Hub / Seeds
+PASS Hub has no generic controls board
+PASS Existing hub proximity shows E
+PASS One EventSystem: Interact
+PASS Button bounds: Interact / WorldMap
+PASS Pointer hit: Interact / WorldMap
+PASS Button bounds: Interact / HubSettings
+PASS Pointer hit: Interact / HubSettings
+PASS Button bounds: Interact / Workshop
+PASS Pointer hit: Interact / Workshop
+PASS Button bounds: Interact / Wardrobe
+PASS Pointer hit: Interact / Wardrobe
+PASS Original Thaleah: Boss health
+PASS Text fits: Interact / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Interact / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Interact / Action
+PASS Compact context hint: Interact
+PASS Context hint stays inside screen: Interact
+PASS Only relevant keys: Interact
+PASS Key art preserves aspect: Interact
+PASS Context hint clears button: Interact / WorldMap
+PASS Context hint clears button: Interact / HubSettings
+PASS Context hint clears button: Interact / Workshop
+PASS Context hint clears button: Interact / Wardrobe
+PASS Context hint clears player: Interact
+PASS Clickable: WorldMap
+PASS Hub modal owns player input
+PASS One EventSystem: WorldMap
+PASS Button bounds: WorldMap / Back
+PASS Pointer hit: WorldMap / Back
+PASS Button bounds: WorldMap / World lava
+PASS Pointer hit: WorldMap / World lava
+PASS Button bounds: WorldMap / Play level
+PASS Pointer hit: WorldMap / Play level
+PASS Button bounds: WorldMap / Close
+PASS Pointer hit: WorldMap / Close
+PASS Button bounds: WorldMap / World factory
+PASS Pointer hit: WorldMap / World factory
+PASS Button bounds: WorldMap / Level 1
+PASS Pointer hit: WorldMap / Level 1
+PASS Button bounds: WorldMap / World forest
+PASS Pointer hit: WorldMap / World forest
+PASS Button bounds: WorldMap / World meadow
+PASS Pointer hit: WorldMap / World meadow
+PASS Original Thaleah: World details
+PASS Text fits: WorldMap / World details
+PASS Unassigned/locked world cannot launch
+PASS Clickable: Play level
+PASS World map launches configured scene
+PASS One EventSystem: HUD
+PASS Button bounds: HUD / Pause
+PASS Pointer hit: HUD / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: HUD / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: HUD / Boss health
+PASS Original Thaleah: Key separator
+PASS Text fits: HUD / Key separator
+PASS Original Thaleah: Seeds
+PASS Text fits: HUD / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: HUD / Action
+PASS Compact context hint: HUD
+PASS Context hint stays inside screen: HUD
+PASS Only relevant keys: HUD
+PASS Key art preserves aspect: HUD
+PASS Context hint clears button: HUD / Pause
+PASS Context hint clears player: HUD
+PASS Tutorial starts with A / D only
+PASS Existing first obstacle shows SPACE
+PASS One EventSystem: Jump
+PASS Button bounds: Jump / Pause
+PASS Pointer hit: Jump / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Jump / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Jump / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Jump / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Jump / Action
+PASS Compact context hint: Jump
+PASS Context hint stays inside screen: Jump
+PASS Only relevant keys: Jump
+PASS Key art preserves aspect: Jump
+PASS Context hint clears button: Jump / Pause
+PASS Context hint clears player: Jump
+PASS Demonstrated jump dismisses hint
+PASS Safe tutorial runway shows SHIFT
+PASS One EventSystem: Sprint
+PASS Button bounds: Sprint / Pause
+PASS Pointer hit: Sprint / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Sprint / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Sprint / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Sprint / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Sprint / Action
+PASS Compact context hint: Sprint
+PASS Context hint stays inside screen: Sprint
+PASS Only relevant keys: Sprint
+PASS Key art preserves aspect: Sprint
+PASS Context hint clears button: Sprint / Pause
+PASS Context hint clears player: Sprint
+PASS Clickable: Pause
+PASS Pause freezes time
+PASS One EventSystem: Pause
+PASS Button bounds: Pause / CONTINUE
+PASS Pointer hit: Pause / CONTINUE
+PASS Button bounds: Pause / MAIN MENU
+PASS Pointer hit: Pause / MAIN MENU
+PASS Button bounds: Pause / RESTART LEVEL
+PASS Pointer hit: Pause / RESTART LEVEL
+PASS Button bounds: Pause / LOBBY
+PASS Pointer hit: Pause / LOBBY
+PASS Button bounds: Pause / SETTINGS
+PASS Pointer hit: Pause / SETTINGS
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Clickable: SETTINGS
+PASS Settings retains pause
+PASS Escape closes settings first
+PASS Clickable: CONTINUE
+PASS Continue restores controls
+PASS Existing goal completes
+PASS One EventSystem: Complete
+PASS Button bounds: Complete / Lobby
+PASS Pointer hit: Complete / Lobby
+PASS Button bounds: Complete / Next level
+PASS Button bounds: Complete / Retry
+PASS Pointer hit: Complete / Retry
+PASS Original Thaleah: Completion detail
+PASS Text fits: Complete / Completion detail
+PASS Unavailable next level stays disabled
+PASS Clickable: Lobby
+PASS Clickable: Wardrobe
+PASS One EventSystem: Wardrobe
+PASS Button bounds: Wardrobe / Outfit factory
+PASS Pointer hit: Wardrobe / Outfit factory
+PASS Button bounds: Wardrobe / Outfit forest
+PASS Pointer hit: Wardrobe / Outfit forest
+PASS Button bounds: Wardrobe / Outfit classic
+PASS Pointer hit: Wardrobe / Outfit classic
+PASS Button bounds: Wardrobe / Close
+PASS Pointer hit: Wardrobe / Close
+PASS Button bounds: Wardrobe / Back
+PASS Pointer hit: Wardrobe / Back
+PASS Button bounds: Wardrobe / Outfit lava
+PASS Pointer hit: Wardrobe / Outfit lava
+PASS Button bounds: Wardrobe / Equip outfit
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Outfit details
+PASS Text fits: Wardrobe / Outfit details
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Selected outfit
+PASS Text fits: Wardrobe / Selected outfit
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Label
+PASS Text fits: Wardrobe / Label
+PASS Original Thaleah: Collection count
+PASS Text fits: Wardrobe / Collection count
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Clickable: Outfit forest
+PASS Locked outfit cannot equip
+PASS Clickable: Workshop
+PASS Workshop transition completes
+PASS Workshop cutscene finishes with live UI
+PASS One EventSystem: Workshop
+PASS Button bounds: Workshop / Select Speed
+PASS Pointer hit: Workshop / Select Speed
+PASS Button bounds: Workshop / Exit workshop
+PASS Pointer hit: Workshop / Exit workshop
+PASS Button bounds: Workshop / Select Jump
+PASS Pointer hit: Workshop / Select Jump
+PASS Button bounds: Workshop / Select Agility
+PASS Pointer hit: Workshop / Select Agility
+PASS Button bounds: Workshop / Purchase upgrade
+PASS Original Thaleah: Selected upgrade
+PASS Text fits: Workshop / Selected upgrade
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Upgrade description
+PASS Text fits: Workshop / Upgrade description
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Price
+PASS Text fits: Workshop / Price
+PASS Original Thaleah: Current and next
+PASS Text fits: Workshop / Current and next
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Feedback
+PASS Text fits: Workshop / Feedback
+PASS Original Thaleah: Seeds
+PASS Text fits: Workshop / Seeds
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Unconfigured upgrade price disables purchase
+PASS Workshop transition completes
+PASS Leaving workshop restores input
+PASS Forest uses the shared UI
+PASS Forest does not repeat tutorial controls
+PASS One EventSystem: ForestWarning
+PASS Button bounds: ForestWarning / Pause
+PASS Pointer hit: ForestWarning / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: ForestWarning / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: ForestWarning / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: ForestWarning / Seeds
+PASS Existing pickup context shows E
+PASS One EventSystem: Pickup
+PASS Button bounds: Pickup / Pause
+PASS Pointer hit: Pickup / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Pickup / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Pickup / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Pickup / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Pickup / Action
+PASS Compact context hint: Pickup
+PASS Context hint stays inside screen: Pickup
+PASS Only relevant keys: Pickup
+PASS Key art preserves aspect: Pickup
+PASS Context hint clears button: Pickup / Pause
+PASS Context hint clears player: Pickup
+PASS Original stick pickup works
+PASS Existing held-stick context shows F
+PASS One EventSystem: Throw
+PASS Button bounds: Throw / Pause
+PASS Pointer hit: Throw / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Throw / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Throw / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Throw / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Throw / Action
+PASS Compact context hint: Throw
+PASS Context hint stays inside screen: Throw
+PASS Only relevant keys: Throw
+PASS Key art preserves aspect: Throw
+PASS Context hint clears button: Throw / Pause
+PASS Context hint clears player: Throw
+PASS Original stick throw works
+PASS Throw prompt leaves when stick is released
+PASS Warning expires after its entry event
+PASS One EventSystem: ForestIdle
+PASS Button bounds: ForestIdle / Pause
+PASS Pointer hit: ForestIdle / Pause
+PASS Original Thaleah: Boss health
+PASS Text fits: ForestIdle / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: ForestIdle / Seeds
+PASS Clickable: Pause
+PASS One EventSystem: ForestPause
+PASS Button bounds: ForestPause / CONTINUE
+PASS Pointer hit: ForestPause / CONTINUE
+PASS Button bounds: ForestPause / MAIN MENU
+PASS Pointer hit: ForestPause / MAIN MENU
+PASS Button bounds: ForestPause / RESTART LEVEL
+PASS Pointer hit: ForestPause / RESTART LEVEL
+PASS Button bounds: ForestPause / LOBBY
+PASS Pointer hit: ForestPause / LOBBY
+PASS Button bounds: ForestPause / SETTINGS
+PASS Pointer hit: ForestPause / SETTINGS
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Clickable: RESTART LEVEL
+PASS Restart clears pause
+PASS Resolution (1600, 900)
+PASS One EventSystem: MainMenu
+PASS Button bounds: MainMenu / Exit
+PASS Pointer hit: MainMenu / Exit
+PASS Button bounds: MainMenu / Play
+PASS Pointer hit: MainMenu / Play
+PASS Button bounds: MainMenu / Settings
+PASS Pointer hit: MainMenu / Settings
+PASS Original Thaleah: Tagline
+PASS Text fits: MainMenu / Tagline
+PASS Clickable: Settings
+PASS Master volume applies
+PASS One EventSystem: Settings
+PASS Button bounds: Settings / Back
+PASS Pointer hit: Settings / Back
+PASS Original Thaleah: Volume value
+PASS Text fits: Settings / Volume value
+PASS Original Thaleah: Master volume
+PASS Text fits: Settings / Master volume
+PASS Clickable: Back
+PASS Master volume saves
+PASS Clickable: Play
+PASS Play opens the existing hub
+PASS One EventSystem: Hub
+PASS Button bounds: Hub / WorldMap
+PASS Pointer hit: Hub / WorldMap
+PASS Button bounds: Hub / HubSettings
+PASS Pointer hit: Hub / HubSettings
+PASS Button bounds: Hub / Workshop
+PASS Pointer hit: Hub / Workshop
+PASS Button bounds: Hub / Wardrobe
+PASS Pointer hit: Hub / Wardrobe
+PASS Original Thaleah: Boss health
+PASS Text fits: Hub / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Hub / Seeds
+PASS Hub has no generic controls board
+PASS Existing hub proximity shows E
+PASS One EventSystem: Interact
+PASS Button bounds: Interact / WorldMap
+PASS Pointer hit: Interact / WorldMap
+PASS Button bounds: Interact / HubSettings
+PASS Pointer hit: Interact / HubSettings
+PASS Button bounds: Interact / Workshop
+PASS Pointer hit: Interact / Workshop
+PASS Button bounds: Interact / Wardrobe
+PASS Pointer hit: Interact / Wardrobe
+PASS Original Thaleah: Boss health
+PASS Text fits: Interact / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Interact / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Interact / Action
+PASS Compact context hint: Interact
+PASS Context hint stays inside screen: Interact
+PASS Only relevant keys: Interact
+PASS Key art preserves aspect: Interact
+PASS Context hint clears button: Interact / WorldMap
+PASS Context hint clears button: Interact / HubSettings
+PASS Context hint clears button: Interact / Workshop
+PASS Context hint clears button: Interact / Wardrobe
+PASS Context hint clears player: Interact
+PASS Clickable: WorldMap
+PASS Hub modal owns player input
+PASS One EventSystem: WorldMap
+PASS Button bounds: WorldMap / Level 1
+PASS Pointer hit: WorldMap / Level 1
+PASS Button bounds: WorldMap / Close
+PASS Pointer hit: WorldMap / Close
+PASS Button bounds: WorldMap / World factory
+PASS Pointer hit: WorldMap / World factory
+PASS Button bounds: WorldMap / Play level
+PASS Pointer hit: WorldMap / Play level
+PASS Button bounds: WorldMap / World meadow
+PASS Pointer hit: WorldMap / World meadow
+PASS Button bounds: WorldMap / Back
+PASS Pointer hit: WorldMap / Back
+PASS Button bounds: WorldMap / World lava
+PASS Pointer hit: WorldMap / World lava
+PASS Button bounds: WorldMap / World forest
+PASS Pointer hit: WorldMap / World forest
+PASS Original Thaleah: World details
+PASS Text fits: WorldMap / World details
+PASS Unassigned/locked world cannot launch
+PASS Clickable: Play level
+PASS World map launches configured scene
+PASS One EventSystem: HUD
+PASS Button bounds: HUD / Pause
+PASS Pointer hit: HUD / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: HUD / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: HUD / Boss health
+PASS Original Thaleah: Key separator
+PASS Text fits: HUD / Key separator
+PASS Original Thaleah: Seeds
+PASS Text fits: HUD / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: HUD / Action
+PASS Compact context hint: HUD
+PASS Context hint stays inside screen: HUD
+PASS Only relevant keys: HUD
+PASS Key art preserves aspect: HUD
+PASS Context hint clears button: HUD / Pause
+PASS Context hint clears player: HUD
+PASS Tutorial starts with A / D only
+PASS Existing first obstacle shows SPACE
+PASS One EventSystem: Jump
+PASS Button bounds: Jump / Pause
+PASS Pointer hit: Jump / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Jump / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Jump / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Jump / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Jump / Action
+PASS Compact context hint: Jump
+PASS Context hint stays inside screen: Jump
+PASS Only relevant keys: Jump
+PASS Key art preserves aspect: Jump
+PASS Context hint clears button: Jump / Pause
+PASS Context hint clears player: Jump
+PASS Demonstrated jump dismisses hint
+PASS Safe tutorial runway shows SHIFT
+PASS One EventSystem: Sprint
+PASS Button bounds: Sprint / Pause
+PASS Pointer hit: Sprint / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Sprint / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Sprint / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Sprint / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Sprint / Action
+PASS Compact context hint: Sprint
+PASS Context hint stays inside screen: Sprint
+PASS Only relevant keys: Sprint
+PASS Key art preserves aspect: Sprint
+PASS Context hint clears button: Sprint / Pause
+PASS Context hint clears player: Sprint
+PASS Clickable: Pause
+PASS Pause freezes time
+PASS One EventSystem: Pause
+PASS Button bounds: Pause / CONTINUE
+PASS Pointer hit: Pause / CONTINUE
+PASS Button bounds: Pause / MAIN MENU
+PASS Pointer hit: Pause / MAIN MENU
+PASS Button bounds: Pause / RESTART LEVEL
+PASS Pointer hit: Pause / RESTART LEVEL
+PASS Button bounds: Pause / LOBBY
+PASS Pointer hit: Pause / LOBBY
+PASS Button bounds: Pause / SETTINGS
+PASS Pointer hit: Pause / SETTINGS
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Clickable: SETTINGS
+PASS Settings retains pause
+PASS Escape closes settings first
+PASS Clickable: CONTINUE
+PASS Continue restores controls
+PASS Existing goal completes
+PASS One EventSystem: Complete
+PASS Button bounds: Complete / Lobby
+PASS Pointer hit: Complete / Lobby
+PASS Button bounds: Complete / Next level
+PASS Button bounds: Complete / Retry
+PASS Pointer hit: Complete / Retry
+PASS Original Thaleah: Completion detail
+PASS Text fits: Complete / Completion detail
+PASS Unavailable next level stays disabled
+PASS Clickable: Lobby
+PASS Clickable: Wardrobe
+PASS One EventSystem: Wardrobe
+PASS Button bounds: Wardrobe / Outfit forest
+PASS Pointer hit: Wardrobe / Outfit forest
+PASS Button bounds: Wardrobe / Close
+PASS Pointer hit: Wardrobe / Close
+PASS Button bounds: Wardrobe / Outfit factory
+PASS Pointer hit: Wardrobe / Outfit factory
+PASS Button bounds: Wardrobe / Equip outfit
+PASS Button bounds: Wardrobe / Outfit lava
+PASS Pointer hit: Wardrobe / Outfit lava
+PASS Button bounds: Wardrobe / Back
+PASS Pointer hit: Wardrobe / Back
+PASS Button bounds: Wardrobe / Outfit classic
+PASS Pointer hit: Wardrobe / Outfit classic
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Outfit details
+PASS Text fits: Wardrobe / Outfit details
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Selected outfit
+PASS Text fits: Wardrobe / Selected outfit
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Collection count
+PASS Text fits: Wardrobe / Collection count
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Label
+PASS Text fits: Wardrobe / Label
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Clickable: Outfit forest
+PASS Locked outfit cannot equip
+PASS Clickable: Workshop
+PASS Workshop transition completes
+PASS Workshop cutscene finishes with live UI
+PASS One EventSystem: Workshop
+PASS Button bounds: Workshop / Purchase upgrade
+PASS Button bounds: Workshop / Select Jump
+PASS Pointer hit: Workshop / Select Jump
+PASS Button bounds: Workshop / Exit workshop
+PASS Pointer hit: Workshop / Exit workshop
+PASS Button bounds: Workshop / Select Agility
+PASS Pointer hit: Workshop / Select Agility
+PASS Button bounds: Workshop / Select Speed
+PASS Pointer hit: Workshop / Select Speed
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Selected upgrade
+PASS Text fits: Workshop / Selected upgrade
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Current and next
+PASS Text fits: Workshop / Current and next
+PASS Original Thaleah: Seeds
+PASS Text fits: Workshop / Seeds
+PASS Original Thaleah: Feedback
+PASS Text fits: Workshop / Feedback
+PASS Original Thaleah: Upgrade description
+PASS Text fits: Workshop / Upgrade description
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Price
+PASS Text fits: Workshop / Price
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Unconfigured upgrade price disables purchase
+PASS Workshop transition completes
+PASS Leaving workshop restores input
+PASS Forest uses the shared UI
+PASS Forest does not repeat tutorial controls
+PASS One EventSystem: ForestWarning
+PASS Button bounds: ForestWarning / Pause
+PASS Pointer hit: ForestWarning / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: ForestWarning / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: ForestWarning / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: ForestWarning / Seeds
+PASS Existing pickup context shows E
+PASS One EventSystem: Pickup
+PASS Button bounds: Pickup / Pause
+PASS Pointer hit: Pickup / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Pickup / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Pickup / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Pickup / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Pickup / Action
+PASS Compact context hint: Pickup
+PASS Context hint stays inside screen: Pickup
+PASS Only relevant keys: Pickup
+PASS Key art preserves aspect: Pickup
+PASS Context hint clears button: Pickup / Pause
+PASS Context hint clears player: Pickup
+PASS Original stick pickup works
+PASS Existing held-stick context shows F
+PASS One EventSystem: Throw
+PASS Button bounds: Throw / Pause
+PASS Pointer hit: Throw / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Throw / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Throw / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Throw / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Throw / Action
+PASS Compact context hint: Throw
+PASS Context hint stays inside screen: Throw
+PASS Only relevant keys: Throw
+PASS Key art preserves aspect: Throw
+PASS Context hint clears button: Throw / Pause
+PASS Context hint clears player: Throw
+PASS Original stick throw works
+PASS Throw prompt leaves when stick is released
+PASS Warning expires after its entry event
+PASS One EventSystem: ForestIdle
+PASS Button bounds: ForestIdle / Pause
+PASS Pointer hit: ForestIdle / Pause
+PASS Original Thaleah: Boss health
+PASS Text fits: ForestIdle / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: ForestIdle / Seeds
+PASS Clickable: Pause
+PASS One EventSystem: ForestPause
+PASS Button bounds: ForestPause / CONTINUE
+PASS Pointer hit: ForestPause / CONTINUE
+PASS Button bounds: ForestPause / MAIN MENU
+PASS Pointer hit: ForestPause / MAIN MENU
+PASS Button bounds: ForestPause / RESTART LEVEL
+PASS Pointer hit: ForestPause / RESTART LEVEL
+PASS Button bounds: ForestPause / LOBBY
+PASS Pointer hit: ForestPause / LOBBY
+PASS Button bounds: ForestPause / SETTINGS
+PASS Pointer hit: ForestPause / SETTINGS
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Clickable: RESTART LEVEL
+PASS Restart clears pause
+PASS Resolution (1366, 768)
+PASS One EventSystem: MainMenu
+PASS Button bounds: MainMenu / Exit
+PASS Pointer hit: MainMenu / Exit
+PASS Button bounds: MainMenu / Play
+PASS Pointer hit: MainMenu / Play
+PASS Button bounds: MainMenu / Settings
+PASS Pointer hit: MainMenu / Settings
+PASS Original Thaleah: Tagline
+PASS Text fits: MainMenu / Tagline
+PASS Clickable: Settings
+PASS Master volume applies
+PASS One EventSystem: Settings
+PASS Button bounds: Settings / Back
+PASS Pointer hit: Settings / Back
+PASS Original Thaleah: Volume value
+PASS Text fits: Settings / Volume value
+PASS Original Thaleah: Master volume
+PASS Text fits: Settings / Master volume
+PASS Clickable: Back
+PASS Master volume saves
+PASS Clickable: Play
+PASS Play opens the existing hub
+PASS One EventSystem: Hub
+PASS Button bounds: Hub / WorldMap
+PASS Pointer hit: Hub / WorldMap
+PASS Button bounds: Hub / HubSettings
+PASS Pointer hit: Hub / HubSettings
+PASS Button bounds: Hub / Workshop
+PASS Pointer hit: Hub / Workshop
+PASS Button bounds: Hub / Wardrobe
+PASS Pointer hit: Hub / Wardrobe
+PASS Original Thaleah: Boss health
+PASS Text fits: Hub / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Hub / Seeds
+PASS Hub has no generic controls board
+PASS Existing hub proximity shows E
+PASS One EventSystem: Interact
+PASS Button bounds: Interact / WorldMap
+PASS Pointer hit: Interact / WorldMap
+PASS Button bounds: Interact / HubSettings
+PASS Pointer hit: Interact / HubSettings
+PASS Button bounds: Interact / Workshop
+PASS Pointer hit: Interact / Workshop
+PASS Button bounds: Interact / Wardrobe
+PASS Pointer hit: Interact / Wardrobe
+PASS Original Thaleah: Boss health
+PASS Text fits: Interact / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Interact / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Interact / Action
+PASS Compact context hint: Interact
+PASS Context hint stays inside screen: Interact
+PASS Only relevant keys: Interact
+PASS Key art preserves aspect: Interact
+PASS Context hint clears button: Interact / WorldMap
+PASS Context hint clears button: Interact / HubSettings
+PASS Context hint clears button: Interact / Workshop
+PASS Context hint clears button: Interact / Wardrobe
+PASS Context hint clears player: Interact
+PASS Clickable: WorldMap
+PASS Hub modal owns player input
+PASS One EventSystem: WorldMap
+PASS Button bounds: WorldMap / World forest
+PASS Pointer hit: WorldMap / World forest
+PASS Button bounds: WorldMap / Level 1
+PASS Pointer hit: WorldMap / Level 1
+PASS Button bounds: WorldMap / Play level
+PASS Pointer hit: WorldMap / Play level
+PASS Button bounds: WorldMap / World lava
+PASS Pointer hit: WorldMap / World lava
+PASS Button bounds: WorldMap / Back
+PASS Pointer hit: WorldMap / Back
+PASS Button bounds: WorldMap / World factory
+PASS Pointer hit: WorldMap / World factory
+PASS Button bounds: WorldMap / Close
+PASS Pointer hit: WorldMap / Close
+PASS Button bounds: WorldMap / World meadow
+PASS Pointer hit: WorldMap / World meadow
+PASS Original Thaleah: World details
+PASS Text fits: WorldMap / World details
+PASS Unassigned/locked world cannot launch
+PASS Clickable: Play level
+PASS World map launches configured scene
+PASS One EventSystem: HUD
+PASS Button bounds: HUD / Pause
+PASS Pointer hit: HUD / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: HUD / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: HUD / Boss health
+PASS Original Thaleah: Key separator
+PASS Text fits: HUD / Key separator
+PASS Original Thaleah: Seeds
+PASS Text fits: HUD / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: HUD / Action
+PASS Compact context hint: HUD
+PASS Context hint stays inside screen: HUD
+PASS Only relevant keys: HUD
+PASS Key art preserves aspect: HUD
+PASS Context hint clears button: HUD / Pause
+PASS Context hint clears player: HUD
+PASS Tutorial starts with A / D only
+PASS Existing first obstacle shows SPACE
+PASS One EventSystem: Jump
+PASS Button bounds: Jump / Pause
+PASS Pointer hit: Jump / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Jump / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Jump / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Jump / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Jump / Action
+PASS Compact context hint: Jump
+PASS Context hint stays inside screen: Jump
+PASS Only relevant keys: Jump
+PASS Key art preserves aspect: Jump
+PASS Context hint clears button: Jump / Pause
+PASS Context hint clears player: Jump
+PASS Demonstrated jump dismisses hint
+PASS Safe tutorial runway shows SHIFT
+PASS One EventSystem: Sprint
+PASS Button bounds: Sprint / Pause
+PASS Pointer hit: Sprint / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Sprint / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Sprint / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Sprint / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Sprint / Action
+PASS Compact context hint: Sprint
+PASS Context hint stays inside screen: Sprint
+PASS Only relevant keys: Sprint
+PASS Key art preserves aspect: Sprint
+PASS Context hint clears button: Sprint / Pause
+PASS Context hint clears player: Sprint
+PASS Clickable: Pause
+PASS Pause freezes time
+PASS One EventSystem: Pause
+PASS Button bounds: Pause / CONTINUE
+PASS Pointer hit: Pause / CONTINUE
+PASS Button bounds: Pause / MAIN MENU
+PASS Pointer hit: Pause / MAIN MENU
+PASS Button bounds: Pause / RESTART LEVEL
+PASS Pointer hit: Pause / RESTART LEVEL
+PASS Button bounds: Pause / LOBBY
+PASS Pointer hit: Pause / LOBBY
+PASS Button bounds: Pause / SETTINGS
+PASS Pointer hit: Pause / SETTINGS
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Clickable: SETTINGS
+PASS Settings retains pause
+PASS Escape closes settings first
+PASS Clickable: CONTINUE
+PASS Continue restores controls
+PASS Existing goal completes
+PASS One EventSystem: Complete
+PASS Button bounds: Complete / Lobby
+PASS Pointer hit: Complete / Lobby
+PASS Button bounds: Complete / Next level
+PASS Button bounds: Complete / Retry
+PASS Pointer hit: Complete / Retry
+PASS Original Thaleah: Completion detail
+PASS Text fits: Complete / Completion detail
+PASS Unavailable next level stays disabled
+PASS Clickable: Lobby
+PASS Clickable: Wardrobe
+PASS One EventSystem: Wardrobe
+PASS Button bounds: Wardrobe / Equip outfit
+PASS Button bounds: Wardrobe / Back
+PASS Pointer hit: Wardrobe / Back
+PASS Button bounds: Wardrobe / Outfit classic
+PASS Pointer hit: Wardrobe / Outfit classic
+PASS Button bounds: Wardrobe / Outfit lava
+PASS Pointer hit: Wardrobe / Outfit lava
+PASS Button bounds: Wardrobe / Close
+PASS Pointer hit: Wardrobe / Close
+PASS Button bounds: Wardrobe / Outfit forest
+PASS Pointer hit: Wardrobe / Outfit forest
+PASS Button bounds: Wardrobe / Outfit factory
+PASS Pointer hit: Wardrobe / Outfit factory
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Collection count
+PASS Text fits: Wardrobe / Collection count
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Outfit details
+PASS Text fits: Wardrobe / Outfit details
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Label
+PASS Text fits: Wardrobe / Label
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Selected outfit
+PASS Text fits: Wardrobe / Selected outfit
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Clickable: Outfit forest
+PASS Locked outfit cannot equip
+PASS Clickable: Workshop
+PASS Workshop transition completes
+PASS Workshop cutscene finishes with live UI
+PASS One EventSystem: Workshop
+PASS Button bounds: Workshop / Select Jump
+PASS Pointer hit: Workshop / Select Jump
+PASS Button bounds: Workshop / Select Speed
+PASS Pointer hit: Workshop / Select Speed
+PASS Button bounds: Workshop / Exit workshop
+PASS Pointer hit: Workshop / Exit workshop
+PASS Button bounds: Workshop / Select Agility
+PASS Pointer hit: Workshop / Select Agility
+PASS Button bounds: Workshop / Purchase upgrade
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Feedback
+PASS Text fits: Workshop / Feedback
+PASS Original Thaleah: Price
+PASS Text fits: Workshop / Price
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Current and next
+PASS Text fits: Workshop / Current and next
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Seeds
+PASS Text fits: Workshop / Seeds
+PASS Original Thaleah: Selected upgrade
+PASS Text fits: Workshop / Selected upgrade
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Upgrade description
+PASS Text fits: Workshop / Upgrade description
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Unconfigured upgrade price disables purchase
+PASS Workshop transition completes
+PASS Leaving workshop restores input
+PASS Forest uses the shared UI
+PASS Forest does not repeat tutorial controls
+PASS One EventSystem: ForestWarning
+PASS Button bounds: ForestWarning / Pause
+PASS Pointer hit: ForestWarning / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: ForestWarning / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: ForestWarning / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: ForestWarning / Seeds
+PASS Existing pickup context shows E
+PASS One EventSystem: Pickup
+PASS Button bounds: Pickup / Pause
+PASS Pointer hit: Pickup / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Pickup / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Pickup / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Pickup / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Pickup / Action
+PASS Compact context hint: Pickup
+PASS Context hint stays inside screen: Pickup
+PASS Only relevant keys: Pickup
+PASS Key art preserves aspect: Pickup
+PASS Context hint clears button: Pickup / Pause
+PASS Context hint clears player: Pickup
+PASS Original stick pickup works
+PASS Existing held-stick context shows F
+PASS One EventSystem: Throw
+PASS Button bounds: Throw / Pause
+PASS Pointer hit: Throw / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Throw / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Throw / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Throw / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Throw / Action
+PASS Compact context hint: Throw
+PASS Context hint stays inside screen: Throw
+PASS Only relevant keys: Throw
+PASS Key art preserves aspect: Throw
+PASS Context hint clears button: Throw / Pause
+PASS Context hint clears player: Throw
+PASS Original stick throw works
+PASS Throw prompt leaves when stick is released
+PASS Warning expires after its entry event
+PASS One EventSystem: ForestIdle
+PASS Button bounds: ForestIdle / Pause
+PASS Pointer hit: ForestIdle / Pause
+PASS Original Thaleah: Boss health
+PASS Text fits: ForestIdle / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: ForestIdle / Seeds
+PASS Clickable: Pause
+PASS One EventSystem: ForestPause
+PASS Button bounds: ForestPause / CONTINUE
+PASS Pointer hit: ForestPause / CONTINUE
+PASS Button bounds: ForestPause / MAIN MENU
+PASS Pointer hit: ForestPause / MAIN MENU
+PASS Button bounds: ForestPause / RESTART LEVEL
+PASS Pointer hit: ForestPause / RESTART LEVEL
+PASS Button bounds: ForestPause / LOBBY
+PASS Pointer hit: ForestPause / LOBBY
+PASS Button bounds: ForestPause / SETTINGS
+PASS Pointer hit: ForestPause / SETTINGS
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Clickable: RESTART LEVEL
+PASS Restart clears pause
+PASS Resolution (2560, 1440)
+PASS One EventSystem: MainMenu
+PASS Button bounds: MainMenu / Exit
+PASS Pointer hit: MainMenu / Exit
+PASS Button bounds: MainMenu / Play
+PASS Pointer hit: MainMenu / Play
+PASS Button bounds: MainMenu / Settings
+PASS Pointer hit: MainMenu / Settings
+PASS Original Thaleah: Tagline
+PASS Text fits: MainMenu / Tagline
+PASS Clickable: Settings
+PASS Master volume applies
+PASS One EventSystem: Settings
+PASS Button bounds: Settings / Back
+PASS Pointer hit: Settings / Back
+PASS Original Thaleah: Volume value
+PASS Text fits: Settings / Volume value
+PASS Original Thaleah: Master volume
+PASS Text fits: Settings / Master volume
+PASS Clickable: Back
+PASS Master volume saves
+PASS Clickable: Play
+PASS Play opens the existing hub
+PASS One EventSystem: Hub
+PASS Button bounds: Hub / WorldMap
+PASS Pointer hit: Hub / WorldMap
+PASS Button bounds: Hub / HubSettings
+PASS Pointer hit: Hub / HubSettings
+PASS Button bounds: Hub / Workshop
+PASS Pointer hit: Hub / Workshop
+PASS Button bounds: Hub / Wardrobe
+PASS Pointer hit: Hub / Wardrobe
+PASS Original Thaleah: Boss health
+PASS Text fits: Hub / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Hub / Seeds
+PASS Hub has no generic controls board
+PASS Existing hub proximity shows E
+PASS One EventSystem: Interact
+PASS Button bounds: Interact / WorldMap
+PASS Pointer hit: Interact / WorldMap
+PASS Button bounds: Interact / HubSettings
+PASS Pointer hit: Interact / HubSettings
+PASS Button bounds: Interact / Workshop
+PASS Pointer hit: Interact / Workshop
+PASS Button bounds: Interact / Wardrobe
+PASS Pointer hit: Interact / Wardrobe
+PASS Original Thaleah: Boss health
+PASS Text fits: Interact / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Interact / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Interact / Action
+PASS Compact context hint: Interact
+PASS Context hint stays inside screen: Interact
+PASS Only relevant keys: Interact
+PASS Key art preserves aspect: Interact
+PASS Context hint clears button: Interact / WorldMap
+PASS Context hint clears button: Interact / HubSettings
+PASS Context hint clears button: Interact / Workshop
+PASS Context hint clears button: Interact / Wardrobe
+PASS Context hint clears player: Interact
+PASS Clickable: WorldMap
+PASS Hub modal owns player input
+PASS One EventSystem: WorldMap
+PASS Button bounds: WorldMap / World forest
+PASS Pointer hit: WorldMap / World forest
+PASS Button bounds: WorldMap / Level 1
+PASS Pointer hit: WorldMap / Level 1
+PASS Button bounds: WorldMap / Play level
+PASS Pointer hit: WorldMap / Play level
+PASS Button bounds: WorldMap / World lava
+PASS Pointer hit: WorldMap / World lava
+PASS Button bounds: WorldMap / Back
+PASS Pointer hit: WorldMap / Back
+PASS Button bounds: WorldMap / Close
+PASS Pointer hit: WorldMap / Close
+PASS Button bounds: WorldMap / World meadow
+PASS Pointer hit: WorldMap / World meadow
+PASS Button bounds: WorldMap / World factory
+PASS Pointer hit: WorldMap / World factory
+PASS Original Thaleah: World details
+PASS Text fits: WorldMap / World details
+PASS Unassigned/locked world cannot launch
+PASS Clickable: Play level
+PASS World map launches configured scene
+PASS One EventSystem: HUD
+PASS Button bounds: HUD / Pause
+PASS Pointer hit: HUD / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: HUD / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: HUD / Boss health
+PASS Original Thaleah: Key separator
+PASS Text fits: HUD / Key separator
+PASS Original Thaleah: Seeds
+PASS Text fits: HUD / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: HUD / Action
+PASS Compact context hint: HUD
+PASS Context hint stays inside screen: HUD
+PASS Only relevant keys: HUD
+PASS Key art preserves aspect: HUD
+PASS Context hint clears button: HUD / Pause
+PASS Context hint clears player: HUD
+PASS Tutorial starts with A / D only
+PASS Existing first obstacle shows SPACE
+PASS One EventSystem: Jump
+PASS Button bounds: Jump / Pause
+PASS Pointer hit: Jump / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Jump / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Jump / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Jump / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Jump / Action
+PASS Compact context hint: Jump
+PASS Context hint stays inside screen: Jump
+PASS Only relevant keys: Jump
+PASS Key art preserves aspect: Jump
+PASS Context hint clears button: Jump / Pause
+PASS Context hint clears player: Jump
+PASS Demonstrated jump dismisses hint
+PASS Safe tutorial runway shows SHIFT
+PASS One EventSystem: Sprint
+PASS Button bounds: Sprint / Pause
+PASS Pointer hit: Sprint / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Sprint / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Sprint / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Sprint / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Sprint / Action
+PASS Compact context hint: Sprint
+PASS Context hint stays inside screen: Sprint
+PASS Only relevant keys: Sprint
+PASS Key art preserves aspect: Sprint
+PASS Context hint clears button: Sprint / Pause
+PASS Context hint clears player: Sprint
+PASS Clickable: Pause
+PASS Pause freezes time
+PASS One EventSystem: Pause
+PASS Button bounds: Pause / CONTINUE
+PASS Pointer hit: Pause / CONTINUE
+PASS Button bounds: Pause / MAIN MENU
+PASS Pointer hit: Pause / MAIN MENU
+PASS Button bounds: Pause / RESTART LEVEL
+PASS Pointer hit: Pause / RESTART LEVEL
+PASS Button bounds: Pause / LOBBY
+PASS Pointer hit: Pause / LOBBY
+PASS Button bounds: Pause / SETTINGS
+PASS Pointer hit: Pause / SETTINGS
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Original Thaleah: Label
+PASS Text fits: Pause / Label
+PASS Clickable: SETTINGS
+PASS Settings retains pause
+PASS Escape closes settings first
+PASS Clickable: CONTINUE
+PASS Continue restores controls
+PASS Existing goal completes
+PASS One EventSystem: Complete
+PASS Button bounds: Complete / Lobby
+PASS Pointer hit: Complete / Lobby
+PASS Button bounds: Complete / Next level
+PASS Button bounds: Complete / Retry
+PASS Pointer hit: Complete / Retry
+PASS Original Thaleah: Completion detail
+PASS Text fits: Complete / Completion detail
+PASS Unavailable next level stays disabled
+PASS Clickable: Lobby
+PASS Clickable: Wardrobe
+PASS One EventSystem: Wardrobe
+PASS Button bounds: Wardrobe / Back
+PASS Pointer hit: Wardrobe / Back
+PASS Button bounds: Wardrobe / Outfit classic
+PASS Pointer hit: Wardrobe / Outfit classic
+PASS Button bounds: Wardrobe / Outfit factory
+PASS Pointer hit: Wardrobe / Outfit factory
+PASS Button bounds: Wardrobe / Equip outfit
+PASS Button bounds: Wardrobe / Close
+PASS Pointer hit: Wardrobe / Close
+PASS Button bounds: Wardrobe / Outfit forest
+PASS Pointer hit: Wardrobe / Outfit forest
+PASS Button bounds: Wardrobe / Outfit lava
+PASS Pointer hit: Wardrobe / Outfit lava
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Outfit details
+PASS Text fits: Wardrobe / Outfit details
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Selected outfit
+PASS Text fits: Wardrobe / Selected outfit
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Original Thaleah: Collection count
+PASS Text fits: Wardrobe / Collection count
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Name
+PASS Text fits: Wardrobe / Name
+PASS Original Thaleah: Label
+PASS Text fits: Wardrobe / Label
+PASS Original Thaleah: Description
+PASS Text fits: Wardrobe / Description
+PASS Original Thaleah: State
+PASS Text fits: Wardrobe / State
+PASS Clickable: Outfit forest
+PASS Locked outfit cannot equip
+PASS Clickable: Workshop
+PASS Workshop transition completes
+PASS Workshop cutscene finishes with live UI
+PASS One EventSystem: Workshop
+PASS Button bounds: Workshop / Exit workshop
+PASS Pointer hit: Workshop / Exit workshop
+PASS Button bounds: Workshop / Purchase upgrade
+PASS Button bounds: Workshop / Select Speed
+PASS Pointer hit: Workshop / Select Speed
+PASS Button bounds: Workshop / Select Jump
+PASS Pointer hit: Workshop / Select Jump
+PASS Button bounds: Workshop / Select Agility
+PASS Pointer hit: Workshop / Select Agility
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Current and next
+PASS Text fits: Workshop / Current and next
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Feedback
+PASS Text fits: Workshop / Feedback
+PASS Original Thaleah: Price
+PASS Text fits: Workshop / Price
+PASS Original Thaleah: Level
+PASS Text fits: Workshop / Level
+PASS Original Thaleah: Seeds
+PASS Text fits: Workshop / Seeds
+PASS Original Thaleah: Selected upgrade
+PASS Text fits: Workshop / Selected upgrade
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Original Thaleah: Upgrade description
+PASS Text fits: Workshop / Upgrade description
+PASS Original Thaleah: Label
+PASS Text fits: Workshop / Label
+PASS Unconfigured upgrade price disables purchase
+PASS Workshop transition completes
+PASS Leaving workshop restores input
+PASS Forest uses the shared UI
+PASS Forest does not repeat tutorial controls
+PASS One EventSystem: ForestWarning
+PASS Button bounds: ForestWarning / Pause
+PASS Pointer hit: ForestWarning / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: ForestWarning / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: ForestWarning / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: ForestWarning / Seeds
+PASS Existing pickup context shows E
+PASS One EventSystem: Pickup
+PASS Button bounds: Pickup / Pause
+PASS Pointer hit: Pickup / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Pickup / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Pickup / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Pickup / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Pickup / Action
+PASS Compact context hint: Pickup
+PASS Context hint stays inside screen: Pickup
+PASS Only relevant keys: Pickup
+PASS Key art preserves aspect: Pickup
+PASS Context hint clears button: Pickup / Pause
+PASS Context hint clears player: Pickup
+PASS Original stick pickup works
+PASS Existing held-stick context shows F
+PASS One EventSystem: Throw
+PASS Button bounds: Throw / Pause
+PASS Pointer hit: Throw / Pause
+PASS Original Thaleah: Warning
+PASS Text fits: Throw / Warning
+PASS Original Thaleah: Boss health
+PASS Text fits: Throw / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: Throw / Seeds
+PASS Original Thaleah: Action
+PASS Text fits: Throw / Action
+PASS Compact context hint: Throw
+PASS Context hint stays inside screen: Throw
+PASS Only relevant keys: Throw
+PASS Key art preserves aspect: Throw
+PASS Context hint clears button: Throw / Pause
+PASS Context hint clears player: Throw
+PASS Original stick throw works
+PASS Throw prompt leaves when stick is released
+PASS Warning expires after its entry event
+PASS One EventSystem: ForestIdle
+PASS Button bounds: ForestIdle / Pause
+PASS Pointer hit: ForestIdle / Pause
+PASS Original Thaleah: Boss health
+PASS Text fits: ForestIdle / Boss health
+PASS Original Thaleah: Seeds
+PASS Text fits: ForestIdle / Seeds
+PASS Clickable: Pause
+PASS One EventSystem: ForestPause
+PASS Button bounds: ForestPause / CONTINUE
+PASS Pointer hit: ForestPause / CONTINUE
+PASS Button bounds: ForestPause / MAIN MENU
+PASS Pointer hit: ForestPause / MAIN MENU
+PASS Button bounds: ForestPause / RESTART LEVEL
+PASS Pointer hit: ForestPause / RESTART LEVEL
+PASS Button bounds: ForestPause / LOBBY
+PASS Pointer hit: ForestPause / LOBBY
+PASS Button bounds: ForestPause / SETTINGS
+PASS Pointer hit: ForestPause / SETTINGS
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Original Thaleah: Label
+PASS Text fits: ForestPause / Label
+PASS Clickable: RESTART LEVEL
+PASS Restart clears pause

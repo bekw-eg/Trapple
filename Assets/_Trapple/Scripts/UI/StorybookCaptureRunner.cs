@@ -73,15 +73,35 @@ namespace Trapple.UI
                 Check(Mathf.Approximately(PlayerPrefs.GetFloat(UISettingsPanel.VolumeKey),.37f),"Master volume saves");
                 Click("Play"); yield return new WaitForSecondsRealtime(.6f);
                 Check(SceneManager.GetActiveScene().path==HubSceneFlowController.HubScenePath,"Play opens the existing hub");
-                yield return Capture(size,"Hub"); Click("WorldMap"); yield return null;
+                yield return Capture(size,"Hub");
+                Check(!FindAnyObjectByType<ControlHintView>(FindObjectsInactive.Include).gameObject.activeSelf,"Hub has no generic controls board");
+                var hubActor=FindAnyObjectByType<PlayerController>(); var hubBody=hubActor.GetComponent<Rigidbody2D>();
+                Vector3 hubPosition=hubActor.transform.position;
+                var wardrobeDoor=FindObjectsByType<HubInteractable>().First(door=>door.Screen==HubScreen.Wardrobe);
+                hubBody.position=wardrobeDoor.transform.position; Physics2D.SyncTransforms(); yield return null; yield return null;
+                Check(FindAnyObjectByType<ControlHintView>().Current==ControlHint.Interact,"Existing hub proximity shows E");
+                yield return Capture(size,"Interact"); hubBody.position=hubPosition; Physics2D.SyncTransforms(); yield return null;
+                Click("WorldMap"); yield return null;
                 var hub=FindAnyObjectByType<HubUIController>(); var player=FindAnyObjectByType<PlayerController>();
                 Check(hub.CurrentScreen==HubScreen.Worlds && !player.ControlEnabled && Time.timeScale==1,"Hub modal owns player input");
                 yield return Capture(size,"WorldMap");
-                var map=FindAnyObjectByType<WorldMapPanelUI>(); map.SelectWorld(1); yield return null;
+                var map=FindAnyObjectByType<WorldMapPanelUI>(); map.SelectWorld(2); yield return null;
                 Check(!FindButton("Play level").interactable,"Unassigned/locked world cannot launch");
                 map.SelectWorld(0); yield return null; Click("Play level"); yield return new WaitForSecondsRealtime(.4f);
                 Check(SceneManager.GetActiveScene().path==GameManager.TutorialScene,"World map launches configured scene");
-                yield return Capture(size,"HUD"); Click("Pause"); yield return null;
+                yield return Capture(size,"HUD");
+                Check(FindAnyObjectByType<ControlHintView>().Current==ControlHint.Move,"Tutorial starts with A / D only");
+                var tutorialActor=FindAnyObjectByType<PlayerController>(); var tutorialBody=tutorialActor.GetComponent<Rigidbody2D>();
+                Vector3 tutorialPosition=tutorialActor.transform.position; tutorialBody.simulated=false;
+                tutorialActor.transform.position=new Vector3(2,1,0); yield return null; yield return null;
+                Check(FindAnyObjectByType<ControlHintView>().Current==ControlHint.Jump,"Existing first obstacle shows SPACE");
+                yield return Capture(size,"Jump"); tutorialBody.linearVelocity=Vector2.up*2; yield return null; yield return null;
+                Check(!FindAnyObjectByType<ControlHintView>(FindObjectsInactive.Include).gameObject.activeSelf,"Demonstrated jump dismisses hint");
+                tutorialBody.linearVelocity=Vector2.zero; tutorialActor.transform.position=new Vector3(16,1,0); yield return null; yield return null;
+                Check(FindAnyObjectByType<ControlHintView>().Current==ControlHint.Sprint,"Safe tutorial runway shows SHIFT");
+                yield return Capture(size,"Sprint");
+                tutorialActor.transform.position=tutorialPosition; tutorialBody.simulated=true; yield return null;
+                Click("Pause"); yield return null;
                 Check(GameManager.Instance.State==GameState.Paused && Time.timeScale==0,"Pause freezes time");
                 yield return Capture(size,"Pause"); Click("SETTINGS"); yield return null;
                 Check(FindAnyObjectByType<GameInterface>().SettingsOpen && Time.timeScale==0,"Settings retains pause");
@@ -106,6 +126,23 @@ namespace Trapple.UI
                 Check(FindAnyObjectByType<PlayerController>().ControlEnabled,"Leaving workshop restores input");
                 GameManager.Instance.LoadScene(Trapple.DeceptiveForest.ForestGoal.ScenePath); yield return new WaitForSecondsRealtime(.35f);
                 Check(FindAnyObjectByType<Trapple.DeceptiveForest.ForestUI>().Root.resolvedStyle.display==UnityEngine.UIElements.DisplayStyle.None,"Forest uses the shared UI");
+                Check(!FindAnyObjectByType<ControlHintView>(FindObjectsInactive.Include).gameObject.activeSelf,"Forest does not repeat tutorial controls");
+                yield return Capture(size,"ForestWarning");
+                var forestUI=typeof(Trapple.DeceptiveForest.ForestUI);
+                const System.Reflection.BindingFlags flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic;
+                forestUI.GetField("pickupShown",flags).SetValue(null,false); forestUI.GetField("throwShown",flags).SetValue(null,false);
+                var forestActor=FindAnyObjectByType<PlayerController>(); var forestBody=forestActor.GetComponent<Rigidbody2D>();
+                var stick=FindObjectsByType<Trapple.DeceptiveForest.ForestStick>().OrderBy(item=>item.transform.position.x).First();
+                forestBody.simulated=false; forestActor.transform.position=stick.transform.position+Vector3.left*.6f; Physics2D.SyncTransforms();
+                yield return null; yield return null;
+                Check(FindAnyObjectByType<ControlHintView>().Current==ControlHint.Interact,"Existing pickup context shows E");
+                yield return Capture(size,"Pickup"); Check(stick.TryPickup(),"Original stick pickup works"); yield return null; yield return null;
+                Check(FindAnyObjectByType<ControlHintView>().Current==ControlHint.Throw,"Existing held-stick context shows F");
+                yield return Capture(size,"Throw"); Check(stick.TryThrow(),"Original stick throw works"); yield return null; yield return null;
+                Check(!FindAnyObjectByType<ControlHintView>(FindObjectsInactive.Include).gameObject.activeSelf,"Throw prompt leaves when stick is released");
+                yield return new WaitForSecondsRealtime(5.2f);
+                Check(!FindAnyObjectByType<TimedNotice>(FindObjectsInactive.Include).IsVisible,"Warning expires after its entry event");
+                yield return Capture(size,"ForestIdle");
                 Click("Pause"); yield return null; yield return Capture(size,"ForestPause");
                 Click("RESTART LEVEL"); yield return new WaitForSecondsRealtime(.35f);
                 Check(Time.timeScale==1 && GameManager.Instance.State==GameState.Playing,"Restart clears pause");
@@ -145,6 +182,29 @@ namespace Trapple.UI
             {
                 Check(text.font!=null && text.font.name.Contains("Thaleah"),"Original Thaleah: "+text.name);
                 Check(!text.isTextOverflowing,"Text fits: "+name+" / "+text.name);
+            }
+            var hint=FindAnyObjectByType<ControlHintView>();
+            if(hint!=null)
+            {
+                var hintRect=(RectTransform)hint.transform;
+                Check(hintRect.rect.width<=500 && Mathf.Abs(hintRect.rect.height-80)<1,"Compact context hint: "+name);
+                Vector3[] corners=new Vector3[4]; hintRect.GetWorldCorners(corners);
+                Check(corners.All(p=>p.x>=0 && p.y>=0 && p.x<=Screen.width && p.y<=Screen.height),"Context hint stays inside screen: "+name);
+                var keyImages=hint.GetComponentsInChildren<Image>().Where(img=>img.sprite!=null).ToArray();
+                Check(keyImages.Length==(hint.Current==ControlHint.Move?2:1),"Only relevant keys: "+name);
+                Check(keyImages.All(img=>img.preserveAspect),"Key art preserves aspect: "+name);
+                var hintBounds=new Rect(corners[0],corners[2]-corners[0]);
+                foreach(var button in buttons.Where(value=>value.isActiveAndEnabled))
+                {
+                    Vector3[] buttonCorners=new Vector3[4]; ((RectTransform)button.transform).GetWorldCorners(buttonCorners);
+                    Check(!hintBounds.Overlaps(new Rect(buttonCorners[0],buttonCorners[2]-buttonCorners[0])),"Context hint clears button: "+name+" / "+button.name);
+                }
+                var actor=FindAnyObjectByType<PlayerController>(); var camera=Camera.main;
+                if(actor!=null && camera!=null)
+                {
+                    var actorRect=new Rect((Vector2)camera.WorldToScreenPoint(actor.transform.position)-Vector2.one*32,Vector2.one*64);
+                    Check(!actorRect.Overlaps(new Rect(corners[0],corners[2]-corners[0])),"Context hint clears player: "+name);
+                }
             }
             yield return new WaitForEndOfFrame();
             Debug.developerConsoleVisible=false;

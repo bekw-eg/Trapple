@@ -57,6 +57,7 @@ namespace Trapple.Editor
                     }
                     ScriptableObject.CreateInstance<TestRunnerApi>().Execute(new ExecutionSettings(filter));
                 }
+                else if(command=="composition") StorybookUIBuilder.FixComposition();
                 else StorybookUIBuilder.Build();
             }
             catch(Exception exception)

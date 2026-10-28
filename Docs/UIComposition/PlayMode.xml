@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="8" result="Passed" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-27 18:19:41Z" end-time="2026-10-27 18:19:59Z" duration="17.4219644">
+  <test-suite type="TestSuite" id="1112" name="Trapple" fullname="Trapple" runstate="Runnable" testcasecount="94" result="Passed" start-time="2026-10-27 18:19:41Z" end-time="2026-10-27 18:19:59Z" duration="17.421964" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1108" name="Trapple.PlayModeTests.dll" fullname="C:/Users/zdeat/OneDrive/Документы/ChatGPT/Trapple/Library/ScriptAssemblies/Trapple.PlayModeTests.dll" runstate="Runnable" testcasecount="94" result="Passed" start-time="2026-10-27 18:19:41Z" end-time="2026-10-27 18:19:59Z" duration="17.405931" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="8304" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1109" name="Trapple" fullname="Trapple" runstate="Runnable" testcasecount="94" result="Passed" start-time="2026-10-27 18:19:41Z" end-time="2026-10-27 18:19:59Z" duration="17.401645" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1110" name="Tests" fullname="Trapple.Tests" runstate="Runnable" testcasecount="94" result="Passed" start-time="2026-10-27 18:19:41Z" end-time="2026-10-27 18:19:59Z" duration="17.399504" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1068" name="StorybookUITests" fullname="Trapple.Tests.StorybookUITests" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-27 18:19:41Z" end-time="2026-10-27 18:19:59Z" duration="17.395240" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1070" name="LevelWarningFadesExpiresAndDoesNotAgeDuringPause" fullname="Trapple.Tests.StorybookUITests.LevelWarningFadesExpiresAndDoesNotAgeDuringPause" methodname="LevelWarningFadesExpiresAndDoesNotAgeDuringPause" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" seed="602943271" result="Passed" start-time="2026-10-27 18:19:41Z" end-time="2026-10-27 18:19:44Z" duration="2.394480" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1073" name="MasterVolumeSliderReceivesPointerInputAndPersists" fullname="Trapple.Tests.StorybookUITests.MasterVolumeSliderReceivesPointerInputAndPersists" methodname="MasterVolumeSliderReceivesPointerInputAndPersists" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" seed="532116745" result="Passed" start-time="2026-10-27 18:19:44Z" end-time="2026-10-27 18:19:44Z" duration="0.178767" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1071" name="MenuPlayUsesExistingSceneSequenceAndOnlyOneEventSystem" fullname="Trapple.Tests.StorybookUITests.MenuPlayUsesExistingSceneSequenceAndOnlyOneEventSystem" methodname="MenuPlayUsesExistingSceneSequenceAndOnlyOneEventSystem" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" seed="1986083778" result="Passed" start-time="2026-10-27 18:19:44Z" end-time="2026-10-27 18:19:44Z" duration="0.408405" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1072" name="PauseSettingsBackAndResumePreserveTimeAndSavedVolume" fullname="Trapple.Tests.StorybookUITests.PauseSettingsBackAndResumePreserveTimeAndSavedVolume" methodname="PauseSettingsBackAndResumePreserveTimeAndSavedVolume" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" seed="832351700" result="Passed" start-time="2026-10-27 18:19:44Z" end-time="2026-10-27 18:19:45Z" duration="0.396321" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1069" name="TutorialHintsFollowExistingCourseAndHideInModals" fullname="Trapple.Tests.StorybookUITests.TutorialHintsFollowExistingCourseAndHideInModals" methodname="TutorialHintsFollowExistingCourseAndHideInModals" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" seed="1940492961" result="Passed" start-time="2026-10-27 18:19:45Z" end-time="2026-10-27 18:19:45Z" duration="0.444446" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1075" name="WardrobeUsesExistingUnlockAndEquipServices" fullname="Trapple.Tests.StorybookUITests.WardrobeUsesExistingUnlockAndEquipServices" methodname="WardrobeUsesExistingUnlockAndEquipServices" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" seed="43602242" result="Passed" start-time="2026-10-27 18:19:45Z" end-time="2026-10-27 18:19:46Z" duration="0.418430" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1076" name="WorkshopPreservesCutsceneAndDebitsOnlyConfiguredPurchases" fullname="Trapple.Tests.StorybookUITests.WorkshopPreservesCutsceneAndDebitsOnlyConfiguredPurchases" methodname="WorkshopPreservesCutsceneAndDebitsOnlyConfiguredPurchases" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" seed="1060963233" result="Passed" start-time="2026-10-27 18:19:46Z" end-time="2026-10-27 18:19:58Z" duration="12.573519" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1074" name="WorldSelectionReflectsDataAndNeverUnlocksOrLaunchesMissingLevels" fullname="Trapple.Tests.StorybookUITests.WorldSelectionReflectsDataAndNeverUnlocksOrLaunchesMissingLevels" methodname="WorldSelectionReflectsDataAndNeverUnlocksOrLaunchesMissingLevels" classname="Trapple.Tests.StorybookUITests" runstate="Runnable" seed="266707224" result="Passed" start-time="2026-10-27 18:19:58Z" end-time="2026-10-27 18:19:59Z" duration="0.558151" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: Logs/storybook-play-tests.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

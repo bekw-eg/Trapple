@@ -29,6 +29,37 @@ namespace Trapple.Editor
         private static TMP_FontAsset font;
         private static readonly Color Cream=new Color(1,.93f,.69f);
 
+        [MenuItem("Tools/Trapple/Fix UI composition")]
+        public static void FixComposition()
+        {
+            if(EditorApplication.isPlaying) throw new InvalidOperationException("Exit Play Mode first.");
+            var setup=EditorSceneManager.GetSceneManagerSetup();
+            if(setup.Any(scene=>SceneManager.GetSceneByPath(scene.path).isDirty))
+                throw new InvalidOperationException("Save the open scene before rebuilding UI assets.");
+            try
+            {
+                font=AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(Root+"Fonts/Thaleah SDF.asset");
+                EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
+                BuildGameInterface(); BuildHubInterface(); UpdateWorkshop(); ConfigureTutorialHints();
+                AssetDatabase.SaveAssets();
+                File.WriteAllText("Temp/storybook-build-result.txt","SUCCESS: UI composition\n"+DateTime.UtcNow.ToString("O"));
+            }
+            finally { EditorSceneManager.RestoreSceneManagerSetup(setup); }
+        }
+
+        private static void ConfigureTutorialHints()
+        {
+            var scene=EditorSceneManager.OpenScene(GameManager.TutorialScene,OpenSceneMode.Single);
+            var source=Object.FindAnyObjectByType<TutorialControlHints>();
+            if(source==null) source=new GameObject("Tutorial control hints").AddComponent<TutorialControlHints>();
+            source.Configure(Object.FindAnyObjectByType<Trapple.Player.PlayerController>(),new[] {
+                new TutorialControlHints.Region {hint=ControlHint.Move,horizontalRange=new Vector2(-4,1.5f)},
+                new TutorialControlHints.Region {hint=ControlHint.Jump,horizontalRange=new Vector2(1.5f,9)},
+                new TutorialControlHints.Region {hint=ControlHint.Sprint,horizontalRange=new Vector2(14,19)}
+            });
+            EditorUtility.SetDirty(source); EditorSceneManager.SaveScene(scene);
+        }
+
         [MenuItem("Tools/Trapple/Build Storybook UI")]
         public static void Build()
         {
@@ -40,7 +71,7 @@ namespace Trapple.Editor
                 Directory.CreateDirectory(Root+"Prefabs"); Directory.CreateDirectory("Assets/_Trapple/Resources/Storybook");
                 AssetDatabase.Refresh(); ImportSprites(); font=CreateFont();
                 EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
-                BuildTemplates(); BuildGameInterface(); BuildHubInterface(); UpdateWorkshop();
+                BuildTemplates(); BuildGameInterface(); BuildHubInterface(); UpdateWorkshop(); ConfigureTutorialHints();
                 foreach(string path in new[]{HubSceneFlowController.HubScenePath,TrappleUIManager.ScenePath})
                 {
                     var scene=EditorSceneManager.OpenScene(path,OpenSceneMode.Single);
@@ -149,24 +180,59 @@ namespace Trapple.Editor
             var itemSlot=Picture("Held item",hud,new Rect(300,30,88,88),Sprite("Wardrobe/Slot"));
             view.SetHeldItem(Picture("Item icon",itemSlot.transform,new Rect(18,18,52,52),null));
             controls[12]=Button("Pause",hud,new Rect(1797,30,88,88),"Icons/Pause");
+            Anchor((RectTransform)controls[12].transform,new Vector2(1,1),new Vector2(1,1),new Vector2(-35,-30));
             var shortcuts=Rect("Hub shortcuts",hud,new Rect(400,22,1120,98));
             string[] tabs={"WorldMap","Workshop","Wardrobe","HubSettings"};
             for(int i=0;i<4;i++) controls[13+i]=Button(tabs[i],shortcuts,new Rect(i*280,0,265,98),"Buttons/"+tabs[i]);
+            Anchor(shortcuts,new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-22));
             var boss=Label("Boss health",hud,new Rect(440,125,1040,56),"",32);
-            var hints=Picture("Movement hints",hud,new Rect(480,895,960,135),Sprite("Panels/Card"));
-            hints.type=Image.Type.Sliced;
-            string[] keys={"A","D","Left","Right","Space","Shift","Esc"};
-            for(int i=0;i<keys.Length;i++) Picture(keys[i],hints.transform,new Rect(40+i*126,18,110,60),Sprite("HUD/"+keys[i]));
-            var hint=Label("Hint",hints.transform,new Rect(80,80,800,40),"WATCH YOUR STEP",27);
-            var prompt=Picture("Interaction prompt",hud,new Rect(660,780,600,110),Sprite("Panels/Small")); prompt.type=Image.Type.Sliced;
-            var key=Picture("Interaction key",prompt.transform,new Rect(40,17,75,75),Sprite("HUD/E"));
-            var promptText=Label("Prompt",prompt.transform,new Rect(125,20,405,65),"",30);
-            view.Configure(new[]{menu.gameObject,pause.gameObject,complete.gameObject,settings.gameObject,hud.gameObject,hints.gameObject,shortcuts.gameObject,prompt.gameObject},
-                new TMP_Text[]{seeds,hint,promptText,boss,detail},key,Sprite("HUD/E"),Sprite("HUD/F"),controls);
+            Anchor(boss.rectTransform,new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-125));
+            var hint=BuildControlHint(hud);
+            var warning=HintBacking("Level notice",hud,new Vector2(400,68),128);
+            var warningText=Label("Warning",warning,new Rect(16,10,368,48),"WATCH YOUR STEP",32);
+            warningText.fontSize=44; warningText.textWrappingMode=TextWrappingModes.NoWrap;
+            var notice=warning.gameObject.AddComponent<TimedNotice>();
+            notice.Configure(warning.gameObject.AddComponent<CanvasGroup>(),warningText);
+            view.Configure(new[]{menu.gameObject,pause.gameObject,complete.gameObject,settings.gameObject,hud.gameObject,shortcuts.gameObject},
+                new TMP_Text[]{seeds,boss,detail},hint,notice,controls);
             // Runtime binding is in Awake; no duplicate persistent and runtime listeners.
             foreach(var button in controls)
                 while(button.onClick.GetPersistentEventCount()>0) UnityEventTools.RemovePersistentListener(button.onClick,0);
             PrefabUtility.SaveAsPrefabAsset(canvas.gameObject,InterfacePath); Object.DestroyImmediate(canvas.gameObject);
+        }
+
+        private static ControlHintView BuildControlHint(Transform parent)
+        {
+            var root=HintBacking("Context control hint",parent,new Vector2(360,80),32);
+            var layout=root.gameObject.AddComponent<HorizontalLayoutGroup>();
+            layout.padding=new RectOffset(16,16,16,16); layout.spacing=12; layout.childAlignment=TextAnchor.MiddleCenter;
+            layout.childControlWidth=layout.childControlHeight=true;
+            layout.childForceExpandWidth=layout.childForceExpandHeight=false;
+            root.gameObject.AddComponent<ContentSizeFitter>().horizontalFit=ContentSizeFitter.FitMode.PreferredSize;
+            var first=Picture("Primary key",root,new Rect(0,0,48,48),Sprite("HUD/A"));
+            HintElement(first.gameObject,48);
+            var slash=Label("Key separator",root,new Rect(0,0,18,48),"/",30); slash.fontSize=40;
+            HintElement(slash.gameObject,18);
+            var second=Picture("Secondary key",root,new Rect(0,0,48,48),Sprite("HUD/D"));
+            HintElement(second.gameObject,48);
+            var caption=Label("Action",root,new Rect(0,0,110,48),"MOVE",36);
+            caption.fontSize=50; caption.textWrappingMode=TextWrappingModes.NoWrap;
+            caption.alignment=TextAlignmentOptions.MidlineLeft; HintElement(caption.gameObject,110);
+            var view=root.gameObject.AddComponent<ControlHintView>();
+            view.Configure(first,second,slash,caption,new[]{Sprite("HUD/A"),Sprite("HUD/D"),Sprite("HUD/Space"),Sprite("HUD/Shift"),Sprite("HUD/E"),Sprite("HUD/F")});
+            view.Show(ControlHint.None); return view;
+        }
+        private static void HintElement(GameObject value,float width)
+        {
+            var item=value.AddComponent<LayoutElement>(); item.preferredWidth=width; item.preferredHeight=48;
+        }
+        private static RectTransform HintBacking(string name,Transform parent,Vector2 size,float top)
+        {
+            var image=Picture(name,parent,new Rect(0,0,size.x,size.y),null);
+            image.color=new Color(.055f,.085f,.035f,.9f);
+            var edge=image.gameObject.AddComponent<Outline>(); edge.effectColor=new Color(.7f,.46f,.16f,.65f); edge.effectDistance=new Vector2(1,-1);
+            Anchor(image.rectTransform,new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-top));
+            return image.rectTransform;
         }
         private static void BuildHubInterface()
         {
@@ -222,11 +288,11 @@ namespace Trapple.Editor
             var rows=new List<SkinItemUI>();
             for(int i=0;i<config.cosmetics.Length;i++)
             {
-                var def=config.cosmetics[i]; var button=Template("WardrobeSlot",page,new Rect(770+(i%2)*360,280+(i/2)*310,220,220)); button.name="Outfit "+def.id;
-                var selected=Picture("Selection",button.transform,new Rect(0,0,220,220),Sprite("Wardrobe/Selected")); selected.raycastTarget=false;
-                var icon=Picture("Outfit",button.transform,new Rect(50,40,120,120),def.previewSprite!=null?def.previewSprite:def.sprite); icon.color=def.tint;
-                var title=Label("Name",page,new Rect(725+(i%2)*360,508+(i/2)*310,310,40),"",25);
-                var state=Label("State",button.transform,new Rect(20,258,180,32),"",22);
+                var def=config.cosmetics[i]; var button=Template("WardrobeSlot",page,new Rect(800+(i%2)*360,300+(i/2)*280,190,190)); button.name="Outfit "+def.id;
+                var selected=Picture("Selection",button.transform,new Rect(0,0,190,190),Sprite("Wardrobe/Selected")); selected.raycastTarget=false;
+                var icon=Picture("Outfit",button.transform,new Rect(40,35,110,110),def.previewSprite!=null?def.previewSprite:def.sprite); icon.color=def.tint;
+                var title=Label("Name",page,new Rect(740+(i%2)*360,494+(i/2)*280,310,40),"",25);
+                var state=Label("State",button.transform,new Rect(5,233,180,32),"",22);
                 var description=Label("Description",button.transform,new Rect(0,0,0,0),"",20);
                 var row=button.gameObject.AddComponent<SkinItemUI>(); row.Configure(def.id,button,title,description,state,selected); rows.Add(row);
                 row.ConfigureAppearance(icon,Sprite("Wardrobe/Slot"),Sprite("Wardrobe/Locked"),Sprite("Wardrobe/Selected"));
@@ -235,7 +301,7 @@ namespace Trapple.Editor
             var name=Label("Selected outfit",page,new Rect(300,620,440,70),"",34);
             var descriptionText=Label("Outfit details",page,new Rect(310,700,420,75),"",26);
             var count=Label("Collection count",page,new Rect(1300,225,220,50),"",30);
-            var equip=Template("SecondaryButton",page,new Rect(345,805,380,100)); equip.name="Equip outfit";
+            var equip=Template("SecondaryButton",page,new Rect(375,790,380,100)); equip.name="Equip outfit";
             var label=equip.GetComponentInChildren<TMP_Text>();
             var panel=page.gameObject.AddComponent<WardrobePanelUI>(); panel.Configure(rows.ToArray(),preview,name,descriptionText,count,equip,label); return panel;
         }
@@ -263,13 +329,13 @@ namespace Trapple.Editor
                     Picture("Stat icon",selections[i].transform,new Rect(65,30,80,80),Sprite("Workshop/"+((UpgradeKind)i)+"Icon"));
                     levels[i]=Label("Level",cards,new Rect(400,443+i*170,400,35),"",28);
                 }
-                var title=Label("Selected upgrade",cards,new Rect(940,290,560,60),"",42);
+                var title=Label("Selected upgrade",cards,new Rect(940,290,400,60),"",42);
                 var description=Label("Upgrade description",cards,new Rect(940,350,560,45),"",23);
                 preview.transform.SetParent(cards,false); Position((RectTransform)preview.transform,new Rect(940,410,548,256));
                 var stats=Label("Current and next",cards,new Rect(950,680,520,90),"",29);
                 var cost=Label("Price",cards,new Rect(950,765,520,50),"",29);
                 var purchase=Template("UpgradeButton",cards,new Rect(1005,820,410,110)); purchase.name="Purchase upgrade";
-                var pips=new Image[3]; for(int i=0;i<3;i++) pips[i]=Picture("Upgrade pip",cards,new Rect(1450+i*35,305,28,28),Sprite("Icons/Seed"));
+                var pips=new Image[3]; for(int i=0;i<3;i++) pips[i]=Picture("Upgrade pip",cards,new Rect(1380+i*34,310,24,24),Sprite("Icons/Seed"));
                 var counter=Picture("Seed counter",surface.transform,new Rect(1570,50,270,100),Sprite("Panels/Small"));
                 var balance=Label("Seeds",counter.transform,new Rect(30,18,210,65),"",34);
                 var feedback=Label("Feedback",cards,new Rect(400,970,1000,65),"",28);
@@ -328,7 +394,7 @@ namespace Trapple.Editor
             Position((RectTransform)go.transform,area);
             foreach(var label in go.GetComponentsInChildren<TMP_Text>(true))
             {
-                Stretch(label.rectTransform); label.rectTransform.offsetMin=new Vector2(55,15); label.rectTransform.offsetMax=new Vector2(-55,-15);
+                Stretch(label.rectTransform); label.rectTransform.offsetMin=new Vector2(85,16); label.rectTransform.offsetMax=new Vector2(-85,-16);
             }
             return go.GetComponent<Button>();
         }
@@ -374,6 +440,8 @@ namespace Trapple.Editor
         }
         private static void Stretch(RectTransform target)
         { target.anchorMin=Vector2.zero; target.anchorMax=Vector2.one; target.offsetMin=target.offsetMax=Vector2.zero; }
+        private static void Anchor(RectTransform target,Vector2 anchor,Vector2 pivot,Vector2 offset)
+        { target.anchorMin=target.anchorMax=anchor; target.pivot=pivot; target.anchoredPosition=offset; }
         private static void EnsureEventSystem()
         { if(Object.FindAnyObjectByType<EventSystem>()==null) new GameObject("EventSystem",typeof(EventSystem),typeof(StandaloneInputModule)); }
     }

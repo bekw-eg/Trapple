@@ -44,6 +44,10 @@ namespace Trapple.Tests
         private static void Capture(string name, int width, int height)
         {
             string folder = Path.Combine(Application.dataPath, "../Docs/OrchardWarden/Images"); Directory.CreateDirectory(folder);
+            CaptureTo(Path.Combine(folder, name + ".png"), width, height);
+        }
+        internal static void CaptureTo(string path, int width, int height)
+        {
             var camera = Camera.main; camera.aspect = (float)width / height;
             var canvases = Object.FindObjectsByType<Canvas>(); var modes = new RenderMode[canvases.Length]; var views = new Camera[canvases.Length];
             for (int i = 0; i < canvases.Length; i++)
@@ -53,7 +57,7 @@ namespace Trapple.Tests
             }
             var target = new RenderTexture(width, height, 24); var texture = new Texture2D(width, height, TextureFormat.RGB24, false); var previous = RenderTexture.active;
             camera.targetTexture = target; Canvas.ForceUpdateCanvases(); camera.Render(); RenderTexture.active = target;
-            texture.ReadPixels(new Rect(0, 0, width, height), 0, 0); texture.Apply(); File.WriteAllBytes(Path.Combine(folder, name + ".png"), texture.EncodeToPNG());
+            texture.ReadPixels(new Rect(0, 0, width, height), 0, 0); texture.Apply(); File.WriteAllBytes(path, texture.EncodeToPNG());
             camera.targetTexture = null; RenderTexture.active = previous;
             for (int i = 0; i < canvases.Length; i++) { canvases[i].renderMode = modes[i]; canvases[i].worldCamera = views[i]; }
             target.Release(); Object.Destroy(target); Object.Destroy(texture);

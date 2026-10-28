@@ -1,0 +1,341 @@
+{
+  "unity": "6000.6.0f1",
+  "branch": "feature/guardian-attack-animation",
+  "aggregation": "Latest result for each unique PlayMode test across the two documented runs",
+  "total": 55,
+  "passed": 54,
+  "failed": 0,
+  "skipped": 1,
+  "tests": [
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.TelegraphPausesAndHurtCancelsTheEntireAttack",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.615303"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.ForestLabelsRemainReadableAndSeparateAtGameWindowSizes(934,524)",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.226931"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.CompletionButtonsReceivePointerAndContinueLaunchesForest",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "1.497737"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.IntroCannotDamageAndFightStartsOnlyOnce",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.222751"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.CaptureAnimatedAttacks",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "8.680431"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.BranchSlamLeavesEnoughTimeToRetreatOutsideItsNearZone",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.852666"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.PhysicalEntranceStartsOnceAndSkipResumesOnlyWhenUnpaused",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.192945"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.DeathNearTimeoutCannotWinAndRetryRestoresCheckpointAndClock",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "1.178843"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.AuthoredProjectileStaysPlayerSizedAcrossFlightImpactAndReuseInBothDirections",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.104802"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPhysicsTests.StickPassesThroughChildHazardWithoutDamagingBossUntilItsBodyIsHit",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.529530"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathWaitsForExistingDelayThenFreezesSimulationAndBlocksOtherMenus",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.129807"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.FortyFiveScaledCombatSecondsRetreatAndPersistTheWorldOnce",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "6.299749"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.NewOrchardArenaReusesAnimatedCombatAndHasNoWeaponsOrLever",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.161725"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnAndHubKeepCurrencyUpgradesAndWorldProgress",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.101009"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.LeverRequiresRangeAndVulnerabilityAndAllowsOneHitPerOpening",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.120410"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.AuthoredGroundBranchesHaveReadableArtworkWithoutAnamorphicFlattening",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.236650"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.RootEmergesFromGroundAndVisibleHitboxGrowsWithIt",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.452880"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ThrowsBothDirectionsRejectsCooldownPauseAndEmptyInventory",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.291819"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DamageVictoryAndTimeoutResolveOnceAndRejectRestart",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.200066"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.ArenaStartsEncounterWithoutReenablingController",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "2.176291"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.HazardCallsRealPlayerDeathAndReloadRestoresTime",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.965646"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.FourEnvironmentalHitsCompleteEncounterAndCancelAllHazards",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.071924"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DirectLevelEntryCanReturnToHubAndExternalTransitionsClearDeathScreen",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.854928"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PatternContainsThreeDistinctWarnedAttacks",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.368684"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.SurvivalRetreatDoesNotRequireAnyDamage",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.168818"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.PauseFreezesSwingAndParticlesAndCancelRemovesAllEffects",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "1.071247"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.OneProjectileCannotDamageBossTwiceThroughDifferentColliders",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.205957"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.IntroAndPauseCannotAdvanceSurvivalAndDamageCannotWin",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.613846"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.EncounterOpensAndClosesVulnerabilityAfterItsAttack",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.721789"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.SlamHasShoulderWindupThenContactAndRecovery",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "1.774397"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnWorksAcrossThreeDeathsAndIgnoresRepeatedClicks",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.100782"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.LeafWavesFlutterWithoutRotatingTheirPhysicsRoot",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.218713"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.ImportantSurvivalTextIsLargeAtUsersWindowSize",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.176383"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.PauseFreezesAttackTimerAndResumeRestoresControl",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.526148"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PredictableLeafStreamCanBeJumpedUsingNormalControllerPhysics",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "2.702345"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathButtonsReceiveRaycastPointerInputWhilePaused",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.537349"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.ForestLabelsRemainReadableAndSeparateAtGameWindowSizes(1280,720)",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.242905"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.LeavingTheTrialClearsCheckpointAndContinueLoadsRealForest",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.496310"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPhysicsTests.LiveLeafColliderCallsRealPlayerDeathAndCancelsCombat",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.487484"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.HeldPuzzleStickHasPriorityOverCombatAmmunition",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.223147"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnReloadsPlayersSceneWhenAnotherSceneIsActive",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.538645"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.AuthoredOrchardAllowsNormalMovementToEvadeEachAttack",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "7.223986"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.HealthRejectsClosedAndInvalidHitsAndDiesOnlyOnce",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.060664"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.CaptureAndCheckResponsiveLayout",
+      "result": "Skipped",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.335988"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.RootWarningCanBeDodgedWithTheProductionJumpAndMovement",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "2.030873"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DeathCancelsCombatWithoutReportingVictory",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.216032"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.AuthoredCombatStickTravelsThroughPhysicsAndHitsGuardianFromBothSides",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.517111"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.EveryAttackTelegraphsBeforeArmingAndCleansUp",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "4.293506"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.DeathDuringIntroReleasesCameraAndNeverStartsTheFight",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.211089"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.MainMenuPlayRestartAndReturnKeepOneManager",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "1.333561"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ACollectedPickupCannotGrantTwiceAndRestoredPickupGrantsNothing",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.226504"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.PhaseTwoStartsStrictlyBelowHalfHealth",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.070510"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.CancelDuringSwingPreventsDelayedDamageAndDebris",
+      "result": "Passed",
+      "source": "Logs/attack-final-playmode.xml",
+      "duration": "0.816366"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathInHubClosesItsModalAndBlocksItsInput",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.523058"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.CapacityAndCheckpointRestoreClampWithoutDuplicatingAmmunition",
+      "result": "Passed",
+      "source": "Logs/attack-playmode.xml",
+      "duration": "0.205237"
+    }
+  ]
+}

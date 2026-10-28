@@ -138,7 +138,7 @@ namespace Trapple.Bosses
                             bodyAngle = -5f * windup; crownAngle = 7f * windup;
                             leftOffset = new Vector3(0f, .25f * windup + tremble, 0f);
                         }
-                        else if (attack == GuardianAttack.RootStrike)
+                        else if (attack == GuardianAttack.RootStrike || attack == GuardianAttack.RootWave)
                         {
                             bodyOffset.y = -.3f * windup;
                             bodyScale = new Vector3(1f + .05f * windup, 1f - .065f * windup, 1f);
@@ -153,6 +153,13 @@ namespace Trapple.Bosses
                             leftAngle = 30f * windup; rightAngle = -40f * windup;
                             crownAngle = 6f * windup; crownOffset.y = .14f * windup;
                         }
+                    }
+                    if (attack == GuardianAttack.BranchRain)
+                    {
+                        leftAngle = -155f * windup; rightAngle = 155f * windup;
+                        bodyOffset.y = .15f * windup; bodyScale.y = 1f + .035f * windup;
+                        crownAngle = Mathf.Sin(age * 22f) * 3f * windup;
+                        eyeOpen = .55f;
                     }
                     break;
                 case GuardianAnimationState.Attack:
@@ -193,7 +200,7 @@ namespace Trapple.Bosses
                             bodyAngle = Mathf.Lerp(-5f, 8f, sweep);
                             crownAngle = Mathf.Lerp(7f, -9f, sweep) + vibration * 2f;
                         }
-                        else if (attack == GuardianAttack.RootStrike)
+                        else if (attack == GuardianAttack.RootStrike || attack == GuardianAttack.RootWave)
                         {
                             leftAngle = Mathf.Lerp(-65f, 16f, sweep); rightAngle = -leftAngle;
                             bodyOffset.y = Mathf.Lerp(-.3f, -.12f, sweep) + vibration * .035f;
@@ -211,6 +218,19 @@ namespace Trapple.Bosses
                             crownAngle = -7f + Mathf.Sin(age * 22f) * 5f;
                             crownOffset = new Vector3(-leafPulse * .14f, leafPulse * .11f, 0f);
                         }
+                    }
+                    if (attack == GuardianAttack.BranchRain)
+                    {
+                        leftAngle = -155f + leafPulse * 38f; rightAngle = 155f - leafPulse * 38f;
+                        bodyOffset.y = .12f - leafPulse * .16f;
+                        bodyAngle = Mathf.Sin(age * 8f) * 1.5f;
+                        crownAngle = Mathf.Sin(age * 18f) * (2f + leafPulse * 3f);
+                    }
+                    else if (attack == GuardianAttack.RootWave)
+                    {
+                        bodyOffset.y = -.08f - leafPulse * .17f;
+                        leftRootAngle = -18f * leafPulse; rightRootAngle = 12f * leafPulse;
+                        crownOffset.y = -.1f * leafPulse;
                     }
                     break;
                 case GuardianAnimationState.Recovery:

@@ -1,5 +1,6 @@
 using TMPro;
 using Trapple.Core;
+using Trapple.Bosses;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,11 +21,18 @@ namespace Trapple.DeceptiveForest
         private Canvas view;
         private Transform inventoryIcon;
         private Transform throwControl;
+        private TMP_Text attackHint;
         private void Start()
         {
             view = GetComponent<Canvas>();
             inventoryIcon = transform.Find("Collected stick");
             throwControl = transform.Find("Throw control");
+            attackHint = Instantiate(timerText, transform);
+            attackHint.name = "Attack advice"; attackHint.fontSize = 64f; attackHint.raycastTarget = false;
+            var hintRect = attackHint.rectTransform;
+            hintRect.anchorMin = hintRect.anchorMax = new Vector2(.5f, 0f);
+            hintRect.anchoredPosition = new Vector2(0f, 75f); hintRect.sizeDelta = new Vector2(1700f, 100f);
+            attackHint.gameObject.SetActive(false);
             continueButton.onClick.AddListener(encounter.Continue);
             hubButton.onClick.AddListener(encounter.GoToHub);
             victory.SetActive(false);
@@ -59,6 +67,10 @@ namespace Trapple.DeceptiveForest
             timerText.color = encounter.TimeRemaining < 10 ? new Color(1, .65f, .38f) : new Color(1, .94f, .75f);
             shownSticks = Mathf.MoveTowards(shownSticks, encounter.Inventory.Count, dt * 14);
             stickText.text = "x " + Mathf.RoundToInt(shownSticks);
+            bool attacking = state == ForestEncounterState.BossFight &&
+                (encounter.Guardian.IsTelegraphing || encounter.Guardian.State == GuardianState.Attacking);
+            attackHint.gameObject.SetActive(attacking);
+            if (attacking) { attackHint.text = encounter.Guardian.AttackAdvice; attackHint.color = new Color(1f, .83f, .35f); }
             bool complete = state == ForestEncounterState.Complete;
             victory.SetActive(complete);
             if (complete && !focused)

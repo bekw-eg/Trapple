@@ -52,7 +52,7 @@ namespace Trapple.Bosses
         public void Contact(GuardianAttack kind, Vector2 position)
         {
             telegraphing = false; groundPulse.enabled = false;
-            bool leaves = kind == GuardianAttack.LeafStorm;
+            bool leaves = kind == GuardianAttack.LeafStorm || kind == GuardianAttack.LeafFan;
             int count = leaves ? 7 : kind == GuardianAttack.BranchSlam ? 15 : 11;
             for (int n = 0; n < count; n++)
             {

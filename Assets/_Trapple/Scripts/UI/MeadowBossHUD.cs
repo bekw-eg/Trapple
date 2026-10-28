@@ -43,9 +43,8 @@ namespace Trapple.UI
             stage.text = state == MeadowEncounterState.Resolving ? "THE WARDEN RESTS" :
                 encounter.Progress < .333f ? "I  /  FIND YOUR RHYTHM" : encounter.Progress < .666f ? "II  /  KEEP MOVING" : "III  /  ALMOST THERE";
             var boss = encounter.Boss;
-            bool warning = fighting && boss.IsTelegraphing;
-            attackHint.text = warning ? boss.CurrentAttack == GuardianAttack.RootStrike ? "ROOTS!  /  MOVE AWAY" :
-                boss.CurrentAttack == GuardianAttack.BranchSlam ? "BRANCH!  /  STEP BACK" : "LEAVES!  /  JUMP" :
+            bool warning = fighting && (boss.IsTelegraphing || boss.IsSpecialAttack && boss.State == GuardianState.Attacking);
+            attackHint.text = warning ? boss.AttackAdvice :
                 state == MeadowEncounterState.Resolving ? "WELL PLAYED, APPI" : "DODGE UNTIL THE TIMER ENDS";
             attackHint.color = warning ? new Color(1, .79f, .34f) : new Color(.91f, .93f, .73f);
             if (complete && !focused) { focused = true; result.text = "The old guardian lets you pass."; continueButton.Select(); }

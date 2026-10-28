@@ -162,12 +162,18 @@ namespace Trapple.Tests
         }
 
         [UnityTest]
-        public IEnumerator DeathReloadsSceneEvenWhenTimeIsPaused()
+        public IEnumerator DeathAllowsRespawnEvenWhenTimeIsPaused()
         {
             Set(death, "restartDelay", 0.08f);
             death.Die();
             Time.timeScale = 0f;
             yield return new WaitForSecondsRealtime(0.3f);
+            var screen = Object.FindAnyObjectByType<Trapple.UI.DeathScreenUI>();
+            Assert.That(screen.IsOpen, Is.True);
+            Assert.That(death != null, Is.True, "Death waits for the Respawn action");
+            screen.RespawnButton.onClick.Invoke();
+            yield return null;
+            yield return null;
             var respawned = Object.FindAnyObjectByType<PlayerDeath>();
             Assert.That(death == null, Is.True);
             Assert.That(respawned, Is.Not.Null);

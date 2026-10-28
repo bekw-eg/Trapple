@@ -119,6 +119,8 @@ namespace Trapple.Tests
             player.GetComponent<PlayerDeath>().Die(); yield return null;
             Assert.That(timer.IsFinished, Is.True); Assert.That(timer.IsSuccessful, Is.False);
             yield return new WaitForSecondsRealtime(.85f);
+            Object.FindAnyObjectByType<Trapple.UI.DeathScreenUI>().RespawnButton.onClick.Invoke();
+            yield return null; yield return null;
             Assert.That(timer == null, Is.True);
             timer = Object.FindAnyObjectByType<LevelRunTimer>();
             Assert.That(timer.ActiveSeconds, Is.Zero); Assert.That(timer.IsFinished, Is.False);

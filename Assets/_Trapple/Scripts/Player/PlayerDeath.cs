@@ -1,6 +1,6 @@
 using System.Collections;
+using Trapple.Core;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Trapple.Player
 {
@@ -19,7 +19,7 @@ namespace Trapple.Player
                 Die();
         }
 
-        // Shared API for traps and future boss attacks. One call starts exactly one restart.
+        // Shared API for traps and boss attacks. Keep the existing death delay before showing UI.
         public void Die()
         {
             if (IsDead)
@@ -30,14 +30,14 @@ namespace Trapple.Player
             var body = GetComponent<Rigidbody2D>();
             body.linearVelocity = Vector2.zero;
             body.simulated = false;
-            StartCoroutine(RestartLevel());
+            GameManager.Instance?.BeginPlayerDeath(this);
+            StartCoroutine(FinishDeath());
         }
 
-        private IEnumerator RestartLevel()
+        private IEnumerator FinishDeath()
         {
             yield return new WaitForSecondsRealtime(restartDelay);
-            // Reload the player's scene, even when another scene is active for integration.
-            SceneManager.LoadScene(gameObject.scene.path);
+            GameManager.Instance?.FinishPlayerDeath(this);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Trapple.UI
         [SerializeField] private TimedNotice notice;
         [SerializeField] private Image heldItem;
         [SerializeField] private Button[] buttons;
+        [SerializeField] private DeathScreenUI deathScreen;
         private HubUIController hub;
         private HubInteractionController interaction;
         private TutorialGoal tutorial;
@@ -36,6 +37,7 @@ namespace Trapple.UI
         private GameManager Manager => GameManager.Instance;
         public bool SettingsOpen => settingsOpen;
         public void SetHeldItem(Image value) => heldItem=value;
+        public void SetDeathScreen(DeathScreenUI value) => deathScreen=value;
         public void Configure(GameObject[] panels, TMP_Text[] labels, ControlHintView hint, TimedNotice warning, Button[] controls)
         {
             menu=panels[0]; pause=panels[1]; complete=panels[2]; settings=panels[3]; hud=panels[4];
@@ -60,6 +62,7 @@ namespace Trapple.UI
         {
             if(mode==LoadSceneMode.Additive) return;
             settingsOpen=false; shownState=(GameState)(-1);
+            deathScreen.Hide();
             hub=FindAnyObjectByType<HubUIController>(); interaction=FindAnyObjectByType<HubInteractionController>();
             tutorial=FindAnyObjectByType<TutorialGoal>(); forest=FindAnyObjectByType<ForestGoal>();
             forestPresentation=FindAnyObjectByType<ForestUI>(); health=FindAnyObjectByType<BossHealth>();
@@ -78,7 +81,8 @@ namespace Trapple.UI
             if(Manager==null) return;
             bool finished=(tutorial!=null && tutorial.IsComplete) || (forest!=null && forest.IsComplete) || Manager.State==GameState.Victory;
             bool hubModal=hub!=null && hub.IsOpen;
-            var state=finished && Manager.State!=GameState.Paused?GameState.Victory:Manager.State;
+            bool dying=Manager.State==GameState.Dying || Manager.State==GameState.Dead;
+            var state=!dying && finished && Manager.State!=GameState.Paused?GameState.Victory:Manager.State;
             if(state!=shownState || hubModal!=shownHubModal)
             {
                 if(state!=shownState) settingsOpen=false;
@@ -91,7 +95,7 @@ namespace Trapple.UI
                 progress=current; if(progress!=null) progress.Changed+=RefreshSeeds; RefreshSeeds();
             }
             bool playing=shownState==GameState.Playing && !hubModal && !settingsOpen && (player==null || !player.IsDead);
-            hud.SetActive(playing); hubShortcuts.SetActive(hub!=null);
+            hud.SetActive(playing); hubShortcuts.SetActive(hub!=null && !dying);
             buttons[12].gameObject.SetActive(hub==null);
             notice.Tick(playing);
             RefreshPrompt(playing);
@@ -106,6 +110,11 @@ namespace Trapple.UI
         }
         private void RefreshPanels()
         {
+            if(shownState==GameState.Dying || shownState==GameState.Dead)
+            {
+                if(interaction!=null) interaction.enabled=false;
+                if(hub!=null && hub.IsOpen) hub.Close();
+            }
             menu.SetActive(shownState==GameState.MainMenu && !settingsOpen);
             pause.SetActive(shownState==GameState.Paused && !settingsOpen);
             complete.SetActive(shownState==GameState.Victory && !settingsOpen);
@@ -119,6 +128,8 @@ namespace Trapple.UI
                 shownState==GameState.Paused?buttons[3]:shownState==GameState.Victory?buttons[8]:null;
             if(EventSystem.current!=null && !shownHubModal)
                 EventSystem.current.SetSelectedGameObject(focus!=null?focus.gameObject:null);
+            if(shownState==GameState.Dead) deathScreen.Show(Manager.DeathScenePath);
+            else deathScreen.Hide();
         }
         private void RefreshSeeds()
         {
@@ -144,7 +155,11 @@ namespace Trapple.UI
             if(!string.IsNullOrEmpty(label)) controlHint.Show(throwing?ControlHint.Throw:ControlHint.Interact,label);
             else controlHint.Show(playing && tutorialHints!=null?tutorialHints.Current:ControlHint.None);
         }
-        public void OpenSettings() { settingsOpen=true; RefreshPanels(); }
+        public void OpenSettings()
+        {
+            if(Manager.State==GameState.Dying || Manager.State==GameState.Dead) return;
+            settingsOpen=true; RefreshPanels();
+        }
         public void CloseSettings() { settingsOpen=false; RefreshPanels(); }
         public bool HandleEscape()
         {

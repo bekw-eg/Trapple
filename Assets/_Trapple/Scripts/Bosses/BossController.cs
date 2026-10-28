@@ -14,6 +14,7 @@ namespace Trapple.Bosses
         [SerializeField, Min(0.1f)] private float attackInterval = 1.2f;
         [SerializeField, Min(0.5f)] private float vulnerabilityDuration = 3.2f;
         [SerializeField] private SpriteRenderer trunk;
+        [SerializeField] private bool completeLevelOnDeath = true;
         private BossHealth health;
         private BossAttack attacks;
         private BossPhaseController phases;
@@ -73,7 +74,7 @@ namespace Trapple.Bosses
             attacks.Cancel();
             SetState(BossState.Dead);
             FightFinished?.Invoke();
-            if (GameManager.Instance != null) GameManager.Instance.CompleteBossFight();
+            if (completeLevelOnDeath && GameManager.Instance != null) GameManager.Instance.CompleteBossFight();
         }
 
         private void SetState(BossState state)

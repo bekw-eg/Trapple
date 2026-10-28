@@ -34,6 +34,7 @@ namespace Trapple.UI
         private bool settingsOpen, shownHubModal;
         private TutorialControlHints tutorialHints;
         private IProgressionService progress;
+        private MonoBehaviour customVictoryPresentation;
         private GameManager Manager => GameManager.Instance;
         public bool SettingsOpen => settingsOpen;
         public void SetHeldItem(Image value) => heldItem=value;
@@ -65,11 +66,14 @@ namespace Trapple.UI
             deathScreen.Hide();
             hub=FindAnyObjectByType<HubUIController>(); interaction=FindAnyObjectByType<HubInteractionController>();
             tutorial=FindAnyObjectByType<TutorialGoal>(); forest=FindAnyObjectByType<ForestGoal>();
-            forestPresentation=FindAnyObjectByType<ForestUI>(); health=FindAnyObjectByType<BossHealth>();
+            forestPresentation=FindAnyObjectByType<ForestUI>(); health=FindAnyObjectByType<BossHealth>(FindObjectsInactive.Include);
             phases=FindAnyObjectByType<BossPhaseController>(); lever=FindAnyObjectByType<ArenaLever>();
             player=FindAnyObjectByType<Trapple.Player.PlayerDeath>();
             tutorialHints=FindAnyObjectByType<TutorialControlHints>();
-            controlHint.SetTopOffset(hub!=null?144:32);
+            customVictoryPresentation=null;
+            foreach(var component in FindObjectsByType<MonoBehaviour>())
+                if(component is IWorldVictoryPresentation) { customVictoryPresentation=component; break; }
+            controlHint.SetTopOffset(hub!=null?144:customVictoryPresentation!=null?200:32);
             controlHint.Show(ControlHint.None); notice.Clear();
             if(tutorial!=null || forest!=null) notice.Show("WATCH YOUR STEP",5f);
             seeds.transform.parent.gameObject.SetActive(progress!=null);
@@ -104,7 +108,7 @@ namespace Trapple.UI
                 heldItem.sprite=forestPresentation!=null?forestPresentation.HeldItemIcon:null;
                 heldItem.transform.parent.gameObject.SetActive(playing && heldItem.sprite!=null);
             }
-            bossText.text=health!=null?"ANCIENT TREE  "+health.CurrentHealth+" / "+health.MaximumHealth+
+            bossText.text=customVictoryPresentation==null && health!=null && health.gameObject.activeInHierarchy?"ANCIENT TREE  "+health.CurrentHealth+" / "+health.MaximumHealth+
                 "   PHASE "+(phases!=null?phases.CurrentPhase:1):"";
             if(EventSystem.current!=null) EventSystem.current.sendNavigationEvents=!playing;
         }
@@ -117,7 +121,7 @@ namespace Trapple.UI
             }
             menu.SetActive(shownState==GameState.MainMenu && !settingsOpen);
             pause.SetActive(shownState==GameState.Paused && !settingsOpen);
-            complete.SetActive(shownState==GameState.Victory && !settingsOpen);
+            complete.SetActive(shownState==GameState.Victory && !settingsOpen && customVictoryPresentation==null);
             settings.SetActive(settingsOpen);
             if(shownState==GameState.Victory)
             {
@@ -126,7 +130,7 @@ namespace Trapple.UI
             }
             Button focus=settingsOpen?buttons[11]:shownState==GameState.MainMenu?buttons[0]:
                 shownState==GameState.Paused?buttons[3]:shownState==GameState.Victory?buttons[8]:null;
-            if(EventSystem.current!=null && !shownHubModal)
+            if(EventSystem.current!=null && !shownHubModal && !(shownState==GameState.Victory && customVictoryPresentation!=null))
                 EventSystem.current.SetSelectedGameObject(focus!=null?focus.gameObject:null);
             if(shownState==GameState.Dead) deathScreen.Show(Manager.DeathScenePath);
             else deathScreen.Hide();
@@ -173,16 +177,7 @@ namespace Trapple.UI
         }
         private bool TryNext(out WorldDefinition world,out int index)
         {
-            world=null; index=-1; var flow=HubSceneFlowController.Instance;
-            if(flow==null) return false;
-            string path=SceneManager.GetActiveScene().path;
-            foreach(var value in flow.Configuration.worlds)
-            {
-                int current=System.Array.IndexOf(value.levelScenes??System.Array.Empty<string>(),path);
-                if(current<0 || !flow.CanLaunch(value,current+1)) continue;
-                world=value; index=current+1; return true;
-            }
-            return false;
+            return WorldCompletion.TryGetNext(SceneManager.GetActiveScene().path,out world,out index);
         }
         private void NextLevel() { if(TryNext(out var world,out int index)) HubSceneFlowController.Instance.TryLaunch(world,index); }
         private static void Quit()

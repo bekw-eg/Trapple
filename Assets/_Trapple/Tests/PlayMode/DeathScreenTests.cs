@@ -165,7 +165,7 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator DirectLevelEntryCanReturnToHubAndExternalTransitionsClearDeathScreen()
         {
-            Assert.That(HubSceneFlowController.Instance, Is.Null);
+            Assert.That(HubSceneFlowController.Instance, Is.Not.Null, "Direct gameplay entry initializes the existing progression service.");
             yield return DieQuickly();
             screen.HubButton.onClick.Invoke();
             yield return null; yield return null;

@@ -16,10 +16,13 @@ namespace Trapple.Hub.Illustrated
         private ISceneFlowController flow;
         private Action<string> notify;
         private bool launching;
+        private Color badgeColor;
+        private bool badgeColorSaved;
         public void Configure(string id, Button select, TMP_Text progress, TMP_Text state, Image lockShade, TMP_Text badge)
         { worldId = id; this.select = select; this.progress = progress; this.state = state; this.lockShade = lockShade; this.badge = badge; }
         public void Bind(HubConfiguration config, IProgressionService progression, ISceneFlowController flow, Action<string> notify)
         {
+            if (!badgeColorSaved && badge != null) { badgeColor = badge.color; badgeColorSaved = true; }
             world = config.World(worldId); this.progression = progression; this.flow = flow; this.notify = notify;
             select.onClick.RemoveListener(Select); select.onClick.AddListener(Select); Refresh();
         }
@@ -27,12 +30,17 @@ namespace Trapple.Hub.Illustrated
         {
             if (world == null || progression == null) { if (state != null) state.text = "Нет данных"; return; }
             bool unlocked = progression.IsWorldUnlocked(world);
+            bool complete = progression.IsWorldComplete(worldId);
             if (progress != null) progress.text = world.maximumStars > 0 ?
                 progression.Stars(worldId) + " / " + world.maximumStars + " звёзд" :
                 progression.CompletedLevels(worldId) + " / " + world.plannedLevels + " уровней";
-            if (state != null) state.text = unlocked ? "ВЫБРАТЬ" : "ЗАКРЫТО";
+            if (state != null) state.text = complete ? "ПРОЙДЕНО" : unlocked ? "ВЫБРАТЬ" : "ЗАКРЫТО";
             if (lockShade != null) lockShade.gameObject.SetActive(!unlocked);
-            if (badge != null) badge.text = unlocked ? "OK" : "ЗАКР.";
+            if (badge != null)
+            {
+                badge.text = complete ? "COMPLETE" : unlocked ? "OK" : "ЗАКР.";
+                badge.color = complete ? new Color(.24f, .56f, .23f) : badgeColor;
+            }
         }
         public void Select()
         {

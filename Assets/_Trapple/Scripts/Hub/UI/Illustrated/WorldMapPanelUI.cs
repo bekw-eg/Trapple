@@ -60,6 +60,20 @@ namespace Trapple.Hub.Illustrated
                 worlds[i].GetComponent<UIButtonAnimator>().SetChosen(i < config.worlds.Length && config.worlds[i] == selected);
                 var marker=worlds[i].transform.Find("Locked");
                 if(marker!=null) marker.gameObject.SetActive(i < config.worlds.Length && !progress.IsWorldUnlocked(config.worlds[i]));
+                var completionMarker=worlds[i].transform.Find("Completed");
+                if(completionMarker==null && completed!=null)
+                {
+                    var item=new GameObject("Completed",typeof(RectTransform),typeof(Image));
+                    item.transform.SetParent(worlds[i].transform,false);
+                    var rect=(RectTransform)item.transform;
+                    rect.anchorMin=rect.anchorMax=new Vector2(1,1); rect.pivot=new Vector2(1,1);
+                    rect.anchoredPosition=new Vector2(-12,-10); rect.sizeDelta=new Vector2(60,60);
+                    var image=item.GetComponent<Image>(); image.sprite=completed; image.preserveAspect=true;
+                    image.color=new Color(.55f,1f,.55f); image.raycastTarget=false;
+                    completionMarker=item.transform;
+                }
+                if(completionMarker!=null) completionMarker.gameObject.SetActive(i < config.worlds.Length &&
+                    config.worlds[i]!=null && progress.IsWorldComplete(config.worlds[i].id));
             }
             // Remove retired rows immediately from layout and navigation before Destroy's end-of-frame pass.
             if(builtFor!=selected.id || levelButtons==null || levelButtons.Length!=selected.plannedLevels)
@@ -85,7 +99,7 @@ namespace Trapple.Hub.Illustrated
                 button.interactable = available; button.gameObject.SetActive(true);
                 button.GetComponent<UIButtonAnimator>().SetChosen(selectedLevel == i);
             }
-            details.text = UIWords.World(selected.id) + "\n" + progress.CompletedLevels(selected.id) + " / " + selected.plannedLevels + " COMPLETE\n" +
+            details.text = UIWords.World(selected.id) + (progress.IsWorldComplete(selected.id) ? "  COMPLETE" : "") + "\n" + progress.CompletedLevels(selected.id) + " / " + selected.plannedLevels + " COMPLETE\n" +
                 (!unlocked ? "LOCKED - COMPLETE THE PREVIOUS WORLD" : selectedLevel < 0 ? "THIS WORLD IS NOT READY YET" : "LEVEL " + (selectedLevel+1));
             play.interactable = !launching && selectedLevel >= 0 && unlocked && flow.CanLaunch(selected, selectedLevel);
         }

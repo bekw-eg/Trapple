@@ -245,15 +245,17 @@ namespace Trapple.Tests
         }
 
         [UnityTest]
-        public IEnumerator AppleCompletesLevelAndStopsPlayer()
+        public IEnumerator AppleStartsBossIntroAndStopsPlayer()
         {
             var goal = Object.FindAnyObjectByType<TutorialGoal>();
             body.position = goal.transform.position;
             yield return new WaitForFixedUpdate();
             yield return new WaitForFixedUpdate();
-            Assert.That(goal.IsComplete, Is.True);
+            Assert.That(goal.IsComplete, Is.False);
+            Assert.That(Object.FindAnyObjectByType<MeadowBossEncounter>().State, Is.EqualTo(MeadowEncounterState.Intro));
             Assert.That(controller.ControlEnabled, Is.False);
-            Assert.That(goal.GetComponent<SpriteRenderer>().enabled, Is.False);
+            Assert.That(System.Array.Exists(goal.GetComponentsInChildren<SpriteRenderer>(), value => value.enabled), Is.True,
+                "The illustrated apple remains visible during the introduction.");
             Assert.That(death.IsDead, Is.False);
         }
 
@@ -281,7 +283,7 @@ namespace Trapple.Tests
 
         [UnityTest]
         [Timeout(600000)]
-        public IEnumerator EntireTutorialIsReachableWithMovementAndJumps()
+        public IEnumerator EntireTutorialRouteReachesBossWithMovementAndJumps()
         {
             Set(death, "restartDelay", 30f);
             yield return WalkTo(2f);
@@ -301,7 +303,8 @@ namespace Trapple.Tests
             yield return HopTo(35.3f);
             yield return WalkTo(39.9f);
             yield return ExpandedRoutePlayback.Continue(controller, death, false);
-            Assert.That(Object.FindAnyObjectByType<TutorialGoal>().IsComplete, Is.True);
+            Assert.That(Object.FindAnyObjectByType<TutorialGoal>().IsComplete, Is.False);
+            Assert.That(Object.FindAnyObjectByType<MeadowBossEncounter>().State, Is.EqualTo(MeadowEncounterState.Intro));
             Assert.That(death.IsDead, Is.False);
         }
 

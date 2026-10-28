@@ -1,0 +1,123 @@
+{
+  "unity": "6000.6.0f1",
+  "branch": "fix/guardian-stick-scale-and-hud",
+  "total": 28,
+  "passed": 28,
+  "failed": 0,
+  "skipped": 0,
+  "renderSize": "934x524",
+  "tests": [
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.ArenaTriggerStartsIntroOnceAndSkipRestoresGameplay",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.DamageVictoryRecordsWorldAndBossAndSurvivesSaveReload",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.DeathReloadRestoresCheckpointAmmoHealthAndTimerWithoutDuplicatePickup",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.IntroAndPauseNeverSpendSurvivalTimeAndPauseCannotSkipIntro",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.ProgressProjectionSupportsVerticalAndReversedSegments",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.SixtySecondClockExpiryRetreatsAndRecordsSameWorldCompletion",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.AuthoredCombatStickTravelsThroughPhysicsAndHitsGuardianFromBothSides",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.BranchSlamLeavesEnoughTimeToRetreatOutsideItsNearZone",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DamageVictoryAndTimeoutResolveOnceAndRejectRestart",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DeathCancelsCombatWithoutReportingVictory",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.IntroCannotDamageAndFightStartsOnlyOnce",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PatternContainsThreeDistinctWarnedAttacks",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PredictableLeafStreamCanBeJumpedUsingNormalControllerPhysics",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.RootWarningCanBeDodgedWithTheProductionJumpAndMovement",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.SurvivalRetreatDoesNotRequireAnyDamage",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.TelegraphPausesAndHurtCancelsTheEntireAttack",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianVisualTests.CaptureAuthoredEncounter",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPhysicsTests.LiveLeafColliderCallsRealPlayerDeathAndCancelsCombat",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPhysicsTests.StickPassesThroughChildHazardWithoutDamagingBossUntilItsBodyIsHit",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.AuthoredGroundBranchesHaveReadableArtworkWithoutAnamorphicFlattening",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.AuthoredProjectileStaysPlayerSizedAcrossFlightImpactAndReuseInBothDirections",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.ForestLabelsRemainReadableAndSeparateAtGameWindowSizes(934,524)",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.ForestLabelsRemainReadableAndSeparateAtGameWindowSizes(1280,720)",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ACollectedPickupCannotGrantTwiceAndRestoredPickupGrantsNothing",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.CapacityAndCheckpointRestoreClampWithoutDuplicatingAmmunition",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.HeldPuzzleStickHasPriorityOverCombatAmmunition",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.OneProjectileCannotDamageBossTwiceThroughDifferentColliders",
+      "result": "Passed"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ThrowsBothDirectionsRejectsCooldownPauseAndEmptyInventory",
+      "result": "Passed"
+    }
+  ]
+}

@@ -42,6 +42,53 @@ namespace Trapple.Editor
             Debug.Log("GUARDIAN BUILD: both existing worlds integrated, prefabs and modular sprites saved by Unity.");
         }
 
+        [MenuItem("Trapple/Boss progression/Fix stick sizes and enlarge forest HUD")]
+        public static void ApplyReadabilityFix()
+        {
+            if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            PrepareArt();
+            BuildStickProjectile();
+            var pickup = PrefabUtility.LoadPrefabContents(Prefabs + "StickPickup.prefab");
+            var art = pickup.GetComponentInChildren<SpriteRenderer>();
+            Resize(art, new Vector2(1.25f, .65f));
+            pickup.GetComponent<BoxCollider2D>().size = new Vector2(1.2f, .9f);
+            PrefabUtility.SaveAsPrefabAsset(pickup, Prefabs + "StickPickup.prefab");
+            PrefabUtility.UnloadPrefabContents(pickup);
+            foreach (string path in new[] { ForestGoal.ScenePath, Root + "Scenes/BossArenas/ForestGuardianTest.unity" })
+            {
+                var scene = EditorSceneManager.OpenScene(path);
+                var encounter = Object.FindAnyObjectByType<ForestGuardianEncounter>();
+                var player = Object.FindAnyObjectByType<PlayerDeath>();
+                var hand = player.transform.Find("Throwing hand")?.GetComponent<SpriteRenderer>();
+                if (hand != null) Resize(hand, new Vector2(.85f, .44f));
+                var hud = encounter.GetComponentInChildren<ForestEncounterHUD>();
+                if (hud != null) Object.DestroyImmediate(hud.gameObject);
+                BuildHUD(encounter, encounter.transform);
+                if (!EditorSceneManager.SaveScene(scene)) throw new Exception("Readability save failed: " + path);
+            }
+            AssetDatabase.SaveAssets();
+            Debug.Log("GUARDIAN READABILITY: world-unit sticks, separate visual/physics sizes, enlarged HUD saved in both forest scenes.");
+        }
+
+        private static GameObject BuildStickProjectile()
+        {
+            var projectile = new GameObject("StickProjectile", typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(StickProjectile));
+            var art = Visual("Projectile artwork", projectile.transform, stick, Vector2.zero, new Vector2(1.25f, .65f), 12);
+            var collider = projectile.GetComponent<BoxCollider2D>(); collider.size = new Vector2(1, .24f); collider.offset = new Vector2(0, -.12f);
+            projectile.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            Set(projectile.GetComponent<StickProjectile>(), "artwork", art);
+            Set(projectile.GetComponent<StickProjectile>(), "visualSize", new Vector2(1.25f, .65f));
+            var asset = PrefabUtility.SaveAsPrefabAsset(projectile, Prefabs + "StickProjectile.prefab");
+            Object.DestroyImmediate(projectile); return asset;
+        }
+
+        private static void Resize(SpriteRenderer art, Vector2 size)
+        {
+            if (art == null || art.sprite == null) throw new InvalidOperationException("Stick artwork is missing.");
+            Vector2 bounds = art.sprite.bounds.size;
+            art.transform.localScale = new Vector3(size.x / bounds.x, size.y / bounds.y, 1);
+        }
+
         private static void PrepareArt()
         {
             var importer = (TextureImporter)AssetImporter.GetAtPath(Art + "GuardianKit.png");
@@ -118,19 +165,13 @@ namespace Trapple.Editor
             var inventory = player.gameObject.AddComponent<StickInventory>();
             var throwing = player.gameObject.AddComponent<StickThrowController>();
             Set(throwing, "inventory", inventory); Set(throwing, "characterRenderer", player.GetComponent<SpriteRenderer>());
-            var projectile = new GameObject("StickProjectile", typeof(SpriteRenderer), typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(StickProjectile));
-            projectile.GetComponent<SpriteRenderer>().sprite = stick; projectile.GetComponent<SpriteRenderer>().sortingOrder = 12;
-            projectile.transform.localScale = new Vector3(.5f, .5f, 1);
-            projectile.GetComponent<BoxCollider2D>().size = new Vector2(1.2f, .25f);
-            projectile.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-            Set(projectile.GetComponent<StickProjectile>(), "artwork", projectile.GetComponent<SpriteRenderer>());
-            var projectileAsset = PrefabUtility.SaveAsPrefabAsset(projectile, Prefabs + "StickProjectile.prefab"); Object.DestroyImmediate(projectile);
+            var projectileAsset = BuildStickProjectile();
             Set(throwing, "projectilePrefab", projectileAsset.GetComponent<StickProjectile>());
-            var hand = Visual("Throwing hand", player.transform, stick, new Vector2(.3f, .1f), new Vector2(.5f, .18f), 12);
+            var hand = Visual("Throwing hand", player.transform, stick, new Vector2(.3f, .1f), new Vector2(.85f, .44f), 12);
             Set(throwing, "handVisual", hand.transform);
             var pickup = new GameObject("StickPickup", typeof(BoxCollider2D), typeof(StickPickup));
-            pickup.GetComponent<BoxCollider2D>().isTrigger = true; pickup.GetComponent<BoxCollider2D>().size = new Vector2(1, .8f);
-            var pickupArt = Visual("Wooden branch", pickup.transform, stick, Vector2.zero, new Vector2(.7f, .22f), 5);
+            pickup.GetComponent<BoxCollider2D>().isTrigger = true; pickup.GetComponent<BoxCollider2D>().size = new Vector2(1.2f, .9f);
+            var pickupArt = Visual("Wooden branch", pickup.transform, stick, Vector2.zero, new Vector2(1.25f, .65f), 5);
             Set(pickup.GetComponent<StickPickup>(), "artwork", pickupArt); Set(pickup.GetComponent<StickPickup>(), "pickupSound", pickupSound);
             var pickupAsset = PrefabUtility.SaveAsPrefabAsset(pickup, Prefabs + "StickPickup.prefab"); Object.DestroyImmediate(pickup);
             // Safe authored banks in each course section; raycasts keep pickups on actual walkable surfaces.
@@ -292,19 +333,20 @@ namespace Trapple.Editor
             var canvas = obj.GetComponent<Canvas>(); canvas.renderMode = RenderMode.ScreenSpaceOverlay; canvas.sortingOrder = 25;
             var scaler = obj.GetComponent<CanvasScaler>(); scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize; scaler.referenceResolution = new Vector2(1920, 1080); scaler.matchWidthOrHeight = .5f;
             var hud = obj.GetComponent<ForestEncounterHUD>(); Set(hud, "encounter", encounter);
-            var routeGroup = Group("World route", obj.transform, new Vector2(0, -62), new Vector2(620, 75), new Vector2(.5f, 1));
-            var track = Image("Vine track", routeGroup.transform, square, new Vector2(0, -13), new Vector2(480, 13), new Color(.08f, .18f, .13f, .95f));
-            var fill = Image("Smooth progress", track.transform, square, Vector2.zero, new Vector2(480, 13), new Color(.45f, .76f, .3f)); fill.type = UnityEngine.UI.Image.Type.Filled; fill.fillMethod = UnityEngine.UI.Image.FillMethod.Horizontal;
-            Image("Forest start", routeGroup.transform, crown, new Vector2(-275, -10), new Vector2(48, 42), Color.white);
-            var icon = Image("Guardian destination", routeGroup.transform, trunk, new Vector2(275, -10), new Vector2(37, 55), Color.white);
-            var routeText = Text("Route label", routeGroup.transform, "DECEPTIVE FOREST", new Vector2(0, 19), new Vector2(500, 30), 24);
-            var combatGroup = Group("Boss combat", obj.transform, new Vector2(0, -72), new Vector2(650, 100), new Vector2(.5f, 1)); combatGroup.alpha = 0;
-            Text("Boss name", combatGroup.transform, "FOREST GUARDIAN", new Vector2(0, 24), new Vector2(550, 35), 32);
-            var hpTrack = Image("Bark health track", combatGroup.transform, square, new Vector2(0, -8), new Vector2(540, 18), new Color(.12f, .09f, .06f, .95f));
-            var hpFill = Image("Guardian health", hpTrack.transform, square, Vector2.zero, new Vector2(530, 10), new Color(.77f, .34f, .16f)); hpFill.type = UnityEngine.UI.Image.Type.Filled; hpFill.fillMethod = UnityEngine.UI.Image.FillMethod.Horizontal;
-            var timer = Text("Survival countdown", combatGroup.transform, "SURVIVE  60 s", new Vector2(0, -43), new Vector2(500, 35), 25);
-            Image("Collected stick", obj.transform, stick, new Vector2(380, -120), new Vector2(52, 24), Color.white, new Vector2(0, 1));
-            var counter = Text("Stick inventory", obj.transform, "x 0   F  THROW", new Vector2(505, -120), new Vector2(240, 45), 26, new Vector2(0, 1));
+            var routeGroup = Group("World route", obj.transform, new Vector2(0, -92), new Vector2(960, 150), new Vector2(.5f, 1));
+            var track = Image("Vine track", routeGroup.transform, square, new Vector2(0, -24), new Vector2(680, 22), new Color(.08f, .18f, .13f, .95f));
+            var fill = Image("Smooth progress", track.transform, square, Vector2.zero, new Vector2(680, 22), new Color(.45f, .76f, .3f)); fill.type = UnityEngine.UI.Image.Type.Filled; fill.fillMethod = UnityEngine.UI.Image.FillMethod.Horizontal;
+            Image("Forest start", routeGroup.transform, crown, new Vector2(-390, -18), new Vector2(68, 62), Color.white);
+            var icon = Image("Guardian destination", routeGroup.transform, trunk, new Vector2(390, -18), new Vector2(48, 76), Color.white);
+            var routeText = Text("Route label", routeGroup.transform, "DECEPTIVE FOREST", new Vector2(0, 32), new Vector2(840, 90), 72);
+            var combatGroup = Group("Boss combat", obj.transform, new Vector2(0, -108), new Vector2(960, 180), new Vector2(.5f, 1)); combatGroup.alpha = 0;
+            Text("Boss name", combatGroup.transform, "FOREST GUARDIAN", new Vector2(0, 45), new Vector2(900, 110), 88);
+            var hpTrack = Image("Bark health track", combatGroup.transform, square, new Vector2(0, -17), new Vector2(760, 26), new Color(.12f, .09f, .06f, .95f));
+            var hpFill = Image("Guardian health", hpTrack.transform, square, Vector2.zero, new Vector2(748, 16), new Color(.77f, .34f, .16f)); hpFill.type = UnityEngine.UI.Image.Type.Filled; hpFill.fillMethod = UnityEngine.UI.Image.FillMethod.Horizontal;
+            var timer = Text("Survival countdown", combatGroup.transform, "SURVIVE  60 s", new Vector2(0, -82), new Vector2(620, 90), 72);
+            Image("Collected stick", obj.transform, stick, new Vector2(100, -170), new Vector2(84, 62), Color.white, new Vector2(0, 1));
+            var counter = Text("Stick inventory", obj.transform, "x 0", new Vector2(235, -170), new Vector2(180, 110), 88, new Vector2(0, 1));
+            Text("Throw control", obj.transform, "F  THROW", new Vector2(195, -242), new Vector2(300, 65), 50, new Vector2(0, 1));
             var title = Group("Guardian introduction", obj.transform, Vector2.zero, new Vector2(1920, 1080), new Vector2(.5f, .5f)); title.alpha = 0;
             Image("Upper cinema border", title.transform, square, new Vector2(0, 480), new Vector2(2500, 120), new Color(.01f, .025f, .02f, .85f));
             Image("Lower cinema border", title.transform, square, new Vector2(0, -480), new Vector2(2500, 120), new Color(.01f, .025f, .02f, .85f));

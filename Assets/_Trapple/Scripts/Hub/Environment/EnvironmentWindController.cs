@@ -7,7 +7,7 @@ namespace Trapple.Hub.LivingEnvironment
     public sealed class EnvironmentWindController : MonoBehaviour
     {
         [SerializeField, Min(0f)] private float speed = 1.2f;
-        [SerializeField, Range(0f, .02f)] private float strength = .004f;
+        [SerializeField, Range(0f, .05f)] private float strength = .018f;
         [SerializeField, Min(.01f)] private float frequency = 5f;
         [SerializeField] private float phase;
         [Tooltip("Normalized sprite height below which pixels stay fixed. Use .6 for a tree canopy.")]

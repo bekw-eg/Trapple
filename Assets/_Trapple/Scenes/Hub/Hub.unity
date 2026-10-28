@@ -418,7 +418,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240511a28cff63e4fbe57b8b6e45f43b, type: 2}
+  - {fileID: 2100000, guid: 8fa99b1d7a7dcfc46ba15619a05e04b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.004
+  strength: 0.03
   frequency: 5
   phase: -27.728998
   fixedBase: 0.22
@@ -914,7 +914,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240511a28cff63e4fbe57b8b6e45f43b, type: 2}
+  - {fileID: 2100000, guid: 8fa99b1d7a7dcfc46ba15619a05e04b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2469,7 +2469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.004
+  strength: 0.016
   frequency: 5
   phase: -21.803999
   fixedBase: 0.22
@@ -2763,7 +2763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.0018
+  strength: 0.018
   frequency: 5
   phase: -27.255
   fixedBase: 0.62
@@ -4801,7 +4801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.004
+  strength: 0.03
   frequency: 5
   phase: -13.271999
   fixedBase: 0.22
@@ -7386,7 +7386,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240511a28cff63e4fbe57b8b6e45f43b, type: 2}
+  - {fileID: 2100000, guid: 8fa99b1d7a7dcfc46ba15619a05e04b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7874,7 +7874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.004
+  strength: 0.016
   frequency: 5
   phase: 24.647999
   fixedBase: 0.22
@@ -10537,7 +10537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.004
+  strength: 0.016
   frequency: 5
   phase: 30.809998
   fixedBase: 0.22
@@ -10986,7 +10986,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 240511a28cff63e4fbe57b8b6e45f43b, type: 2}
+  - {fileID: 2100000, guid: 8fa99b1d7a7dcfc46ba15619a05e04b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11851,7 +11851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.004
+  strength: 0.016
   frequency: 5
   phase: -28.439999
   fixedBase: 0.22
@@ -14155,7 +14155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.004
+  strength: 0.03
   frequency: 5
   phase: -25.595999
   fixedBase: 0.22
@@ -14651,7 +14651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Trapple.Runtime::Trapple.Hub.LivingEnvironment.EnvironmentWindController
   speed: 1.2
-  strength: 0.004
+  strength: 0.03
   frequency: 5
   phase: 30.809998
   fixedBase: 0.22

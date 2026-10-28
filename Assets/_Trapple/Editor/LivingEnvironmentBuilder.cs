@@ -74,6 +74,85 @@ namespace Trapple.Editor
             File.WriteAllText(Review + "Integration.txt", "PASS: installed twice; identical scene serialization; no missing references; collider and interaction invariants intact.\n");
         }
 
+        [MenuItem("Trapple/Hub/Refresh Wind and Shadow Visibility")]
+        public static void RefreshVisibility()
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode) throw new InvalidOperationException("Stop Play Mode first.");
+            var scene = SceneManager.GetActiveScene();
+            if (scene.path != HubSceneFlowController.HubScenePath)
+                throw new InvalidOperationException("Open the Hub scene before refreshing its effects.");
+            var colliders = Components<Collider2D>(scene).ToDictionary(item => item,
+                item => EditorJsonUtility.ToJson(item) + EditorJsonUtility.ToJson(item.transform));
+            ContactMaterial();
+            UpgradePrefabVisibility();
+            UpgradeVisibility(scene.GetRootGameObjects());
+            Validate(scene);
+            foreach (var pair in colliders)
+                if (pair.Value != EditorJsonUtility.ToJson(pair.Key) + EditorJsonUtility.ToJson(pair.Key.transform))
+                    throw new InvalidOperationException("Visibility refresh changed collision.");
+            if (!EditorSceneManager.SaveScene(scene)) throw new InvalidOperationException("Could not save refreshed Hub.");
+            AssetDatabase.SaveAssets();
+            Debug.Log("LIVING ENVIRONMENT VISIBILITY PASS: visible foliage motion and broad soft contact shadows; scene layout preserved.");
+        }
+
+        public static void RefreshVisibilityAndVerify()
+        {
+            EditorSceneManager.OpenScene(HubSceneFlowController.HubScenePath, OpenSceneMode.Single);
+            RefreshVisibility();
+            string first = File.ReadAllText(HubSceneFlowController.HubScenePath);
+            RefreshVisibility();
+            if (first != File.ReadAllText(HubSceneFlowController.HubScenePath))
+                throw new InvalidOperationException("Visibility refresh is not idempotent.");
+        }
+
+        private static Material ContactMaterial()
+        {
+            var material = Material("ContactShadow", "Trapple/Sprites/Environment Contact Shadow");
+            var sprite = Sprite("Assets/_Trapple/Art/Hub/Glow.png");
+            Rect rect = sprite.textureRect;
+            material.SetVector("_SpriteUV", new Vector4(rect.x / sprite.texture.width, rect.y / sprite.texture.height,
+                rect.width / sprite.texture.width, rect.height / sprite.texture.height));
+            EditorUtility.SetDirty(material);
+            return material;
+        }
+
+        private static void UpgradePrefabVisibility()
+        {
+            if (AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath) == null) return;
+            var contents = PrefabUtility.LoadPrefabContents(PrefabPath);
+            try { UpgradeVisibility(new[] { contents }); PrefabUtility.SaveAsPrefabAsset(contents, PrefabPath); }
+            finally { PrefabUtility.UnloadPrefabContents(contents); }
+        }
+
+        private static void UpgradeVisibility(IEnumerable<GameObject> roots)
+        {
+            var material = AssetDatabase.LoadAssetAtPath<Material>(MaterialRoot + "ContactShadow.mat");
+            foreach (var root in roots)
+            {
+                foreach (var wind in root.GetComponentsInChildren<EnvironmentWindController>(true))
+                {
+                    var data = new SerializedObject(wind);
+                    data.FindProperty("strength").floatValue = wind.name == "Apple tree frame" ? .018f :
+                        wind.name == "Meadow flowers" ? .03f : wind.name == "Low foreground foliage" ? .016f : .035f;
+                    data.ApplyModifiedPropertiesWithoutUndo(); Record(wind);
+                }
+                foreach (var shadow in root.GetComponentsInChildren<AppiGroundShadow>(true))
+                {
+                    var data = new SerializedObject(shadow);
+                    data.FindProperty("groundedSize").vector2Value = new Vector2(1.25f, .23f);
+                    data.FindProperty("airborneSize").vector2Value = new Vector2(.85f, .29f);
+                    data.FindProperty("groundedOpacity").floatValue = .44f;
+                    data.FindProperty("airborneOpacity").floatValue = .09f;
+                    data.ApplyModifiedPropertiesWithoutUndo(); Record(shadow);
+                    var renderer = shadow.GetComponent<SpriteRenderer>();
+                    renderer.sharedMaterial = material; Record(renderer);
+                }
+                foreach (var renderer in root.GetComponentsInChildren<SpriteRenderer>(true))
+                    if (renderer.name.EndsWith(" contact", StringComparison.Ordinal))
+                    { renderer.sharedMaterial = material; Record(renderer); }
+            }
+        }
+
         private static T[] Components<T>(Scene scene) where T : Component => scene.GetRootGameObjects()
             .SelectMany(root => root.GetComponentsInChildren<T>(true)).ToArray();
         private static Sprite Sprite(string path) => AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().FirstOrDefault()
@@ -102,7 +181,9 @@ namespace Trapple.Editor
         private static Material Material(string file, string shaderName)
         {
             var shader = Shader.Find(shaderName);
-            if (shader == null || ShaderUtil.ShaderHasError(shader)) throw new InvalidOperationException("Shader failed: " + shaderName);
+            if (shader == null) throw new InvalidOperationException("Shader missing: " + shaderName);
+            if (ShaderUtil.ShaderHasError(shader)) throw new InvalidOperationException("Shader failed: " + shaderName + "\n" +
+                string.Join("\n", ShaderUtil.GetShaderMessages(shader).Select(item => item.message)));
             var material = AssetDatabase.LoadAssetAtPath<Material>(MaterialRoot + file + ".mat");
             if (material == null) { material = new Material(shader); AssetDatabase.CreateAsset(material, MaterialRoot + file + ".mat"); }
             return material;
@@ -113,12 +194,13 @@ namespace Trapple.Editor
             Directory.CreateDirectory(MaterialRoot); Directory.CreateDirectory(ParticleRoot); AssetDatabase.Refresh();
             Material("FoliageWind", "Trapple/Sprites/Environment Wind");
             Material("LakeShimmer", "Trapple/Sprites/Environment Water Shimmer");
-            // Shared premultiplied sprite material for all contact shadows, clouds, particles and halos.
+            // Clouds, particles and halos retain the original glow; shadows use their own footprint.
             Material("SoftSprites", "Sprites/Default");
+            ContactMaterial();
             Particle("LeafParticle", Sprite("Assets/_Trapple/Art/Hub/Leaf.png"), new Vector2(.14f, .07f), Color.white, 7);
             Particle("PollenParticle", Sprite("Assets/_Trapple/Art/Hub/Glow.png"), Vector2.one * .065f, new Color(1, .91f, .55f), 7);
             Particle("SmokeParticle", Sprite("Assets/_Trapple/Art/Hub/Glow.png"), Vector2.one * .45f, new Color(.76f, .79f, .78f), 7);
-            if (AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath) != null) return;
+            if (AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath) != null) { UpgradePrefabVisibility(); return; }
             var root = new GameObject(Name);
             try
             {
@@ -137,10 +219,10 @@ namespace Trapple.Editor
                     var grass = Visual("Independent meadow grass", root.transform,
                         Sprite("Assets/_Trapple/Resources/AppleMeadow/Grass.png"), new Vector2(x, .14f),
                         new Vector2(.65f, .32f), 4, Color.white, AssetDatabase.LoadAssetAtPath<Material>(MaterialRoot + "FoliageWind.mat"));
-                    grass.gameObject.AddComponent<EnvironmentWindController>().Configure(.007f, .18f, x * 2.37f);
+                    grass.gameObject.AddComponent<EnvironmentWindController>().Configure(.035f, .18f, x * 2.37f);
                 }
-                var shadow = Visual("Appi ground shadow", root.transform, glow, Vector2.zero, new Vector2(.85f, .14f), 8,
-                    new Color(.16f, .24f, .18f, .3f), soft);
+                var shadow = Visual("Appi ground shadow", root.transform, glow, Vector2.zero, new Vector2(1.25f, .23f), 8,
+                    new Color(.16f, .24f, .18f, .44f), AssetDatabase.LoadAssetAtPath<Material>(MaterialRoot + "ContactShadow.mat"));
                 shadow.gameObject.AddComponent<AppiGroundShadow>();
                 Array(master, "foliage", root.GetComponentsInChildren<EnvironmentWindController>());
                 Array(master, "cloudLayers", root.GetComponentsInChildren<ParallaxLayer>());
@@ -191,7 +273,7 @@ namespace Trapple.Editor
                 renderer.sharedMaterial = foliageMaterial; Record(renderer);
                 var wind = renderer.GetComponent<EnvironmentWindController>() ?? renderer.gameObject.AddComponent<EnvironmentWindController>();
                 bool tree = renderer.name == "Apple tree frame";
-                wind.Configure(tree ? .0018f : .004f, tree ? .62f : .22f, renderer.transform.position.x * 2.37f);
+                wind.Configure(tree ? .018f : .016f, tree ? .62f : .22f, renderer.transform.position.x * 2.37f);
                 Record(wind);
             }
             var scenery = art.GetComponentsInChildren<SpriteRenderer>().Single(item => item.name == "Apple Meadow scenery");
@@ -227,6 +309,7 @@ namespace Trapple.Editor
             Array(master, "lights", environment.GetComponentsInChildren<LightFlicker2D>());
             Array(master, "staticShadows", environment.GetComponentsInChildren<SpriteRenderer>().Where(item => item.name.EndsWith(" contact", StringComparison.Ordinal)));
             Set(master, "water", water); Set(master, "playerShadow", shadow);
+            UpgradeVisibility(scene.GetRootGameObjects());
         }
 
         // Normalized source image coordinates, top-left origin; preserves authored facade scale.

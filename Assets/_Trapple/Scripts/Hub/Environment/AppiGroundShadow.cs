@@ -9,10 +9,10 @@ namespace Trapple.Hub.LivingEnvironment
         [SerializeField] private SpriteRenderer characterArt;
         [SerializeField] private LayerMask groundLayers = 1 << 6;
         [SerializeField, Min(.1f)] private float maxDistance = 5f;
-        [SerializeField] private Vector2 groundedSize = new Vector2(.85f, .14f);
-        [SerializeField] private Vector2 airborneSize = new Vector2(.65f, .23f);
-        [SerializeField, Range(0f, 1f)] private float groundedOpacity = .3f;
-        [SerializeField, Range(0f, 1f)] private float airborneOpacity = .06f;
+        [SerializeField] private Vector2 groundedSize = new Vector2(1.25f, .23f);
+        [SerializeField] private Vector2 airborneSize = new Vector2(.85f, .29f);
+        [SerializeField, Range(0f, 1f)] private float groundedOpacity = .44f;
+        [SerializeField, Range(0f, 1f)] private float airborneOpacity = .09f;
         [SerializeField, Min(.1f)] private float fadeHeight = 2.8f;
         [SerializeField, Min(.001f)] private float surfaceOffset = .025f;
         private readonly RaycastHit2D[] hits = new RaycastHit2D[12];

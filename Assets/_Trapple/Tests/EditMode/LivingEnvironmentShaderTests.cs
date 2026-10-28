@@ -10,7 +10,7 @@ namespace Trapple.Tests
         [Test]
         public void SavedMaterialsUseSupportedBuiltInShadersAndParticlePrefabsHaveNoCollision()
         {
-            foreach (string name in new[] { "FoliageWind", "LakeShimmer", "SoftSprites" })
+            foreach (string name in new[] { "FoliageWind", "LakeShimmer", "SoftSprites", "ContactShadow" })
             {
                 var material = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Trapple/Art/Hub/Environment/" + name + ".mat");
                 Assert.That(material, Is.Not.Null);

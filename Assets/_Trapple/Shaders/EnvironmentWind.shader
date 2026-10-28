@@ -4,7 +4,7 @@ Shader "Trapple/Sprites/Environment Wind"
     {
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
-        _Wind ("Speed / Strength / Frequency / Phase", Vector) = (1.2, .004, 5, 0)
+        _Wind ("Speed / Strength / Frequency / Phase", Vector) = (1.2, .018, 5, 0)
         _FixedBase ("Fixed Base Height", Range(0,.95)) = .15
         _SpriteUV ("Sprite UV Rectangle", Vector) = (0,0,1,1)
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
@@ -38,7 +38,7 @@ Shader "Trapple/Sprites/Environment Wind"
                 float edge = smoothstep(0, .12, local.x) * smoothstep(0, .12, 1 - local.x);
                 float wave = sin(_Time.y * _Wind.x + local.y * _Wind.z + _Wind.w);
                 wave += .3 * sin(_Time.y * _Wind.x * .61 + local.y * _Wind.z * 1.7 + _Wind.w);
-                local.x += wave * _Wind.y * anchored * anchored * edge;
+                local.x += wave * _Wind.y * anchored * edge;
                 float2 uv = _SpriteUV.xy + local * _SpriteUV.zw;
                 fixed4 color = SampleSpriteTexture(uv) * input.color;
                 color.rgb *= color.a;

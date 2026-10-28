@@ -16,6 +16,11 @@ does not rebuild the Hub or write scene/prefab YAML. It refuses unsaved open sce
 and Play Mode. Run **Trapple → Hub → Install Living Environment** only to reinstall;
 the committed Hub is already configured.
 
+For an already-open Hub, **Trapple → Hub → Refresh Wind and Shadow Visibility**
+updates just the visual settings and the reusable system prefab through Unity's
+APIs. It preserves the current scene layout and checks collider invariants. Stop
+Play Mode and refresh Assets first when changing scripts externally.
+
 The scene audit found one orthographic camera (size 6.8), one `Default` sorting
 layer, the existing `HubCameraController`, `PlayerController`,
 `PlayerSpriteAnimator`, workshop transitions and map interactions. Existing
@@ -60,6 +65,9 @@ Select **Living Environment** in Hub:
   to zero at the left/right edges. These materials are for unatlased sprites;
   rotation/tight packing in a future Sprite Atlas would need a corresponding
   UV-space implementation before reuse.
+  Scene strengths are 0.018 for the tree, 0.016 for bushes, 0.03 for flowers and
+  0.035 for grass. The base mask is applied once; squaring it previously reduced
+  most canopy movement below a visible pixel at the Hub camera scale.
 - `ParallaxLayer` on each cloud: camera reference, Depth, Drift, Wrap Width.
   Depth 0 is infinitely distant and compensates camera movement fully; 1 is the
   gameplay plane. Distant objects consequently move less on screen.
@@ -71,6 +79,9 @@ Select **Living Environment** in Hub:
 - `AppiGroundShadow`: capsule and art references, Ground Layers, Max Distance,
   ground/air sizes and opacities, Fade Height and Surface Offset. The ray starts
   just above the feet so slightly embedded contacts still resolve correctly.
+  The contact material supplies a broad, soft ellipse instead of reusing the
+  lantern glow's rapidly fading alpha. Ground size is 1.25 × 0.23 units with
+  opacity 0.44; airborne size is 0.85 × 0.29 with opacity 0.09.
 - `EnvironmentWaterShimmer` on `Apple Meadow scenery`: Strength and Speed.
   `LakeShimmer.mat` exposes the conservative water UV rectangle.
 
@@ -86,11 +97,11 @@ Runtime scripts in `Assets/_Trapple/Scripts/Hub/Environment/`:
 - `EnvironmentWaterShimmer.cs`
 - `LivingEnvironmentController.cs`
 
-Shaders: `Assets/_Trapple/Shaders/EnvironmentWind.shader` and
-`EnvironmentWater.shader`.
+Shaders: `Assets/_Trapple/Shaders/EnvironmentWind.shader`,
+`EnvironmentWater.shader` and `EnvironmentContactShadow.shader`.
 
 Materials in `Assets/_Trapple/Art/Hub/Environment/`:
-`FoliageWind.mat`, `LakeShimmer.mat`, `SoftSprites.mat`.
+`FoliageWind.mat`, `LakeShimmer.mat`, `SoftSprites.mat`, `ContactShadow.mat`.
 
 Prefabs in `Assets/_Trapple/Prefabs/Hub/Environment/`:
 `LivingEnvironment.prefab`, `LeafParticle.prefab`, `PollenParticle.prefab`,
@@ -143,6 +154,16 @@ The commands use `-batchmode -force-d3d11 -runTests -testPlatform EditMode` or
 user's Unity Editor remained open. The local Hub retains the user's pre-existing
 map placement/scale overrides; those changes and the existing forest-scene edits
 are excluded from the feature commit.
+
+The visibility correction was additionally verified on **DirectX 12**, matching
+the user's open editor: **9/9 environment Play Mode tests** and **32/32 Edit Mode
+tests passed**. Two new render-based tests fail on the original presentation:
+the canopy had no rows moving by at least two pixels at 900p Hub scale, and Appi
+left only 10 visibly darkened shadow pixels, with a maximum change of 16/255.
+After correction, 64 canopy rows move by at least two pixels (maximum 9 pixels),
+and the shadow exposes 389 pixels with at least 10/255 darkening (maximum 54/255).
+The latter comparison renders the real character over the shadow, so a shadow
+hidden behind Appi cannot pass. Full evidence is in `Builds/VisibilityReview`.
 
 The scenery plate combines sky, mountains, distant trees and lake into one opaque
 PNG. It is deliberately not translated, stretched, cut into fake depth layers,

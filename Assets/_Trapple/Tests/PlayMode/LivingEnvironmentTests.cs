@@ -192,6 +192,85 @@ namespace Trapple.Tests
         }
 
         [UnityTest]
+        public IEnumerator GroundShadowIsVisibleAroundAppiAtGameplayScale()
+        {
+            if (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null) Assert.Ignore("Graphics required.");
+            environment.SetEffectsEnabled(false);
+            player.GetComponent<PlayerSpriteAnimator>().enabled = false;
+            var camera = Camera.main;
+            camera.GetComponent<HubCameraController>().enabled = false;
+            shadow.enabled = true; shadow.Refresh();
+            Color32[] withShadow = ReadPixels(camera, 1600, 900);
+            shadow.Presentation.enabled = false;
+            Color32[] withoutShadow = ReadPixels(camera, 1600, 900);
+            int visible = 0, strongest = 0;
+            for (int i = 0; i < withShadow.Length; i++)
+            {
+                int darkening = (withoutShadow[i].r + withoutShadow[i].g + withoutShadow[i].b -
+                    withShadow[i].r - withShadow[i].g - withShadow[i].b) / 3;
+                if (darkening >= 10) visible++;
+                strongest = Mathf.Max(strongest, darkening);
+            }
+            Debug.Log("CONTACT SHADOW VISIBILITY: exposed pixels=" + visible + ", max darkening=" + strongest + "/255 at 1600x900.");
+            Assert.That(visible, Is.GreaterThan(80), "The shadow must remain visible after Appi covers its center.");
+            Assert.That(strongest, Is.GreaterThan(20), "A technically enabled but imperceptible shadow is insufficient.");
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator AuthoredWindMovesCanopyByVisiblePixelsAtGameplayScale()
+        {
+            if (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null) Assert.Ignore("Graphics required.");
+            var tree = Object.FindObjectsByType<EnvironmentWindController>().Single(item => item.name == "Apple tree frame").GetComponent<SpriteRenderer>();
+            var actor = new GameObject("Wind visibility render", typeof(SpriteRenderer));
+            var cameraObject = new GameObject("Wind visibility camera", typeof(Camera));
+            try
+            {
+                actor.transform.position = new Vector3(1000, 1000, 0); actor.transform.localScale = tree.transform.lossyScale;
+                var renderer = actor.GetComponent<SpriteRenderer>(); renderer.sprite = tree.sprite; renderer.sharedMaterial = tree.sharedMaterial;
+                var properties = new MaterialPropertyBlock(); tree.GetPropertyBlock(properties);
+                Vector4 wind = properties.GetVector("_Wind"); wind.x = 0; wind.w = 0;
+                properties.SetVector("_Wind", wind); renderer.SetPropertyBlock(properties);
+                var camera = cameraObject.GetComponent<Camera>(); camera.enabled = false;
+                camera.transform.position = new Vector3(1000, 1000, -10); camera.orthographic = true;
+                // A square crop with exactly the same pixels per world unit as the actual 900p Hub.
+                camera.orthographicSize = Camera.main.orthographicSize * 512f / 900f;
+                camera.clearFlags = CameraClearFlags.SolidColor; camera.backgroundColor = new Color(.1f, .12f, .15f);
+                Color32[] first = ReadPixels(camera, 512, 512);
+                wind.w = Mathf.PI; properties.SetVector("_Wind", wind); renderer.SetPropertyBlock(properties);
+                Color32[] second = ReadPixels(camera, 512, 512);
+                Bounds bounds = renderer.bounds;
+                int left = Mathf.RoundToInt(camera.WorldToViewportPoint(bounds.min + Vector3.right * bounds.size.x * .2f).x * 512);
+                int right = Mathf.RoundToInt(camera.WorldToViewportPoint(bounds.min + Vector3.right * bounds.size.x * .8f).x * 512);
+                int bottom = Mathf.RoundToInt(camera.WorldToViewportPoint(bounds.min + Vector3.up * bounds.size.y * .77f).y * 512);
+                int top = Mathf.RoundToInt(camera.WorldToViewportPoint(bounds.min + Vector3.up * bounds.size.y * .92f).y * 512);
+                int visibleRows = 0, maxShift = 0;
+                for (int y = Mathf.Max(0, bottom); y <= Mathf.Min(511, top); y++)
+                {
+                    long bestError = long.MaxValue; int bestShift = 0;
+                    // Rendered-image correlation measures actual movement, not just a configured float.
+                    for (int shift = -16; shift <= 16; shift++)
+                    {
+                        long error = 0;
+                        for (int x = Mathf.Max(16, left); x <= Mathf.Min(495, right); x++)
+                        {
+                            Color32 a = first[y * 512 + x], b = second[y * 512 + x + shift];
+                            error += Mathf.Abs(a.r - b.r) + Mathf.Abs(a.g - b.g) + Mathf.Abs(a.b - b.b);
+                        }
+                        if (error < bestError || error == bestError && Mathf.Abs(shift) < Mathf.Abs(bestShift))
+                        { bestError = error; bestShift = shift; }
+                    }
+                    if (Mathf.Abs(bestShift) >= 2) visibleRows++;
+                    maxShift = Mathf.Max(maxShift, Mathf.Abs(bestShift));
+                }
+                Debug.Log("WIND VISIBILITY: canopy rows moving >=2 pixels=" + visibleRows + ", max shift=" + maxShift + " at 900p Hub scale.");
+                Assert.That(visibleRows, Is.GreaterThanOrEqualTo(12), "Authored wind should be visible at gameplay scale, not only at exaggerated test strength.");
+            }
+            finally { Object.Destroy(actor); Object.Destroy(cameraObject); }
+            yield return null;
+        }
+
+        [UnityTest]
         public IEnumerator CaptureEnvironmentInPlayMode()
         {
             if (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null) Assert.Ignore("A graphics device is required for visual QA.");
@@ -218,6 +297,25 @@ namespace Trapple.Tests
                 camera.targetTexture = target; camera.Render(); RenderTexture.active = target;
                 texture.ReadPixels(new Rect(0, 0, 1600, 900), 0, 0); texture.Apply();
                 File.WriteAllBytes("Builds/EnvironmentReview/" + name + ".png", texture.EncodeToPNG());
+            }
+            finally
+            {
+                camera.targetTexture = previous; RenderTexture.active = active;
+                target.Release(); Object.Destroy(target); Object.Destroy(texture);
+            }
+        }
+
+        private static Color32[] ReadPixels(Camera camera, int width, int height)
+        {
+            var previous = camera.targetTexture;
+            var active = RenderTexture.active;
+            var target = new RenderTexture(width, height, 24);
+            var texture = new Texture2D(width, height, TextureFormat.RGB24, false);
+            try
+            {
+                camera.targetTexture = target; camera.Render(); RenderTexture.active = target;
+                texture.ReadPixels(new Rect(0, 0, width, height), 0, 0); texture.Apply();
+                return texture.GetPixels32();
             }
             finally
             {

@@ -10,7 +10,7 @@ namespace Trapple.Level
     {
         [SerializeField] private MeadowBossEncounter encounter;
         public bool IsComplete { get; private set; }
-        private SpriteRenderer artwork;
+        [SerializeField] private SpriteRenderer artwork;
         private PlayerDeath finishingPlayer;
 
         public void SetArtwork(SpriteRenderer value) => artwork = value;

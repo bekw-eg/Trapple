@@ -1,0 +1,53 @@
+# Изменённые файлы Orchard Warden
+
+Список включает новый sprite kit, prefab, обе сцены, UI, тесты и документацию. Unity .meta сохранены вместе с ассетами.
+
+- `Assets/_Trapple/Art/OrchardWarden.meta`
+- `Assets/_Trapple/Art/OrchardWarden/AppleCrown.asset`
+- `Assets/_Trapple/Art/OrchardWarden/AppleCrown.asset.meta`
+- `Assets/_Trapple/Art/OrchardWarden/BranchArm.asset`
+- `Assets/_Trapple/Art/OrchardWarden/BranchArm.asset.meta`
+- `Assets/_Trapple/Art/OrchardWarden/Eyes.asset`
+- `Assets/_Trapple/Art/OrchardWarden/Eyes.asset.meta`
+- `Assets/_Trapple/Art/OrchardWarden/GoldenLeaf.asset`
+- `Assets/_Trapple/Art/OrchardWarden/GoldenLeaf.asset.meta`
+- `Assets/_Trapple/Art/OrchardWarden/OrchardKit.png`
+- `Assets/_Trapple/Art/OrchardWarden/OrchardKit.png.meta`
+- `Assets/_Trapple/Art/OrchardWarden/RootFoot.asset`
+- `Assets/_Trapple/Art/OrchardWarden/RootFoot.asset.meta`
+- `Assets/_Trapple/Art/OrchardWarden/Torso.asset`
+- `Assets/_Trapple/Art/OrchardWarden/Torso.asset.meta`
+- `Assets/_Trapple/Editor/MeadowBossBuilder.cs`
+- `Assets/_Trapple/Editor/WorldCompletionSetup.cs`
+- `Assets/_Trapple/Prefabs/OrchardWarden.meta`
+- `Assets/_Trapple/Prefabs/OrchardWarden/OrchardWarden.prefab`
+- `Assets/_Trapple/Prefabs/OrchardWarden/OrchardWarden.prefab.meta`
+- `Assets/_Trapple/Scenes/BossArenas/MeadowBossTest.unity`
+- `Assets/_Trapple/Scenes/BossArenas/MeadowBossTest.unity.meta`
+- `Assets/_Trapple/Scenes/Levels/Tutorial.unity`
+- `Assets/_Trapple/Scripts/Bosses/ForestGuardianController.cs`
+- `Assets/_Trapple/Scripts/DeceptiveForest/GuardianLeaves.cs`
+- `Assets/_Trapple/Scripts/Level/AppleMeadowPresentation.cs`
+- `Assets/_Trapple/Scripts/Level/MeadowArenaCheckpoint.cs`
+- `Assets/_Trapple/Scripts/Level/MeadowArenaCheckpoint.cs.meta`
+- `Assets/_Trapple/Scripts/Level/MeadowBossEncounter.cs`
+- `Assets/_Trapple/Scripts/Level/TutorialGoal.cs`
+- `Assets/_Trapple/Scripts/UI/GameInterface.cs`
+- `Assets/_Trapple/Scripts/UI/MeadowBossHUD.cs`
+- `Assets/_Trapple/Scripts/UI/MeadowBossHUD.cs.meta`
+- `Assets/_Trapple/Settings/HubConfiguration.asset`
+- `Assets/_Trapple/Tests/PlayMode/MeadowBossEncounterTests.cs`
+- `Assets/_Trapple/Tests/PlayMode/OrchardVisualTests.cs`
+- `Assets/_Trapple/Tests/PlayMode/OrchardVisualTests.cs.meta`
+- `Docs/ForestGuardian/README.md`
+- `Docs/OrchardWarden/ArtPrompt.md`
+- `Docs/OrchardWarden/Images/01-approach.png`
+- `Docs/OrchardWarden/Images/02-introduction.png`
+- `Docs/OrchardWarden/Images/03-survival.png`
+- `Docs/OrchardWarden/Images/03a-survival-wide.png`
+- `Docs/OrchardWarden/Images/04-root-warning.png`
+- `Docs/OrchardWarden/Images/05-victory.png`
+- `Docs/OrchardWarden/PullRequest.md`
+- `Docs/OrchardWarden/README.md`
+- `Docs/OrchardWarden/TestResults.json`
+- `Docs/OrchardWarden/Validation.md`

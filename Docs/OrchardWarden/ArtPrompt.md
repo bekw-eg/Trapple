@@ -1,0 +1,9 @@
+# Источник графики Orchard Warden
+
+Создано встроенным `image_gen`, навык `imagegen`, с прозрачным фоном. Исходный PNG сохранён в `Assets/_Trapple/Art/OrchardWarden/OrchardKit.png`. Шесть деталей импортированы в Unity Sprite Assets, составлены в `OrchardWarden.prefab` и анимируются существующим ригом. Используются собственные сгенерированные детали и существующее оформление Apple Meadow.
+
+Точный prompt:
+
+```text
+Use case: stylized-concept. Asset type: modular 2D cartoon game sprite atlas for Trapple Apple Meadow first boss called ORCHARD WARDEN. A huge ancient living APPLE TREE guardian, gruff protective grandfather expression, broad sturdy rounded silhouette, honey-golden warm bark, ivory wood highlights, lush round spring green foliage with a few bright RED APPLES. Painterly polished storybook cartoon game style, soft textured shading, dark clear outlines, orthographic front view, light from top left. TRANSPARENT background. Square sprite sheet with exactly SIX disconnected riggable pieces arranged strictly in a THREE COLUMN by TWO ROW grid, each equal cell has wide transparent margins so parts never touch. Top left cell: tree TRUNK TORSO ONLY with carved stern mouth and brows, open empty eye hollows, NO eyes NO arms NO feet NO crown. Top middle cell: rounded compact green APPLE CROWN ONLY, red apples visible, short attachment wood stem. Top right cell: one long chunky crooked BRANCH ARM ONLY with twig knuckle fist toward bottom, upper attachment at top; muscular wooden form. Bottom left cell: one broad gnarled ROOT FOOT ONLY, toes pointing right. Bottom middle cell: a pair of kind but fierce glowing pale yellow EYES ONLY with wood eyelids, horizontal pair. Bottom right cell: a single broad GOLDEN GREEN LEAF ONLY. Every part fully inside its cell. No full assembled character, no scenery, no words, labels, borders or grid lines. Actual alpha transparency, consistent scale and style across the six pieces.
+```

@@ -17,7 +17,7 @@ namespace Trapple.Editor
             var forest = config.World("forest");
             if (meadow == null || forest == null) throw new InvalidOperationException("The configured meadow and forest worlds are required.");
             meadow.completionRequiresBoss = true;
-            meadow.boss = "Ancient Tree";
+            meadow.boss = "Orchard Warden";
             // Forest currently has one real, continuous scene. Planned future slots must not prevent completion.
             forest.plannedLevels = Math.Max(1, Array.FindAll(forest.levelScenes ?? Array.Empty<string>(),
                 path => !string.IsNullOrEmpty(path)).Length);

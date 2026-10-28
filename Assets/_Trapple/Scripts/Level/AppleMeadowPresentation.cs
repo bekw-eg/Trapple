@@ -80,7 +80,9 @@ namespace Trapple.Level
                 renderer.drawMode = SpriteDrawMode.Simple;
                 // Use a child for art sizing so the apple's trigger keeps its original dimensions.
                 renderer.enabled = false;
-                var art = Visual("Apple", goal.transform.position, Vector2.one, 5, goal.transform);
+                var authored = goal.transform.Find("Orchard arena apple");
+                var art = authored != null ? authored.GetComponent<SpriteRenderer>() :
+                    Visual("Apple", goal.transform.position, Vector2.one, 5, goal.transform);
                 goal.SetArtwork(art);
             }
 

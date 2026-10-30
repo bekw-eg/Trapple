@@ -27,6 +27,7 @@ namespace Trapple.Bosses
         [SerializeField, Range(1, 5)] private int leafWaves = 3;
         [SerializeField, Min(.2f)] private float leafWaveInterval = .4f;
         [SerializeField, Min(.1f)] private float hurtDuration = .22f;
+        [SerializeField] private bool survivalOnly;
 
         private readonly List<ForestGuardianHazard> pool = new List<ForestGuardianHazard>();
         private PlayerDeath player;
@@ -38,6 +39,7 @@ namespace Trapple.Bosses
         public GuardianState State { get; private set; } = GuardianState.Inactive;
         public GuardianAttack CurrentAttack { get; private set; }
         public BossHealth Health => health;
+        public bool SurvivalOnly => survivalOnly;
         public PlayerDeath Player => player;
         public bool IsFighting => began && !resolved && player != null && !player.IsDead &&
             State != GuardianState.Inactive && State != GuardianState.Intro;
@@ -99,7 +101,7 @@ namespace Trapple.Bosses
         {
             if (!initialized || began || resolved || player.IsDead || health.IsDead) return;
             began = true;
-            health.SetVulnerable(true);
+            health.SetVulnerable(!survivalOnly);
             SetState(GuardianState.Idle, .9f);
         }
 
@@ -222,6 +224,7 @@ namespace Trapple.Bosses
 
         public void Resolve(bool retreat)
         {
+            if (survivalOnly && !retreat) return;
             if (!began || resolved || player == null || player.IsDead) return;
             resolved = true;
             began = false;

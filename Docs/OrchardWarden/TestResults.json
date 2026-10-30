@@ -1,0 +1,410 @@
+{
+  "unity": "6000.6.0f1",
+  "date": "2026-10-29",
+  "branch": "feature/meadow-survival-boss",
+  "playMode": {
+    "total": 73,
+    "passed": 72,
+    "failed": 0,
+    "skipped": 1
+  },
+  "editMode": "30/30 passed",
+  "windowsBuild": "Success",
+  "runs": [
+    {
+      "name": "orchard-final",
+      "total": 53,
+      "passed": 51,
+      "failed": 1,
+      "skipped": 1
+    },
+    {
+      "name": "orchard-retest",
+      "total": 37,
+      "passed": 36,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "name": "orchard-visual-final",
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "name": "orchard-physics-final",
+      "total": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "tests": [
+    {
+      "name": "Trapple.Tests.BossSystemsTests.ArenaStartsEncounterWithoutReenablingController",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.EncounterOpensAndClosesVulnerabilityAfterItsAttack",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.EveryAttackTelegraphsBeforeArmingAndCleansUp",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.FourEnvironmentalHitsCompleteEncounterAndCancelAllHazards",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.HazardCallsRealPlayerDeathAndReloadRestoresTime",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.HealthRejectsClosedAndInvalidHitsAndDiesOnlyOnce",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.LeverRequiresRangeAndVulnerabilityAndAllowsOneHitPerOpening",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.MainMenuPlayRestartAndReturnKeepOneManager",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.PauseFreezesAttackTimerAndResumeRestoresControl",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.PhaseTwoStartsStrictlyBelowHalfHealth",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.CaptureAndCheckResponsiveLayout",
+      "result": "Skipped",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathButtonsReceiveRaycastPointerInputWhilePaused",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathInHubClosesItsModalAndBlocksItsInput",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathWaitsForExistingDelayThenFreezesSimulationAndBlocksOtherMenus",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DirectLevelEntryCanReturnToHubAndExternalTransitionsClearDeathScreen",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnAndHubKeepCurrencyUpgradesAndWorldProgress",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnReloadsPlayersSceneWhenAnotherSceneIsActive",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnWorksAcrossThreeDeathsAndIgnoresRepeatedClicks",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelTests.BothCoursesHaveSevenSectionsAndPreserveWorldAbilities",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelTests.CameraAndParallaxCoverEverySectionAtCommonAspectRatios",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelTests.MultipleStickStationsKeepSingleItemCapacity",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelTests.TimerExcludesPreStartPauseAndPreviousDeathAndStopsAtGoal",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.ArenaTriggerStartsIntroOnceAndSkipRestoresGameplay",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.DamageVictoryRecordsWorldAndBossAndSurvivesSaveReload",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.DeathReloadRestoresCheckpointAmmoHealthAndTimerWithoutDuplicatePickup",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.IntroAndPauseNeverSpendSurvivalTimeAndPauseCannotSkipIntro",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.ProgressProjectionSupportsVerticalAndReversedSegments",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.SixtySecondClockExpiryRetreatsAndRecordsSameWorldCompletion",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.AuthoredCombatStickTravelsThroughPhysicsAndHitsGuardianFromBothSides",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.BranchSlamLeavesEnoughTimeToRetreatOutsideItsNearZone",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DamageVictoryAndTimeoutResolveOnceAndRejectRestart",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DeathCancelsCombatWithoutReportingVictory",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.IntroCannotDamageAndFightStartsOnlyOnce",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PatternContainsThreeDistinctWarnedAttacks",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PredictableLeafStreamCanBeJumpedUsingNormalControllerPhysics",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.RootWarningCanBeDodgedWithTheProductionJumpAndMovement",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.SurvivalRetreatDoesNotRequireAnyDamage",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.TelegraphPausesAndHurtCancelsTheEntireAttack",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.AuthoredGroundBranchesHaveReadableArtworkWithoutAnamorphicFlattening",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.AuthoredProjectileStaysPlayerSizedAcrossFlightImpactAndReuseInBothDirections",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.ForestLabelsRemainReadableAndSeparateAtGameWindowSizes(1280,720)",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.ForestLabelsRemainReadableAndSeparateAtGameWindowSizes(934,524)",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.AuthoredOrchardAllowsNormalMovementToEvadeEachAttack",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.CompletionButtonsReceivePointerAndContinueLaunchesForest",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.DeathDuringIntroReleasesCameraAndNeverStartsTheFight",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.DeathNearTimeoutCannotWinAndRetryRestoresCheckpointAndClock",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.FortyFiveScaledCombatSecondsRetreatAndPersistTheWorldOnce",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.ImportantSurvivalTextIsLargeAtUsersWindowSize",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.IntroAndPauseCannotAdvanceSurvivalAndDamageCannotWin",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.LeavingTheTrialClearsCheckpointAndContinueLoadsRealForest",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.NewOrchardArenaReusesAnimatedCombatAndHasNoWeaponsOrLever",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.PhysicalEntranceStartsOnceAndSkipResumesOnlyWhenUnpaused",
+      "result": "Passed",
+      "run": "orchard-physics-final"
+    },
+    {
+      "name": "Trapple.Tests.OrchardVisualTests.CaptureAuthoredOrchardTrial",
+      "result": "Passed",
+      "run": "orchard-visual-final"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ACollectedPickupCannotGrantTwiceAndRestoredPickupGrantsNothing",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.CapacityAndCheckpointRestoreClampWithoutDuplicatingAmmunition",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.HeldPuzzleStickHasPriorityOverCombatAmmunition",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.OneProjectileCannotDamageBossTwiceThroughDifferentColliders",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ThrowsBothDirectionsRejectsCooldownPauseAndEmptyInventory",
+      "result": "Passed",
+      "run": "orchard-final"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.LevelWarningFadesExpiresAndDoesNotAgeDuringPause",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.MasterVolumeSliderReceivesPointerInputAndPersists",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.MenuPlayUsesExistingSceneSequenceAndOnlyOneEventSystem",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.PauseSettingsBackAndResumePreserveTimeAndSavedVolume",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.TutorialHintsFollowExistingCourseAndHideInModals",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.WardrobeUsesExistingUnlockAndEquipServices",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.WorkshopPreservesCutsceneAndDebitsOnlyConfiguredPurchases",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.WorldSelectionReflectsDataAndNeverUnlocksOrLaunchesMissingLevels",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.AlternateHubSceneAlsoContainsTheBoardAndNoPortals",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.ClicksMatchAllFourDrawingsAndIgnoreFrameAndEmptyParchment",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.DisablingTheBoardOrOpeningAnotherModalCannotStrandControls",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.EveryZoneOpensTheExistingLevelSelectionWithoutChangingProgressOrArt",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.HubContainsOnlyOneBoardAndFourInvisibleTriggerZones",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.MeadowLaunchAndReturnUseExistingFlowAndRestoreTheBoard",
+      "result": "Passed",
+      "run": "orchard-retest"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.ProximityStartsInPlaceInteractionAndClosingRestoresControl",
+      "result": "Passed",
+      "run": "orchard-retest"
+    }
+  ]
+}

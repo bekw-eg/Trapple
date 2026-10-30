@@ -24,6 +24,7 @@ namespace Trapple.UI
         private HubUIController hub;
         private HubInteractionController interaction;
         private TutorialGoal tutorial;
+        private MeadowBossEncounter meadowEncounter;
         private ForestGoal forest;
         private ForestUI forestPresentation;
         private BossHealth health;
@@ -66,6 +67,7 @@ namespace Trapple.UI
             deathScreen.Hide();
             hub=FindAnyObjectByType<HubUIController>(); interaction=FindAnyObjectByType<HubInteractionController>();
             tutorial=FindAnyObjectByType<TutorialGoal>(); forest=FindAnyObjectByType<ForestGoal>();
+            meadowEncounter=FindAnyObjectByType<MeadowBossEncounter>();
             forestPresentation=FindAnyObjectByType<ForestUI>(); health=FindAnyObjectByType<BossHealth>(FindObjectsInactive.Include);
             phases=FindAnyObjectByType<BossPhaseController>(); lever=FindAnyObjectByType<ArenaLever>();
             player=FindAnyObjectByType<Trapple.Player.PlayerDeath>();
@@ -102,6 +104,7 @@ namespace Trapple.UI
             hud.SetActive(playing); hubShortcuts.SetActive(hub!=null && !dying);
             buttons[12].gameObject.SetActive(hub==null);
             notice.Tick(playing);
+            if(meadowEncounter!=null && meadowEncounter.IsNearArena) notice.Clear();
             RefreshPrompt(playing);
             if(heldItem!=null)
             {

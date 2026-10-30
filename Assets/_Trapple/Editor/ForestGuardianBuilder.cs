@@ -38,6 +38,7 @@ namespace Trapple.Editor
             BuildForest();
             BuildTestArena();
             MeadowBossBuilder.Build();
+            GuardianVarietyBuilder.Build();
             AssetDatabase.SaveAssets();
             Debug.Log("GUARDIAN BUILD: both existing worlds integrated, prefabs and modular sprites saved by Unity.");
         }

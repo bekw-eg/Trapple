@@ -177,8 +177,8 @@ namespace Trapple.Editor
             Reskin(body.Find("Textured trunk"), trunk, new Vector2(3.7f, 5.5f));
             Reskin(body.Find("Small leafy crown"), crown, new Vector2(4.8f, 3.2f));
             body.Find("Small leafy crown").localPosition = new Vector3(0, 5.6f, 0);
-            Reskin(body.Find("Left branch fist"), arm, new Vector2(1.6f, 3.2f));
-            Reskin(body.Find("Right branch fist"), arm, new Vector2(1.6f, 3.2f));
+            Reskin(GuardianVarietyBuilder.FindArt(body, "Left branch fist"), arm, new Vector2(1.6f, 3.2f));
+            Reskin(GuardianVarietyBuilder.FindArt(body, "Right branch fist"), arm, new Vector2(1.6f, 3.2f));
             var rig = obj.GetComponent<ForestGuardianAnimation>();
             Set(rig, "leftArm", Shoulder(body, "Left branch fist", new Vector2(-1.6f, 4.5f)));
             Set(rig, "rightArm", Shoulder(body, "Right branch fist", new Vector2(1.6f, 4.5f)));
@@ -193,21 +193,18 @@ namespace Trapple.Editor
             Set(boss, "rootDuration", .55f); Set(boss, "slamDuration", .45f);
             Set(boss, "impactDelay", .2f);
             Set(boss, "rootSprite", root); Set(boss, "branchSprite", arm); Set(boss, "leafSprite", leaf);
-            var effects = obj.AddComponent<GuardianAttackEffects>();
+            var effects = obj.GetComponent<GuardianAttackEffects>() ?? obj.AddComponent<GuardianAttackEffects>();
             Set(effects, "dustSprite", AssetDatabase.LoadAssetAtPath<Sprite>(Root + "Art/ForestGuardian/ContactShadow.png"));
             Set(effects, "debrisSprite", Resource("Rocks")); Set(effects, "leafSprite", leaf);
             Set(boss, "attackEffects", effects);
+            GuardianVarietyBuilder.Configure(obj);
             var asset = PrefabUtility.SaveAsPrefabAsset(obj, Prefab); PrefabUtility.UnloadPrefabContents(obj);
             var instance = (GameObject)PrefabUtility.InstantiatePrefab(asset, parent); instance.transform.position = position;
             return instance.GetComponent<ForestGuardianController>();
         }
         private static Transform Shoulder(Transform body, string artworkName, Vector2 anchor)
         {
-            var artwork = body.Find(artworkName);
-            var joint = new GameObject(artworkName + " shoulder").transform;
-            joint.SetParent(body, false); joint.localPosition = anchor;
-            artwork.SetParent(joint, true);
-            return joint;
+            return GuardianVarietyBuilder.Shoulder(body, GuardianVarietyBuilder.FindArt(body, artworkName), anchor);
         }
         private static void Reskin(Transform target, Sprite sprite, Vector2 size)
         { var art = target.GetComponent<SpriteRenderer>(); art.sprite = sprite; target.localScale = new Vector3(size.x / sprite.bounds.size.x, size.y / sprite.bounds.size.y, 1); }

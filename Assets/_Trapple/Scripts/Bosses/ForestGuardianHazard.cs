@@ -17,7 +17,14 @@ namespace Trapple.Bosses
         private Vector3 visualScale;
         private Vector2 physicalSize;
         private float remaining, age;
+        private float gravity, ground;
+        private bool bouncing, rolling;
+        private int bounceCount;
         public bool Armed { get; private set; }
+        public GuardianAttack Kind => kind;
+        public int BounceCount => bounceCount;
+        public Vector2 Velocity => velocity;
+        public int LaunchId { get; private set; }
 
         private void Awake()
         {
@@ -42,10 +49,12 @@ namespace Trapple.Bosses
             Vector2 movement, float lifetime, GuardianAttack attackKind)
         {
             owner = source;
+            LaunchId++;
             kind = attackKind;
             velocity = movement;
             remaining = lifetime;
             age = 0f;
+            gravity = 0f; ground = float.NegativeInfinity; bouncing = rolling = false; bounceCount = 0;
             gameObject.SetActive(true);
             body.position = position;
             body.rotation = 0f;
@@ -89,7 +98,7 @@ namespace Trapple.Bosses
             Vector3 scale = visualScale;
             Vector3 offset = Vector3.zero;
             float angle = 0f;
-            if (kind == GuardianAttack.RootStrike)
+            if (kind == GuardianAttack.RootStrike || kind == GuardianAttack.RootWave)
             {
                 float growth = Mathf.SmoothStep(.08f, 1f, Mathf.Clamp01(age / .14f));
                 growth *= Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(remaining / .16f));
@@ -105,6 +114,10 @@ namespace Trapple.Bosses
                 angle = 90f + Mathf.Sin(age * 40f) * 3f * Mathf.Exp(-age * 12f);
                 offset.y = Mathf.Abs(Mathf.Sin(age * 28f)) * .08f * Mathf.Exp(-age * 9f);
             }
+            else if (kind == GuardianAttack.BranchRain)
+                angle = Mathf.Sin(age * 11f) * 4f;
+            else if (kind == GuardianAttack.AppleBarrage)
+                angle = age * 280f;
             else
             {
                 angle = -20f + age * 250f;
@@ -118,9 +131,24 @@ namespace Trapple.Bosses
 
         private void FixedUpdate()
         {
-            if (Armed && owner != null && owner.CanDamage)
-                body.MovePosition(body.position + velocity * Time.fixedDeltaTime);
+            if (!Armed || owner == null || !owner.CanDamage) return;
+            float dt = Time.fixedDeltaTime;
+            if (!rolling) velocity.y -= gravity * dt;
+            Vector2 next = body.position + velocity * dt;
+            if (next.y - physicalSize.y * .5f <= ground && velocity.y <= 0f && !rolling)
+            {
+                next.y = ground + physicalSize.y * .5f;
+                owner.SpecialContact(kind, new Vector2(next.x, ground + .05f));
+                if (!bouncing) { Release(); return; }
+                bounceCount++;
+                velocity.y = bounceCount == 1 ? 6f : bounceCount == 2 ? 3.8f : 0f;
+                rolling = bounceCount >= 3;
+            }
+            body.MovePosition(next);
         }
+
+        public void SetBallistics(float acceleration, float floor, bool bounce)
+        { gravity = acceleration; ground = floor; bouncing = bounce; }
 
         private void OnTriggerEnter2D(Collider2D other) => Hit(other);
         private void OnTriggerStay2D(Collider2D other) => Hit(other);

@@ -1,0 +1,401 @@
+{
+  "unity": "6000.6.0f1",
+  "branch": "feature/guardian-varied-attacks",
+  "aggregation": "Latest result for each unique PlayMode test across the three listed runs",
+  "total": 65,
+  "passed": 63,
+  "failed": 0,
+  "skipped": 2,
+  "tests": [
+    {
+      "name": "Trapple.Tests.BossSystemsTests.ArenaStartsEncounterWithoutReenablingController",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "2.117974"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.EncounterOpensAndClosesVulnerabilityAfterItsAttack",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.693026"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.EveryAttackTelegraphsBeforeArmingAndCleansUp",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "4.270025"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.FourEnvironmentalHitsCompleteEncounterAndCancelAllHazards",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.050071"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.HazardCallsRealPlayerDeathAndReloadRestoresTime",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.946412"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.HealthRejectsClosedAndInvalidHitsAndDiesOnlyOnce",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.044397"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.LeverRequiresRangeAndVulnerabilityAndAllowsOneHitPerOpening",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.081078"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.MainMenuPlayRestartAndReturnKeepOneManager",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.812246"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.PauseFreezesAttackTimerAndResumeRestoresControl",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "1.495652"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.PhaseTwoStartsStrictlyBelowHalfHealth",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.048191"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.CaptureAndCheckResponsiveLayout",
+      "result": "Skipped",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.261836"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathButtonsReceiveRaycastPointerInputWhilePaused",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.442474"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathInHubClosesItsModalAndBlocksItsInput",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.451516"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathWaitsForExistingDelayThenFreezesSimulationAndBlocksOtherMenus",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "1.079994"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DirectLevelEntryCanReturnToHubAndExternalTransitionsClearDeathScreen",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.756453"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnAndHubKeepCurrencyUpgradesAndWorldProgress",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.957656"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnReloadsPlayersSceneWhenAnotherSceneIsActive",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.441962"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnWorksAcrossThreeDeathsAndIgnoresRepeatedClicks",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.955352"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.AuthoredCombatStickTravelsThroughPhysicsAndHitsGuardianFromBothSides",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "1.442037"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.BranchSlamLeavesEnoughTimeToRetreatOutsideItsNearZone",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "1.814462"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DamageVictoryAndTimeoutResolveOnceAndRejectRestart",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.152538"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DeathCancelsCombatWithoutReportingVictory",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.159184"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.IntroCannotDamageAndFightStartsOnlyOnce",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.151841"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PatternContainsThreeDistinctWarnedAttacks",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "1.302372"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PredictableLeafStreamCanBeJumpedUsingNormalControllerPhysics",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "2.632549"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.RootWarningCanBeDodgedWithTheProductionJumpAndMovement",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "1.910517"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.SurvivalRetreatDoesNotRequireAnyDamage",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.151628"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.TelegraphPausesAndHurtCancelsTheEntireAttack",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.616624"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.CancelDuringSwingPreventsDelayedDamageAndDebris",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.625958"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.CaptureAnimatedAttacks",
+      "result": "Skipped",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.076725"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.LeafWavesFlutterWithoutRotatingTheirPhysicsRoot",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.202715"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.PauseFreezesSwingAndParticlesAndCancelRemovesAllEffects",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "1.068886"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.RootEmergesFromGroundAndVisibleHitboxGrowsWithIt",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.438489"
+    },
+    {
+      "name": "Trapple.Tests.GuardianAttackAnimationTests.SlamHasShoulderWindupThenContactAndRecovery",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "1.759466"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPhysicsTests.LiveLeafColliderCallsRealPlayerDeathAndCancelsCombat",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.396142"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPhysicsTests.StickPassesThroughChildHazardWithoutDamagingBossUntilItsBodyIsHit",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.447179"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.AuthoredGroundBranchesHaveReadableArtworkWithoutAnamorphicFlattening",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.151743"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.AuthoredProjectileStaysPlayerSizedAcrossFlightImpactAndReuseInBothDirections",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "1.031598"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.ForestLabelsRemainReadableAndSeparateAtGameWindowSizes(1280,720)",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.160999"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPresentationTests.ForestLabelsRemainReadableAndSeparateAtGameWindowSizes(934,524)",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.158398"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.ARealJumpClearsTheRollingApple",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "3.220203"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.AuthoredBossesHaveDifferentAttackSetsAndAnActualGiantBranchSprite",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.144139"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.BothBossesDropExactlyFiftyBranchesWithoutRetargetingOrPoolOverflow",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "5.434728"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.CaptureBothBossAttackSets",
+      "result": "Passed",
+      "source": "Logs/variety-fan-playmode.xml",
+      "duration": "21.381006"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.DamagingTheSecondBossInterruptsTheEntireRain",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "1.017402"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.JumpAndRunCrossesTheSecondBossRootWave",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "2.596209"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.OrchardApplesBounceThenRollWithRealHitboxes",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "2.320653"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.PauseAndDeathCancelReservationsAndDoNotLeaveDelayedBranches",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "1.863058"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.RealMovementEvadesTheOpeningRainVolley",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "2.034169"
+    },
+    {
+      "name": "Trapple.Tests.GuardianVarietyTests.RootWaveAdvancesAcrossGroundAndLeafFanUsesThreeDifferentTrajectories",
+      "result": "Passed",
+      "source": "Logs/variety-fan-playmode.xml",
+      "duration": "1.149217"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.AuthoredOrchardAllowsNormalMovementToEvadeEachAttack",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "7.146481"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.CompletionButtonsReceivePointerAndContinueLaunchesForest",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "1.128420"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.DeathDuringIntroReleasesCameraAndNeverStartsTheFight",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.159736"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.DeathNearTimeoutCannotWinAndRetryRestoresCheckpointAndClock",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "1.112022"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.FortyFiveScaledCombatSecondsRetreatAndPersistTheWorldOnce",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "6.177058"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.ImportantSurvivalTextIsLargeAtUsersWindowSize",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.151116"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.IntroAndPauseCannotAdvanceSurvivalAndDamageCannotWin",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.596637"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.LeavingTheTrialClearsCheckpointAndContinueLoadsRealForest",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.344293"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.NewOrchardArenaReusesAnimatedCombatAndHasNoWeaponsOrLever",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.157793"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.PhysicalEntranceStartsOnceAndSkipResumesOnlyWhenUnpaused",
+      "result": "Passed",
+      "source": "Logs/variety-final-playmode.xml",
+      "duration": "0.190894"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ACollectedPickupCannotGrantTwiceAndRestoredPickupGrantsNothing",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.151432"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.CapacityAndCheckpointRestoreClampWithoutDuplicatingAmmunition",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.146659"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.HeldPuzzleStickHasPriorityOverCombatAmmunition",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.154665"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.OneProjectileCannotDamageBossTwiceThroughDifferentColliders",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.155382"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ThrowsBothDirectionsRejectsCooldownPauseAndEmptyInventory",
+      "result": "Passed",
+      "source": "Logs/variety-playmode.xml",
+      "duration": "0.224149"
+    }
+  ]
+}

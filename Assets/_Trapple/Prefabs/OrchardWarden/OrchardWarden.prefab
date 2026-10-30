@@ -726,6 +726,7 @@ GameObject:
   - component: {fileID: 6002153774168406541}
   - component: {fileID: 1160894239684390222}
   - component: {fileID: 2440472682942851618}
+  - component: {fileID: 4801511591228998000}
   m_Layer: 0
   m_Name: OrchardWarden
   m_TagString: Untagged
@@ -819,6 +820,7 @@ MonoBehaviour:
   survivalOnly: 1
   impactDelay: 0.2
   attackEffects: {fileID: 2440472682942851618}
+  specialAttacks: {fileID: 4801511591228998000}
 --- !u!61 &1160894239684390222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -880,6 +882,26 @@ MonoBehaviour:
   dustSprite: {fileID: -8402055959252037775, guid: 632147da4cbc6d6489ed1ddf78c24fa6, type: 3}
   debrisSprite: {fileID: 21300000, guid: b920ae0581dffbe4b8018c95debb9f10, type: 3}
   leafSprite: {fileID: 21300000, guid: b215ae96c0b941b47b917766fdb15888, type: 2}
+--- !u!114 &4801511591228998000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4220551339680658997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9da6a786afff1341bc56e0ef6383e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Trapple.Runtime::Trapple.Bosses.GuardianSpecialAttacks
+  giantBranch: {fileID: 21300000, guid: 6040beb6c4405f54e9923f6f40f231b5, type: 2}
+  apple: {fileID: 21300000, guid: 48dd2eddee2b0e948a489f2ee72aabda, type: 3}
+  root: {fileID: 21300000, guid: 4e355d31c5efb944baed0a6a1926c783, type: 2}
+  leaf: {fileID: 21300000, guid: b215ae96c0b941b47b917766fdb15888, type: 2}
+  markerSprite: {fileID: 21300000, guid: c8f4a680ec16154418bee4dedf996d96, type: 3}
+  rainBranchCount: 50
+  rainWarning: 0.75
+  rainVolleyInterval: 0.72
 --- !u!1 &6025857881902262105
 GameObject:
   m_ObjectHideFlags: 0

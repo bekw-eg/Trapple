@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Trapple.Bosses
 {
     public enum GuardianState { Inactive, Intro, Idle, PreparingAttack, Attacking, Recovering, Stunned, Defeated, Retreating }
-    public enum GuardianAttack { RootStrike, BranchSlam, LeafStorm }
+    public enum GuardianAttack { RootStrike, BranchSlam, LeafStorm, BranchRain, AppleBarrage, RootWave, LeafFan }
 
     /// <summary>The forest encounter owns the intro, survival clock and completion. This component owns combat only.</summary>
     [DisallowMultipleComponent]
@@ -30,6 +30,11 @@ namespace Trapple.Bosses
         [SerializeField] private bool survivalOnly;
         [SerializeField, Range(0f, .35f)] private float impactDelay;
         [SerializeField] private GuardianAttackEffects attackEffects;
+        [SerializeField] private GuardianSpecialAttacks specialAttacks;
+        private static readonly GuardianAttack[] OrchardPattern = { GuardianAttack.RootStrike, GuardianAttack.BranchSlam,
+            GuardianAttack.LeafStorm, GuardianAttack.BranchRain, GuardianAttack.AppleBarrage };
+        private static readonly GuardianAttack[] ForestPattern = { GuardianAttack.RootStrike, GuardianAttack.BranchSlam,
+            GuardianAttack.LeafStorm, GuardianAttack.BranchRain, GuardianAttack.RootWave, GuardianAttack.LeafFan };
 
         private readonly List<ForestGuardianHazard> pool = new List<ForestGuardianHazard>();
         private PlayerDeath player;
@@ -45,6 +50,13 @@ namespace Trapple.Bosses
         public bool SurvivalOnly => survivalOnly;
         public bool IsTelegraphing => State == GuardianState.PreparingAttack || impactPending;
         public PlayerDeath Player => player;
+        public bool IsSpecialAttack => CurrentAttack >= GuardianAttack.BranchRain;
+        public string AttackAdvice => CurrentAttack == GuardianAttack.RootStrike ? "ROOTS! / MOVE AWAY" :
+            CurrentAttack == GuardianAttack.BranchSlam ? "BRANCH! / STEP BACK" :
+            CurrentAttack == GuardianAttack.LeafStorm ? "LEAVES! / JUMP" :
+            CurrentAttack == GuardianAttack.BranchRain ? "BRANCH RAIN! / KEEP MOVING" :
+            CurrentAttack == GuardianAttack.AppleBarrage ? "BOUNCING APPLES! / JUMP" :
+            CurrentAttack == GuardianAttack.RootWave ? "ROOT WAVE! / JUMP OVER" : "LEAF FAN! / WATCH THE GAP";
         public bool IsFighting => began && !resolved && player != null && !player.IsDead &&
             State != GuardianState.Inactive && State != GuardianState.Intro;
         public bool CanDamage => IsFighting && Time.timeScale > 0f &&
@@ -66,6 +78,7 @@ namespace Trapple.Bosses
             health = GetComponent<BossHealth>();
             if (animationRig == null) animationRig = GetComponent<ForestGuardianAnimation>();
             if (attackEffects == null) attackEffects = GetComponent<GuardianAttackEffects>();
+            if (specialAttacks == null) specialAttacks = GetComponent<GuardianSpecialAttacks>();
             if (warning != null) warning.enabled = false;
         }
 
@@ -82,10 +95,10 @@ namespace Trapple.Bosses
             arena = new Vector2(Mathf.Min(arenaBounds.x, arenaBounds.y), Mathf.Max(arenaBounds.x, arenaBounds.y));
             floorY = groundY;
             initialized = player != null;
-            // Allocation happens once before combat. At most three leaves are live concurrently.
+            // Prewarm enough slots for overlapping five-branch volleys without combat allocations.
             if (hazardPrefab != null && pool.Count == 0)
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < (specialAttacks != null ? 32 : 8); i++)
                 {
                     var hazard = Instantiate(hazardPrefab, transform);
                     hazard.name = "Guardian hazard " + i;
@@ -130,6 +143,12 @@ namespace Trapple.Bosses
                     if (remaining <= 0f) ExecuteAttack();
                     break;
                 case GuardianState.Attacking:
+                    if (IsSpecialAttack && specialAttacks != null)
+                    {
+                        specialAttacks.Tick(Time.deltaTime);
+                        if (!specialAttacks.IsRunning) SetState(GuardianState.Recovering, .55f);
+                        break;
+                    }
                     if (impactPending)
                     {
                         impactRemaining -= Time.deltaTime;
@@ -157,14 +176,15 @@ namespace Trapple.Bosses
         private void PrepareAttack()
         {
             ClearHazards();
-            CurrentAttack = (GuardianAttack)(attackIndex++ % 3);
+            var pattern = survivalOnly ? OrchardPattern : ForestPattern;
+            CurrentAttack = specialAttacks != null ? pattern[attackIndex++ % pattern.Length] : (GuardianAttack)(attackIndex++ % 3);
             attackX = Mathf.Clamp(player.transform.position.x, arena.x + .8f, arena.y - .8f);
             if (CurrentAttack == GuardianAttack.BranchSlam)
             {
                 // The right-side guardian hits only its near side. The left half remains safe.
                 attackX = Mathf.Clamp(transform.position.x - 2.8f, arena.x + 2f, arena.y - 2f);
             }
-            if (warning != null)
+            if (warning != null && !IsSpecialAttack)
             {
                 warning.transform.position = new Vector3(CurrentAttack == GuardianAttack.LeafStorm
                     ? transform.position.x - 1.8f : attackX, floorY + .07f, 0f);
@@ -174,12 +194,20 @@ namespace Trapple.Bosses
                 warning.enabled = true;
             }
             SetState(GuardianState.PreparingAttack, warningDuration);
-            if (attackEffects != null) attackEffects.Telegraph(CurrentAttack,
+            if (specialAttacks != null && IsSpecialAttack) specialAttacks.Preview(CurrentAttack, warningDuration);
+            if (attackEffects != null && !IsSpecialAttack) attackEffects.Telegraph(CurrentAttack,
                 new Vector2(attackX, floorY + .08f), warningDuration);
         }
 
         private void ExecuteAttack()
         {
+            if (IsSpecialAttack && specialAttacks != null)
+            {
+                if (warning != null) warning.enabled = false;
+                specialAttacks.Begin(CurrentAttack, arena, floorY);
+                SetState(GuardianState.Attacking, specialAttacks.Duration);
+                return;
+            }
             switch (CurrentAttack)
             {
                 case GuardianAttack.RootStrike:
@@ -226,15 +254,23 @@ namespace Trapple.Bosses
                 (arena.y - arena.x + 4f) / leafSpeed, GuardianAttack.LeafStorm);
         }
 
-        private void Launch(Sprite sprite, Vector2 position, Vector2 size, Vector2 velocity, float lifetime, GuardianAttack kind)
+        internal ForestGuardianHazard Launch(Sprite sprite, Vector2 position, Vector2 size, Vector2 velocity, float lifetime, GuardianAttack kind)
         {
             foreach (var hazard in pool)
             {
                 if (hazard == null || hazard.gameObject.activeSelf) continue;
                 hazard.Launch(this, sprite, position, size, velocity, lifetime, kind);
-                return;
+                return hazard;
             }
             Debug.LogWarning("Forest Guardian hazard pool is full; attack omitted to preserve readable combat.", this);
+            return null;
+        }
+
+        internal void SpecialContact(GuardianAttack kind, Vector2 position)
+        {
+            if (!CanDamage) return;
+            Impact?.Invoke(.035f);
+            if (attackEffects != null) attackEffects.Contact(kind, position);
         }
 
         private void HealthChanged(int current, int maximum)
@@ -280,6 +316,7 @@ namespace Trapple.Bosses
         public void ClearHazards()
         {
             impactPending = false;
+            if (specialAttacks != null) specialAttacks.Clear();
             if (attackEffects != null) attackEffects.Clear();
             if (warning != null) warning.enabled = false;
             foreach (var hazard in pool) if (hazard != null) hazard.Release();

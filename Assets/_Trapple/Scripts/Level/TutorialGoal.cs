@@ -8,8 +8,10 @@ namespace Trapple.Level
     [RequireComponent(typeof(CircleCollider2D), typeof(SpriteRenderer))]
     public sealed class TutorialGoal : MonoBehaviour
     {
+        [SerializeField] private MeadowBossEncounter encounter;
         public bool IsComplete { get; private set; }
         private SpriteRenderer artwork;
+        private PlayerDeath finishingPlayer;
 
         public void SetArtwork(SpriteRenderer value) => artwork = value;
 
@@ -20,7 +22,15 @@ namespace Trapple.Level
             var player = other.GetComponentInParent<PlayerDeath>();
             if (IsComplete || player == null || player.IsDead)
                 return;
+            finishingPlayer = player;
+            if (encounter != null) { encounter.EnterArena(); return; }
+            CompleteAfterBoss();
+        }
 
+        public void CompleteAfterBoss(PlayerDeath completingPlayer = null)
+        {
+            var player = completingPlayer != null ? completingPlayer : finishingPlayer;
+            if (IsComplete || player == null || player.IsDead) return;
             IsComplete = true;
             player.GetComponent<PlayerController>().SetControlEnabled(false);
             var body = player.GetComponent<Rigidbody2D>();

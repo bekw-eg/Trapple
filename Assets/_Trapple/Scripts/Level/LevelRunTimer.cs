@@ -23,6 +23,7 @@ namespace Trapple.Level
         private LevelCourse course;
         private TutorialGoal meadowGoal;
         private ForestGoal forestGoal;
+        private ForestGuardianEncounter forestEncounter;
         private bool started, finished;
         private int furthestSection;
         private float[] sectionSeconds;
@@ -39,6 +40,7 @@ namespace Trapple.Level
             {
                 if (meadowGoal == null) meadowGoal = root.GetComponentInChildren<TutorialGoal>();
                 if (forestGoal == null) forestGoal = root.GetComponentInChildren<ForestGoal>();
+                if (forestEncounter == null) forestEncounter = root.GetComponentInChildren<ForestGuardianEncounter>();
             }
         }
 
@@ -47,7 +49,9 @@ namespace Trapple.Level
             if (Debug.isDebugBuild && Input.GetKeyDown(KeyCode.F8)) showDuringPlaytest = !showDuringPlaytest;
             if (finished || course.Player == null) return;
             if (course.Player.IsDead) { Finish(false); return; }
-            if ((meadowGoal != null && meadowGoal.IsComplete) || (forestGoal != null && forestGoal.IsComplete))
+            if ((meadowGoal != null && meadowGoal.IsComplete) || (forestGoal != null && forestGoal.IsComplete) ||
+                (forestEncounter != null && forestEncounter.State == ForestEncounterState.Complete) ||
+                (GameManager.Instance != null && GameManager.Instance.State == GameState.Victory))
             { Finish(true); return; }
             if (Time.timeScale <= 0 || !course.Player.GetComponent<PlayerController>().ControlEnabled) return;
             // Begin on the first real displacement; loading/reading controls before moving is excluded.

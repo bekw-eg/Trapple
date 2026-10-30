@@ -51,7 +51,8 @@ namespace Trapple.Hub
                 var body = Box(card.root, "world-body");
                 Label(body, definition.subtitle, "eyebrow");
                 Label(body, definition.title, "world-title");
-                Label(body, definition.plannedLevels + (definition.plannedLevels == 1 ? " уровень · без босса" : " уровня + босс"), "small");
+                Label(body, definition.plannedLevels + (definition.plannedLevels == 1 ? " уровень" : " уровня") +
+                    (definition.completionRequiresBoss ? " + босс" : ""), "small");
                 card.progress = Label(body, "", "world-progress");
                 card.select = Button(body, "ВЫБРАТЬ  →", "secondary");
                 card.select.name = "select-" + definition.id;
@@ -69,10 +70,11 @@ namespace Trapple.Hub
             foreach (var card in cards)
             {
                 bool unlocked = progression.IsWorldUnlocked(card.definition);
-                bool complete = card.definition.id == "meadow" && progression.TutorialComplete;
+                bool complete = progression.IsWorldComplete(card.definition.id);
                 card.state.text = complete ? "COMPLETED" : unlocked ? "UNLOCKED" : "LOCKED";
                 card.root.EnableInClassList("locked", !unlocked);
-                card.progress.text = "ПРОГРЕСС  " + (complete ? "1" : "0") + " / " + card.definition.plannedLevels;
+                card.root.EnableInClassList("completed", complete);
+                card.progress.text = "ПРОГРЕСС  " + progression.CompletedLevels(card.definition.id) + " / " + card.definition.plannedLevels;
                 // Locked cards still reveal their description; launch buttons remain disabled.
                 card.select.text = unlocked ? "ВЫБРАТЬ  →" : "О МИРЕ  →";
             }

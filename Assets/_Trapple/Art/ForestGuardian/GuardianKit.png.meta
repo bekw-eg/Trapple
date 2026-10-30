@@ -1,0 +1,1185 @@
+fileFormatVersion: 2
+guid: e1a2e0b59d86d6b4a80fc806a1211db5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5963432197804632363
+    second: GuardianKit_0
+  - first:
+      213: 9093279977469097696
+    second: GuardianKit_1
+  - first:
+      213: -983045812118299040
+    second: GuardianKit_2
+  - first:
+      213: 5455944894293825016
+    second: GuardianKit_3
+  - first:
+      213: -7005288929305637431
+    second: GuardianKit_4
+  - first:
+      213: 3350980281225934526
+    second: GuardianKit_5
+  - first:
+      213: 2226033954635454450
+    second: GuardianKit_6
+  - first:
+      213: -3957217225687935665
+    second: GuardianKit_7
+  - first:
+      213: -8044553863335586713
+    second: GuardianKit_8
+  - first:
+      213: 5537422262802579296
+    second: GuardianKit_9
+  - first:
+      213: 7543228539684260034
+    second: GuardianKit_10
+  - first:
+      213: -6553182822077135071
+    second: GuardianKit_11
+  - first:
+      213: 5997564801543574570
+    second: GuardianKit_12
+  - first:
+      213: 6453833971959279143
+    second: GuardianKit_13
+  - first:
+      213: -3165252411195771668
+    second: GuardianKit_14
+  - first:
+      213: 8775440499704196792
+    second: GuardianKit_15
+  - first:
+      213: -1091968358628948303
+    second: GuardianKit_16
+  - first:
+      213: -2645980908279625695
+    second: GuardianKit_17
+  - first:
+      213: -833295721522326302
+    second: GuardianKit_18
+  - first:
+      213: 6029680185032381464
+    second: GuardianKit_19
+  - first:
+      213: 6722555272759165166
+    second: GuardianKit_20
+  - first:
+      213: 8020655980370586978
+    second: GuardianKit_21
+  - first:
+      213: -7585569169399548939
+    second: GuardianKit_22
+  - first:
+      213: -609480825203330672
+    second: GuardianKit_23
+  - first:
+      213: 8739164386213420851
+    second: GuardianKit_24
+  - first:
+      213: 1920526218211437803
+    second: GuardianKit_25
+  - first:
+      213: -6180556217459484719
+    second: GuardianKit_26
+  - first:
+      213: -4669579035509817782
+    second: GuardianKit_27
+  - first:
+      213: -5465530676096138604
+    second: GuardianKit_28
+  - first:
+      213: 3290256271050138645
+    second: GuardianKit_29
+  - first:
+      213: -4016908493383948406
+    second: GuardianKit_30
+  - first:
+      213: -218630663448194643
+    second: GuardianKit_31
+  - first:
+      213: 970022625964822327
+    second: GuardianKit_32
+  - first:
+      213: -1904477719020004456
+    second: GuardianKit_33
+  - first:
+      213: -2015987906459279013
+    second: GuardianKit_34
+  - first:
+      213: -2620388565855367225
+    second: GuardianKit_35
+  - first:
+      213: 3719085904693776863
+    second: GuardianKit_36
+  - first:
+      213: 8689242588867756129
+    second: GuardianKit_37
+  - first:
+      213: -3401101724199244229
+    second: GuardianKit_38
+  - first:
+      213: -8639750775397285600
+    second: GuardianKit_39
+  - first:
+      213: 527567834887503373
+    second: GuardianKit_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GuardianKit_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 513
+        width: 465
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d65abff202ad3da0800000000000000
+      internalID: -5963432197804632363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_1
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 1084
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6b73416f1d13e70800000000000000
+      internalID: 9093279977469097696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_2
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1213
+        width: 76
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ed0c2da058b52f0800000000000000
+      internalID: -983045812118299040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_3
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1106
+        width: 182
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f55d7a79f867bb40800000000000000
+      internalID: 5455944894293825016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_4
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1158
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cdc2cb95d638ce90800000000000000
+      internalID: -7005288929305637431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_5
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1114
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb67fcfbfc2118e20800000000000000
+      internalID: 3350980281225934526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_6
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1091
+        width: 53
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f71104761674ee10800000000000000
+      internalID: 2226033954635454450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_7
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 399
+        width: 432
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4550d346e32519c0800000000000000
+      internalID: -3957217225687935665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_8
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 1215
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764d26712e00c5090800000000000000
+      internalID: -8044553863335586713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_9
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 1216
+        width: 78
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06fffa1a530e8dc40800000000000000
+      internalID: 5537422262802579296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_10
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1092
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c8087f146eeea860800000000000000
+      internalID: 7543228539684260034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_11
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 638
+        width: 532
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12786ed81fa6e05a0800000000000000
+      internalID: -6553182822077135071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_12
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 499
+        width: 75
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2414691961ab3350800000000000000
+      internalID: 5997564801543574570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_13
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 464
+        width: 78
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e2bf9bdcf909950800000000000000
+      internalID: 6453833971959279143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_14
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 450
+        width: 116
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce43a36c3b3c214d0800000000000000
+      internalID: -3165252411195771668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_15
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 574
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bee174e3a0a8c970800000000000000
+      internalID: 8775440499704196792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_16
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 566
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b684f5309c88d0f0800000000000000
+      internalID: -1091968358628948303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 29
+        width: 590
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12807870266974bd0800000000000000
+      internalID: -2645980908279625695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_18
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 485
+        width: 25
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e41fcdc4f98f64f0800000000000000
+      internalID: -833295721522326302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_19
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 467
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81411128e2abda350800000000000000
+      internalID: 6029680185032381464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_20
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 483
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee04db727605b4d50800000000000000
+      internalID: 6722555272759165166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_21
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 521
+        width: 23
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26de99f6e181f4f60800000000000000
+      internalID: 8020655980370586978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_22
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 503
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3f8cec705aab690800000000000000
+      internalID: -7585569169399548939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_23
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 479
+        width: 17
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 091f75c2b60ba87f0800000000000000
+      internalID: -609480825203330672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_24
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 448
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33fdef905bfb74970800000000000000
+      internalID: 8739164386213420851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_25
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 471
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec215a8b6417aa10800000000000000
+      internalID: 1920526218211437803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_26
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 417
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7deffbdd04a3aa0800000000000000
+      internalID: -6180556217459484719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_27
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 369
+        width: 46
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e73d19b92523fb0800000000000000
+      internalID: -4669579035509817782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_28
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 389
+        width: 50
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4920a46cec88624b0800000000000000
+      internalID: -5465530676096138604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_29
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 63
+        width: 207
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 514e1ff55a659ad20800000000000000
+      internalID: 3290256271050138645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_30
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 0
+        width: 304
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a87a99cf1031148c0800000000000000
+      internalID: -4016908493383948406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_31
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 353
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da19928e19447fcf0800000000000000
+      internalID: -218630663448194643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_32
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 355
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f89bc5076367d00800000000000000
+      internalID: 970022625964822327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_33
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 345
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89b9a2bda9fe195e0800000000000000
+      internalID: -1904477719020004456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_34
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 39
+        width: 254
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b51e2042ea5c504e0800000000000000
+      internalID: -2015987906459279013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_35
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 95
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf02b69b7282abd0800000000000000
+      internalID: -2620388565855367225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_36
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 61
+        width: 36
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd15f6efce8dc9330800000000000000
+      internalID: 3719085904693776863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_37
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 29
+        width: 49
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16088a4d814669870800000000000000
+      internalID: 8689242588867756129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_38
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 17
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ea22c600cdcc0d0800000000000000
+      internalID: -3401101724199244229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_39
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 15
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0210a84f170791880800000000000000
+      internalID: -8639750775397285600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuardianKit_40
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 15
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e3461962c425700800000000000000
+      internalID: 527567834887503373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GuardianKit_0: -5963432197804632363
+      GuardianKit_1: 9093279977469097696
+      GuardianKit_10: 7543228539684260034
+      GuardianKit_11: -6553182822077135071
+      GuardianKit_12: 5997564801543574570
+      GuardianKit_13: 6453833971959279143
+      GuardianKit_14: -3165252411195771668
+      GuardianKit_15: 8775440499704196792
+      GuardianKit_16: -1091968358628948303
+      GuardianKit_17: -2645980908279625695
+      GuardianKit_18: -833295721522326302
+      GuardianKit_19: 6029680185032381464
+      GuardianKit_2: -983045812118299040
+      GuardianKit_20: 6722555272759165166
+      GuardianKit_21: 8020655980370586978
+      GuardianKit_22: -7585569169399548939
+      GuardianKit_23: -609480825203330672
+      GuardianKit_24: 8739164386213420851
+      GuardianKit_25: 1920526218211437803
+      GuardianKit_26: -6180556217459484719
+      GuardianKit_27: -4669579035509817782
+      GuardianKit_28: -5465530676096138604
+      GuardianKit_29: 3290256271050138645
+      GuardianKit_3: 5455944894293825016
+      GuardianKit_30: -4016908493383948406
+      GuardianKit_31: -218630663448194643
+      GuardianKit_32: 970022625964822327
+      GuardianKit_33: -1904477719020004456
+      GuardianKit_34: -2015987906459279013
+      GuardianKit_35: -2620388565855367225
+      GuardianKit_36: 3719085904693776863
+      GuardianKit_37: 8689242588867756129
+      GuardianKit_38: -3401101724199244229
+      GuardianKit_39: -8639750775397285600
+      GuardianKit_4: -7005288929305637431
+      GuardianKit_40: 527567834887503373
+      GuardianKit_5: 3350980281225934526
+      GuardianKit_6: 2226033954635454450
+      GuardianKit_7: -3957217225687935665
+      GuardianKit_8: -8044553863335586713
+      GuardianKit_9: 5537422262802579296
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -267,20 +267,21 @@ namespace Trapple.Tests
             Assert.That(EventSystem.current.currentSelectedGameObject,Is.Null);
         }
         [UnityTest]
-        public IEnumerator GoalCompletesOnceAndReturnToHubPreservesSave()
+        public IEnumerator OldGoalCannotBypassGuardianAndArenaEntryPreservesSave()
         {
             string save = PlayerPrefs.GetString(PreviewSaveService.Key, "");
             var goal = Object.FindAnyObjectByType<ForestGoal>(); body.position = goal.transform.position;
             yield return new WaitForSeconds(.1f);
-            Assert.That(goal.IsComplete, Is.True); Assert.That(body.simulated, Is.False);
-            Assert.That(player.ControlEnabled, Is.False); Assert.That(GameManager.Instance.State, Is.EqualTo(GameState.Victory));
-            GameManager.Instance.Pause(); Assert.That(GameManager.Instance.State, Is.EqualTo(GameState.Victory));
-            var ui = Object.FindAnyObjectByType<ForestUI>();
+            Assert.That(goal.IsComplete, Is.False); Assert.That(body.simulated, Is.True);
+            Assert.That(GameManager.Instance.State, Is.EqualTo(GameState.Playing));
+            var encounter = Object.FindAnyObjectByType<ForestGuardianEncounter>();
+            encounter.EnterArena(); encounter.EnterArena();
+            Assert.That(encounter.State, Is.EqualTo(ForestEncounterState.Intro));
+            Assert.That(player.ControlEnabled, Is.False);
+            Assert.That(PlayerPrefs.GetString(PreviewSaveService.Key, ""), Is.EqualTo(save));
             Assert.That(Application.CanStreamedLevelBeLoaded(HubSceneFlowController.HubScenePath), Is.True, "Hub registered in active build");
-            var hubButton=System.Array.Find(Object.FindObjectsByType<UnityEngine.UI.Button>(),value=>value.name=="Lobby");
-            Assert.That(hubButton.interactable,Is.True,"Hub button enabled");
             yield return null;
-            ExecuteEvents.Execute(hubButton.gameObject,new BaseEventData(EventSystem.current),ExecuteEvents.submitHandler);
+            encounter.GoToHub();
             yield return new WaitForSeconds(.4f);
             Assert.That(SceneManager.GetActiveScene().path, Is.EqualTo(HubSceneFlowController.HubScenePath));
             Assert.That(Object.FindAnyObjectByType<PlayerController>().ControlEnabled, Is.True);
@@ -302,7 +303,7 @@ namespace Trapple.Tests
         }
         [UnityTest]
         [Timeout(600000)]
-        public IEnumerator WholeLevelCanBeCompletedWithBaseMovementAndStick()
+        public IEnumerator WholeForestRouteReachesGuardianWithBaseMovementAndPuzzleStick()
         {
             Set(death, "restartDelay", 30f);
             yield return Walk(8.2f); yield return Hop(12.3f);
@@ -325,7 +326,9 @@ namespace Trapple.Tests
             Assert.That(GameObject.Find("07 · Final tree").GetComponent<ForestFallingTree>().HasFallen, Is.True);
             yield return Hop(71.7f); yield return Walk(75.8f);
             yield return ExpandedRoutePlayback.Continue(player, death, true);
-            Assert.That(Object.FindAnyObjectByType<ForestGoal>().IsComplete, Is.True); Assert.That(death.IsDead, Is.False);
+            Assert.That(Object.FindAnyObjectByType<ForestGoal>().IsComplete, Is.False);
+            Assert.That(Object.FindAnyObjectByType<ForestGuardianEncounter>().State, Is.EqualTo(ForestEncounterState.Intro));
+            Assert.That(death.IsDead, Is.False);
         }
         private IEnumerator Walk(float target)
         {

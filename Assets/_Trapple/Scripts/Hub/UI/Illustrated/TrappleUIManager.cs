@@ -44,6 +44,9 @@ namespace Trapple.Hub.Illustrated
         public void Initialize(HubConfiguration config, IProgressionService progress, ISceneFlowController flow,
             Action<HubScreen> navigate, Action close, Action menu)
         {
+            // Fit the authored page on both axes so Hub's close/continue controls also remain reachable at 4:3.
+            var scaler = GetComponent<CanvasScaler>();
+            if (scaler != null) scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
             if (progression != null) progression.Changed -= Refresh;
             // Also update already-authored scene instances from the earlier opaque prefab.
             var inputBlocker = surface != null ? surface.transform.Find("Backdrop")?.GetComponent<Image>() : null;

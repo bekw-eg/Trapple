@@ -28,7 +28,13 @@ namespace Trapple.Hub
 
         public static HubSceneFlowController Ensure(HubConfiguration configuration, PanelSettings panel, VisualTreeAsset returnTree)
         {
-            if (Instance != null) return Instance;
+            if (Instance != null)
+            {
+                // Direct level play can initialize saves before the hub supplies its optional presentation.
+                if (panel != null) Instance.panel = panel;
+                if (returnTree != null) Instance.returnTree = returnTree;
+                return Instance;
+            }
             var flow = new GameObject("Hub preview services").AddComponent<HubSceneFlowController>();
             flow.configuration = configuration;
             flow.panel = panel;

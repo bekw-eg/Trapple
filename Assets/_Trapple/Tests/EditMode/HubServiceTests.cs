@@ -138,14 +138,16 @@ namespace Trapple.Tests
         {
             progression.CompleteTutorial();
             Assert.That(progression.IsWorldUnlocked(config.World("forest")),Is.True);
-            for(int i=0;i<3;i++) Assert.That(progression.CompleteLevel("forest",i),Is.True);
+            int levelCount = config.World("forest").plannedLevels;
+            for(int i=0;i<levelCount;i++) Assert.That(progression.CompleteLevel("forest",i),Is.True);
+            Assert.That(progression.CompleteLevel("forest",levelCount),Is.False);
             Assert.That(progression.CompleteLevel("forest",0),Is.False);
             Assert.That(progression.IsWorldUnlocked(config.World("factory")),Is.False);
             Assert.That(progression.CompleteBoss("forest"),Is.True);
             Assert.That(progression.CompleteBoss("forest"),Is.False);
             var restored=new PreviewProgressionService(config,save);
             Assert.That(restored.IsWorldUnlocked(config.World("factory")),Is.True);
-            Assert.That(restored.CompletedLevels("forest"),Is.EqualTo(3));
+            Assert.That(restored.CompletedLevels("forest"),Is.EqualTo(levelCount));
             Assert.That(restored.CompleteLevel("lava",0),Is.False);
         }
 

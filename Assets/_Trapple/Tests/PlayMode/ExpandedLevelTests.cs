@@ -125,8 +125,13 @@ namespace Trapple.Tests
             timer = Object.FindAnyObjectByType<LevelRunTimer>();
             Assert.That(timer.ActiveSeconds, Is.Zero); Assert.That(timer.IsFinished, Is.False);
             player = Object.FindAnyObjectByType<PlayerController>(); player.enabled = false;
-            player.GetComponent<Rigidbody2D>().position = Object.FindAnyObjectByType<TutorialGoal>().transform.position;
+            var goal = Object.FindAnyObjectByType<TutorialGoal>();
+            player.GetComponent<Rigidbody2D>().position = goal.transform.position;
             yield return new WaitForSeconds(.15f);
+            Assert.That(timer.IsSuccessful, Is.False, "The boss introduction cannot complete a run.");
+            // The timer's completion contract is exercised here; combat resolution has dedicated integration tests.
+            goal.CompleteAfterBoss(player.GetComponent<PlayerDeath>());
+            yield return null;
             Assert.That(timer.IsSuccessful, Is.True);
             float completed = timer.ActiveSeconds;
             yield return new WaitForSeconds(.15f);

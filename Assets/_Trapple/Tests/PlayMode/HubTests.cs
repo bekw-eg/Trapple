@@ -131,7 +131,7 @@ namespace Trapple.Tests
             ui.Open(HubScreen.Worlds); yield return null;
             var map=Object.FindAnyObjectByType<WorldMapPanelUI>();
             Assert.That(map,Is.Not.Null);
-            map.SelectWorld(1); yield return null;
+            map.SelectWorld(2); yield return null; // Factory remains locked and has no invented scene.
             Assert.That(FindButton("Play level").interactable,Is.False);
             map.Play(); yield return null;
             Assert.That(SceneManager.GetActiveScene().path,Is.EqualTo(HubSceneFlowController.HubScenePath));
@@ -302,10 +302,13 @@ namespace Trapple.Tests
         {
             ui.Open(HubScreen.Worlds);
             var service=HubSceneFlowController.Instance.Progression;
-            service.CompleteTutorial(); yield return null;
+            service.CompleteTutorial();
+            Assert.That(service.IsWorldComplete("meadow"), Is.False, "The route alone no longer completes the first boss world.");
+            service.CompleteBoss("meadow"); yield return null;
             Assert.That(service.IsWorldUnlocked(HubSceneFlowController.Instance.Configuration.World("forest")),Is.True);
             Object.FindAnyObjectByType<WorldMapPanelUI>().SelectWorld(1);
-            Assert.That(FindButton("Play level").interactable,Is.False);
+            Assert.That(FindButton("Play level").interactable,Is.EqualTo(HubSceneFlowController.Instance.CanLaunch(
+                HubSceneFlowController.Instance.Configuration.World("forest"),0)));
             Assert.That(service.Seeds,Is.Zero);
         }
 
@@ -325,7 +328,8 @@ namespace Trapple.Tests
                     var position=RectTransformUtility.WorldToScreenPoint(null,rect.TransformPoint(rect.rect.center));
                     var data=new PointerEventData(EventSystem.current){position=position};
                     var hits=new System.Collections.Generic.List<RaycastResult>(); EventSystem.current.RaycastAll(data,hits);
-                    Assert.That(hits.Exists(hit=>hit.gameObject==button.gameObject),Is.True,button.name);
+                    Assert.That(hits.Exists(hit=>hit.gameObject==button.gameObject),Is.True,
+                        button.name + " at " + position + " screen=" + Screen.width + "x" + Screen.height + " page=" + screen);
                 }
             }
         }
@@ -358,7 +362,8 @@ namespace Trapple.Tests
             Assert.That(service.EquippedCosmetic,Is.EqualTo("forest"));
             var config=HubSceneFlowController.Instance.Configuration;
             Assert.That(player.GetComponent<SpriteRenderer>().sprite,Is.EqualTo(config.Cosmetic("forest").sprite));
-            Assert.That(service.IsWorldUnlocked(config.World("forest")),Is.False);
+            Assert.That(service.IsWorldUnlocked(config.World("forest")),Is.EqualTo(config.World("forest").initiallyUnlocked),
+                "Granting an outfit must preserve the configured world access.");
             var restored=new PreviewProgressionService(config,new PreviewSaveService());
             Assert.That(restored.SelectedCosmetic,Is.EqualTo("forest"));
             Assert.That(restored.EquippedCosmetic,Is.EqualTo("forest"));

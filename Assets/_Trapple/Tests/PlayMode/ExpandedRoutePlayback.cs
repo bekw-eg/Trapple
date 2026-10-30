@@ -48,9 +48,17 @@ namespace Trapple.Tests
                 if (++completedCommands % 50 == 0)
                     Debug.Log($"EXPANDED ROUTE progress {player.gameObject.scene.name}: {completedCommands}/{route.commands.Length}, x={body.position.x:F1}");
             }
+            // The old route ends at the approach. Walk the newly authored safe transition to the arena trigger.
+            float entrance = forest
+                ? Object.FindObjectsByType<BossEncounterTrigger>().First(value =>
+                    !(bool)value.GetType().GetField("checkpoint", Private).GetValue(value)).transform.position.x
+                : Object.FindAnyObjectByType<TutorialGoal>().transform.position.x;
+            yield return Move(player, death, body, entrance, false, "Boss arena approach");
             yield return null;
             var timer = Object.FindAnyObjectByType<LevelRunTimer>();
-            Assert.That(timer.IsSuccessful, Is.True);
+            Assert.That(timer.IsSuccessful, Is.False, "Reaching the arena is followed by its boss fight.");
+            if (forest) Assert.That(Object.FindAnyObjectByType<ForestGuardianEncounter>().State, Is.EqualTo(ForestEncounterState.Intro));
+            else Assert.That(Object.FindAnyObjectByType<MeadowBossEncounter>().State, Is.EqualTo(MeadowEncounterState.Intro));
             Assert.That(timer.SectionSeconds.All(t => t > 0), Is.True, "Every section must be traversed");
             Debug.Log($"EXPANDED ROUTE physics completed: {player.gameObject.scene.name}; active={timer.ActiveSeconds:F2}s. Scripted input is NOT a novice timing playtest.");
         }

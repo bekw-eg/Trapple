@@ -1,0 +1,870 @@
+{
+  "unity": "6000.6.0f1",
+  "date": "2026-10-28",
+  "playMode": {
+    "total": 137,
+    "passed": 135,
+    "failed": 0,
+    "skipped": 2
+  },
+  "editMode": {
+    "total": 30,
+    "passed": 30,
+    "failed": 0
+  },
+  "windowsBuild": "Success",
+  "runs": [
+    {
+      "name": "guardian-regression",
+      "total": 135,
+      "passed": 124,
+      "failed": 8,
+      "skipped": 3
+    },
+    {
+      "name": "guardian-retest-final",
+      "total": 44,
+      "passed": 43,
+      "failed": 0,
+      "skipped": 1
+    },
+    {
+      "name": "guardian-final-combat",
+      "total": 19,
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "name": "guardian-meadow-final",
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "tests": [
+    {
+      "name": "Trapple.Tests.AppiRunTests.DirectionChangeKeepsPhaseAndVelocityWinsOverDisabledInput",
+      "result": "Passed",
+      "duration": "0.795358",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.AppiRunTests.RealVelocityPlaysTheWholeCycleThenIdleAndPreservesJump",
+      "result": "Passed",
+      "duration": "3.852895",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.ArenaStartsEncounterWithoutReenablingController",
+      "result": "Passed",
+      "duration": "2.043321",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.EncounterOpensAndClosesVulnerabilityAfterItsAttack",
+      "result": "Passed",
+      "duration": "0.669230",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.EveryAttackTelegraphsBeforeArmingAndCleansUp",
+      "result": "Passed",
+      "duration": "4.263275",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.FourEnvironmentalHitsCompleteEncounterAndCancelAllHazards",
+      "result": "Passed",
+      "duration": "0.040307",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.HazardCallsRealPlayerDeathAndReloadRestoresTime",
+      "result": "Passed",
+      "duration": "0.926587",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.HealthRejectsClosedAndInvalidHitsAndDiesOnlyOnce",
+      "result": "Passed",
+      "duration": "0.036567",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.LeverRequiresRangeAndVulnerabilityAndAllowsOneHitPerOpening",
+      "result": "Passed",
+      "duration": "0.037327",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.MainMenuPlayRestartAndReturnKeepOneManager",
+      "result": "Passed",
+      "duration": "0.652415",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.PauseFreezesAttackTimerAndResumeRestoresControl",
+      "result": "Passed",
+      "duration": "1.493941",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.BossSystemsTests.PhaseTwoStartsStrictlyBelowHalfHealth",
+      "result": "Passed",
+      "duration": "0.039803",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.CaptureAndCheckResponsiveLayout",
+      "result": "Skipped",
+      "duration": "0.387926",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathButtonsReceiveRaycastPointerInputWhilePaused",
+      "result": "Passed",
+      "duration": "0.406738",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathInHubClosesItsModalAndBlocksItsInput",
+      "result": "Passed",
+      "duration": "0.910792",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DeathWaitsForExistingDelayThenFreezesSimulationAndBlocksOtherMenus",
+      "result": "Passed",
+      "duration": "1.050164",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.DirectLevelEntryCanReturnToHubAndExternalTransitionsClearDeathScreen",
+      "result": "Passed",
+      "duration": "0.684663",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnAndHubKeepCurrencyUpgradesAndWorldProgress",
+      "result": "Passed",
+      "duration": "0.892969",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnReloadsPlayersSceneWhenAnotherSceneIsActive",
+      "result": "Passed",
+      "duration": "0.388153",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.DeathScreenTests.RespawnWorksAcrossThreeDeathsAndIgnoresRepeatedClicks",
+      "result": "Passed",
+      "duration": "0.867643",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.BaitProximityTriggersWithoutLandingAndIsNotGoal",
+      "result": "Passed",
+      "duration": "1.619649",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.CameraStaysBoundedWhenPlayerFalls",
+      "result": "Passed",
+      "duration": "1.459985",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.DeathRestartsAndResetsEveryTrapItemsAndTime",
+      "result": "Passed",
+      "duration": "2.772415",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.HiddenCoversMatchGroundAndHudContainsNoSpoilers",
+      "result": "Passed",
+      "duration": "0.464439",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.HiddenGroundOnlyActivatesOnTopAndRevealsRealPit",
+      "result": "Passed",
+      "duration": "0.946811",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.ItemHintsExpireAndDoNotRepeatOnReapproach",
+      "result": "Passed",
+      "duration": "6.901376",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.LandingAmbushWaitsForSupportAndPauseFreezesTrap",
+      "result": "Passed",
+      "duration": "2.419056",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.NonPlayerCannotActivateBaitOrTrees",
+      "result": "Passed",
+      "duration": "0.677262",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.OldGoalCannotBypassGuardianAndArenaEntryPreservesSave",
+      "result": "Passed",
+      "duration": "0.974119",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.PauseUsesSharedManagerAndDoesNotSubmitFromGameplay",
+      "result": "Passed",
+      "duration": "0.456757",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.SavedSceneHasPlayerArtPrefabsAndSafeSpawn",
+      "result": "Passed",
+      "duration": "0.463028",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.StickCanThrowLeftAndAlwaysRecoversAfterMiss",
+      "result": "Passed",
+      "duration": "4.787971",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.StickRangePickupThrowBarrierAndHudWork",
+      "result": "Passed",
+      "duration": "0.996444",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.TreeWarnsRotatesKillsAndSettlesSafely",
+      "result": "Passed",
+      "duration": "1.700277",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.TrustedBranchMatchesSafeBranchesAndRemovesAllDecorWithSupport",
+      "result": "Passed",
+      "duration": "1.285278",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.DeceptiveForestTests.WholeForestRouteReachesGuardianWithBaseMovementAndPuzzleStick",
+      "result": "Passed",
+      "duration": "184.637692",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelTests.BothCoursesHaveSevenSectionsAndPreserveWorldAbilities",
+      "result": "Passed",
+      "duration": "0.336273",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelTests.CameraAndParallaxCoverEverySectionAtCommonAspectRatios",
+      "result": "Passed",
+      "duration": "21.899049",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelTests.MultipleStickStationsKeepSingleItemCapacity",
+      "result": "Passed",
+      "duration": "0.237882",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelTests.TimerExcludesPreStartPauseAndPreviousDeathAndStopsAtGoal",
+      "result": "Passed",
+      "duration": "1.955047",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.ExpandedLevelVisualTests.CaptureSectionScenery",
+      "result": "Skipped",
+      "duration": "0.002870",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.ArenaTriggerStartsIntroOnceAndSkipRestoresGameplay",
+      "result": "Passed",
+      "duration": "1.031056",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.DamageVictoryRecordsWorldAndBossAndSurvivesSaveReload",
+      "result": "Passed",
+      "duration": "0.311873",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.DeathReloadRestoresCheckpointAmmoHealthAndTimerWithoutDuplicatePickup",
+      "result": "Passed",
+      "duration": "1.147289",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.IntroAndPauseNeverSpendSurvivalTimeAndPauseCannotSkipIntro",
+      "result": "Passed",
+      "duration": "0.817310",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.ProgressProjectionSupportsVerticalAndReversedSegments",
+      "result": "Passed",
+      "duration": "0.175699",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestEncounterTests.SixtySecondClockExpiryRetreatsAndRecordsSameWorldCompletion",
+      "result": "Passed",
+      "duration": "0.357953",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.AuthoredCombatStickTravelsThroughPhysicsAndHitsGuardianFromBothSides",
+      "result": "Passed",
+      "duration": "1.343290",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.BranchSlamLeavesEnoughTimeToRetreatOutsideItsNearZone",
+      "result": "Passed",
+      "duration": "1.815486",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DamageVictoryAndTimeoutResolveOnceAndRejectRestart",
+      "result": "Passed",
+      "duration": "0.146100",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.DeathCancelsCombatWithoutReportingVictory",
+      "result": "Passed",
+      "duration": "0.149995",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.IntroCannotDamageAndFightStartsOnlyOnce",
+      "result": "Passed",
+      "duration": "0.148919",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PatternContainsThreeDistinctWarnedAttacks",
+      "result": "Passed",
+      "duration": "1.300255",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.PredictableLeafStreamCanBeJumpedUsingNormalControllerPhysics",
+      "result": "Passed",
+      "duration": "2.628552",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.RootWarningCanBeDodgedWithTheProductionJumpAndMovement",
+      "result": "Passed",
+      "duration": "1.906857",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.SurvivalRetreatDoesNotRequireAnyDamage",
+      "result": "Passed",
+      "duration": "0.152156",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianCombatTests.TelegraphPausesAndHurtCancelsTheEntireAttack",
+      "result": "Passed",
+      "duration": "0.613993",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.ForestGuardianVisualTests.CaptureAuthoredEncounter",
+      "result": "Passed",
+      "duration": "6.768288",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPhysicsTests.LiveLeafColliderCallsRealPlayerDeathAndCancelsCombat",
+      "result": "Passed",
+      "duration": "0.370042",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.GuardianPhysicsTests.StickPassesThroughChildHazardWithoutDamagingBossUntilItsBodyIsHit",
+      "result": "Passed",
+      "duration": "0.465728",
+      "run": "guardian-final-combat"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.ActualBackAndHubButtonsAreWiredAndDoNotReloadScene",
+      "result": "Passed",
+      "duration": "13.197151",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.EscapeOpensSettingsAndGameplaySpaceCannotSubmitHud",
+      "result": "Passed",
+      "duration": "12.894056",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.HotspotsAreRaycastableAndArtworkScalesUniformly",
+      "result": "Passed",
+      "duration": "0.339395",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.PlayerSpawnsGroundedAndCameraFollows",
+      "result": "Passed",
+      "duration": "1.129514",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.PromptInteractionModalAndControlRestoration",
+      "result": "Passed",
+      "duration": "10.751668",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.PurchasesGuardUnconfiguredPricesFundsRapidClicksAndMaximum",
+      "result": "Passed",
+      "duration": "7.408668",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.RapidReopenAndDisableNeverStrandControls",
+      "result": "Passed",
+      "duration": "12.617893",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.RegisteredTutorialLaunchAndReturnPreserveProgress",
+      "result": "Passed",
+      "duration": "1.153736",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.StandaloneSceneOpensMapOverPlayableHubAndCloseRestoresControl",
+      "result": "Passed",
+      "duration": "0.650026",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.SubmitOnPurchaseButtonUpdatesBalanceAndSavedLevel",
+      "result": "Passed",
+      "duration": "7.409835",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.SuppliedFramesAnimateWalkingJumpingAndModalIdle",
+      "result": "Passed",
+      "duration": "1.985380",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.TutorialCompletionRefreshesWorldUnlockWithoutInventingSceneOrCurrency",
+      "result": "Passed",
+      "duration": "0.383538",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.TutorialHudCannotSubmitJumpAndExitReturnsToMainMenu",
+      "result": "Passed",
+      "duration": "0.813730",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.UnlockedSkinEquipsThroughActualUIAndRestoresFromDisk",
+      "result": "Passed",
+      "duration": "0.380484",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.WardrobeUsesProvidedCharactersAndLocksWorldSkins",
+      "result": "Passed",
+      "duration": "0.360522",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.HubTests.WorldCardsAndLockedLevelGuards",
+      "result": "Passed",
+      "duration": "0.355083",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.AppleTriggerIntroducesExistingBossInsteadOfPrematureVictory",
+      "result": "Passed",
+      "duration": "0.379526",
+      "run": "guardian-meadow-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.DeathDuringIntroReleasesCameraAndNeverStartsTheFight",
+      "result": "Passed",
+      "duration": "0.157850",
+      "run": "guardian-meadow-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.ExistingTreeWaitsAtEndOfRouteAndMeadowHasNoCombatSticks",
+      "result": "Passed",
+      "duration": "0.141192",
+      "run": "guardian-meadow-final"
+    },
+    {
+      "name": "Trapple.Tests.MeadowBossEncounterTests.FourOriginalLeverHitsResolveFightWithoutImmediateLevelCompletion",
+      "result": "Passed",
+      "duration": "0.222000",
+      "run": "guardian-meadow-final"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.HoldingShiftAtRestDoesNotMoveOrStoreABoost",
+      "result": "Passed",
+      "duration": "0.463110",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.ReleasingMovementStopsQuicklyAndSprintReversalRemainsResponsive(-1.0f)",
+      "result": "Passed",
+      "duration": "0.465273",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.ReleasingMovementStopsQuicklyAndSprintReversalRemainsResponsive(1.0f)",
+      "result": "Passed",
+      "duration": "0.454638",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.ShiftSmoothlyAddsBoostAndReleaseReturnsToConfiguredWalkSpeed(-1.0f)",
+      "result": "Passed",
+      "duration": "0.467488",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.ShiftSmoothlyAddsBoostAndReleaseReturnsToConfiguredWalkSpeed(1.0f)",
+      "result": "Passed",
+      "duration": "0.459117",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.SprintJumpPreservesHeightRejectsDoubleJumpAndRestoresGroundAnimation",
+      "result": "Passed",
+      "duration": "2.853852",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.SuspensionAndFocusLossClearSprintAndDoNotOverwriteExternalMotion",
+      "result": "Passed",
+      "duration": "0.414633",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.WalkingUsesAllSixDistinctPosesInBothDirectionsAndSprintUsesRunCycle",
+      "result": "Passed",
+      "duration": "3.650018",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.PlayerSprintTests.WallContactStopsTheRunCycleAndMovingAwayRestartsIt",
+      "result": "Passed",
+      "duration": "1.466305",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ACollectedPickupCannotGrantTwiceAndRestoredPickupGrantsNothing",
+      "result": "Passed",
+      "duration": "0.122733",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.CapacityAndCheckpointRestoreClampWithoutDuplicatingAmmunition",
+      "result": "Passed",
+      "duration": "0.120614",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.HeldPuzzleStickHasPriorityOverCombatAmmunition",
+      "result": "Passed",
+      "duration": "0.116772",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.OneProjectileCannotDamageBossTwiceThroughDifferentColliders",
+      "result": "Passed",
+      "duration": "0.119634",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StickCombatTests.ThrowsBothDirectionsRejectsCooldownPauseAndEmptyInventory",
+      "result": "Passed",
+      "duration": "0.193761",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.LevelWarningFadesExpiresAndDoesNotAgeDuringPause",
+      "result": "Passed",
+      "duration": "2.083963",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.MasterVolumeSliderReceivesPointerInputAndPersists",
+      "result": "Passed",
+      "duration": "0.047070",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.MenuPlayUsesExistingSceneSequenceAndOnlyOneEventSystem",
+      "result": "Passed",
+      "duration": "0.125061",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.PauseSettingsBackAndResumePreserveTimeAndSavedVolume",
+      "result": "Passed",
+      "duration": "0.159081",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.TutorialHintsFollowExistingCourseAndHideInModals",
+      "result": "Passed",
+      "duration": "0.154869",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.WardrobeUsesExistingUnlockAndEquipServices",
+      "result": "Passed",
+      "duration": "0.126934",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.WorkshopPreservesCutsceneAndDebitsOnlyConfiguredPurchases",
+      "result": "Passed",
+      "duration": "12.358865",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.StorybookUITests.WorldSelectionReflectsDataAndNeverUnlocksOrLaunchesMissingLevels",
+      "result": "Passed",
+      "duration": "0.368054",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.AirbornePressIsNotReplayedOnLanding",
+      "result": "Passed",
+      "duration": "1.023234",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.AppleStartsBossIntroAndStopsPlayer",
+      "result": "Passed",
+      "duration": "0.494769",
+      "run": "guardian-retest-final"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.CameraFollowsPlayer",
+      "result": "Passed",
+      "duration": "1.127641",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.DeathAllowsRespawnEvenWhenTimeIsPaused",
+      "result": "Passed",
+      "duration": "0.817279",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.DeathIsIdempotentAndDisablesPhysicsAndControl",
+      "result": "Passed",
+      "duration": "0.424348",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.EntireTutorialRouteReachesBossWithMovementAndJumps",
+      "result": "Passed",
+      "duration": "176.488698",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.FallingOutOfLevelKillsPlayer",
+      "result": "Passed",
+      "duration": "0.526471",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.HiddenTrapRevealsAfterDelayAndKillsOverlappingPlayer",
+      "result": "Passed",
+      "duration": "1.019350",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.JumpReachesConfiguredHeightAndRejectsDoubleJump",
+      "result": "Passed",
+      "duration": "1.026598",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.MeadowArtworkLoadsOnceAndKeepsTrapHitboxes",
+      "result": "Passed",
+      "duration": "0.428878",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.MovementAcceleratesTurnsAndStops",
+      "result": "Passed",
+      "duration": "0.426318",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.NearbyWallCannotGrantJump",
+      "result": "Passed",
+      "duration": "0.425225",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.PauseFreezesPlayerAndClearsPendingJump",
+      "result": "Passed",
+      "duration": "0.522214",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.PlatformFallsOnlyAfterLandingAndDelay",
+      "result": "Passed",
+      "duration": "1.070462",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.SceneContainsRequiredComponents",
+      "result": "Passed",
+      "duration": "0.419937",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.SideContactDoesNotActivatePlatform",
+      "result": "Passed",
+      "duration": "0.572350",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.SpawnIsGrounded",
+      "result": "Passed",
+      "duration": "0.417536",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.SpikeTriggerKillsPlayer",
+      "result": "Passed",
+      "duration": "0.458645",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.TutorialTests.UnarmedSpikesDoNotKill",
+      "result": "Passed",
+      "duration": "0.449744",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopDoorTests.OpeningAndClosingShowEveryFrameInTheSuppliedOrder",
+      "result": "Passed",
+      "duration": "1.903328",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopDoorTests.PlaybackHoldsEachOverlayForTheConfiguredTenFpsAtZeroTimescale",
+      "result": "Passed",
+      "duration": "0.957626",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopDoorTests.ReversingOrResettingDuringOpeningDoesNotResumeTheStaleSequence",
+      "result": "Passed",
+      "duration": "1.954320",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopTests.AnimatedPreviewsWrapAndPurchaseChangesSpeedWithoutResettingPosition",
+      "result": "Passed",
+      "duration": "10.358434",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopTests.CancelDuringEntryRestoresOriginalPoseCameraAndControlAtZeroTimescale",
+      "result": "Passed",
+      "duration": "5.954404",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopTests.CancelInsidePreservesPreviouslyDisabledControlAndFollow",
+      "result": "Passed",
+      "duration": "5.556243",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopTests.EntryWalksClimbsIrisLocksAndExitRestoresThenReenters",
+      "result": "Passed",
+      "duration": "15.960332",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopTests.JumpAndAgilityMoveInRealtimeAndUpgradesIncreaseHeight",
+      "result": "Passed",
+      "duration": "7.053787",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorkshopTests.WorkshopButtonsReceiveRaycastsAndUseSingleEventSystem",
+      "result": "Passed",
+      "duration": "5.555761",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.AlternateHubSceneAlsoContainsTheBoardAndNoPortals",
+      "result": "Passed",
+      "duration": "0.650098",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.ClicksMatchAllFourDrawingsAndIgnoreFrameAndEmptyParchment",
+      "result": "Passed",
+      "duration": "0.348362",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.DisablingTheBoardOrOpeningAnotherModalCannotStrandControls",
+      "result": "Passed",
+      "duration": "0.623449",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.EveryZoneOpensTheExistingLevelSelectionWithoutChangingProgressOrArt",
+      "result": "Passed",
+      "duration": "1.374713",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.HubContainsOnlyOneBoardAndFourInvisibleTriggerZones",
+      "result": "Passed",
+      "duration": "0.343411",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.MeadowLaunchAndReturnUseExistingFlowAndRestoreTheBoard",
+      "result": "Passed",
+      "duration": "1.011745",
+      "run": "guardian-regression"
+    },
+    {
+      "name": "Trapple.Tests.WorldMapTests.ProximityStartsInPlaceInteractionAndClosingRestoresControl",
+      "result": "Passed",
+      "duration": "0.350013",
+      "run": "guardian-regression"
+    }
+  ]
+}

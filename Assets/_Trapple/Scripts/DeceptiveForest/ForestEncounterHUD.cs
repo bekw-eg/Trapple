@@ -19,10 +19,12 @@ namespace Trapple.DeceptiveForest
         private bool focused;
         private Canvas view;
         private Transform inventoryIcon;
+        private Transform throwControl;
         private void Start()
         {
             view = GetComponent<Canvas>();
             inventoryIcon = transform.Find("Collected stick");
+            throwControl = transform.Find("Throw control");
             continueButton.onClick.AddListener(encounter.Continue);
             hubButton.onClick.AddListener(encounter.GoToHub);
             victory.SetActive(false);
@@ -36,6 +38,7 @@ namespace Trapple.DeceptiveForest
             bool showInventory = state != ForestEncounterState.Intro && state != ForestEncounterState.Complete;
             stickText.gameObject.SetActive(showInventory);
             if (inventoryIcon != null) inventoryIcon.gameObject.SetActive(showInventory);
+            if (throwControl != null) throwControl.gameObject.SetActive(showInventory);
             float dt = Time.deltaTime;
             routeGroup.alpha = Mathf.MoveTowards(routeGroup.alpha, route ? 1 : 0, dt * 2.5f);
             combatGroup.alpha = Mathf.MoveTowards(combatGroup.alpha, combat ? 1 : 0, dt * 3);
@@ -55,7 +58,7 @@ namespace Trapple.DeceptiveForest
             timerText.text = "SURVIVE  " + Mathf.CeilToInt(encounter.TimeRemaining).ToString("00") + " s";
             timerText.color = encounter.TimeRemaining < 10 ? new Color(1, .65f, .38f) : new Color(1, .94f, .75f);
             shownSticks = Mathf.MoveTowards(shownSticks, encounter.Inventory.Count, dt * 14);
-            stickText.text = "x " + Mathf.RoundToInt(shownSticks) + "   F  THROW";
+            stickText.text = "x " + Mathf.RoundToInt(shownSticks);
             bool complete = state == ForestEncounterState.Complete;
             victory.SetActive(complete);
             if (complete && !focused)

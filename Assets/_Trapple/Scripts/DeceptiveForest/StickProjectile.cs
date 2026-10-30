@@ -9,12 +9,13 @@ namespace Trapple.DeceptiveForest
     public sealed class StickProjectile : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer artwork;
+        [SerializeField] private Vector2 visualSize = new Vector2(1.25f, .65f);
         [SerializeField, Min(.1f)] private float lifetime = 4f;
         private Rigidbody2D body;
         private Collider2D hitbox;
         private Transform owner;
         private Action<StickProjectile> release;
-        private Vector3 initialScale;
+        private Vector3 initialVisualScale;
         private Color initialColor;
         private int damage;
         private float elapsed;
@@ -32,7 +33,26 @@ namespace Trapple.DeceptiveForest
             body = GetComponent<Rigidbody2D>();
             hitbox = GetComponent<Collider2D>();
             if (artwork == null) artwork = GetComponentInChildren<SpriteRenderer>();
-            initialScale = transform.localScale;
+            // Physics uses world units; source texture pixels must never become the projectile's scale.
+            transform.localScale = Vector3.one;
+            if (artwork != null && artwork.sprite != null)
+            {
+                // Also support older prefabs with a renderer on the Rigidbody root.
+                if (artwork.transform == transform)
+                {
+                    var visual = new GameObject("Projectile artwork", typeof(SpriteRenderer));
+                    visual.transform.SetParent(transform, false);
+                    var view = visual.GetComponent<SpriteRenderer>();
+                    view.sprite = artwork.sprite; view.color = artwork.color;
+                    view.sharedMaterial = artwork.sharedMaterial;
+                    view.sortingLayerID = artwork.sortingLayerID; view.sortingOrder = artwork.sortingOrder;
+                    artwork.enabled = false; artwork = view;
+                }
+                Vector2 bounds = artwork.sprite.bounds.size;
+                artwork.transform.localScale = new Vector3(visualSize.x / Mathf.Max(.001f, bounds.x),
+                    visualSize.y / Mathf.Max(.001f, bounds.y), 1);
+            }
+            initialVisualScale = artwork != null ? artwork.transform.localScale : Vector3.one;
             initialColor = artwork != null ? artwork.color : Color.white;
             body.bodyType = RigidbodyType2D.Dynamic;
             body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -45,8 +65,8 @@ namespace Trapple.DeceptiveForest
             Initialize();
             owner = thrower; release = returnToPool; damage = Mathf.Max(1, hitDamage);
             elapsed = 0; impacted = false;
-            transform.localScale = initialScale;
-            if (artwork != null) artwork.color = initialColor;
+            transform.localScale = Vector3.one;
+            if (artwork != null) { artwork.transform.localScale = initialVisualScale; artwork.color = initialColor; }
             transform.SetPositionAndRotation(position, Quaternion.identity);
             body.position = position; body.rotation = 0;
             body.gravityScale = Mathf.Max(0, gravity);
@@ -68,8 +88,11 @@ namespace Trapple.DeceptiveForest
                 return;
             }
             float t = Mathf.Clamp01(elapsed / .14f);
-            transform.localScale = initialScale * Mathf.Lerp(1f, 1.35f, t);
-            if (artwork != null) artwork.color = new Color(1f, .85f, .45f, 1f - t);
+            if (artwork != null)
+            {
+                artwork.transform.localScale = initialVisualScale * Mathf.Lerp(1f, 1.12f, t);
+                artwork.color = new Color(1f, .85f, .45f, 1f - t);
+            }
             if (t >= 1f) ReturnToPool();
         }
 

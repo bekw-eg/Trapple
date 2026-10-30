@@ -17,7 +17,9 @@ namespace Trapple.Tests
         [UnityTest]
         public IEnumerator CaptureAuthoredEncounter()
         {
-            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-capture-guardian") < 0)
+            bool readability = Array.IndexOf(Environment.GetCommandLineArgs(), "-capture-guardian-readability") >= 0;
+            int width = readability ? 934 : 1280, height = readability ? 524 : 720;
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-capture-guardian") < 0 && !readability)
                 Assert.Ignore("Opt-in rendered capture: run with -capture-guardian and graphics enabled.");
             Time.timeScale = 1;
             ForestGuardianEncounter.ClearCheckpoint();
@@ -27,32 +29,49 @@ namespace Trapple.Tests
             var player = Object.FindAnyObjectByType<PlayerDeath>();
             player.GetComponent<PlayerController>().enabled = false; player.GetComponent<Rigidbody2D>().simulated = false;
             yield return new WaitForSeconds(.8f);
-            Capture("01-route", 1280, 720);
+            Capture("01-route", width, height);
             // The dedicated test scene intentionally has no world record in the production configuration.
             GameManager.Instance.LoadScene("Assets/_Trapple/Scenes/BossArenas/ForestGuardianTest.unity");
             yield return null; yield return null;
             var encounter = Object.FindAnyObjectByType<ForestGuardianEncounter>();
             player = Object.FindAnyObjectByType<PlayerDeath>();
             player.GetComponent<PlayerController>().enabled = false; player.GetComponent<Rigidbody2D>().simulated = false;
+            if (readability)
+            {
+                yield return new WaitForSeconds(.7f);
+                Capture("01a-pickups", width, height);
+            }
             player.transform.position += Vector3.right * 5;
             encounter.Inventory.Restore(8); encounter.EnterArena();
             yield return new WaitForSeconds(1.8f);
-            Capture("02-introduction", 1280, 720);
+            Capture("02-introduction", width, height);
             encounter.SkipIntro();
             yield return new WaitForSeconds(.65f);
             encounter.Guardian.Health.TryTakeDamage(1);
             yield return new WaitForSeconds(.25f);
-            Capture("03-combat", 1280, 720);
+            Capture("03-combat", width, height);
+            if (readability)
+            {
+                player.transform.position = encounter.Guardian.transform.position + new Vector3(-6, .55f, 0);
+                player.GetComponent<Rigidbody2D>().position = player.transform.position;
+                player.GetComponent<SpriteRenderer>().flipX = false;
+                var throwing = player.GetComponent<StickThrowController>();
+                Assert.That(throwing.TryThrow(), Is.True);
+                yield return new WaitForSeconds(.12f);
+                Capture("03a-thrown-stick", width, height);
+                throwing.ClearProjectiles();
+            }
             encounter.Guardian.Resolve(true);
             yield return new WaitForSeconds(2.9f);
-            Capture("04-victory", 1280, 720);
+            Capture("04-victory", width, height);
             Assert.That(encounter.State, Is.EqualTo(ForestEncounterState.Complete));
             GameManager.Instance.ReturnToMenu(); yield return null;
         }
 
         private static void Capture(string name, int width, int height)
         {
-            string output = Path.Combine(Application.dataPath, "../Docs/ForestGuardian/Images"); Directory.CreateDirectory(output);
+            bool readability = Array.IndexOf(Environment.GetCommandLineArgs(), "-capture-guardian-readability") >= 0;
+            string output = Path.Combine(Application.dataPath, readability ? "../Docs/ForestGuardian/ReadabilityImages" : "../Docs/ForestGuardian/Images"); Directory.CreateDirectory(output);
             var camera = Camera.main; camera.aspect = (float)width / height;
             var canvases = Object.FindObjectsByType<Canvas>();
             var modes = new RenderMode[canvases.Length]; var cameras = new Camera[canvases.Length];

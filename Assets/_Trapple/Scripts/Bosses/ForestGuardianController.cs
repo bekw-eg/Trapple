@@ -28,18 +28,22 @@ namespace Trapple.Bosses
         [SerializeField, Min(.2f)] private float leafWaveInterval = .4f;
         [SerializeField, Min(.1f)] private float hurtDuration = .22f;
         [SerializeField] private bool survivalOnly;
+        [SerializeField, Range(0f, .35f)] private float impactDelay;
+        [SerializeField] private GuardianAttackEffects attackEffects;
 
         private readonly List<ForestGuardianHazard> pool = new List<ForestGuardianHazard>();
         private PlayerDeath player;
         private BossHealth health;
         private Vector2 arena;
-        private float floorY, remaining, attackX, leafDelay;
+        private float floorY, remaining, attackX, leafDelay, impactRemaining;
+        private bool impactPending;
         private int attackIndex, wavesSent;
         private bool initialized, began, resolved;
         public GuardianState State { get; private set; } = GuardianState.Inactive;
         public GuardianAttack CurrentAttack { get; private set; }
         public BossHealth Health => health;
         public bool SurvivalOnly => survivalOnly;
+        public bool IsTelegraphing => State == GuardianState.PreparingAttack || impactPending;
         public PlayerDeath Player => player;
         public bool IsFighting => began && !resolved && player != null && !player.IsDead &&
             State != GuardianState.Inactive && State != GuardianState.Intro;
@@ -61,6 +65,7 @@ namespace Trapple.Bosses
         {
             health = GetComponent<BossHealth>();
             if (animationRig == null) animationRig = GetComponent<ForestGuardianAnimation>();
+            if (attackEffects == null) attackEffects = GetComponent<GuardianAttackEffects>();
             if (warning != null) warning.enabled = false;
         }
 
@@ -120,9 +125,16 @@ namespace Trapple.Bosses
                     if (remaining <= 0f) PrepareAttack();
                     break;
                 case GuardianState.PreparingAttack:
+                    if (warning != null) warning.color = new Color(1f, .65f + .15f * Mathf.Sin(remaining * 20f), .17f,
+                        .65f + .3f * Mathf.Abs(Mathf.Sin(remaining * 12f)));
                     if (remaining <= 0f) ExecuteAttack();
                     break;
                 case GuardianState.Attacking:
+                    if (impactPending)
+                    {
+                        impactRemaining -= Time.deltaTime;
+                        if (impactRemaining <= 0f) ContactGround();
+                    }
                     if (CurrentAttack == GuardianAttack.LeafStorm)
                     {
                         leafDelay -= Time.deltaTime;
@@ -162,26 +174,24 @@ namespace Trapple.Bosses
                 warning.enabled = true;
             }
             SetState(GuardianState.PreparingAttack, warningDuration);
+            if (attackEffects != null) attackEffects.Telegraph(CurrentAttack,
+                new Vector2(attackX, floorY + .08f), warningDuration);
         }
 
         private void ExecuteAttack()
         {
-            if (warning != null) warning.enabled = false;
             switch (CurrentAttack)
             {
                 case GuardianAttack.RootStrike:
-                    Launch(rootSprite, new Vector2(attackX, floorY + .86f), new Vector2(1.55f, 1.72f),
-                        Vector2.zero, rootDuration, GuardianAttack.RootStrike);
-                    SetState(GuardianState.Attacking, rootDuration);
-                    Impact?.Invoke(.08f);
-                    break;
                 case GuardianAttack.BranchSlam:
-                    Launch(branchSprite, new Vector2(attackX, floorY + .34f), new Vector2(3.8f, .68f),
-                        Vector2.zero, slamDuration, GuardianAttack.BranchSlam);
-                    SetState(GuardianState.Attacking, slamDuration);
-                    Impact?.Invoke(.15f);
+                    impactPending = true;
+                    impactRemaining = impactDelay;
+                    SetState(GuardianState.Attacking, impactDelay +
+                        (CurrentAttack == GuardianAttack.RootStrike ? rootDuration : slamDuration));
+                    if (impactDelay <= 0f) ContactGround();
                     break;
                 case GuardianAttack.LeafStorm:
+                    if (warning != null) warning.enabled = false;
                     wavesSent = 0;
                     leafDelay = 0f;
                     SetState(GuardianState.Attacking, leafWaves * leafWaveInterval + .2f);
@@ -190,11 +200,27 @@ namespace Trapple.Bosses
             }
         }
 
+        private void ContactGround()
+        {
+            impactPending = false;
+            if (warning != null) warning.enabled = false;
+            bool rootAttack = CurrentAttack == GuardianAttack.RootStrike;
+            Launch(rootAttack ? rootSprite : branchSprite,
+                new Vector2(attackX, floorY + (rootAttack ? .86f : .34f)),
+                rootAttack ? new Vector2(1.55f, 1.72f) : new Vector2(3.8f, .68f), Vector2.zero,
+                rootAttack ? rootDuration : slamDuration, CurrentAttack);
+            Impact?.Invoke(rootAttack ? .08f : .15f);
+            if (attackEffects != null) attackEffects.Contact(CurrentAttack, new Vector2(attackX, floorY + .06f));
+        }
+
         private void LaunchLeaf()
         {
             // Low, evenly spaced leaves travel horizontally; jumping clears the whole stream.
             wavesSent++;
             leafDelay = leafWaveInterval;
+            if (attackEffects != null) attackEffects.Contact(GuardianAttack.LeafStorm,
+                new Vector2(transform.position.x - 1.65f, floorY + .72f));
+            if (animationRig != null) animationRig.PulseLeaves();
             Launch(leafSprite, new Vector2(transform.position.x - 1.65f, floorY + .72f),
                 new Vector2(.7f, .4f), Vector2.left * leafSpeed,
                 (arena.y - arena.x + 4f) / leafSpeed, GuardianAttack.LeafStorm);
@@ -243,15 +269,18 @@ namespace Trapple.Bosses
                 value == GuardianState.Inactive ? GuardianAnimationState.Idle :
                 value == GuardianState.PreparingAttack ? GuardianAnimationState.Windup :
                 value == GuardianState.Attacking ? GuardianAnimationState.Attack :
+                value == GuardianState.Recovering ? GuardianAnimationState.Recovery :
                 value == GuardianState.Stunned ? GuardianAnimationState.Hurt :
                 value == GuardianState.Defeated ? GuardianAnimationState.Death :
                 value == GuardianState.Retreating ? GuardianAnimationState.Retreat :
                 health.CurrentHealth <= health.MaximumHealth * .4f ? GuardianAnimationState.Angry : GuardianAnimationState.CombatIdle;
-            animationRig.Play(visual, CurrentAttack);
+            animationRig.Play(visual, CurrentAttack, seconds, impactDelay);
         }
 
         public void ClearHazards()
         {
+            impactPending = false;
+            if (attackEffects != null) attackEffects.Clear();
             if (warning != null) warning.enabled = false;
             foreach (var hazard in pool) if (hazard != null) hazard.Release();
         }

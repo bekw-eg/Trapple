@@ -92,10 +92,13 @@ namespace Trapple.Editor
 
             if (!EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath))
                 throw new InvalidOperationException("Could not save Tutorial scene.");
-            // This is the first scene in the new project. Preserve any future team scenes on rebuild.
+            // Keep the tutorial registered without moving the hub away from the startup position.
             var scenes = new System.Collections.Generic.List<EditorBuildSettingsScene>(EditorBuildSettings.scenes);
             if (!scenes.Exists(scene => scene.path == ScenePath))
-                scenes.Insert(0, new EditorBuildSettingsScene(ScenePath, true));
+            {
+                int hubIndex = scenes.FindIndex(scene => scene.path == Trapple.Hub.HubSceneFlowController.HubScenePath);
+                scenes.Insert(hubIndex >= 0 ? hubIndex + 1 : 0, new EditorBuildSettingsScene(ScenePath, true));
+            }
             EditorBuildSettings.scenes = scenes.ToArray();
             AssetDatabase.SaveAssets();
             Debug.Log("TRAPPLE: Tutorial and four reusable prefabs saved by Unity " + Application.unityVersion);

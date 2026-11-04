@@ -101,7 +101,7 @@ namespace Trapple.Editor
                 if (profile == null) throw new InvalidOperationException("Windows Build Support is required to create the prototype profile.");
             }
             profile.overrideGlobalScenes = true;
-            profile.scenes = new[] { new EditorBuildSettingsScene(GameManager.MenuScene, true),
+            profile.scenes = new[] { new EditorBuildSettingsScene(Trapple.Hub.HubSceneFlowController.HubScenePath, true),
                 new EditorBuildSettingsScene(GameManager.TutorialScene, true),
                 new EditorBuildSettingsScene(GameManager.BossScene, true) };
             EditorUtility.SetDirty(profile);
@@ -110,7 +110,8 @@ namespace Trapple.Editor
         [MenuItem("Trapple/Build Boss Prototype (Windows)")]
         public static void BuildWindows()
         {
-            var report = BuildPipeline.BuildPlayer(new[] { GameManager.MenuScene, GameManager.TutorialScene, GameManager.BossScene },
+            var report = BuildPipeline.BuildPlayer(new[] { Trapple.Hub.HubSceneFlowController.HubScenePath,
+                    GameManager.TutorialScene, GameManager.BossScene },
                 "Builds/BossPrototype/Trapple.exe", BuildTarget.StandaloneWindows64, BuildOptions.Development);
             if (report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
                 throw new InvalidOperationException("Boss prototype build failed: " + report.summary.result);

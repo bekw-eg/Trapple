@@ -149,7 +149,7 @@ namespace Trapple.Editor
             if (!EditorSceneManager.SaveScene(scene, ScenePath)) throw new InvalidOperationException("Could not save Factory scene.");
             ConfigureHubAndBuildList();
             AssetDatabase.SaveAssets();
-            EditorSceneManager.OpenScene("Assets/_Trapple/Scenes/Menu/MainMenu.unity", OpenSceneMode.Single);
+            EditorSceneManager.OpenScene(Trapple.Hub.HubSceneFlowController.HubScenePath, OpenSceneMode.Single);
             Debug.Log("TRAPPLE: Factory World created: one 650-unit factory level, three randomized falling gear drops and three throw-open barriers.");
         }
 

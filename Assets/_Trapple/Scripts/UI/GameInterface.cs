@@ -16,12 +16,15 @@ namespace Trapple.UI
         private readonly Dictionary<string, float> hover = new Dictionary<string, float>();
         private GUIStyle title, subtitle, text, button, small;
         private bool settingsOpen;
+        private Texture2D pauseArtwork;
         private Scene trackedScene;
         private BossController boss;
         private BossHealth health;
         private BossPhaseController phases;
         private ArenaLever lever;
         private Matrix4x4 previousMatrix;
+
+        private void Awake() => pauseArtwork = Resources.Load<Texture2D>("Pause/PausePanel");
 
         private void Update()
         {
@@ -105,17 +108,33 @@ namespace Trapple.UI
 
         private void DrawPause(GameManager manager)
         {
-            Backdrop(0.94f);
-            GUI.Label(new Rect(410f, 105f, 600f, 90f), "PAUSED", title);
+            Backdrop(0.48f);
+            const float panelX = 361f;
+            if (pauseArtwork != null)
+                GUI.DrawTexture(new Rect(panelX, 0f, 558f, 720f), pauseArtwork, ScaleMode.StretchToFill, true);
+            else
+                Fill(new Rect(390f, 90f, 500f, 520f), new Color(.78f, .62f, .37f, .98f));
+
             if (settingsOpen)
             {
-                DrawSettings(new Rect(410f, 250f, 470f, 250f));
+                Fill(new Rect(454f, 220f, 372f, 352f), new Color(.25f, .13f, .065f, .98f));
+                Fill(new Rect(462f, 228f, 356f, 336f), new Color(.91f, .78f, .57f, .99f));
+                DrawSettings(new Rect(484f, 260f, 312f, 235f));
                 return;
             }
-            if (DrawButton("resume", new Rect(410f, 255f, 460f, 58f), "CONTINUE")) manager.Resume();
-            if (DrawButton("restart", new Rect(410f, 325f, 460f, 58f), "RESTART LEVEL")) manager.RestartLevel();
-            if (DrawButton("pause-settings", new Rect(410f, 395f, 460f, 58f), "SETTINGS")) settingsOpen = true;
-            if (DrawButton("menu", new Rect(410f, 465f, 460f, 58f), "MAIN MENU")) manager.ReturnToMenu();
+            if (PauseHit(new Rect(panelX + 135f, 222f, 295f, 80f))) manager.Resume();
+            if (PauseHit(new Rect(panelX + 135f, 303f, 295f, 78f))) settingsOpen = true;
+            if (PauseHit(new Rect(panelX + 135f, 378f, 295f, 74f))) manager.RestartLevel();
+            if (PauseHit(new Rect(panelX + 135f, 453f, 295f, 82f))) manager.ReturnToMenu();
+        }
+
+        private static bool PauseHit(Rect rect)
+        {
+            Color previous = GUI.color;
+            GUI.color = new Color(1f, 1f, 1f, 0f);
+            bool clicked = GUI.Button(rect, GUIContent.none, GUIStyle.none);
+            GUI.color = previous;
+            return clicked;
         }
 
         private void DrawVictory(GameManager manager)
@@ -159,7 +178,7 @@ namespace Trapple.UI
 
         private void DrawSettings(Rect area)
         {
-            GUI.Label(new Rect(area.x, area.y, area.width, 38f), "MASTER VOLUME", subtitle);
+            GUI.Label(new Rect(area.x, area.y, area.width, 38f), "ГРОМКОСТЬ", subtitle);
             float volume = GUI.HorizontalSlider(new Rect(area.x, area.y + 55f, area.width - 100f, 32f), AudioListener.volume, 0f, 1f);
             GUI.Label(new Rect(area.xMax - 80f, area.y + 42f, 80f, 40f), Mathf.RoundToInt(volume * 100f) + "%", text);
             if (!Mathf.Approximately(volume, AudioListener.volume))
@@ -167,8 +186,8 @@ namespace Trapple.UI
                 AudioListener.volume = volume;
                 PlayerPrefs.SetFloat("Trapple.MasterVolume", volume);
             }
-            GUI.Label(new Rect(area.x, area.y + 88f, area.width, 58f), "Volume is saved between sessions.\nNo sounds in this prototype yet.", small);
-            if (DrawButton("back", new Rect(area.x, area.y + 160f, 220f, 54f), "BACK", 22))
+            GUI.Label(new Rect(area.x, area.y + 88f, area.width, 58f), "Громкость сохраняется между запусками игры.", small);
+            if (DrawButton("back", new Rect(area.x, area.y + 160f, 220f, 54f), "НАЗАД", 22))
             {
                 PlayerPrefs.Save();
                 settingsOpen = false;

@@ -20,6 +20,7 @@ namespace Trapple.Level
         {
             body = GetComponent<Rigidbody2D>();
             hitbox = GetComponent<CircleCollider2D>();
+            FactoryWorldArt.FitSpriteToNominalSize(GetComponent<SpriteRenderer>(), Vector2.one * .82f);
         }
 
         public float PickupRange => 1.35f;
@@ -169,6 +170,9 @@ namespace Trapple.Level
         [SerializeField] private GameObject gearPrefab;
         private SpriteRenderer warning;
 
+        private void Awake() => FactoryWorldArt.FitSpriteToNominalSize(GetComponent<SpriteRenderer>(),
+            new Vector2(1.55f, 1.15f));
+
         public void Initialize(GameObject gear, SpriteRenderer warningArt)
         {
             gearPrefab = gear;
@@ -233,6 +237,7 @@ namespace Trapple.Level
             marker.transform.position = new Vector3(dropX, transform.position.y - 5.7f, 0f);
             var renderer = marker.GetComponent<SpriteRenderer>();
             renderer.sprite = warningSprite;
+            FactoryWorldArt.FitSpriteToNominalSize(renderer, Vector2.one);
             renderer.color = new Color(1f, .24f, .07f, .95f);
             renderer.sortingOrder = 15;
             Invoke(nameof(Drop), warningDuration);

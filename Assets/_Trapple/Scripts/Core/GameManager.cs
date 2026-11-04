@@ -29,16 +29,15 @@ namespace Trapple.Core
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Bootstrap()
         {
-            if (Instance != null) return;
-
-            // Editor Play can start from whichever scene was left open. Keep the
-            // factory as a level, and send a direct factory launch to the real entry screen.
-            if (SceneManager.GetActiveScene().path == FactoryScene)
+            // Play always opens the physical hub first, even if another scene was left open in the editor.
+            if (SceneManager.GetActiveScene().path != Trapple.Hub.HubSceneFlowController.HubScenePath &&
+                Application.CanStreamedLevelBeLoaded(Trapple.Hub.HubSceneFlowController.HubScenePath))
             {
-                SceneManager.LoadScene(MenuScene);
+                SceneManager.LoadScene(Trapple.Hub.HubSceneFlowController.HubScenePath);
                 return;
             }
 
+            if (Instance != null) return;
             new GameObject("Game Systems", typeof(GameManager));
         }
 
@@ -71,7 +70,15 @@ namespace Trapple.Core
         public void StartGame() => LoadScene(Application.CanStreamedLevelBeLoaded(Trapple.Hub.HubSceneFlowController.HubScenePath)
             ? Trapple.Hub.HubSceneFlowController.HubScenePath : firstLevel);
         public void StartBossTest() => LoadScene(BossScene);
-        public void ReturnToMenu() => LoadScene(MenuScene);
+        public void ReturnToMenu()
+        {
+            if (SceneManager.GetActiveScene().path == Trapple.Hub.HubSceneFlowController.HubScenePath)
+            {
+                FindAnyObjectByType<Trapple.Hub.HubUIController>()?.Close();
+                return;
+            }
+            ReturnToLobby(false);
+        }
         public void RestartLevel() => LoadScene(SceneManager.GetActiveScene().path);
         public void ReturnToLobby(bool openWorlds = false)
         {

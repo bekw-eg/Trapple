@@ -23,11 +23,11 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/_Trapple/Scenes/Menu/MainMenu.unity
-    m_guid: 5fd50df3e48010d44ace9dd5303fd92b
-  - m_enabled: 1
     m_path: Assets/_Trapple/Scenes/Hub/Hub.unity
     m_guid: d9913b3af40e6044c9d5c02791f80b7d
+  - m_enabled: 1
+    m_path: Assets/_Trapple/Scenes/Menu/MainMenu.unity
+    m_guid: 5fd50df3e48010d44ace9dd5303fd92b
   - m_enabled: 1
     m_path: Assets/_Trapple/Scenes/Levels/Tutorial.unity
     m_guid: da734412494a805458a9627d2456da97

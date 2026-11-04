@@ -239,7 +239,8 @@ namespace Trapple.Editor
         private static void RegisterScenes()
         {
             var scenes=new List<EditorBuildSettingsScene>(EditorBuildSettings.scenes);
-            if(!scenes.Any(scene=>scene.path==HubSceneFlowController.HubScenePath)) scenes.Insert(Math.Min(1,scenes.Count),new EditorBuildSettingsScene(HubSceneFlowController.HubScenePath,true));
+            scenes.RemoveAll(scene=>scene.path==HubSceneFlowController.HubScenePath);
+            scenes.Insert(0,new EditorBuildSettingsScene(HubSceneFlowController.HubScenePath,true));
             EditorBuildSettings.scenes=scenes.ToArray();
             var profile=AssetDatabase.LoadAssetAtPath<BuildProfile>(ProfilePath);
             if(profile==null)

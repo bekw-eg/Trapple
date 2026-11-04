@@ -43,6 +43,10 @@ namespace Trapple.UI
                 SceneManager.GetActiveScene().path == Trapple.Hub.Illustrated.TrappleUIManager.ScenePath) return;
             var manager = GameManager.Instance;
             if (manager == null) return;
+            bool factory = SceneManager.GetActiveScene().path == GameManager.FactoryScene;
+            if (factory && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Space)
+                Event.current.Use();
+            if (factory && manager.State == GameState.Playing) GUIUtility.keyboardControl = 0;
             int previousDepth = GUI.depth;
             GUI.depth = -100;
             EnsureStyles();
@@ -56,9 +60,12 @@ namespace Trapple.UI
                 case GameState.MainMenu: DrawMainMenu(manager); break;
                 case GameState.Paused: DrawPause(manager); break;
                 case GameState.Victory: DrawVictory(manager); break;
+                case GameState.LevelComplete: DrawFactoryComplete(manager); break;
                 default:
                     if (boss != null) DrawBossHud();
-                    if (DrawButton("pause", new Rect(1110f, 650f, 140f, 44f), "PAUSE", 18)) manager.Pause();
+                    if (factory) DrawFactoryHud();
+                    if (DrawButton("pause", new Rect(factory ? 1105f : 1110f, 650f, 150f, 44f),
+                        factory ? "ESC • ПАУЗА" : "PAUSE", 18)) manager.Pause();
                     break;
             }
             GUI.matrix = previousMatrix;
@@ -118,6 +125,36 @@ namespace Trapple.UI
             GUI.Label(new Rect(215f, 275f, 900f, 70f), "ANCIENT TREE DEFEATED\nYou turned the arena against its guardian.", text);
             if (DrawButton("victory-restart", new Rect(410f, 400f, 460f, 58f), "TRY AGAIN")) manager.RestartLevel();
             if (DrawButton("victory-menu", new Rect(410f, 475f, 460f, 58f), "MAIN MENU")) manager.ReturnToMenu();
+        }
+
+        private void DrawFactoryHud()
+        {
+            Fill(new Rect(22f, 20f, 570f, 74f), new Color(.055f, .045f, .065f, .9f));
+            GUI.Label(new Rect(40f, 27f, 525f, 30f), "АБАНДОНИРОВАННАЯ ФАБРИКА  /  ЦЕХ № 03", subtitle);
+            GUI.Label(new Rect(40f, 59f, 525f, 27f), "E — ПОДОБРАТЬ ШЕСТЕРЁНКУ     F — БРОСИТЬ В ЗАСЛОНКУ", small);
+        }
+
+        private void DrawFactoryComplete(GameManager manager)
+        {
+            Backdrop(.93f);
+            Fill(new Rect(260f, 112f, 760f, 496f), new Color(.09f, .055f, .055f, .98f));
+            Fill(new Rect(260f, 112f, 760f, 8f), new Color(1f, .39f, .11f));
+            GUI.Label(new Rect(320f, 165f, 640f, 50f), "ЦЕХ 03  /  ВЫХОД НАЙДЕН", subtitle);
+            GUI.Label(new Rect(320f, 225f, 640f, 100f), "ТЫ ПРОШЁЛ ФАБРИКУ", title);
+            var run = FindAnyObjectByType<Trapple.Level.FactoryRun>();
+            var time = LabelStyle(52, FontStyle.Bold, new Color(1f, .67f, .24f));
+            GUI.Label(new Rect(320f, 350f, 640f, 72f), run != null ? run.TimeLabel : "00:00", time);
+            GUI.Label(new Rect(320f, 418f, 640f, 45f), "ВРЕМЯ ПРОХОЖДЕНИЯ", small);
+            if (DrawButton("factory-next", new Rect(320f, 505f, 290f, 60f), "К КАРТЕ МИРОВ", 21))
+            {
+                manager.ReturnToLobby(true);
+                GUIUtility.ExitGUI();
+            }
+            if (DrawButton("factory-again", new Rect(655f, 505f, 300f, 60f), "ПРОЙТИ ЕЩЁ РАЗ", 21))
+            {
+                manager.RestartLevel();
+                GUIUtility.ExitGUI();
+            }
         }
 
         private void DrawSettings(Rect area)

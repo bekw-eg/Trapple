@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 
 namespace Trapple.Core
 {
-    public enum GameState { MainMenu, Playing, Paused, Victory }
+    public enum GameState { MainMenu, Playing, Paused, Victory, LevelComplete }
 
     [DisallowMultipleComponent]
     public sealed class GameManager : MonoBehaviour
     {
         public const string MenuScene = "Assets/_Trapple/Scenes/Menu/MainMenu.unity";
         public const string TutorialScene = "Assets/_Trapple/Scenes/Levels/Tutorial.unity";
+        public const string FactoryScene = "Assets/_Trapple/Scenes/Levels/Factory.unity";
         public const string BossScene = "Assets/_Trapple/Scenes/BossArenas/BossTest.unity";
 
         [SerializeField] private string firstLevel = TutorialScene;
         private readonly List<PlayerController> pausedPlayers = new List<PlayerController>();
+        private bool openWorldsOnLobbyLoad;
         public static GameManager Instance { get; private set; }
         public GameState State { get; private set; }
 
@@ -62,6 +64,20 @@ namespace Trapple.Core
         public void StartBossTest() => LoadScene(BossScene);
         public void ReturnToMenu() => LoadScene(MenuScene);
         public void RestartLevel() => LoadScene(SceneManager.GetActiveScene().path);
+        public void ReturnToLobby(bool openWorlds = false)
+        {
+            openWorldsOnLobbyLoad = openWorlds;
+            LoadScene(Trapple.Hub.HubSceneFlowController.HubScenePath);
+        }
+
+        public void CompleteLevel()
+        {
+            if (State != GameState.Playing) return;
+            FreezePlayers();
+            State = GameState.LevelComplete;
+            if (SceneManager.GetActiveScene().path == FactoryScene)
+                Trapple.Hub.HubSceneFlowController.Instance?.Progression?.CompleteLevel("factory", 0);
+        }
 
         public void Pause()
         {
@@ -130,6 +146,17 @@ namespace Trapple.Core
             pausedPlayers.Clear();
             Time.timeScale = 1f;
             State = scene.path == MenuScene ? GameState.MainMenu : GameState.Playing;
+            if (scene.path == Trapple.Hub.HubSceneFlowController.HubScenePath && openWorldsOnLobbyLoad)
+            {
+                openWorldsOnLobbyLoad = false;
+                StartCoroutine(OpenWorldsAfterLobbyLoad());
+            }
+        }
+
+        private System.Collections.IEnumerator OpenWorldsAfterLobbyLoad()
+        {
+            yield return null;
+            FindAnyObjectByType<Trapple.Hub.HubUIController>()?.Open(Trapple.Hub.HubScreen.Worlds);
         }
 
         private void OnDestroy()

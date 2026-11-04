@@ -69,10 +69,10 @@ namespace Trapple.Hub
             foreach (var card in cards)
             {
                 bool unlocked = progression.IsWorldUnlocked(card.definition);
-                bool complete = card.definition.id == "meadow" && progression.TutorialComplete;
+                bool complete = progression.IsWorldComplete(card.definition.id);
                 card.state.text = complete ? "COMPLETED" : unlocked ? "UNLOCKED" : "LOCKED";
                 card.root.EnableInClassList("locked", !unlocked);
-                card.progress.text = "ПРОГРЕСС  " + (complete ? "1" : "0") + " / " + card.definition.plannedLevels;
+                card.progress.text = "ПРОГРЕСС  " + progression.CompletedLevels(card.definition.id) + " / " + card.definition.plannedLevels;
                 // Locked cards still reveal their description; launch buttons remain disabled.
                 card.select.text = unlocked ? "ВЫБРАТЬ  →" : "О МИРЕ  →";
             }

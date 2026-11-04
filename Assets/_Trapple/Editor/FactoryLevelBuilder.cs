@@ -27,23 +27,23 @@ namespace Trapple.Editor
             Directory.CreateDirectory(Root + "Prefabs/Factory");
             Directory.CreateDirectory(Root + "Scenes/Levels");
 
-            Sprite square = SpriteAsset("Steel", (x, y) =>
+            Sprite square = ExistingSprite("Steel") ?? SpriteAsset("Steel", (x, y) =>
             {
                 bool stripe = ((x + y) / 8) % 2 == 0;
                 return y > 56 ? new Color(.92f, .39f, .1f) : stripe && y < 10 ? new Color(.9f, .43f, .12f) :
                     new Color(.24f + y / 450f, .21f + y / 500f, .25f + y / 420f);
             });
-            Sprite gear = SpriteAsset("Gear", (x, y) => GearPixel(x, y, new Color(1f, .59f, .17f)));
-            Sprite gearDark = SpriteAsset("GearWall", (x, y) => GearPixel(x, y, new Color(.58f, .3f, .16f)));
-            Sprite scrapSprite = SpriteAsset("FallingScrap", (x, y) =>
+            Sprite gear = ExistingSprite("Gear") ?? SpriteAsset("Gear", (x, y) => GearPixel(x, y, new Color(1f, .59f, .17f)));
+            Sprite gearDark = ExistingSprite("GearWall") ?? SpriteAsset("GearWall", (x, y) => GearPixel(x, y, new Color(.58f, .3f, .16f)));
+            Sprite scrapSprite = ExistingSprite("FallingScrap") ?? SpriteAsset("FallingScrap", (x, y) =>
                 y > 55 || x < 7 || x > 56 || y < 7 ? new Color(.94f, .39f, .12f) :
                 ((x / 8 + y / 10) % 2 == 0 ? new Color(.43f, .38f, .39f) : new Color(.28f, .26f, .29f)));
-            Sprite warning = SpriteAsset("DropWarning", (x, y) =>
+            Sprite warning = ExistingSprite("DropWarning") ?? SpriteAsset("DropWarning", (x, y) =>
             {
                 float edge = Mathf.Abs(x - 32) + Mathf.Abs(y - 32) * .9f;
                 return edge < 31 ? edge > 21 || (x > 27 && x < 37 && y > 20) ? new Color(.98f, .28f, .08f) : new Color(1f, .8f, .25f) : Color.clear;
             });
-            Sprite apple = SpriteAsset("FactoryApple", (x, y) =>
+            Sprite apple = ExistingSprite("FactoryApple") ?? SpriteAsset("FactoryApple", (x, y) =>
             {
                 if (x > 31 && x < 38 && y > 49 && y < 63) return new Color(.27f, .55f, .19f);
                 bool fruit = Vector2.Distance(new Vector2(x, y), new Vector2(23, 32)) < 21 ||
@@ -149,6 +149,7 @@ namespace Trapple.Editor
             if (!EditorSceneManager.SaveScene(scene, ScenePath)) throw new InvalidOperationException("Could not save Factory scene.");
             ConfigureHubAndBuildList();
             AssetDatabase.SaveAssets();
+            EditorSceneManager.OpenScene("Assets/_Trapple/Scenes/Menu/MainMenu.unity", OpenSceneMode.Single);
             Debug.Log("TRAPPLE: Factory World created: one 650-unit factory level, three randomized falling gear drops and three throw-open barriers.");
         }
 
@@ -300,6 +301,9 @@ namespace Trapple.Editor
             importer.SaveAndReimport();
             return AssetDatabase.LoadAssetAtPath<Sprite>(path);
         }
+
+        private static Sprite ExistingSprite(string name) =>
+            AssetDatabase.LoadAssetAtPath<Sprite>(Root + "Resources/Factory/" + name + ".png");
 
         private static Color GearPixel(int x, int y, Color color)
         {

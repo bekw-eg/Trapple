@@ -11,7 +11,11 @@ namespace Trapple.Level
         public float ElapsedSeconds { get; private set; }
         public bool IsComplete { get; private set; }
 
-        private void Awake() => player = FindAnyObjectByType<PlayerDeath>();
+        private void Awake()
+        {
+            player = FindAnyObjectByType<PlayerDeath>();
+            FactoryWorldArt.Apply();
+        }
 
         private void Update()
         {

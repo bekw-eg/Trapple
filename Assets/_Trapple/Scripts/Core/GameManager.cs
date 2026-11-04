@@ -29,8 +29,17 @@ namespace Trapple.Core
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Bootstrap()
         {
-            if (Instance == null)
-                new GameObject("Game Systems", typeof(GameManager));
+            if (Instance != null) return;
+
+            // Editor Play can start from whichever scene was left open. Keep the
+            // factory as a level, and send a direct factory launch to the real entry screen.
+            if (SceneManager.GetActiveScene().path == FactoryScene)
+            {
+                SceneManager.LoadScene(MenuScene);
+                return;
+            }
+
+            new GameObject("Game Systems", typeof(GameManager));
         }
 
         private void Awake()

@@ -118,10 +118,10 @@ TextureImporter:
       name: FactoryApple_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 11
-        width: 62
-        height: 53
+        x: 0
+        y: 0
+        width: 81
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

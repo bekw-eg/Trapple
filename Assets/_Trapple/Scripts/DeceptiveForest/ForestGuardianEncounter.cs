@@ -123,8 +123,16 @@ namespace Trapple.DeceptiveForest
             else if (State == ForestEncounterState.Resolving && stateAge >= resolutionDuration)
             {
                 State = ForestEncounterState.Complete;
-                if (!reported) { reported = true; WorldCompletion.Record("forest", gameObject.scene.path); }
-                ClearCheckpoint(); GameManager.Instance.CompleteLevel();
+                if (!reported)
+                {
+                    reported = true;
+                    bool completedWorld = WorldCompletion.Record("forest", gameObject.scene.path);
+                    ClearCheckpoint();
+                    GameManager.Instance.CompleteLevel();
+                    if (completedWorld)
+                        VideoCutscenePlayback.PlayWorldTwoFinaleOnce(() =>
+                            GameManager.Instance?.LoadScene(HubSceneFlowController.HubScenePath));
+                }
             }
         }
         private void BeginFight()

@@ -63,8 +63,12 @@ namespace Trapple.Core
             else if (State == GameState.Paused) Resume();
         }
 
-        public void StartGame() => LoadScene(Application.CanStreamedLevelBeLoaded(Trapple.Hub.HubSceneFlowController.HubScenePath)
-            ? Trapple.Hub.HubSceneFlowController.HubScenePath : firstLevel);
+        public void StartGame()
+        {
+            string destination = Application.CanStreamedLevelBeLoaded(Trapple.Hub.HubSceneFlowController.HubScenePath)
+                ? Trapple.Hub.HubSceneFlowController.HubScenePath : firstLevel;
+            VideoCutscenePlayback.PlayOpeningOnce(() => LoadScene(destination));
+        }
         public void StartBossTest() => LoadScene(BossScene);
         public void ReturnToMenu() => LoadScene(MenuScene);
         public void RestartLevel() => LoadScene(SceneManager.GetActiveScene().path);

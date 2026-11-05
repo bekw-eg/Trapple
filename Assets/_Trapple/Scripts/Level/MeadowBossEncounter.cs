@@ -37,6 +37,7 @@ namespace Trapple.Level
         public float TimeRemaining { get; private set; }
         public float Duration => survivalDuration;
         public float Progress => Mathf.Clamp01(1 - TimeRemaining / survivalDuration);
+        public float IntroProgress => Mathf.Clamp01(age / introDuration);
         public Vector3 CheckpointPosition => checkpointPosition;
         public bool IsNearArena => player != null && player.transform.position.x >= checkpointPosition.x - 8;
         public static bool HasCheckpoint => !string.IsNullOrEmpty(checkpointScene);
